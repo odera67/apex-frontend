@@ -66,7 +66,7 @@ export default function QuickAdaptButton({ planId, day, exerciseName }: QuickAda
         };
 
         // 🚀 CHANGED: Now hitting the dedicated `/api/swap` endpoint!
-        const res = await fetch("http://127.0.0.1:8000/api/swap", {
+        const res = await fetch("https://apex-backend-xyz.onrender.com/api/swap", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
