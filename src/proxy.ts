@@ -9,9 +9,8 @@ const isProtectedRoute = createRouteMatcher([
 
 export default clerkMiddleware(async (auth, req) => {
   if (isProtectedRoute(req)) {
-    // 🚀 THE FIX: We call auth() as a function and use 'any' to bypass the build check
-    const authObj = await auth() as any;
-    authObj.protect();
+    // 🚀 THE FIX: New Clerk v6 syntax for protecting routes!
+    await auth.protect();
   }
 });
 
