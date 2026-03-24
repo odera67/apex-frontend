@@ -2,6 +2,14 @@ import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 
 export default defineSchema({
+  // 🚀 ADDED: The missing users table that was causing the Vercel crash
+  users: defineTable({
+    clerkId: v.string(),
+    email: v.string(),
+    name: v.optional(v.string()),
+    imageUrl: v.optional(v.string()),
+  }).index("by_clerk_id", ["clerkId"]),
+
   // Your existing plans table
   plans: defineTable({
     userId: v.string(),
@@ -22,8 +30,8 @@ export default defineSchema({
       goal: v.string(),
       equipment: v.optional(v.string()),
       allergies: v.optional(v.string()), 
-      injuries: v.optional(v.string()),  
-      injuriesDetected: v.optional(v.array(v.string())), // 🚀 NEW: Store the NLP Array
+      injuries: v.optional(v.string()),   
+      injuriesDetected: v.optional(v.array(v.string())),
     }),
     workoutPlan: v.object({
       name: v.optional(v.string()),
