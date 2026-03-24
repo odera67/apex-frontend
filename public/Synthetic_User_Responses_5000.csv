@@ -1,0 +1,5501 @@
+stage,user_raw_input,extracted_value
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+GOAL,tone up,tone up
+ALLERGIES,I eat everything,none
+EQUIPMENT,home gym,home gym
+CONFIRMATION,That is wrong,no
+INJURIES,I have a tennis elbow,tennis elbow
+EQUIPMENT,I workout at a bodyweight,bodyweight
+CONSENT,No,no
+CONFIRMATION,Incorrect,no
+CONFIRMATION,Perfect,yes
+LEVEL,I'd say novice,novice
+HEIGHT,I am 165 centimeters,165
+EQUIPMENT,I only have kettlebells,kettlebells
+ALLERGIES,I'm allergic to peanuts,peanut
+LEVEL,Just a intermediate,intermediate
+LEVEL,Pretty much a advanced,advanced
+CONFIRMATION,I need to change something,no
+GREETING,Give me a minute,no
+LEVEL,Just a pro,pro
+WEIGHT,About 264,264
+ALLERGIES,I am gluten,gluten
+DAYS,I have 4 days free,4
+ALLERGIES,I am peanut,peanut
+CONFIRMATION,Perfect,yes
+LEVEL,intermediate,intermediate
+DAYS,5 days,5
+ALLERGIES,peanut,peanut
+LEVEL,I am a beginner,beginner
+CONFIRMATION,No,no
+LEVEL,Pretty much a intermediate,intermediate
+ALLERGIES,I have a lactose intolerant allergy,lactose intolerant
+CONFIRMATION,Go ahead,yes
+HEIGHT,155 cm,155
+ALLERGIES,Nah,none
+CONFIRMATION,Perfect,yes
+INJURIES,Dealing with twisted ankle,twisted ankle
+WEIGHT,Around 202,202
+LEVEL,I'd say advanced,advanced
+HEIGHT,191 cm,191
+EQUIPMENT,kettlebells,kettlebells
+AGE,I'm 62,62
+WEIGHT,I weigh 104 lbs,104
+GOAL,My goal is to burn fat,burn fat
+EQUIPMENT,I workout at a dumbbells,dumbbells
+INJURIES,I'm perfectly healthy,none
+HEIGHT,180 cm,180
+LEVEL,I am a intermediate,intermediate
+GREETING,Give me a minute,no
+AGE,I'm 40,40
+EQUIPMENT,I have access to home gym,home gym
+LEVEL,Pretty much a novice,novice
+INJURIES,Dealing with tennis elbow,tennis elbow
+EQUIPMENT,I have access to resistance bands,resistance bands
+EQUIPMENT,Just bodyweight,bodyweight
+LEVEL,I'd say beginner,beginner
+CONSENT,Nope,no
+HEIGHT,I am 157 centimeters,157
+CONFIRMATION,Looks good,yes
+GREETING,Nah,no
+HEIGHT,169 cm,169
+CONSENT,Sure,yes
+CONFIRMATION,Looks good,yes
+EQUIPMENT,I have access to full gym,full gym
+ALLERGIES,I'm allergic to glutens,gluten
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+LEVEL,I am a beginner,beginner
+EQUIPMENT,home gym,home gym
+HEIGHT,177 cm,177
+GREETING,Yes I am,yes
+LEVEL,I'd say novice,novice
+DAYS,I can do 3 days a week,3
+ALLERGIES,I have a vegan allergy,vegan
+AGE,40,40
+ALLERGIES,gluten,gluten
+CONSENT,Yes,yes
+DAYS,I have 4 days free,4
+LEVEL,Pretty much a pro,pro
+INJURIES,Dealing with lower back pain,lower back pain
+WEIGHT,Around 177,177
+HEIGHT,161 cm,161
+DAYS,About 3 days,3
+LEVEL,I'd say beginner,beginner
+HEIGHT,182 cm,182
+HEIGHT,171,171
+EQUIPMENT,I have access to home gym,home gym
+EQUIPMENT,I have access to home gym,home gym
+GOAL,Mainly to burn fat,burn fat
+ALLERGIES,I have a peanut allergy,peanut
+LEVEL,I am a beginner,beginner
+GREETING,Absolutely,yes
+DAYS,I have 6 days free,6
+GOAL,Looking to burn fat,burn fat
+DAYS,6,6
+WEIGHT,About 147,147
+LEVEL,novice,novice
+EQUIPMENT,I only have dumbbells,dumbbells
+EQUIPMENT,Just bodyweight,bodyweight
+WEIGHT,I am 225 lbs,225
+HEIGHT,186 cm,186
+ALLERGIES,None,none
+DAYS,About 2 days,2
+LEVEL,I am a beginner,beginner
+GOAL,tone up,tone up
+DAYS,5,5
+HEIGHT,About 175 cm,175
+WEIGHT,218 pounds,218
+GREETING,Yes,yes
+EQUIPMENT,dumbbells,dumbbells
+AGE,I just turned 17,17
+EQUIPMENT,I workout at a dumbbells,dumbbells
+CONSENT,Sure,yes
+AGE,I just turned 65,65
+DAYS,About 4 days,4
+CONFIRMATION,No,no
+LEVEL,Pretty much a advanced,advanced
+INJURIES,I have a bad knee,bad knee
+CONFIRMATION,I need to change something,no
+CONFIRMATION,Yes,yes
+CONFIRMATION,Yes,yes
+EQUIPMENT,dumbbells,dumbbells
+AGE,24,24
+CONFIRMATION,Incorrect,no
+DAYS,4,4
+INJURIES,Dealing with bad knee,bad knee
+INJURIES,My bad knee hurts sometimes,bad knee
+CONSENT,Yeah that's fine,yes
+INJURIES,Dealing with bad knee,bad knee
+DAYS,I have 2 days free,2
+DAYS,2,2
+AGE,I am 47 years old,47
+LEVEL,novice,novice
+ALLERGIES,peanut,peanut
+GOAL,I want to get shredded,get shredded
+HEIGHT,168,168
+CONSENT,I don't consent,no
+LEVEL,I'd say pro,pro
+LEVEL,I'd say beginner,beginner
+AGE,28,28
+AGE,I am 52 years old,52
+AGE,I just turned 24,24
+GOAL,endurance,endurance
+WEIGHT,131 pounds,131
+CONSENT,Nah,no
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+WEIGHT,215,215
+WEIGHT,208,208
+WEIGHT,Around 275,275
+WEIGHT,205 pounds,205
+DAYS,6 days,6
+WEIGHT,194 pounds,194
+CONSENT,Go ahead,yes
+INJURIES,Nope,none
+WEIGHT,Around 177,177
+DAYS,I can do 4 days a week,4
+LEVEL,I'd say beginner,beginner
+DAYS,I have 3 days free,3
+AGE,I'm 53,53
+GOAL,My goal is to endurance,endurance
+DAYS,4 days,4
+AGE,I just turned 60,60
+GOAL,I want to burn fat,burn fat
+ALLERGIES,I am lactose intolerant,lactose intolerant
+EQUIPMENT,home gym,home gym
+DAYS,About 3 days,3
+AGE,I am 46,46
+EQUIPMENT,home gym,home gym
+DAYS,4 days,4
+CONFIRMATION,Looks good,yes
+AGE,I'm 35,35
+INJURIES,My bad knee hurts sometimes,bad knee
+HEIGHT,169 cm,169
+GREETING,Absolutely,yes
+DAYS,4,4
+INJURIES,Nope,none
+DAYS,I have 5 days free,5
+WEIGHT,Around 212,212
+CONSENT,Nope,no
+AGE,I am 20,20
+HEIGHT,I am 174 centimeters,174
+EQUIPMENT,I have access to full gym,full gym
+GREETING,Not ready,no
+DAYS,I have 3 days free,3
+EQUIPMENT,Just full gym,full gym
+INJURIES,lower back pain,lower back pain
+WEIGHT,Around 168,168
+DAYS,5,5
+AGE,I'm 47,47
+HEIGHT,168,168
+EQUIPMENT,I workout at a bodyweight,bodyweight
+DAYS,4 days,4
+AGE,62,62
+WEIGHT,Around 214,214
+LEVEL,I am a beginner,beginner
+LEVEL,I am a intermediate,intermediate
+GOAL,Mainly to lose weight,lose weight
+WEIGHT,150,150
+EQUIPMENT,I workout at a dumbbells,dumbbells
+INJURIES,Dealing with tennis elbow,tennis elbow
+DAYS,About 6 days,6
+GOAL,Looking to tone up,tone up
+HEIGHT,158,158
+EQUIPMENT,full gym,full gym
+CONFIRMATION,I need to change something,no
+WEIGHT,138,138
+GOAL,Mainly to endurance,endurance
+CONSENT,I consent,yes
+EQUIPMENT,I have access to kettlebells,kettlebells
+HEIGHT,180,180
+CONFIRMATION,Looks correct,yes
+DAYS,I have 4 days free,4
+LEVEL,I'd say beginner,beginner
+CONSENT,Sure,yes
+DAYS,4,4
+DAYS,I have 3 days free,3
+DAYS,I can do 3 days a week,3
+CONFIRMATION,Looks good,yes
+HEIGHT,I am 153 centimeters,153
+DAYS,I have 5 days free,5
+CONFIRMATION,Wait,no
+EQUIPMENT,I workout at a dumbbells,dumbbells
+CONFIRMATION,That's right,yes
+EQUIPMENT,I only have kettlebells,kettlebells
+GOAL,build muscle,build muscle
+CONFIRMATION,That is wrong,no
+CONFIRMATION,Wait,no
+GOAL,I want to burn fat,burn fat
+AGE,I just turned 40,40
+CONSENT,No,no
+CONSENT,Yes,yes
+CONSENT,I would rather not,no
+LEVEL,Just a advanced,advanced
+AGE,26,26
+GREETING,Nah,no
+CONSENT,Yeah that's fine,yes
+CONSENT,Yes you do,yes
+WEIGHT,139,139
+DAYS,3 days,3
+GREETING,No,no
+GOAL,My goal is to lose weight,lose weight
+HEIGHT,176 cm,176
+HEIGHT,173 cm,173
+GREETING,Ready,yes
+GOAL,I want to lose weight,lose weight
+CONFIRMATION,Wait,no
+EQUIPMENT,kettlebells,kettlebells
+LEVEL,pro,pro
+CONFIRMATION,No,no
+HEIGHT,I am 176 centimeters,176
+GOAL,Looking to build muscle,build muscle
+CONFIRMATION,Generate it,yes
+CONSENT,Yeah that's fine,yes
+EQUIPMENT,I only have bodyweight,bodyweight
+DAYS,I have 5 days free,5
+AGE,I am 39,39
+CONFIRMATION,Incorrect,no
+LEVEL,I am a novice,novice
+DAYS,3 days,3
+CONFIRMATION,Generate it,yes
+CONFIRMATION,I need to change something,no
+DAYS,About 2 days,2
+DAYS,About 3 days,3
+GREETING,I'm ready,yes
+INJURIES,Dealing with twisted ankle,twisted ankle
+DAYS,About 3 days,3
+EQUIPMENT,I only have home gym,home gym
+WEIGHT,111 pounds,111
+ALLERGIES,I eat everything,none
+HEIGHT,About 177 cm,177
+EQUIPMENT,I workout at a home gym,home gym
+AGE,I just turned 19,19
+AGE,I am 22 years old,22
+WEIGHT,288,288
+INJURIES,Dealing with twisted ankle,twisted ankle
+EQUIPMENT,I have access to resistance bands,resistance bands
+LEVEL,I am a intermediate,intermediate
+EQUIPMENT,Just dumbbells,dumbbells
+GOAL,Mainly to lose weight,lose weight
+CONSENT,Yeah that's fine,yes
+LEVEL,I'd say intermediate,intermediate
+EQUIPMENT,I have access to full gym,full gym
+HEIGHT,About 175 cm,175
+DAYS,I have 6 days free,6
+CONFIRMATION,Generate it,yes
+GOAL,Mainly to lose weight,lose weight
+GOAL,Looking to build muscle,build muscle
+LEVEL,Pretty much a novice,novice
+GOAL,Mainly to get shredded,get shredded
+AGE,I just turned 20,20
+AGE,I am 51 years old,51
+DAYS,I can do 5 days a week,5
+ALLERGIES,No allergies,none
+HEIGHT,About 194 cm,194
+CONSENT,Nah,no
+ALLERGIES,Nope,none
+DAYS,I have 3 days free,3
+INJURIES,tennis elbow,tennis elbow
+GREETING,Not ready,no
+WEIGHT,About 102,102
+LEVEL,I am a advanced,advanced
+EQUIPMENT,Just bodyweight,bodyweight
+LEVEL,intermediate,intermediate
+CONFIRMATION,Perfect,yes
+AGE,29,29
+HEIGHT,About 176 cm,176
+GOAL,tone up,tone up
+GREETING,Not ready,no
+CONFIRMATION,Yes,yes
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+INJURIES,I have a bad knee,bad knee
+LEVEL,Just a pro,pro
+INJURIES,I have a lower back pain,lower back pain
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+EQUIPMENT,Just home gym,home gym
+GREETING,I'm ready,yes
+WEIGHT,I weigh 104 lbs,104
+EQUIPMENT,home gym,home gym
+EQUIPMENT,dumbbells,dumbbells
+WEIGHT,130,130
+GOAL,Mainly to burn fat,burn fat
+HEIGHT,About 183 cm,183
+INJURIES,No,none
+CONSENT,Nope,no
+HEIGHT,186,186
+AGE,I just turned 38,38
+INJURIES,My lower back pain hurts sometimes,lower back pain
+CONFIRMATION,Go ahead,yes
+CONFIRMATION,Perfect,yes
+GREETING,Yes I am,yes
+EQUIPMENT,I workout at a bodyweight,bodyweight
+CONSENT,Nah,no
+AGE,I just turned 39,39
+LEVEL,Pretty much a novice,novice
+INJURIES,Dealing with tennis elbow,tennis elbow
+HEIGHT,About 171 cm,171
+GREETING,Yes I am,yes
+ALLERGIES,gluten,gluten
+LEVEL,I am a beginner,beginner
+LEVEL,I'd say advanced,advanced
+INJURIES,I have a bad knee,bad knee
+CONSENT,I don't consent,no
+WEIGHT,Around 214,214
+ALLERGIES,I have a vegan allergy,vegan
+GOAL,My goal is to burn fat,burn fat
+ALLERGIES,I am gluten,gluten
+GOAL,I want to build muscle,build muscle
+CONSENT,Go ahead,yes
+CONSENT,Yes,yes
+HEIGHT,190 cm,190
+CONSENT,I don't consent,no
+CONFIRMATION,I need to change something,no
+EQUIPMENT,I only have home gym,home gym
+EQUIPMENT,I only have kettlebells,kettlebells
+ALLERGIES,Nope,none
+CONSENT,I would rather not,no
+EQUIPMENT,I only have bodyweight,bodyweight
+CONSENT,Yes you do,yes
+WEIGHT,255,255
+INJURIES,My lower back pain hurts sometimes,lower back pain
+EQUIPMENT,home gym,home gym
+AGE,34,34
+WEIGHT,101,101
+EQUIPMENT,Just bodyweight,bodyweight
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+INJURIES,Dealing with twisted ankle,twisted ankle
+HEIGHT,194,194
+DAYS,3 days,3
+CONSENT,I don't consent,no
+GOAL,My goal is to build muscle,build muscle
+GREETING,Ready,yes
+LEVEL,intermediate,intermediate
+CONSENT,Go ahead,yes
+HEIGHT,About 158 cm,158
+CONSENT,Yes,yes
+AGE,I'm 56,56
+CONFIRMATION,Looks correct,yes
+HEIGHT,162,162
+INJURIES,Dealing with twisted ankle,twisted ankle
+INJURIES,Dealing with lower back pain,lower back pain
+INJURIES,Dealing with tennis elbow,tennis elbow
+EQUIPMENT,full gym,full gym
+ALLERGIES,I am shellfish,shellfish
+GREETING,Absolutely,yes
+GREETING,Give me a minute,no
+GOAL,Mainly to burn fat,burn fat
+WEIGHT,About 229,229
+CONSENT,Nah,no
+AGE,I am 19 years old,19
+GREETING,No,no
+HEIGHT,151,151
+LEVEL,Pretty much a intermediate,intermediate
+GREETING,Yes,yes
+ALLERGIES,I am peanut,peanut
+GOAL,Looking to burn fat,burn fat
+CONSENT,Yes you do,yes
+AGE,I am 24,24
+WEIGHT,I am 115 lbs,115
+CONSENT,Yes you do,yes
+GREETING,No,no
+HEIGHT,186,186
+GREETING,Let's do it,yes
+CONFIRMATION,Incorrect,no
+CONSENT,I consent,yes
+GOAL,Looking to tone up,tone up
+CONFIRMATION,That's right,yes
+LEVEL,I'd say pro,pro
+CONFIRMATION,No,no
+GOAL,get shredded,get shredded
+WEIGHT,I am 232 lbs,232
+CONFIRMATION,That is wrong,no
+LEVEL,Just a advanced,advanced
+ALLERGIES,lactose intolerant,lactose intolerant
+LEVEL,I am a novice,novice
+CONFIRMATION,Incorrect,no
+INJURIES,I have a twisted ankle,twisted ankle
+WEIGHT,159,159
+INJURIES,I have a tennis elbow,tennis elbow
+INJURIES,My bad knee hurts sometimes,bad knee
+HEIGHT,180,180
+WEIGHT,About 233,233
+GOAL,My goal is to burn fat,burn fat
+AGE,I'm 56,56
+LEVEL,Just a pro,pro
+HEIGHT,156,156
+ALLERGIES,No allergies,none
+EQUIPMENT,I only have bodyweight,bodyweight
+INJURIES,lower back pain,lower back pain
+WEIGHT,I weigh 226 lbs,226
+LEVEL,intermediate,intermediate
+DAYS,I can do 6 days a week,6
+INJURIES,I'm perfectly healthy,none
+INJURIES,My lower back pain hurts sometimes,lower back pain
+HEIGHT,About 164 cm,164
+DAYS,3,3
+GOAL,I want to tone up,tone up
+WEIGHT,I weigh 120 lbs,120
+ALLERGIES,I eat everything,none
+DAYS,2 days,2
+LEVEL,Pretty much a beginner,beginner
+GREETING,Give me a minute,no
+LEVEL,Just a pro,pro
+WEIGHT,287,287
+GREETING,Not yet,no
+GOAL,Mainly to burn fat,burn fat
+EQUIPMENT,I have access to dumbbells,dumbbells
+CONFIRMATION,Yes,yes
+ALLERGIES,I am vegan,vegan
+INJURIES,lower back pain,lower back pain
+ALLERGIES,I'm allergic to shellfishs,shellfish
+GREETING,Nah,no
+EQUIPMENT,Just kettlebells,kettlebells
+ALLERGIES,lactose intolerant,lactose intolerant
+DAYS,5,5
+DAYS,4,4
+CONSENT,Yes,yes
+CONSENT,Yeah that's fine,yes
+INJURIES,Dealing with lower back pain,lower back pain
+LEVEL,Pretty much a advanced,advanced
+DAYS,6,6
+GOAL,Looking to tone up,tone up
+CONSENT,Yes you do,yes
+CONSENT,Okay,yes
+LEVEL,I am a intermediate,intermediate
+LEVEL,Pretty much a beginner,beginner
+GOAL,Mainly to build muscle,build muscle
+GOAL,get shredded,get shredded
+CONFIRMATION,Incorrect,no
+ALLERGIES,I eat everything,none
+DAYS,I have 3 days free,3
+INJURIES,Nope,none
+WEIGHT,Around 149,149
+CONSENT,Go ahead,yes
+AGE,I'm 42,42
+CONSENT,I would rather not,no
+CONFIRMATION,No,no
+GOAL,Looking to burn fat,burn fat
+DAYS,3,3
+WEIGHT,230,230
+LEVEL,I am a advanced,advanced
+CONFIRMATION,No,no
+HEIGHT,I am 190 centimeters,190
+AGE,I just turned 61,61
+LEVEL,beginner,beginner
+HEIGHT,I am 184 centimeters,184
+CONFIRMATION,That's right,yes
+DAYS,6 days,6
+GOAL,endurance,endurance
+WEIGHT,226 pounds,226
+GOAL,My goal is to build muscle,build muscle
+INJURIES,No injuries,none
+DAYS,6,6
+CONFIRMATION,That is wrong,no
+LEVEL,I am a beginner,beginner
+EQUIPMENT,Just resistance bands,resistance bands
+ALLERGIES,I'm allergic to shellfishs,shellfish
+AGE,I am 22 years old,22
+HEIGHT,I am 184 centimeters,184
+DAYS,About 3 days,3
+EQUIPMENT,dumbbells,dumbbells
+GREETING,Yes I am,yes
+LEVEL,I'd say advanced,advanced
+GREETING,Not ready,no
+HEIGHT,About 162 cm,162
+GOAL,Mainly to endurance,endurance
+HEIGHT,I am 178 centimeters,178
+DAYS,About 6 days,6
+LEVEL,Pretty much a pro,pro
+AGE,58,58
+WEIGHT,I am 126 lbs,126
+WEIGHT,I weigh 130 lbs,130
+DAYS,2,2
+CONFIRMATION,I need to change something,no
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+CONSENT,No,no
+INJURIES,twisted ankle,twisted ankle
+CONFIRMATION,Perfect,yes
+AGE,I am 19 years old,19
+CONSENT,I don't consent,no
+GOAL,endurance,endurance
+AGE,I am 42 years old,42
+ALLERGIES,I am peanut,peanut
+GREETING,Absolutely,yes
+AGE,I just turned 28,28
+GOAL,Looking to build muscle,build muscle
+HEIGHT,About 165 cm,165
+HEIGHT,I am 166 centimeters,166
+LEVEL,intermediate,intermediate
+LEVEL,Pretty much a intermediate,intermediate
+DAYS,2,2
+GREETING,Absolutely,yes
+EQUIPMENT,I workout at a kettlebells,kettlebells
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+WEIGHT,191 pounds,191
+AGE,I am 47 years old,47
+WEIGHT,I weigh 284 lbs,284
+EQUIPMENT,Just resistance bands,resistance bands
+ALLERGIES,Nope,none
+INJURIES,I have a shoulder impingement,shoulder impingement
+LEVEL,Just a beginner,beginner
+CONFIRMATION,I need to change something,no
+GOAL,I want to lose weight,lose weight
+HEIGHT,About 175 cm,175
+ALLERGIES,I'm allergic to peanuts,peanut
+LEVEL,novice,novice
+CONSENT,Nope,no
+CONSENT,I would rather not,no
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+GREETING,I'm ready,yes
+GREETING,Let's do it,yes
+ALLERGIES,I am vegan,vegan
+HEIGHT,About 154 cm,154
+DAYS,I can do 5 days a week,5
+INJURIES,None,none
+DAYS,4 days,4
+CONFIRMATION,Incorrect,no
+GREETING,Nah,no
+EQUIPMENT,I have access to resistance bands,resistance bands
+AGE,I am 37,37
+EQUIPMENT,I have access to full gym,full gym
+GOAL,tone up,tone up
+ALLERGIES,I have a peanut allergy,peanut
+WEIGHT,About 158,158
+CONFIRMATION,Incorrect,no
+AGE,52,52
+LEVEL,I'd say advanced,advanced
+CONSENT,Yes,yes
+AGE,I just turned 65,65
+DAYS,4 days,4
+HEIGHT,187 cm,187
+AGE,I'm 44,44
+CONSENT,Yeah that's fine,yes
+AGE,I am 34,34
+LEVEL,I'd say beginner,beginner
+LEVEL,I am a novice,novice
+HEIGHT,About 173 cm,173
+GOAL,build muscle,build muscle
+AGE,23,23
+CONSENT,I would rather not,no
+CONFIRMATION,I need to change something,no
+GREETING,Yeah let's go,yes
+GREETING,Not yet,no
+WEIGHT,139 pounds,139
+DAYS,4 days,4
+ALLERGIES,shellfish,shellfish
+DAYS,About 2 days,2
+DAYS,4,4
+GREETING,Ready,yes
+LEVEL,I'd say beginner,beginner
+CONSENT,Yeah that's fine,yes
+CONFIRMATION,Generate it,yes
+EQUIPMENT,I workout at a bodyweight,bodyweight
+CONSENT,I would rather not,no
+GOAL,burn fat,burn fat
+ALLERGIES,I am lactose intolerant,lactose intolerant
+AGE,I am 41 years old,41
+ALLERGIES,I have a peanut allergy,peanut
+CONSENT,I consent,yes
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+GOAL,Looking to get shredded,get shredded
+LEVEL,Just a intermediate,intermediate
+CONFIRMATION,That is wrong,no
+EQUIPMENT,Just full gym,full gym
+GOAL,Looking to tone up,tone up
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+GREETING,Nah,no
+CONSENT,No,no
+WEIGHT,Around 110,110
+LEVEL,I'd say novice,novice
+GREETING,Nah,no
+GREETING,Ready,yes
+ALLERGIES,Nah,none
+CONFIRMATION,Looks good,yes
+GREETING,Nah,no
+GREETING,No,no
+CONFIRMATION,No,no
+WEIGHT,207,207
+DAYS,6 days,6
+LEVEL,I'd say novice,novice
+GOAL,My goal is to lose weight,lose weight
+CONSENT,Yeah that's fine,yes
+WEIGHT,115 pounds,115
+AGE,20,20
+WEIGHT,About 133,133
+LEVEL,Pretty much a novice,novice
+INJURIES,bad knee,bad knee
+CONSENT,No,no
+DAYS,I can do 3 days a week,3
+HEIGHT,178 cm,178
+AGE,I am 50 years old,50
+AGE,64,64
+GOAL,Mainly to get shredded,get shredded
+WEIGHT,I am 125 lbs,125
+CONFIRMATION,Wait,no
+LEVEL,pro,pro
+GOAL,Looking to burn fat,burn fat
+GOAL,I want to build muscle,build muscle
+DAYS,I have 6 days free,6
+AGE,I just turned 40,40
+WEIGHT,193,193
+WEIGHT,Around 258,258
+DAYS,I can do 3 days a week,3
+HEIGHT,191 cm,191
+HEIGHT,I am 178 centimeters,178
+CONSENT,Yes,yes
+CONFIRMATION,Incorrect,no
+CONSENT,Yes you do,yes
+INJURIES,Dealing with twisted ankle,twisted ankle
+CONFIRMATION,No,no
+INJURIES,Dealing with bad knee,bad knee
+ALLERGIES,Nah,none
+CONSENT,Nah,no
+AGE,I am 33 years old,33
+GREETING,Not yet,no
+CONSENT,Nah,no
+CONSENT,Sure,yes
+ALLERGIES,vegan,vegan
+HEIGHT,167 cm,167
+LEVEL,Pretty much a advanced,advanced
+GREETING,No,no
+GOAL,I want to burn fat,burn fat
+WEIGHT,I am 225 lbs,225
+DAYS,I can do 5 days a week,5
+CONFIRMATION,Looks good,yes
+GOAL,Looking to build muscle,build muscle
+DAYS,About 5 days,5
+ALLERGIES,vegan,vegan
+HEIGHT,I am 177 centimeters,177
+DAYS,I have 2 days free,2
+EQUIPMENT,home gym,home gym
+DAYS,I have 4 days free,4
+CONFIRMATION,Perfect,yes
+ALLERGIES,lactose intolerant,lactose intolerant
+LEVEL,Just a advanced,advanced
+CONFIRMATION,Perfect,yes
+WEIGHT,194,194
+ALLERGIES,I'm allergic to peanuts,peanut
+AGE,I just turned 18,18
+EQUIPMENT,I only have kettlebells,kettlebells
+GOAL,I want to build muscle,build muscle
+HEIGHT,About 186 cm,186
+DAYS,I can do 2 days a week,2
+GOAL,Looking to tone up,tone up
+ALLERGIES,I'm allergic to glutens,gluten
+EQUIPMENT,Just home gym,home gym
+WEIGHT,I am 274 lbs,274
+CONFIRMATION,That is wrong,no
+AGE,I am 31,31
+AGE,36,36
+HEIGHT,186 cm,186
+AGE,I am 31,31
+WEIGHT,I am 152 lbs,152
+GREETING,Give me a minute,no
+DAYS,About 3 days,3
+INJURIES,Dealing with twisted ankle,twisted ankle
+HEIGHT,170,170
+AGE,I just turned 56,56
+DAYS,I have 2 days free,2
+GREETING,Not yet,no
+CONSENT,Yes you do,yes
+HEIGHT,About 192 cm,192
+CONSENT,Yeah that's fine,yes
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+CONFIRMATION,Go ahead,yes
+EQUIPMENT,I workout at a resistance bands,resistance bands
+LEVEL,novice,novice
+GREETING,Absolutely,yes
+DAYS,I have 4 days free,4
+AGE,I am 18,18
+CONSENT,No,no
+LEVEL,Pretty much a novice,novice
+GREETING,Ready,yes
+EQUIPMENT,I have access to home gym,home gym
+LEVEL,Pretty much a advanced,advanced
+GOAL,Mainly to get shredded,get shredded
+ALLERGIES,I'm allergic to peanuts,peanut
+GOAL,Mainly to burn fat,burn fat
+HEIGHT,187,187
+HEIGHT,165,165
+CONFIRMATION,That is wrong,no
+DAYS,3,3
+GREETING,Give me a minute,no
+GREETING,Yes,yes
+HEIGHT,169,169
+DAYS,6 days,6
+WEIGHT,Around 116,116
+CONFIRMATION,No,no
+EQUIPMENT,I only have resistance bands,resistance bands
+WEIGHT,I weigh 234 lbs,234
+CONSENT,Sure,yes
+EQUIPMENT,I only have bodyweight,bodyweight
+EQUIPMENT,I have access to home gym,home gym
+HEIGHT,151,151
+GOAL,I want to lose weight,lose weight
+DAYS,4 days,4
+ALLERGIES,shellfish,shellfish
+GOAL,Mainly to burn fat,burn fat
+HEIGHT,151 cm,151
+WEIGHT,Around 246,246
+WEIGHT,I am 239 lbs,239
+GREETING,Give me a minute,no
+GREETING,Let's do it,yes
+CONFIRMATION,I need to change something,no
+AGE,I am 29 years old,29
+GREETING,Nah,no
+DAYS,I have 5 days free,5
+DAYS,2,2
+LEVEL,Just a beginner,beginner
+ALLERGIES,I am lactose intolerant,lactose intolerant
+LEVEL,Just a pro,pro
+WEIGHT,293 pounds,293
+GOAL,Mainly to lose weight,lose weight
+DAYS,I have 6 days free,6
+WEIGHT,113,113
+LEVEL,I am a pro,pro
+CONFIRMATION,Yes,yes
+GOAL,My goal is to get shredded,get shredded
+DAYS,About 3 days,3
+INJURIES,I have a twisted ankle,twisted ankle
+GREETING,Not yet,no
+CONFIRMATION,No,no
+CONSENT,No,no
+LEVEL,I am a beginner,beginner
+GOAL,Looking to build muscle,build muscle
+CONSENT,I don't consent,no
+LEVEL,I'd say beginner,beginner
+EQUIPMENT,dumbbells,dumbbells
+DAYS,I can do 5 days a week,5
+EQUIPMENT,kettlebells,kettlebells
+GOAL,My goal is to build muscle,build muscle
+AGE,I'm 54,54
+HEIGHT,190 cm,190
+CONFIRMATION,Looks correct,yes
+AGE,I am 41 years old,41
+DAYS,3 days,3
+EQUIPMENT,Just resistance bands,resistance bands
+DAYS,3,3
+EQUIPMENT,I only have kettlebells,kettlebells
+LEVEL,Pretty much a advanced,advanced
+DAYS,4,4
+CONSENT,I would rather not,no
+ALLERGIES,No allergies,none
+HEIGHT,I am 175 centimeters,175
+WEIGHT,Around 295,295
+GREETING,Give me a minute,no
+HEIGHT,I am 195 centimeters,195
+DAYS,4 days,4
+DAYS,About 5 days,5
+CONSENT,Yes you do,yes
+GOAL,Looking to build muscle,build muscle
+AGE,I'm 32,32
+INJURIES,Nope,none
+CONFIRMATION,Generate it,yes
+LEVEL,advanced,advanced
+CONFIRMATION,Generate it,yes
+DAYS,I have 2 days free,2
+INJURIES,bad knee,bad knee
+GREETING,Yeah let's go,yes
+DAYS,I have 2 days free,2
+GOAL,Mainly to get shredded,get shredded
+EQUIPMENT,I only have kettlebells,kettlebells
+AGE,I am 49 years old,49
+ALLERGIES,I am lactose intolerant,lactose intolerant
+GOAL,I want to build muscle,build muscle
+ALLERGIES,I have a peanut allergy,peanut
+DAYS,About 2 days,2
+CONSENT,I consent,yes
+GREETING,Nah,no
+GOAL,burn fat,burn fat
+GOAL,My goal is to get shredded,get shredded
+EQUIPMENT,I only have dumbbells,dumbbells
+HEIGHT,191 cm,191
+CONFIRMATION,Incorrect,no
+AGE,49,49
+INJURIES,Dealing with bad knee,bad knee
+CONSENT,Nah,no
+EQUIPMENT,I have access to full gym,full gym
+EQUIPMENT,home gym,home gym
+GREETING,Yes I am,yes
+LEVEL,Just a novice,novice
+GREETING,Yes,yes
+INJURIES,I have a lower back pain,lower back pain
+CONFIRMATION,Wait,no
+HEIGHT,155,155
+LEVEL,I'd say advanced,advanced
+HEIGHT,173 cm,173
+GOAL,Looking to tone up,tone up
+GOAL,My goal is to endurance,endurance
+INJURIES,None,none
+EQUIPMENT,dumbbells,dumbbells
+AGE,30,30
+GOAL,Mainly to lose weight,lose weight
+GOAL,My goal is to get shredded,get shredded
+ALLERGIES,I am shellfish,shellfish
+INJURIES,Dealing with bad knee,bad knee
+CONSENT,I consent,yes
+EQUIPMENT,I have access to dumbbells,dumbbells
+INJURIES,I have a shoulder impingement,shoulder impingement
+ALLERGIES,I am lactose intolerant,lactose intolerant
+EQUIPMENT,I only have full gym,full gym
+INJURIES,bad knee,bad knee
+DAYS,I can do 2 days a week,2
+HEIGHT,177,177
+CONFIRMATION,Yes,yes
+ALLERGIES,gluten,gluten
+EQUIPMENT,full gym,full gym
+WEIGHT,129,129
+HEIGHT,167,167
+ALLERGIES,I am shellfish,shellfish
+INJURIES,lower back pain,lower back pain
+AGE,I am 50 years old,50
+AGE,I am 29 years old,29
+LEVEL,I am a beginner,beginner
+WEIGHT,I weigh 169 lbs,169
+DAYS,About 6 days,6
+GOAL,Mainly to build muscle,build muscle
+DAYS,2,2
+EQUIPMENT,resistance bands,resistance bands
+CONSENT,Nope,no
+CONFIRMATION,I need to change something,no
+DAYS,About 5 days,5
+EQUIPMENT,I workout at a bodyweight,bodyweight
+WEIGHT,About 268,268
+INJURIES,Dealing with tennis elbow,tennis elbow
+INJURIES,Dealing with twisted ankle,twisted ankle
+WEIGHT,I weigh 136 lbs,136
+CONFIRMATION,That is wrong,no
+HEIGHT,I am 189 centimeters,189
+EQUIPMENT,I only have kettlebells,kettlebells
+ALLERGIES,vegan,vegan
+AGE,47,47
+ALLERGIES,I have a gluten allergy,gluten
+WEIGHT,I weigh 287 lbs,287
+GOAL,My goal is to tone up,tone up
+WEIGHT,Around 112,112
+WEIGHT,259 pounds,259
+CONSENT,Go ahead,yes
+CONFIRMATION,Perfect,yes
+INJURIES,Dealing with twisted ankle,twisted ankle
+AGE,I just turned 39,39
+ALLERGIES,I am gluten,gluten
+WEIGHT,About 185,185
+GOAL,I want to lose weight,lose weight
+ALLERGIES,I'm allergic to vegans,vegan
+WEIGHT,227,227
+HEIGHT,186 cm,186
+WEIGHT,222 pounds,222
+CONFIRMATION,Perfect,yes
+GREETING,Yeah let's go,yes
+CONFIRMATION,That is wrong,no
+EQUIPMENT,I workout at a home gym,home gym
+AGE,I'm 41,41
+CONFIRMATION,Incorrect,no
+AGE,I am 53,53
+CONFIRMATION,No,no
+CONSENT,Nah,no
+INJURIES,I have a shoulder impingement,shoulder impingement
+WEIGHT,Around 167,167
+CONSENT,I don't consent,no
+GREETING,Give me a minute,no
+LEVEL,Just a novice,novice
+ALLERGIES,I have a shellfish allergy,shellfish
+ALLERGIES,I am shellfish,shellfish
+GREETING,Give me a minute,no
+INJURIES,I have a lower back pain,lower back pain
+INJURIES,I have a tennis elbow,tennis elbow
+EQUIPMENT,dumbbells,dumbbells
+CONFIRMATION,That's right,yes
+INJURIES,Nope,none
+GREETING,No,no
+WEIGHT,179 pounds,179
+LEVEL,Just a beginner,beginner
+AGE,I am 21 years old,21
+EQUIPMENT,I have access to full gym,full gym
+WEIGHT,About 209,209
+EQUIPMENT,I only have resistance bands,resistance bands
+EQUIPMENT,I have access to full gym,full gym
+CONFIRMATION,That's right,yes
+CONSENT,Yeah that's fine,yes
+CONSENT,Nah,no
+ALLERGIES,I have a gluten allergy,gluten
+AGE,I'm 60,60
+CONFIRMATION,Perfect,yes
+ALLERGIES,I have a peanut allergy,peanut
+AGE,I just turned 20,20
+EQUIPMENT,I workout at a bodyweight,bodyweight
+WEIGHT,I weigh 197 lbs,197
+GREETING,Let's do it,yes
+CONSENT,Yes,yes
+GOAL,I want to build muscle,build muscle
+ALLERGIES,shellfish,shellfish
+WEIGHT,106 pounds,106
+GOAL,Mainly to get shredded,get shredded
+DAYS,About 2 days,2
+WEIGHT,Around 192,192
+HEIGHT,About 185 cm,185
+CONSENT,I don't consent,no
+CONSENT,I consent,yes
+INJURIES,tennis elbow,tennis elbow
+EQUIPMENT,resistance bands,resistance bands
+EQUIPMENT,I workout at a bodyweight,bodyweight
+LEVEL,I'd say intermediate,intermediate
+AGE,I'm 50,50
+LEVEL,I am a intermediate,intermediate
+CONSENT,I consent,yes
+LEVEL,novice,novice
+DAYS,I can do 5 days a week,5
+CONFIRMATION,That is wrong,no
+HEIGHT,About 163 cm,163
+EQUIPMENT,I workout at a kettlebells,kettlebells
+LEVEL,I'd say intermediate,intermediate
+HEIGHT,About 157 cm,157
+GOAL,I want to endurance,endurance
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+GOAL,Mainly to endurance,endurance
+CONSENT,I would rather not,no
+HEIGHT,I am 195 centimeters,195
+CONFIRMATION,Looks correct,yes
+GOAL,My goal is to get shredded,get shredded
+HEIGHT,172,172
+CONSENT,I would rather not,no
+WEIGHT,152 pounds,152
+CONSENT,No,no
+GREETING,Give me a minute,no
+CONFIRMATION,Incorrect,no
+WEIGHT,Around 237,237
+GOAL,Looking to get shredded,get shredded
+AGE,59,59
+ALLERGIES,I'm allergic to peanuts,peanut
+INJURIES,Dealing with lower back pain,lower back pain
+DAYS,About 6 days,6
+ALLERGIES,I'm allergic to peanuts,peanut
+AGE,I am 60 years old,60
+AGE,I just turned 37,37
+CONFIRMATION,That's right,yes
+ALLERGIES,I'm allergic to peanuts,peanut
+LEVEL,I'd say beginner,beginner
+AGE,I am 65 years old,65
+CONFIRMATION,Looks good,yes
+LEVEL,Pretty much a beginner,beginner
+AGE,I am 54 years old,54
+EQUIPMENT,resistance bands,resistance bands
+HEIGHT,I am 193 centimeters,193
+INJURIES,Dealing with lower back pain,lower back pain
+CONSENT,No,no
+GREETING,No,no
+AGE,I am 21,21
+HEIGHT,188,188
+HEIGHT,I am 186 centimeters,186
+CONFIRMATION,That is wrong,no
+CONSENT,Go ahead,yes
+INJURIES,Nope,none
+LEVEL,I'd say novice,novice
+GOAL,I want to build muscle,build muscle
+CONFIRMATION,That's right,yes
+CONFIRMATION,That's right,yes
+HEIGHT,I am 158 centimeters,158
+DAYS,I can do 3 days a week,3
+CONFIRMATION,I need to change something,no
+WEIGHT,I weigh 300 lbs,300
+INJURIES,I have a twisted ankle,twisted ankle
+GREETING,No,no
+EQUIPMENT,I workout at a bodyweight,bodyweight
+WEIGHT,Around 193,193
+ALLERGIES,vegan,vegan
+CONSENT,Okay,yes
+LEVEL,Just a pro,pro
+WEIGHT,About 257,257
+CONFIRMATION,That is wrong,no
+CONSENT,Yes you do,yes
+INJURIES,I have a lower back pain,lower back pain
+HEIGHT,167,167
+CONSENT,Yes,yes
+EQUIPMENT,I only have bodyweight,bodyweight
+DAYS,6 days,6
+CONSENT,Nah,no
+GOAL,My goal is to burn fat,burn fat
+DAYS,3,3
+ALLERGIES,shellfish,shellfish
+HEIGHT,190,190
+GREETING,No,no
+ALLERGIES,I'm allergic to peanuts,peanut
+CONSENT,I consent,yes
+WEIGHT,221 pounds,221
+HEIGHT,About 153 cm,153
+CONSENT,Nope,no
+CONFIRMATION,Looks correct,yes
+CONSENT,I would rather not,no
+GREETING,Yes,yes
+DAYS,2 days,2
+GREETING,Give me a minute,no
+CONSENT,Yes,yes
+DAYS,About 3 days,3
+CONSENT,I would rather not,no
+GOAL,Looking to burn fat,burn fat
+ALLERGIES,I am gluten,gluten
+HEIGHT,I am 191 centimeters,191
+ALLERGIES,I eat everything,none
+HEIGHT,I am 161 centimeters,161
+GOAL,burn fat,burn fat
+DAYS,3,3
+DAYS,I can do 4 days a week,4
+EQUIPMENT,Just home gym,home gym
+DAYS,I have 5 days free,5
+DAYS,6 days,6
+HEIGHT,About 178 cm,178
+HEIGHT,183 cm,183
+LEVEL,I'd say novice,novice
+EQUIPMENT,I have access to full gym,full gym
+GOAL,Mainly to build muscle,build muscle
+AGE,38,38
+AGE,I just turned 56,56
+CONSENT,Nah,no
+DAYS,2,2
+CONFIRMATION,Looks correct,yes
+LEVEL,I'd say advanced,advanced
+GREETING,I'm ready,yes
+ALLERGIES,I'm allergic to peanuts,peanut
+ALLERGIES,I am peanut,peanut
+GREETING,Let's do it,yes
+GOAL,I want to build muscle,build muscle
+AGE,I am 52,52
+WEIGHT,101 pounds,101
+WEIGHT,About 134,134
+HEIGHT,156 cm,156
+DAYS,I have 4 days free,4
+WEIGHT,I am 160 lbs,160
+GREETING,Let's do it,yes
+GREETING,Ready,yes
+INJURIES,twisted ankle,twisted ankle
+EQUIPMENT,I workout at a kettlebells,kettlebells
+GOAL,Mainly to get shredded,get shredded
+INJURIES,tennis elbow,tennis elbow
+LEVEL,Just a beginner,beginner
+EQUIPMENT,resistance bands,resistance bands
+HEIGHT,About 177 cm,177
+AGE,I am 53 years old,53
+CONFIRMATION,Wait,no
+INJURIES,Dealing with tennis elbow,tennis elbow
+INJURIES,I have a twisted ankle,twisted ankle
+CONSENT,Nah,no
+CONSENT,Yes you do,yes
+HEIGHT,164,164
+DAYS,I have 5 days free,5
+HEIGHT,About 181 cm,181
+INJURIES,No injuries,none
+INJURIES,My lower back pain hurts sometimes,lower back pain
+WEIGHT,Around 166,166
+HEIGHT,176,176
+HEIGHT,165,165
+CONSENT,Nope,no
+ALLERGIES,Nah,none
+INJURIES,I have a twisted ankle,twisted ankle
+GREETING,Yes I am,yes
+CONFIRMATION,Incorrect,no
+INJURIES,Dealing with lower back pain,lower back pain
+GOAL,Mainly to build muscle,build muscle
+ALLERGIES,I have a shellfish allergy,shellfish
+ALLERGIES,I'm allergic to shellfishs,shellfish
+WEIGHT,Around 281,281
+GREETING,Nah,no
+CONFIRMATION,That is wrong,no
+GOAL,I want to lose weight,lose weight
+WEIGHT,205,205
+INJURIES,Dealing with bad knee,bad knee
+GOAL,build muscle,build muscle
+CONFIRMATION,Incorrect,no
+LEVEL,Pretty much a intermediate,intermediate
+GREETING,Yes I am,yes
+EQUIPMENT,dumbbells,dumbbells
+GREETING,Yes I am,yes
+AGE,I am 16,16
+ALLERGIES,I am shellfish,shellfish
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+AGE,I just turned 26,26
+INJURIES,I have a lower back pain,lower back pain
+GREETING,Nah,no
+WEIGHT,169 pounds,169
+GREETING,I'm ready,yes
+DAYS,6 days,6
+DAYS,2 days,2
+GOAL,My goal is to lose weight,lose weight
+ALLERGIES,lactose intolerant,lactose intolerant
+LEVEL,I am a advanced,advanced
+CONSENT,No,no
+GREETING,Yeah let's go,yes
+ALLERGIES,peanut,peanut
+GREETING,Not yet,no
+EQUIPMENT,I workout at a resistance bands,resistance bands
+GREETING,Nah,no
+CONFIRMATION,Looks good,yes
+CONSENT,Yes you do,yes
+INJURIES,None,none
+CONFIRMATION,I need to change something,no
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+ALLERGIES,I am shellfish,shellfish
+DAYS,3 days,3
+GOAL,Looking to burn fat,burn fat
+EQUIPMENT,I workout at a home gym,home gym
+LEVEL,I am a advanced,advanced
+GOAL,I want to get shredded,get shredded
+CONFIRMATION,That is wrong,no
+AGE,I just turned 40,40
+GOAL,Looking to endurance,endurance
+GOAL,Looking to endurance,endurance
+EQUIPMENT,I have access to bodyweight,bodyweight
+CONFIRMATION,Yes,yes
+INJURIES,My bad knee hurts sometimes,bad knee
+GREETING,Absolutely,yes
+ALLERGIES,I am gluten,gluten
+GOAL,I want to build muscle,build muscle
+EQUIPMENT,I have access to dumbbells,dumbbells
+INJURIES,lower back pain,lower back pain
+AGE,50,50
+GOAL,Looking to endurance,endurance
+GREETING,Yeah let's go,yes
+ALLERGIES,shellfish,shellfish
+WEIGHT,I am 181 lbs,181
+HEIGHT,I am 168 centimeters,168
+INJURIES,lower back pain,lower back pain
+GOAL,I want to lose weight,lose weight
+EQUIPMENT,I workout at a kettlebells,kettlebells
+GOAL,Mainly to endurance,endurance
+EQUIPMENT,I have access to full gym,full gym
+GREETING,Yes I am,yes
+WEIGHT,About 127,127
+HEIGHT,174,174
+EQUIPMENT,I workout at a resistance bands,resistance bands
+LEVEL,advanced,advanced
+HEIGHT,About 192 cm,192
+WEIGHT,103,103
+CONFIRMATION,Wait,no
+CONSENT,Yes you do,yes
+CONSENT,Okay,yes
+GREETING,Yeah let's go,yes
+LEVEL,advanced,advanced
+CONFIRMATION,Incorrect,no
+GREETING,No,no
+LEVEL,Pretty much a pro,pro
+LEVEL,pro,pro
+AGE,I'm 28,28
+LEVEL,Pretty much a advanced,advanced
+CONFIRMATION,That is wrong,no
+WEIGHT,Around 265,265
+ALLERGIES,I eat everything,none
+INJURIES,Dealing with twisted ankle,twisted ankle
+WEIGHT,About 187,187
+CONFIRMATION,Yes,yes
+ALLERGIES,I'm allergic to shellfishs,shellfish
+ALLERGIES,I am shellfish,shellfish
+GREETING,Nah,no
+CONSENT,Nope,no
+DAYS,I have 6 days free,6
+CONSENT,Nah,no
+GOAL,get shredded,get shredded
+GOAL,endurance,endurance
+DAYS,I can do 2 days a week,2
+CONSENT,Nope,no
+INJURIES,I have a tennis elbow,tennis elbow
+INJURIES,twisted ankle,twisted ankle
+HEIGHT,167 cm,167
+DAYS,I can do 4 days a week,4
+WEIGHT,I am 243 lbs,243
+LEVEL,novice,novice
+WEIGHT,About 257,257
+GREETING,Not ready,no
+HEIGHT,180 cm,180
+LEVEL,beginner,beginner
+ALLERGIES,gluten,gluten
+ALLERGIES,I have a gluten allergy,gluten
+AGE,I'm 45,45
+WEIGHT,Around 104,104
+LEVEL,Just a novice,novice
+GREETING,Nah,no
+AGE,I just turned 50,50
+GREETING,Not yet,no
+GOAL,My goal is to get shredded,get shredded
+HEIGHT,169,169
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+GOAL,My goal is to build muscle,build muscle
+ALLERGIES,I am vegan,vegan
+CONFIRMATION,Wait,no
+ALLERGIES,I am shellfish,shellfish
+GOAL,Mainly to burn fat,burn fat
+INJURIES,twisted ankle,twisted ankle
+INJURIES,I have a shoulder impingement,shoulder impingement
+GREETING,Yes,yes
+GOAL,I want to get shredded,get shredded
+GOAL,My goal is to burn fat,burn fat
+GOAL,Mainly to burn fat,burn fat
+CONSENT,No,no
+WEIGHT,I am 260 lbs,260
+GOAL,My goal is to burn fat,burn fat
+DAYS,4,4
+WEIGHT,180 pounds,180
+ALLERGIES,lactose intolerant,lactose intolerant
+ALLERGIES,None,none
+AGE,I'm 52,52
+CONFIRMATION,Looks good,yes
+EQUIPMENT,I have access to resistance bands,resistance bands
+EQUIPMENT,I have access to kettlebells,kettlebells
+CONFIRMATION,Incorrect,no
+CONFIRMATION,Looks correct,yes
+GOAL,Looking to lose weight,lose weight
+INJURIES,I have a tennis elbow,tennis elbow
+ALLERGIES,lactose intolerant,lactose intolerant
+CONSENT,Nah,no
+LEVEL,I'd say beginner,beginner
+CONSENT,No,no
+GREETING,Absolutely,yes
+HEIGHT,I am 159 centimeters,159
+AGE,I'm 46,46
+HEIGHT,I am 188 centimeters,188
+LEVEL,I'd say novice,novice
+GREETING,Give me a minute,no
+ALLERGIES,I am lactose intolerant,lactose intolerant
+WEIGHT,205,205
+GREETING,No,no
+LEVEL,I am a pro,pro
+LEVEL,I'd say pro,pro
+GOAL,Mainly to lose weight,lose weight
+AGE,I am 47,47
+HEIGHT,194 cm,194
+GOAL,Looking to get shredded,get shredded
+CONSENT,I would rather not,no
+GOAL,Mainly to build muscle,build muscle
+HEIGHT,155,155
+GOAL,Looking to lose weight,lose weight
+INJURIES,tennis elbow,tennis elbow
+HEIGHT,175,175
+INJURIES,My shoulder impingement hurts sometimes,shoulder impingement
+HEIGHT,About 181 cm,181
+LEVEL,novice,novice
+HEIGHT,About 150 cm,150
+HEIGHT,159,159
+LEVEL,I am a intermediate,intermediate
+CONSENT,Yes you do,yes
+AGE,25,25
+AGE,I just turned 45,45
+HEIGHT,165 cm,165
+AGE,I am 61,61
+AGE,I just turned 16,16
+DAYS,6 days,6
+CONSENT,Yes,yes
+DAYS,6,6
+ALLERGIES,I'm allergic to shellfishs,shellfish
+EQUIPMENT,home gym,home gym
+CONFIRMATION,Incorrect,no
+INJURIES,shoulder impingement,shoulder impingement
+AGE,I am 41 years old,41
+EQUIPMENT,I have access to resistance bands,resistance bands
+CONSENT,Yes,yes
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+INJURIES,I have a lower back pain,lower back pain
+GOAL,Mainly to build muscle,build muscle
+CONFIRMATION,Wait,no
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+CONSENT,Yes you do,yes
+WEIGHT,Around 148,148
+LEVEL,Just a pro,pro
+DAYS,I have 5 days free,5
+WEIGHT,I am 166 lbs,166
+ALLERGIES,I am peanut,peanut
+EQUIPMENT,resistance bands,resistance bands
+DAYS,2 days,2
+GOAL,I want to burn fat,burn fat
+HEIGHT,I am 161 centimeters,161
+GREETING,Absolutely,yes
+CONSENT,Yeah that's fine,yes
+GOAL,get shredded,get shredded
+HEIGHT,151,151
+LEVEL,intermediate,intermediate
+CONFIRMATION,No,no
+AGE,61,61
+AGE,I'm 58,58
+HEIGHT,About 164 cm,164
+HEIGHT,175 cm,175
+AGE,I am 64 years old,64
+HEIGHT,179 cm,179
+CONSENT,Yes you do,yes
+GOAL,My goal is to get shredded,get shredded
+DAYS,I have 3 days free,3
+WEIGHT,I am 217 lbs,217
+DAYS,2,2
+HEIGHT,I am 189 centimeters,189
+WEIGHT,289 pounds,289
+WEIGHT,I am 112 lbs,112
+CONSENT,Okay,yes
+DAYS,3,3
+CONSENT,I would rather not,no
+WEIGHT,Around 251,251
+GOAL,Mainly to build muscle,build muscle
+CONFIRMATION,Looks correct,yes
+CONFIRMATION,Looks correct,yes
+LEVEL,I'd say novice,novice
+LEVEL,I am a novice,novice
+HEIGHT,182 cm,182
+HEIGHT,182,182
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+EQUIPMENT,I only have bodyweight,bodyweight
+WEIGHT,I weigh 177 lbs,177
+WEIGHT,I weigh 139 lbs,139
+HEIGHT,About 161 cm,161
+CONSENT,Yes,yes
+DAYS,About 2 days,2
+ALLERGIES,vegan,vegan
+ALLERGIES,I am peanut,peanut
+LEVEL,Pretty much a pro,pro
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+HEIGHT,162 cm,162
+WEIGHT,272 pounds,272
+CONSENT,Yes,yes
+DAYS,2 days,2
+GOAL,Looking to build muscle,build muscle
+INJURIES,I have a tennis elbow,tennis elbow
+LEVEL,Pretty much a advanced,advanced
+CONFIRMATION,Go ahead,yes
+ALLERGIES,I have a vegan allergy,vegan
+LEVEL,Pretty much a novice,novice
+CONSENT,Yes you do,yes
+GREETING,Not ready,no
+WEIGHT,I am 170 lbs,170
+ALLERGIES,lactose intolerant,lactose intolerant
+GREETING,No,no
+ALLERGIES,I have a gluten allergy,gluten
+CONFIRMATION,Perfect,yes
+CONFIRMATION,Generate it,yes
+LEVEL,advanced,advanced
+LEVEL,Just a novice,novice
+LEVEL,I am a intermediate,intermediate
+ALLERGIES,gluten,gluten
+EQUIPMENT,Just full gym,full gym
+HEIGHT,About 187 cm,187
+DAYS,6 days,6
+LEVEL,beginner,beginner
+HEIGHT,193,193
+INJURIES,I'm perfectly healthy,none
+DAYS,About 5 days,5
+INJURIES,I have a bad knee,bad knee
+LEVEL,novice,novice
+EQUIPMENT,full gym,full gym
+LEVEL,Pretty much a beginner,beginner
+DAYS,4,4
+AGE,I'm 57,57
+WEIGHT,Around 113,113
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+ALLERGIES,I'm allergic to vegans,vegan
+EQUIPMENT,I workout at a dumbbells,dumbbells
+AGE,I am 60 years old,60
+WEIGHT,About 210,210
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+GREETING,I'm ready,yes
+DAYS,About 5 days,5
+LEVEL,Just a beginner,beginner
+CONSENT,Go ahead,yes
+GREETING,Not ready,no
+CONFIRMATION,Perfect,yes
+CONSENT,Yeah that's fine,yes
+GREETING,Give me a minute,no
+WEIGHT,I weigh 140 lbs,140
+HEIGHT,About 186 cm,186
+EQUIPMENT,I have access to resistance bands,resistance bands
+LEVEL,I'd say pro,pro
+CONFIRMATION,Wait,no
+CONFIRMATION,Incorrect,no
+GOAL,Looking to lose weight,lose weight
+GREETING,Yeah let's go,yes
+INJURIES,I have a lower back pain,lower back pain
+GOAL,Looking to get shredded,get shredded
+GREETING,I'm ready,yes
+ALLERGIES,I am vegan,vegan
+LEVEL,Pretty much a beginner,beginner
+LEVEL,novice,novice
+HEIGHT,187,187
+GOAL,Looking to get shredded,get shredded
+WEIGHT,208,208
+AGE,I am 50,50
+HEIGHT,176,176
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+ALLERGIES,peanut,peanut
+GOAL,Looking to build muscle,build muscle
+HEIGHT,About 158 cm,158
+WEIGHT,236 pounds,236
+CONSENT,Nah,no
+CONFIRMATION,Looks good,yes
+GREETING,Nah,no
+INJURIES,I have a twisted ankle,twisted ankle
+EQUIPMENT,full gym,full gym
+ALLERGIES,I'm allergic to vegans,vegan
+AGE,I am 57,57
+AGE,I am 25,25
+WEIGHT,I am 136 lbs,136
+INJURIES,I have a lower back pain,lower back pain
+LEVEL,I am a beginner,beginner
+WEIGHT,181,181
+GOAL,Looking to endurance,endurance
+WEIGHT,I weigh 249 lbs,249
+GREETING,Let's do it,yes
+CONSENT,Yeah that's fine,yes
+GOAL,I want to lose weight,lose weight
+LEVEL,Pretty much a beginner,beginner
+WEIGHT,Around 250,250
+WEIGHT,183 pounds,183
+DAYS,About 6 days,6
+CONFIRMATION,That's right,yes
+WEIGHT,About 249,249
+LEVEL,pro,pro
+CONSENT,I would rather not,no
+ALLERGIES,I have a lactose intolerant allergy,lactose intolerant
+GOAL,My goal is to tone up,tone up
+EQUIPMENT,home gym,home gym
+CONFIRMATION,Wait,no
+HEIGHT,I am 165 centimeters,165
+CONFIRMATION,Incorrect,no
+CONFIRMATION,Perfect,yes
+AGE,16,16
+LEVEL,Just a intermediate,intermediate
+DAYS,About 3 days,3
+CONSENT,I consent,yes
+ALLERGIES,I am shellfish,shellfish
+LEVEL,intermediate,intermediate
+CONFIRMATION,Wait,no
+LEVEL,Pretty much a beginner,beginner
+WEIGHT,267 pounds,267
+AGE,60,60
+LEVEL,I am a pro,pro
+EQUIPMENT,I have access to full gym,full gym
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+INJURIES,Dealing with bad knee,bad knee
+LEVEL,I am a advanced,advanced
+GOAL,burn fat,burn fat
+EQUIPMENT,I only have full gym,full gym
+GREETING,Yeah let's go,yes
+DAYS,4,4
+GOAL,Mainly to tone up,tone up
+WEIGHT,I weigh 117 lbs,117
+INJURIES,I have a twisted ankle,twisted ankle
+DAYS,I have 3 days free,3
+INJURIES,shoulder impingement,shoulder impingement
+GOAL,burn fat,burn fat
+AGE,I'm 53,53
+HEIGHT,178 cm,178
+HEIGHT,191,191
+AGE,I am 46,46
+GREETING,Not yet,no
+ALLERGIES,I'm allergic to vegans,vegan
+GREETING,No,no
+HEIGHT,179,179
+HEIGHT,About 161 cm,161
+INJURIES,My bad knee hurts sometimes,bad knee
+GREETING,Not yet,no
+HEIGHT,About 153 cm,153
+HEIGHT,170 cm,170
+DAYS,About 5 days,5
+GREETING,Not ready,no
+WEIGHT,112,112
+WEIGHT,I am 229 lbs,229
+GREETING,No,no
+GREETING,Give me a minute,no
+CONFIRMATION,Incorrect,no
+EQUIPMENT,I have access to kettlebells,kettlebells
+DAYS,3,3
+ALLERGIES,I am peanut,peanut
+AGE,I am 30,30
+DAYS,I have 3 days free,3
+HEIGHT,188 cm,188
+LEVEL,I am a novice,novice
+CONFIRMATION,Yes,yes
+HEIGHT,150,150
+GREETING,Give me a minute,no
+EQUIPMENT,I workout at a full gym,full gym
+EQUIPMENT,I only have bodyweight,bodyweight
+CONFIRMATION,Incorrect,no
+CONSENT,I would rather not,no
+LEVEL,Just a beginner,beginner
+EQUIPMENT,I only have home gym,home gym
+CONSENT,I consent,yes
+HEIGHT,I am 173 centimeters,173
+INJURIES,I have a shoulder impingement,shoulder impingement
+WEIGHT,About 198,198
+GREETING,Let's do it,yes
+DAYS,I have 5 days free,5
+HEIGHT,178,178
+GREETING,No,no
+GREETING,Let's do it,yes
+GREETING,Nah,no
+INJURIES,lower back pain,lower back pain
+AGE,I just turned 56,56
+GOAL,burn fat,burn fat
+AGE,I'm 18,18
+GOAL,My goal is to tone up,tone up
+CONFIRMATION,That's right,yes
+GREETING,Give me a minute,no
+LEVEL,I'd say advanced,advanced
+HEIGHT,159 cm,159
+ALLERGIES,I am vegan,vegan
+GREETING,I'm ready,yes
+EQUIPMENT,dumbbells,dumbbells
+EQUIPMENT,I have access to bodyweight,bodyweight
+INJURIES,I have a twisted ankle,twisted ankle
+AGE,22,22
+WEIGHT,178,178
+ALLERGIES,gluten,gluten
+AGE,I just turned 27,27
+GREETING,Not ready,no
+ALLERGIES,I have a gluten allergy,gluten
+EQUIPMENT,I workout at a dumbbells,dumbbells
+WEIGHT,257 pounds,257
+LEVEL,Pretty much a intermediate,intermediate
+AGE,I am 37,37
+EQUIPMENT,I only have resistance bands,resistance bands
+DAYS,I can do 6 days a week,6
+HEIGHT,175,175
+AGE,I'm 47,47
+WEIGHT,172,172
+GREETING,No,no
+INJURIES,bad knee,bad knee
+DAYS,3,3
+DAYS,About 5 days,5
+HEIGHT,190,190
+DAYS,2 days,2
+GOAL,I want to get shredded,get shredded
+AGE,I just turned 40,40
+HEIGHT,About 171 cm,171
+CONSENT,Yeah that's fine,yes
+GREETING,Nah,no
+ALLERGIES,gluten,gluten
+WEIGHT,Around 247,247
+GREETING,Let's do it,yes
+ALLERGIES,lactose intolerant,lactose intolerant
+GOAL,Mainly to build muscle,build muscle
+ALLERGIES,I am vegan,vegan
+CONFIRMATION,Generate it,yes
+HEIGHT,158 cm,158
+WEIGHT,I am 177 lbs,177
+LEVEL,I'd say intermediate,intermediate
+WEIGHT,Around 238,238
+GREETING,Ready,yes
+CONFIRMATION,Wait,no
+EQUIPMENT,I have access to bodyweight,bodyweight
+HEIGHT,I am 156 centimeters,156
+CONFIRMATION,Perfect,yes
+CONSENT,I don't consent,no
+INJURIES,My bad knee hurts sometimes,bad knee
+EQUIPMENT,Just home gym,home gym
+AGE,I'm 32,32
+EQUIPMENT,home gym,home gym
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+GREETING,Nah,no
+INJURIES,Dealing with lower back pain,lower back pain
+GREETING,Ready,yes
+LEVEL,Just a beginner,beginner
+CONSENT,Okay,yes
+GREETING,Let's do it,yes
+EQUIPMENT,Just home gym,home gym
+ALLERGIES,I have a peanut allergy,peanut
+GOAL,I want to get shredded,get shredded
+CONFIRMATION,Go ahead,yes
+ALLERGIES,Nah,none
+WEIGHT,I am 283 lbs,283
+CONSENT,I consent,yes
+GOAL,I want to endurance,endurance
+CONFIRMATION,I need to change something,no
+GREETING,Yes,yes
+AGE,I am 31 years old,31
+AGE,I am 42,42
+GOAL,Looking to tone up,tone up
+CONFIRMATION,That is wrong,no
+INJURIES,I have a tennis elbow,tennis elbow
+DAYS,6 days,6
+GOAL,I want to build muscle,build muscle
+GOAL,tone up,tone up
+EQUIPMENT,I have access to resistance bands,resistance bands
+INJURIES,I have a shoulder impingement,shoulder impingement
+EQUIPMENT,I only have full gym,full gym
+DAYS,2 days,2
+AGE,65,65
+INJURIES,lower back pain,lower back pain
+LEVEL,Just a pro,pro
+WEIGHT,117 pounds,117
+WEIGHT,244,244
+CONFIRMATION,Perfect,yes
+INJURIES,I have a lower back pain,lower back pain
+DAYS,6,6
+HEIGHT,I am 182 centimeters,182
+HEIGHT,I am 179 centimeters,179
+CONFIRMATION,Yes,yes
+WEIGHT,251,251
+CONFIRMATION,Looks correct,yes
+CONFIRMATION,No,no
+CONSENT,Nah,no
+CONFIRMATION,That is wrong,no
+GREETING,Nah,no
+LEVEL,I am a novice,novice
+ALLERGIES,None,none
+INJURIES,bad knee,bad knee
+AGE,I just turned 53,53
+EQUIPMENT,I workout at a full gym,full gym
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+CONSENT,Sure,yes
+LEVEL,pro,pro
+HEIGHT,About 153 cm,153
+WEIGHT,Around 295,295
+HEIGHT,I am 153 centimeters,153
+WEIGHT,I weigh 209 lbs,209
+EQUIPMENT,full gym,full gym
+HEIGHT,185,185
+WEIGHT,197,197
+DAYS,3,3
+GREETING,Give me a minute,no
+AGE,I am 40 years old,40
+LEVEL,I am a novice,novice
+DAYS,About 6 days,6
+HEIGHT,I am 180 centimeters,180
+HEIGHT,I am 190 centimeters,190
+LEVEL,Just a beginner,beginner
+LEVEL,I am a beginner,beginner
+INJURIES,lower back pain,lower back pain
+LEVEL,advanced,advanced
+DAYS,I can do 2 days a week,2
+ALLERGIES,I am lactose intolerant,lactose intolerant
+GREETING,Give me a minute,no
+LEVEL,intermediate,intermediate
+EQUIPMENT,I workout at a full gym,full gym
+DAYS,5,5
+GREETING,Give me a minute,no
+EQUIPMENT,I have access to dumbbells,dumbbells
+GOAL,burn fat,burn fat
+INJURIES,lower back pain,lower back pain
+LEVEL,I'd say intermediate,intermediate
+WEIGHT,I weigh 253 lbs,253
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+WEIGHT,100 pounds,100
+CONSENT,Sure,yes
+HEIGHT,159,159
+INJURIES,Nope,none
+DAYS,2,2
+HEIGHT,I am 163 centimeters,163
+GOAL,lose weight,lose weight
+LEVEL,I am a novice,novice
+AGE,I am 37 years old,37
+HEIGHT,151 cm,151
+HEIGHT,184 cm,184
+GREETING,Not yet,no
+CONSENT,No,no
+DAYS,I can do 2 days a week,2
+GOAL,Mainly to get shredded,get shredded
+CONFIRMATION,Wait,no
+GREETING,Yes I am,yes
+CONFIRMATION,Incorrect,no
+GOAL,Mainly to get shredded,get shredded
+HEIGHT,I am 189 centimeters,189
+CONSENT,I would rather not,no
+AGE,I am 49 years old,49
+CONFIRMATION,Incorrect,no
+EQUIPMENT,I have access to full gym,full gym
+CONSENT,Sure,yes
+GOAL,Looking to get shredded,get shredded
+ALLERGIES,No allergies,none
+HEIGHT,I am 175 centimeters,175
+GREETING,Let's do it,yes
+EQUIPMENT,I only have home gym,home gym
+GREETING,No,no
+AGE,16,16
+CONSENT,I would rather not,no
+CONSENT,Nah,no
+EQUIPMENT,I have access to dumbbells,dumbbells
+DAYS,About 5 days,5
+CONFIRMATION,Looks good,yes
+CONSENT,Okay,yes
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+LEVEL,intermediate,intermediate
+HEIGHT,I am 160 centimeters,160
+EQUIPMENT,I workout at a kettlebells,kettlebells
+EQUIPMENT,Just full gym,full gym
+CONFIRMATION,Go ahead,yes
+DAYS,5,5
+GREETING,I'm ready,yes
+LEVEL,Pretty much a novice,novice
+AGE,I am 59,59
+WEIGHT,279 pounds,279
+WEIGHT,Around 241,241
+LEVEL,Just a intermediate,intermediate
+WEIGHT,About 143,143
+HEIGHT,I am 181 centimeters,181
+DAYS,About 3 days,3
+INJURIES,lower back pain,lower back pain
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+WEIGHT,I weigh 209 lbs,209
+AGE,32,32
+LEVEL,I'd say novice,novice
+INJURIES,tennis elbow,tennis elbow
+LEVEL,beginner,beginner
+HEIGHT,190 cm,190
+ALLERGIES,I am vegan,vegan
+DAYS,I have 3 days free,3
+ALLERGIES,gluten,gluten
+HEIGHT,I am 187 centimeters,187
+HEIGHT,183 cm,183
+INJURIES,Nope,none
+HEIGHT,172,172
+WEIGHT,Around 152,152
+HEIGHT,I am 165 centimeters,165
+DAYS,I can do 4 days a week,4
+GREETING,Let's do it,yes
+EQUIPMENT,resistance bands,resistance bands
+WEIGHT,207,207
+WEIGHT,About 154,154
+INJURIES,Dealing with bad knee,bad knee
+WEIGHT,180 pounds,180
+EQUIPMENT,I workout at a home gym,home gym
+GREETING,Ready,yes
+LEVEL,Just a pro,pro
+HEIGHT,165 cm,165
+DAYS,About 5 days,5
+GREETING,I'm ready,yes
+EQUIPMENT,I only have kettlebells,kettlebells
+GOAL,Looking to lose weight,lose weight
+DAYS,5,5
+INJURIES,Dealing with bad knee,bad knee
+INJURIES,Dealing with lower back pain,lower back pain
+DAYS,I have 3 days free,3
+AGE,I just turned 34,34
+DAYS,I have 5 days free,5
+CONFIRMATION,Wait,no
+CONFIRMATION,That is wrong,no
+GREETING,Absolutely,yes
+GREETING,Give me a minute,no
+CONSENT,Nah,no
+CONFIRMATION,Generate it,yes
+DAYS,I have 6 days free,6
+LEVEL,I'd say intermediate,intermediate
+GREETING,Let's do it,yes
+INJURIES,I have a shoulder impingement,shoulder impingement
+INJURIES,My shoulder impingement hurts sometimes,shoulder impingement
+INJURIES,shoulder impingement,shoulder impingement
+GREETING,Nah,no
+CONFIRMATION,Incorrect,no
+AGE,58,58
+CONFIRMATION,Generate it,yes
+EQUIPMENT,I workout at a home gym,home gym
+ALLERGIES,I have a peanut allergy,peanut
+HEIGHT,About 157 cm,157
+CONFIRMATION,Perfect,yes
+INJURIES,shoulder impingement,shoulder impingement
+AGE,I'm 33,33
+EQUIPMENT,I only have full gym,full gym
+ALLERGIES,Nope,none
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+AGE,I am 18,18
+DAYS,4 days,4
+WEIGHT,About 129,129
+ALLERGIES,I have a shellfish allergy,shellfish
+AGE,61,61
+GREETING,Yes,yes
+HEIGHT,About 178 cm,178
+AGE,I'm 20,20
+WEIGHT,I weigh 286 lbs,286
+ALLERGIES,I have a vegan allergy,vegan
+EQUIPMENT,I only have dumbbells,dumbbells
+WEIGHT,I am 247 lbs,247
+CONSENT,No,no
+DAYS,3 days,3
+GOAL,I want to build muscle,build muscle
+EQUIPMENT,I have access to home gym,home gym
+WEIGHT,I am 150 lbs,150
+GREETING,Not yet,no
+ALLERGIES,I have a peanut allergy,peanut
+EQUIPMENT,Just full gym,full gym
+AGE,I just turned 60,60
+HEIGHT,182 cm,182
+INJURIES,No injuries,none
+CONFIRMATION,Generate it,yes
+GREETING,No,no
+CONFIRMATION,Wait,no
+ALLERGIES,Nope,none
+EQUIPMENT,resistance bands,resistance bands
+HEIGHT,180 cm,180
+GREETING,Nah,no
+EQUIPMENT,I workout at a bodyweight,bodyweight
+GREETING,Nah,no
+LEVEL,I am a pro,pro
+GREETING,I'm ready,yes
+HEIGHT,I am 154 centimeters,154
+INJURIES,lower back pain,lower back pain
+WEIGHT,About 259,259
+LEVEL,I am a beginner,beginner
+EQUIPMENT,Just resistance bands,resistance bands
+EQUIPMENT,Just full gym,full gym
+WEIGHT,Around 197,197
+CONSENT,Yes you do,yes
+HEIGHT,About 191 cm,191
+INJURIES,None,none
+CONSENT,Okay,yes
+INJURIES,Dealing with twisted ankle,twisted ankle
+HEIGHT,168 cm,168
+EQUIPMENT,I workout at a resistance bands,resistance bands
+AGE,26,26
+LEVEL,Just a intermediate,intermediate
+GOAL,I want to burn fat,burn fat
+EQUIPMENT,I have access to bodyweight,bodyweight
+ALLERGIES,vegan,vegan
+CONSENT,I don't consent,no
+DAYS,I can do 4 days a week,4
+LEVEL,I am a novice,novice
+DAYS,I can do 5 days a week,5
+WEIGHT,Around 196,196
+CONFIRMATION,That is wrong,no
+WEIGHT,Around 217,217
+ALLERGIES,I have a shellfish allergy,shellfish
+CONSENT,No,no
+ALLERGIES,I'm allergic to vegans,vegan
+DAYS,About 2 days,2
+HEIGHT,171,171
+GREETING,No,no
+DAYS,About 6 days,6
+AGE,I am 24,24
+AGE,39,39
+HEIGHT,154 cm,154
+WEIGHT,184,184
+DAYS,3 days,3
+LEVEL,I'd say beginner,beginner
+DAYS,5 days,5
+WEIGHT,292 pounds,292
+HEIGHT,About 164 cm,164
+GREETING,Let's do it,yes
+EQUIPMENT,I only have full gym,full gym
+GREETING,Ready,yes
+ALLERGIES,I eat everything,none
+EQUIPMENT,I only have resistance bands,resistance bands
+HEIGHT,179 cm,179
+CONSENT,Nope,no
+GOAL,I want to get shredded,get shredded
+GOAL,Looking to endurance,endurance
+ALLERGIES,I am shellfish,shellfish
+WEIGHT,I weigh 235 lbs,235
+WEIGHT,I weigh 103 lbs,103
+LEVEL,I am a advanced,advanced
+GREETING,Yes I am,yes
+EQUIPMENT,I workout at a home gym,home gym
+LEVEL,I'd say novice,novice
+DAYS,I have 3 days free,3
+EQUIPMENT,I only have resistance bands,resistance bands
+CONFIRMATION,Looks good,yes
+CONFIRMATION,That's right,yes
+CONSENT,Nah,no
+INJURIES,Dealing with twisted ankle,twisted ankle
+HEIGHT,About 170 cm,170
+GOAL,Looking to lose weight,lose weight
+GOAL,Mainly to tone up,tone up
+HEIGHT,163,163
+GREETING,Absolutely,yes
+CONFIRMATION,Perfect,yes
+GREETING,Yes I am,yes
+CONSENT,Nah,no
+GREETING,I'm ready,yes
+LEVEL,I am a novice,novice
+DAYS,6,6
+LEVEL,Pretty much a intermediate,intermediate
+GOAL,Looking to burn fat,burn fat
+GREETING,Absolutely,yes
+GOAL,Mainly to tone up,tone up
+CONFIRMATION,No,no
+AGE,29,29
+DAYS,I can do 5 days a week,5
+EQUIPMENT,I have access to full gym,full gym
+AGE,I'm 18,18
+AGE,I am 16,16
+AGE,I just turned 17,17
+INJURIES,Dealing with tennis elbow,tennis elbow
+DAYS,I have 6 days free,6
+WEIGHT,I am 237 lbs,237
+GOAL,I want to lose weight,lose weight
+DAYS,I can do 4 days a week,4
+WEIGHT,I am 151 lbs,151
+GOAL,I want to endurance,endurance
+DAYS,I can do 5 days a week,5
+DAYS,I have 6 days free,6
+CONFIRMATION,I need to change something,no
+INJURIES,I'm perfectly healthy,none
+EQUIPMENT,I have access to dumbbells,dumbbells
+AGE,I am 44,44
+HEIGHT,153 cm,153
+ALLERGIES,vegan,vegan
+EQUIPMENT,kettlebells,kettlebells
+CONFIRMATION,Looks correct,yes
+INJURIES,No,none
+LEVEL,pro,pro
+WEIGHT,249 pounds,249
+LEVEL,pro,pro
+ALLERGIES,gluten,gluten
+DAYS,About 3 days,3
+GOAL,Looking to tone up,tone up
+WEIGHT,Around 275,275
+HEIGHT,164 cm,164
+GREETING,Nah,no
+ALLERGIES,I am peanut,peanut
+ALLERGIES,I'm allergic to glutens,gluten
+EQUIPMENT,I workout at a home gym,home gym
+GREETING,Let's do it,yes
+CONFIRMATION,Wait,no
+CONFIRMATION,Looks correct,yes
+EQUIPMENT,I only have home gym,home gym
+ALLERGIES,I have a lactose intolerant allergy,lactose intolerant
+HEIGHT,152 cm,152
+ALLERGIES,I'm allergic to shellfishs,shellfish
+CONSENT,No,no
+INJURIES,Dealing with bad knee,bad knee
+INJURIES,No injuries,none
+CONSENT,Nope,no
+INJURIES,lower back pain,lower back pain
+CONSENT,I would rather not,no
+INJURIES,None,none
+INJURIES,Dealing with bad knee,bad knee
+INJURIES,Dealing with twisted ankle,twisted ankle
+WEIGHT,I weigh 299 lbs,299
+HEIGHT,168,168
+GREETING,Nah,no
+LEVEL,I am a novice,novice
+DAYS,I have 4 days free,4
+ALLERGIES,Nope,none
+GOAL,My goal is to tone up,tone up
+CONFIRMATION,Generate it,yes
+GREETING,Not ready,no
+AGE,I am 36,36
+HEIGHT,195,195
+EQUIPMENT,I have access to bodyweight,bodyweight
+DAYS,I can do 3 days a week,3
+HEIGHT,About 186 cm,186
+INJURIES,Dealing with bad knee,bad knee
+HEIGHT,165,165
+GREETING,No,no
+GOAL,Mainly to burn fat,burn fat
+GREETING,Not yet,no
+HEIGHT,About 194 cm,194
+HEIGHT,About 151 cm,151
+CONFIRMATION,Wait,no
+GREETING,Yeah let's go,yes
+EQUIPMENT,I only have resistance bands,resistance bands
+GREETING,Nah,no
+CONFIRMATION,That is wrong,no
+INJURIES,I have a twisted ankle,twisted ankle
+INJURIES,No injuries,none
+WEIGHT,I am 275 lbs,275
+HEIGHT,151,151
+AGE,I am 47 years old,47
+ALLERGIES,I have a vegan allergy,vegan
+WEIGHT,About 167,167
+WEIGHT,Around 219,219
+ALLERGIES,I'm allergic to glutens,gluten
+LEVEL,Pretty much a intermediate,intermediate
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+ALLERGIES,I have a shellfish allergy,shellfish
+CONSENT,Yes,yes
+CONSENT,I would rather not,no
+CONFIRMATION,Wait,no
+WEIGHT,About 173,173
+EQUIPMENT,Just full gym,full gym
+GOAL,Looking to get shredded,get shredded
+DAYS,2 days,2
+LEVEL,I am a novice,novice
+CONSENT,I consent,yes
+EQUIPMENT,I workout at a kettlebells,kettlebells
+HEIGHT,164 cm,164
+DAYS,About 2 days,2
+INJURIES,None,none
+LEVEL,Just a beginner,beginner
+CONSENT,I would rather not,no
+WEIGHT,I am 172 lbs,172
+GREETING,Let's do it,yes
+GOAL,I want to lose weight,lose weight
+DAYS,2 days,2
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+CONSENT,Nah,no
+DAYS,2,2
+HEIGHT,181,181
+LEVEL,I am a pro,pro
+LEVEL,beginner,beginner
+WEIGHT,I weigh 286 lbs,286
+GREETING,Let's do it,yes
+LEVEL,novice,novice
+DAYS,5,5
+GOAL,Mainly to tone up,tone up
+GOAL,Mainly to burn fat,burn fat
+CONSENT,Nah,no
+CONFIRMATION,Incorrect,no
+GOAL,Looking to endurance,endurance
+CONFIRMATION,Incorrect,no
+DAYS,2,2
+ALLERGIES,I am peanut,peanut
+HEIGHT,I am 183 centimeters,183
+WEIGHT,About 221,221
+DAYS,I have 3 days free,3
+DAYS,I can do 3 days a week,3
+EQUIPMENT,Just resistance bands,resistance bands
+WEIGHT,I weigh 139 lbs,139
+AGE,I'm 32,32
+AGE,I am 28 years old,28
+GREETING,Let's do it,yes
+WEIGHT,Around 118,118
+LEVEL,I'd say intermediate,intermediate
+CONSENT,Yeah that's fine,yes
+ALLERGIES,I am gluten,gluten
+WEIGHT,218,218
+CONFIRMATION,Wait,no
+ALLERGIES,None,none
+WEIGHT,226,226
+CONSENT,Nope,no
+WEIGHT,Around 201,201
+GREETING,Let's do it,yes
+DAYS,I have 3 days free,3
+ALLERGIES,I have a gluten allergy,gluten
+AGE,37,37
+HEIGHT,About 169 cm,169
+CONFIRMATION,That is wrong,no
+CONSENT,No,no
+LEVEL,I am a novice,novice
+GREETING,Not ready,no
+GREETING,Yes I am,yes
+GREETING,Absolutely,yes
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+DAYS,About 4 days,4
+DAYS,2 days,2
+HEIGHT,171 cm,171
+WEIGHT,285 pounds,285
+HEIGHT,160 cm,160
+DAYS,3,3
+CONSENT,Yeah that's fine,yes
+HEIGHT,I am 167 centimeters,167
+ALLERGIES,I am shellfish,shellfish
+GOAL,I want to build muscle,build muscle
+HEIGHT,193 cm,193
+GOAL,My goal is to endurance,endurance
+CONSENT,Nah,no
+DAYS,2 days,2
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+GOAL,Mainly to lose weight,lose weight
+HEIGHT,182 cm,182
+EQUIPMENT,I have access to full gym,full gym
+AGE,I just turned 64,64
+LEVEL,beginner,beginner
+WEIGHT,250,250
+EQUIPMENT,I only have home gym,home gym
+GOAL,lose weight,lose weight
+INJURIES,I have a shoulder impingement,shoulder impingement
+CONSENT,Okay,yes
+HEIGHT,I am 170 centimeters,170
+CONSENT,Nah,no
+HEIGHT,I am 178 centimeters,178
+EQUIPMENT,resistance bands,resistance bands
+AGE,I am 49 years old,49
+ALLERGIES,I am peanut,peanut
+GOAL,My goal is to lose weight,lose weight
+GOAL,Mainly to build muscle,build muscle
+INJURIES,lower back pain,lower back pain
+DAYS,4 days,4
+AGE,I'm 61,61
+CONSENT,Okay,yes
+GOAL,My goal is to endurance,endurance
+CONSENT,Nope,no
+WEIGHT,178 pounds,178
+CONFIRMATION,Generate it,yes
+HEIGHT,173,173
+CONSENT,Yes you do,yes
+WEIGHT,242,242
+CONSENT,I consent,yes
+EQUIPMENT,I workout at a resistance bands,resistance bands
+CONFIRMATION,I need to change something,no
+DAYS,2,2
+LEVEL,Pretty much a beginner,beginner
+HEIGHT,About 180 cm,180
+INJURIES,My lower back pain hurts sometimes,lower back pain
+AGE,27,27
+ALLERGIES,I'm allergic to vegans,vegan
+CONSENT,Nah,no
+GREETING,No,no
+CONSENT,Okay,yes
+ALLERGIES,vegan,vegan
+LEVEL,I am a advanced,advanced
+AGE,I'm 39,39
+ALLERGIES,No allergies,none
+ALLERGIES,Nah,none
+CONSENT,Go ahead,yes
+GREETING,Not ready,no
+LEVEL,Pretty much a beginner,beginner
+INJURIES,I have a bad knee,bad knee
+DAYS,About 4 days,4
+GOAL,Mainly to lose weight,lose weight
+EQUIPMENT,I workout at a bodyweight,bodyweight
+AGE,I am 23 years old,23
+WEIGHT,I am 299 lbs,299
+HEIGHT,About 191 cm,191
+EQUIPMENT,I have access to dumbbells,dumbbells
+CONFIRMATION,Looks correct,yes
+ALLERGIES,I have a shellfish allergy,shellfish
+GOAL,I want to build muscle,build muscle
+GREETING,No,no
+ALLERGIES,I have a lactose intolerant allergy,lactose intolerant
+ALLERGIES,vegan,vegan
+LEVEL,novice,novice
+INJURIES,I have a shoulder impingement,shoulder impingement
+DAYS,6 days,6
+EQUIPMENT,I only have kettlebells,kettlebells
+GREETING,I'm ready,yes
+DAYS,I can do 3 days a week,3
+DAYS,2,2
+CONFIRMATION,No,no
+EQUIPMENT,Just full gym,full gym
+CONSENT,Sure,yes
+INJURIES,No,none
+CONFIRMATION,That is wrong,no
+CONSENT,Okay,yes
+DAYS,4,4
+LEVEL,I'd say pro,pro
+HEIGHT,I am 164 centimeters,164
+HEIGHT,155 cm,155
+WEIGHT,Around 112,112
+INJURIES,Nope,none
+WEIGHT,I weigh 300 lbs,300
+INJURIES,None,none
+WEIGHT,261,261
+CONFIRMATION,Wait,no
+INJURIES,twisted ankle,twisted ankle
+DAYS,I have 5 days free,5
+LEVEL,Just a novice,novice
+EQUIPMENT,Just home gym,home gym
+LEVEL,Just a advanced,advanced
+HEIGHT,172,172
+AGE,I am 27,27
+CONSENT,Yes,yes
+GREETING,Absolutely,yes
+GREETING,Nah,no
+INJURIES,No injuries,none
+GOAL,Mainly to tone up,tone up
+ALLERGIES,I have a lactose intolerant allergy,lactose intolerant
+CONSENT,Sure,yes
+GREETING,Not yet,no
+GOAL,burn fat,burn fat
+AGE,I am 20,20
+CONFIRMATION,Wait,no
+HEIGHT,178,178
+LEVEL,beginner,beginner
+INJURIES,My shoulder impingement hurts sometimes,shoulder impingement
+INJURIES,My bad knee hurts sometimes,bad knee
+GREETING,Nah,no
+HEIGHT,195 cm,195
+INJURIES,Dealing with tennis elbow,tennis elbow
+GREETING,Not yet,no
+EQUIPMENT,I have access to dumbbells,dumbbells
+LEVEL,Just a novice,novice
+DAYS,I have 5 days free,5
+DAYS,2,2
+GOAL,Looking to burn fat,burn fat
+DAYS,6 days,6
+INJURIES,My shoulder impingement hurts sometimes,shoulder impingement
+WEIGHT,174 pounds,174
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+HEIGHT,About 193 cm,193
+GREETING,Give me a minute,no
+GREETING,Not ready,no
+DAYS,About 3 days,3
+GREETING,Nah,no
+WEIGHT,126,126
+EQUIPMENT,I only have dumbbells,dumbbells
+GOAL,I want to tone up,tone up
+EQUIPMENT,I only have kettlebells,kettlebells
+AGE,I am 32 years old,32
+EQUIPMENT,I only have dumbbells,dumbbells
+ALLERGIES,I eat everything,none
+GREETING,Absolutely,yes
+ALLERGIES,Nope,none
+GOAL,build muscle,build muscle
+INJURIES,tennis elbow,tennis elbow
+DAYS,6 days,6
+INJURIES,My bad knee hurts sometimes,bad knee
+ALLERGIES,I'm allergic to shellfishs,shellfish
+AGE,I am 55,55
+DAYS,About 2 days,2
+WEIGHT,222,222
+WEIGHT,I am 238 lbs,238
+GREETING,Yes,yes
+ALLERGIES,Nah,none
+ALLERGIES,I have a gluten allergy,gluten
+AGE,52,52
+EQUIPMENT,dumbbells,dumbbells
+ALLERGIES,Nah,none
+LEVEL,I am a advanced,advanced
+WEIGHT,I weigh 296 lbs,296
+DAYS,5,5
+INJURIES,I have a shoulder impingement,shoulder impingement
+EQUIPMENT,I only have kettlebells,kettlebells
+EQUIPMENT,I only have kettlebells,kettlebells
+CONSENT,Yes,yes
+HEIGHT,About 193 cm,193
+INJURIES,twisted ankle,twisted ankle
+GOAL,get shredded,get shredded
+DAYS,3 days,3
+DAYS,6 days,6
+CONSENT,I don't consent,no
+CONFIRMATION,Perfect,yes
+ALLERGIES,I'm allergic to vegans,vegan
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+DAYS,2 days,2
+WEIGHT,180 pounds,180
+GOAL,Mainly to build muscle,build muscle
+EQUIPMENT,Just dumbbells,dumbbells
+HEIGHT,167,167
+GREETING,Give me a minute,no
+WEIGHT,About 210,210
+WEIGHT,221,221
+GREETING,Yes,yes
+GREETING,Nah,no
+LEVEL,I'd say beginner,beginner
+ALLERGIES,I'm allergic to glutens,gluten
+AGE,25,25
+GREETING,Give me a minute,no
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+ALLERGIES,Nope,none
+GOAL,Looking to lose weight,lose weight
+ALLERGIES,Nah,none
+WEIGHT,I weigh 126 lbs,126
+EQUIPMENT,I workout at a resistance bands,resistance bands
+GREETING,Absolutely,yes
+HEIGHT,About 163 cm,163
+WEIGHT,286,286
+CONSENT,Yes you do,yes
+CONSENT,Yes,yes
+LEVEL,I am a novice,novice
+GOAL,Looking to lose weight,lose weight
+AGE,I am 40 years old,40
+ALLERGIES,shellfish,shellfish
+HEIGHT,About 186 cm,186
+CONFIRMATION,Go ahead,yes
+WEIGHT,Around 106,106
+HEIGHT,I am 183 centimeters,183
+EQUIPMENT,I workout at a dumbbells,dumbbells
+EQUIPMENT,Just kettlebells,kettlebells
+ALLERGIES,I have a vegan allergy,vegan
+LEVEL,I am a beginner,beginner
+LEVEL,Just a novice,novice
+HEIGHT,155 cm,155
+CONSENT,Sure,yes
+CONFIRMATION,Go ahead,yes
+DAYS,I can do 5 days a week,5
+EQUIPMENT,Just dumbbells,dumbbells
+AGE,42,42
+HEIGHT,About 158 cm,158
+GOAL,My goal is to tone up,tone up
+CONFIRMATION,Go ahead,yes
+HEIGHT,I am 165 centimeters,165
+INJURIES,I'm perfectly healthy,none
+CONFIRMATION,That's right,yes
+INJURIES,No injuries,none
+CONFIRMATION,Go ahead,yes
+HEIGHT,I am 157 centimeters,157
+CONSENT,I don't consent,no
+DAYS,About 4 days,4
+CONFIRMATION,Wait,no
+DAYS,4,4
+INJURIES,I'm perfectly healthy,none
+LEVEL,I am a intermediate,intermediate
+WEIGHT,I am 251 lbs,251
+GOAL,My goal is to burn fat,burn fat
+ALLERGIES,I am lactose intolerant,lactose intolerant
+LEVEL,Just a advanced,advanced
+DAYS,About 3 days,3
+DAYS,4,4
+HEIGHT,186,186
+EQUIPMENT,kettlebells,kettlebells
+GOAL,build muscle,build muscle
+CONSENT,I consent,yes
+AGE,I am 52,52
+INJURIES,My bad knee hurts sometimes,bad knee
+GREETING,Not ready,no
+EQUIPMENT,I only have bodyweight,bodyweight
+GOAL,I want to lose weight,lose weight
+LEVEL,I am a intermediate,intermediate
+ALLERGIES,I have a peanut allergy,peanut
+GREETING,Give me a minute,no
+GREETING,Not yet,no
+GREETING,Yeah let's go,yes
+DAYS,4,4
+DAYS,3,3
+CONSENT,I would rather not,no
+WEIGHT,273 pounds,273
+CONFIRMATION,Perfect,yes
+ALLERGIES,I'm allergic to glutens,gluten
+HEIGHT,I am 171 centimeters,171
+WEIGHT,I weigh 153 lbs,153
+INJURIES,I'm perfectly healthy,none
+ALLERGIES,Nope,none
+LEVEL,Pretty much a beginner,beginner
+GREETING,Give me a minute,no
+INJURIES,I have a tennis elbow,tennis elbow
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+EQUIPMENT,I have access to bodyweight,bodyweight
+ALLERGIES,I'm allergic to glutens,gluten
+GOAL,Mainly to get shredded,get shredded
+LEVEL,Pretty much a beginner,beginner
+ALLERGIES,I am lactose intolerant,lactose intolerant
+CONFIRMATION,That is wrong,no
+GREETING,Yes,yes
+EQUIPMENT,Just home gym,home gym
+AGE,62,62
+INJURIES,My bad knee hurts sometimes,bad knee
+CONFIRMATION,Perfect,yes
+HEIGHT,I am 158 centimeters,158
+GREETING,Yes,yes
+GOAL,I want to endurance,endurance
+GREETING,No,no
+AGE,I'm 22,22
+GOAL,build muscle,build muscle
+AGE,19,19
+AGE,54,54
+EQUIPMENT,I workout at a kettlebells,kettlebells
+ALLERGIES,I am peanut,peanut
+DAYS,3 days,3
+LEVEL,novice,novice
+GOAL,Looking to lose weight,lose weight
+WEIGHT,Around 172,172
+WEIGHT,About 268,268
+ALLERGIES,I'm allergic to peanuts,peanut
+AGE,I'm 26,26
+INJURIES,tennis elbow,tennis elbow
+GOAL,Looking to tone up,tone up
+EQUIPMENT,I have access to full gym,full gym
+WEIGHT,I am 242 lbs,242
+LEVEL,I'd say advanced,advanced
+HEIGHT,155 cm,155
+AGE,I am 35,35
+GREETING,Yeah let's go,yes
+LEVEL,I am a novice,novice
+EQUIPMENT,I only have resistance bands,resistance bands
+ALLERGIES,peanut,peanut
+GREETING,Let's do it,yes
+CONFIRMATION,That's right,yes
+AGE,I just turned 60,60
+INJURIES,None,none
+ALLERGIES,I am peanut,peanut
+ALLERGIES,I have a gluten allergy,gluten
+CONFIRMATION,Incorrect,no
+GREETING,Let's do it,yes
+CONSENT,Yeah that's fine,yes
+EQUIPMENT,I workout at a home gym,home gym
+LEVEL,advanced,advanced
+HEIGHT,About 185 cm,185
+AGE,I am 54 years old,54
+INJURIES,No injuries,none
+EQUIPMENT,kettlebells,kettlebells
+CONFIRMATION,That's right,yes
+WEIGHT,I am 296 lbs,296
+EQUIPMENT,home gym,home gym
+GOAL,Mainly to endurance,endurance
+GOAL,I want to burn fat,burn fat
+GOAL,Mainly to burn fat,burn fat
+ALLERGIES,I am shellfish,shellfish
+GOAL,My goal is to endurance,endurance
+ALLERGIES,Nah,none
+HEIGHT,158 cm,158
+HEIGHT,179 cm,179
+CONFIRMATION,I need to change something,no
+GREETING,Absolutely,yes
+ALLERGIES,I'm allergic to peanuts,peanut
+ALLERGIES,I have a gluten allergy,gluten
+DAYS,About 2 days,2
+LEVEL,Just a beginner,beginner
+LEVEL,pro,pro
+WEIGHT,152 pounds,152
+INJURIES,I have a twisted ankle,twisted ankle
+CONFIRMATION,Yes,yes
+GREETING,Ready,yes
+WEIGHT,116,116
+GREETING,Ready,yes
+AGE,34,34
+CONSENT,Nope,no
+LEVEL,I am a beginner,beginner
+CONFIRMATION,Go ahead,yes
+AGE,45,45
+DAYS,4 days,4
+GOAL,lose weight,lose weight
+WEIGHT,256,256
+AGE,I'm 46,46
+GREETING,No,no
+GOAL,tone up,tone up
+LEVEL,I'd say novice,novice
+EQUIPMENT,I have access to bodyweight,bodyweight
+AGE,I just turned 17,17
+GREETING,Not yet,no
+LEVEL,Just a pro,pro
+CONSENT,Yes you do,yes
+LEVEL,Pretty much a beginner,beginner
+CONSENT,Nah,no
+GREETING,Not ready,no
+HEIGHT,181,181
+GOAL,I want to tone up,tone up
+WEIGHT,I am 141 lbs,141
+DAYS,About 3 days,3
+DAYS,I have 3 days free,3
+CONFIRMATION,Wait,no
+CONFIRMATION,Looks correct,yes
+ALLERGIES,shellfish,shellfish
+CONFIRMATION,Wait,no
+DAYS,4,4
+AGE,I am 50 years old,50
+HEIGHT,About 170 cm,170
+CONFIRMATION,I need to change something,no
+GOAL,My goal is to burn fat,burn fat
+AGE,I am 40,40
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+CONSENT,Nah,no
+INJURIES,Dealing with twisted ankle,twisted ankle
+GREETING,Yes,yes
+ALLERGIES,I eat everything,none
+CONFIRMATION,Looks good,yes
+GREETING,I'm ready,yes
+EQUIPMENT,full gym,full gym
+EQUIPMENT,Just resistance bands,resistance bands
+CONFIRMATION,Wait,no
+DAYS,About 6 days,6
+GOAL,Mainly to build muscle,build muscle
+LEVEL,Pretty much a advanced,advanced
+GOAL,Looking to get shredded,get shredded
+EQUIPMENT,I only have home gym,home gym
+AGE,I am 35 years old,35
+CONFIRMATION,That is wrong,no
+HEIGHT,About 182 cm,182
+LEVEL,Pretty much a beginner,beginner
+GREETING,Not yet,no
+WEIGHT,106,106
+WEIGHT,108 pounds,108
+CONFIRMATION,That is wrong,no
+HEIGHT,I am 166 centimeters,166
+AGE,I am 65 years old,65
+ALLERGIES,I am peanut,peanut
+WEIGHT,About 177,177
+WEIGHT,293 pounds,293
+EQUIPMENT,I have access to bodyweight,bodyweight
+HEIGHT,161,161
+ALLERGIES,I have a vegan allergy,vegan
+AGE,I'm 58,58
+INJURIES,Nope,none
+DAYS,About 6 days,6
+DAYS,About 3 days,3
+WEIGHT,112 pounds,112
+EQUIPMENT,I have access to kettlebells,kettlebells
+INJURIES,lower back pain,lower back pain
+CONFIRMATION,No,no
+WEIGHT,Around 284,284
+ALLERGIES,I'm allergic to glutens,gluten
+EQUIPMENT,I workout at a kettlebells,kettlebells
+INJURIES,tennis elbow,tennis elbow
+CONFIRMATION,Yes,yes
+CONSENT,Sure,yes
+HEIGHT,184 cm,184
+AGE,25,25
+HEIGHT,About 187 cm,187
+DAYS,3 days,3
+GREETING,Not yet,no
+WEIGHT,About 221,221
+EQUIPMENT,kettlebells,kettlebells
+WEIGHT,I am 120 lbs,120
+AGE,I am 65,65
+AGE,I'm 60,60
+ALLERGIES,I am vegan,vegan
+WEIGHT,About 229,229
+INJURIES,lower back pain,lower back pain
+DAYS,I can do 4 days a week,4
+CONFIRMATION,Yes,yes
+LEVEL,I'd say beginner,beginner
+GOAL,get shredded,get shredded
+WEIGHT,194,194
+CONSENT,I consent,yes
+CONFIRMATION,Wait,no
+INJURIES,shoulder impingement,shoulder impingement
+ALLERGIES,I have a shellfish allergy,shellfish
+LEVEL,Pretty much a intermediate,intermediate
+CONFIRMATION,Yes,yes
+WEIGHT,About 122,122
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+EQUIPMENT,I only have dumbbells,dumbbells
+ALLERGIES,vegan,vegan
+GOAL,Looking to burn fat,burn fat
+INJURIES,Dealing with lower back pain,lower back pain
+ALLERGIES,I am lactose intolerant,lactose intolerant
+EQUIPMENT,kettlebells,kettlebells
+CONFIRMATION,Looks correct,yes
+LEVEL,Pretty much a beginner,beginner
+WEIGHT,I weigh 261 lbs,261
+GOAL,Mainly to build muscle,build muscle
+ALLERGIES,I eat everything,none
+GREETING,Nah,no
+HEIGHT,165 cm,165
+AGE,I am 48,48
+LEVEL,I'd say beginner,beginner
+CONSENT,Nah,no
+WEIGHT,Around 110,110
+LEVEL,I'd say beginner,beginner
+INJURIES,twisted ankle,twisted ankle
+WEIGHT,279 pounds,279
+ALLERGIES,shellfish,shellfish
+GOAL,Mainly to endurance,endurance
+INJURIES,Dealing with lower back pain,lower back pain
+HEIGHT,I am 161 centimeters,161
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+ALLERGIES,gluten,gluten
+LEVEL,I'd say advanced,advanced
+DAYS,I have 5 days free,5
+DAYS,4,4
+GOAL,Looking to lose weight,lose weight
+WEIGHT,About 120,120
+DAYS,About 5 days,5
+GOAL,I want to endurance,endurance
+INJURIES,Nope,none
+LEVEL,Pretty much a beginner,beginner
+GREETING,Yes,yes
+DAYS,4,4
+LEVEL,Just a advanced,advanced
+INJURIES,shoulder impingement,shoulder impingement
+ALLERGIES,I am lactose intolerant,lactose intolerant
+WEIGHT,240,240
+WEIGHT,About 167,167
+AGE,I just turned 54,54
+GOAL,tone up,tone up
+ALLERGIES,I'm allergic to glutens,gluten
+EQUIPMENT,Just bodyweight,bodyweight
+CONSENT,Yes you do,yes
+DAYS,6 days,6
+LEVEL,Pretty much a pro,pro
+GREETING,Nah,no
+LEVEL,novice,novice
+DAYS,4,4
+CONFIRMATION,I need to change something,no
+HEIGHT,I am 171 centimeters,171
+DAYS,5,5
+EQUIPMENT,dumbbells,dumbbells
+INJURIES,I have a twisted ankle,twisted ankle
+CONSENT,No,no
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+ALLERGIES,lactose intolerant,lactose intolerant
+GREETING,I'm ready,yes
+INJURIES,I have a tennis elbow,tennis elbow
+DAYS,About 6 days,6
+HEIGHT,I am 193 centimeters,193
+CONSENT,Nope,no
+WEIGHT,I am 225 lbs,225
+INJURIES,I have a twisted ankle,twisted ankle
+AGE,27,27
+EQUIPMENT,bodyweight,bodyweight
+DAYS,I have 2 days free,2
+EQUIPMENT,I only have bodyweight,bodyweight
+INJURIES,Dealing with bad knee,bad knee
+CONFIRMATION,I need to change something,no
+EQUIPMENT,Just resistance bands,resistance bands
+DAYS,I have 2 days free,2
+DAYS,About 4 days,4
+WEIGHT,Around 263,263
+DAYS,About 2 days,2
+AGE,I just turned 59,59
+ALLERGIES,I'm allergic to vegans,vegan
+EQUIPMENT,bodyweight,bodyweight
+LEVEL,Pretty much a intermediate,intermediate
+GREETING,Nah,no
+HEIGHT,154,154
+GOAL,Looking to get shredded,get shredded
+GOAL,I want to endurance,endurance
+GREETING,Give me a minute,no
+DAYS,6 days,6
+INJURIES,bad knee,bad knee
+EQUIPMENT,I have access to resistance bands,resistance bands
+CONFIRMATION,I need to change something,no
+AGE,I just turned 65,65
+GOAL,tone up,tone up
+DAYS,I have 6 days free,6
+WEIGHT,Around 111,111
+INJURIES,No injuries,none
+GREETING,I'm ready,yes
+EQUIPMENT,dumbbells,dumbbells
+EQUIPMENT,Just dumbbells,dumbbells
+LEVEL,Just a beginner,beginner
+WEIGHT,I am 108 lbs,108
+CONSENT,Okay,yes
+GREETING,Yes,yes
+EQUIPMENT,Just home gym,home gym
+CONFIRMATION,No,no
+INJURIES,Dealing with twisted ankle,twisted ankle
+WEIGHT,I am 212 lbs,212
+GREETING,Give me a minute,no
+INJURIES,Dealing with tennis elbow,tennis elbow
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+EQUIPMENT,I only have full gym,full gym
+CONFIRMATION,No,no
+INJURIES,lower back pain,lower back pain
+GOAL,get shredded,get shredded
+LEVEL,I'd say beginner,beginner
+WEIGHT,I weigh 181 lbs,181
+ALLERGIES,No allergies,none
+ALLERGIES,I'm allergic to glutens,gluten
+GREETING,Yes,yes
+INJURIES,I have a bad knee,bad knee
+DAYS,I can do 3 days a week,3
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+EQUIPMENT,I have access to kettlebells,kettlebells
+GREETING,Not yet,no
+LEVEL,I am a beginner,beginner
+AGE,I'm 52,52
+LEVEL,Pretty much a beginner,beginner
+CONSENT,Nah,no
+CONSENT,Sure,yes
+CONSENT,Nah,no
+INJURIES,I have a twisted ankle,twisted ankle
+AGE,I just turned 42,42
+WEIGHT,I am 300 lbs,300
+INJURIES,shoulder impingement,shoulder impingement
+AGE,I am 25 years old,25
+INJURIES,Dealing with bad knee,bad knee
+CONFIRMATION,Looks correct,yes
+INJURIES,Dealing with bad knee,bad knee
+HEIGHT,About 173 cm,173
+CONSENT,Okay,yes
+HEIGHT,193,193
+CONFIRMATION,Go ahead,yes
+CONSENT,I would rather not,no
+AGE,I am 19 years old,19
+GOAL,Mainly to lose weight,lose weight
+EQUIPMENT,I only have dumbbells,dumbbells
+LEVEL,I am a novice,novice
+AGE,I just turned 26,26
+EQUIPMENT,Just dumbbells,dumbbells
+CONSENT,I would rather not,no
+CONSENT,I don't consent,no
+CONFIRMATION,Looks good,yes
+HEIGHT,159 cm,159
+EQUIPMENT,I workout at a full gym,full gym
+WEIGHT,244,244
+EQUIPMENT,I only have home gym,home gym
+WEIGHT,Around 196,196
+CONFIRMATION,Go ahead,yes
+EQUIPMENT,I workout at a dumbbells,dumbbells
+EQUIPMENT,I workout at a home gym,home gym
+WEIGHT,231,231
+WEIGHT,Around 150,150
+CONFIRMATION,Incorrect,no
+INJURIES,I have a tennis elbow,tennis elbow
+EQUIPMENT,Just resistance bands,resistance bands
+GREETING,Let's do it,yes
+LEVEL,I am a novice,novice
+LEVEL,Just a novice,novice
+DAYS,I have 6 days free,6
+ALLERGIES,I'm allergic to glutens,gluten
+WEIGHT,Around 294,294
+ALLERGIES,No allergies,none
+EQUIPMENT,resistance bands,resistance bands
+CONFIRMATION,Looks good,yes
+INJURIES,My shoulder impingement hurts sometimes,shoulder impingement
+GREETING,Yes I am,yes
+HEIGHT,183 cm,183
+CONSENT,I consent,yes
+AGE,I am 49,49
+GREETING,No,no
+AGE,I am 59,59
+AGE,I just turned 61,61
+AGE,I'm 18,18
+CONSENT,Sure,yes
+LEVEL,I am a pro,pro
+WEIGHT,206 pounds,206
+WEIGHT,Around 153,153
+LEVEL,pro,pro
+AGE,19,19
+WEIGHT,159,159
+ALLERGIES,I am gluten,gluten
+DAYS,4 days,4
+EQUIPMENT,I workout at a dumbbells,dumbbells
+AGE,I am 19,19
+AGE,I'm 17,17
+AGE,I'm 37,37
+LEVEL,pro,pro
+DAYS,I have 5 days free,5
+EQUIPMENT,Just kettlebells,kettlebells
+INJURIES,I have a bad knee,bad knee
+LEVEL,I'd say beginner,beginner
+WEIGHT,288,288
+GOAL,I want to tone up,tone up
+CONFIRMATION,I need to change something,no
+GREETING,No,no
+ALLERGIES,I have a lactose intolerant allergy,lactose intolerant
+GREETING,Absolutely,yes
+CONFIRMATION,Perfect,yes
+GOAL,I want to tone up,tone up
+DAYS,I have 3 days free,3
+EQUIPMENT,full gym,full gym
+CONFIRMATION,I need to change something,no
+GREETING,Yes,yes
+ALLERGIES,I am lactose intolerant,lactose intolerant
+LEVEL,Just a pro,pro
+EQUIPMENT,I have access to full gym,full gym
+INJURIES,tennis elbow,tennis elbow
+HEIGHT,I am 190 centimeters,190
+HEIGHT,I am 185 centimeters,185
+INJURIES,Dealing with twisted ankle,twisted ankle
+EQUIPMENT,Just dumbbells,dumbbells
+CONFIRMATION,Generate it,yes
+ALLERGIES,peanut,peanut
+CONSENT,Okay,yes
+GREETING,I'm ready,yes
+CONFIRMATION,Looks good,yes
+GOAL,I want to get shredded,get shredded
+CONSENT,Nope,no
+HEIGHT,175,175
+WEIGHT,I am 114 lbs,114
+EQUIPMENT,I workout at a dumbbells,dumbbells
+WEIGHT,184 pounds,184
+GREETING,Not ready,no
+ALLERGIES,I'm allergic to shellfishs,shellfish
+EQUIPMENT,Just full gym,full gym
+CONFIRMATION,I need to change something,no
+DAYS,I can do 3 days a week,3
+DAYS,I have 5 days free,5
+EQUIPMENT,I only have dumbbells,dumbbells
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+GREETING,Ready,yes
+ALLERGIES,I am lactose intolerant,lactose intolerant
+EQUIPMENT,Just dumbbells,dumbbells
+INJURIES,tennis elbow,tennis elbow
+HEIGHT,186 cm,186
+DAYS,About 5 days,5
+AGE,I'm 29,29
+WEIGHT,About 104,104
+GREETING,Absolutely,yes
+WEIGHT,Around 258,258
+LEVEL,Just a pro,pro
+INJURIES,My bad knee hurts sometimes,bad knee
+WEIGHT,About 200,200
+CONSENT,Nah,no
+GREETING,Not ready,no
+CONFIRMATION,Perfect,yes
+CONSENT,Nah,no
+CONFIRMATION,Looks good,yes
+DAYS,I have 6 days free,6
+HEIGHT,160,160
+CONSENT,Yes you do,yes
+CONSENT,Yes you do,yes
+GOAL,My goal is to burn fat,burn fat
+GOAL,Mainly to get shredded,get shredded
+GREETING,Not yet,no
+GREETING,Yeah let's go,yes
+CONFIRMATION,I need to change something,no
+DAYS,3 days,3
+EQUIPMENT,I only have full gym,full gym
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+EQUIPMENT,Just full gym,full gym
+ALLERGIES,I'm allergic to shellfishs,shellfish
+GOAL,Looking to endurance,endurance
+EQUIPMENT,full gym,full gym
+INJURIES,twisted ankle,twisted ankle
+AGE,I am 62,62
+GOAL,I want to build muscle,build muscle
+GOAL,I want to tone up,tone up
+GREETING,Not yet,no
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+GOAL,I want to burn fat,burn fat
+CONSENT,I consent,yes
+CONFIRMATION,Looks good,yes
+WEIGHT,I weigh 180 lbs,180
+AGE,I am 54 years old,54
+GOAL,I want to burn fat,burn fat
+INJURIES,I have a twisted ankle,twisted ankle
+CONSENT,I don't consent,no
+HEIGHT,About 159 cm,159
+AGE,46,46
+LEVEL,Pretty much a beginner,beginner
+GOAL,get shredded,get shredded
+GOAL,My goal is to get shredded,get shredded
+WEIGHT,About 172,172
+DAYS,I can do 4 days a week,4
+DAYS,About 5 days,5
+LEVEL,I am a novice,novice
+WEIGHT,246,246
+GOAL,I want to burn fat,burn fat
+WEIGHT,I weigh 168 lbs,168
+LEVEL,I am a intermediate,intermediate
+WEIGHT,About 154,154
+INJURIES,lower back pain,lower back pain
+CONSENT,Yes you do,yes
+INJURIES,lower back pain,lower back pain
+LEVEL,Pretty much a pro,pro
+ALLERGIES,I'm allergic to peanuts,peanut
+GREETING,Yes,yes
+GREETING,Give me a minute,no
+INJURIES,I have a tennis elbow,tennis elbow
+LEVEL,Pretty much a novice,novice
+CONFIRMATION,Looks correct,yes
+AGE,I am 61 years old,61
+CONFIRMATION,Yes,yes
+GOAL,Looking to get shredded,get shredded
+GOAL,Mainly to tone up,tone up
+AGE,I'm 18,18
+INJURIES,Dealing with bad knee,bad knee
+LEVEL,Just a pro,pro
+EQUIPMENT,I workout at a resistance bands,resistance bands
+INJURIES,Dealing with bad knee,bad knee
+EQUIPMENT,I have access to bodyweight,bodyweight
+CONFIRMATION,Looks good,yes
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+HEIGHT,About 150 cm,150
+HEIGHT,169 cm,169
+INJURIES,I have a twisted ankle,twisted ankle
+WEIGHT,I am 193 lbs,193
+HEIGHT,193 cm,193
+ALLERGIES,peanut,peanut
+GREETING,Not ready,no
+ALLERGIES,I am gluten,gluten
+ALLERGIES,I am lactose intolerant,lactose intolerant
+INJURIES,Dealing with twisted ankle,twisted ankle
+HEIGHT,I am 184 centimeters,184
+CONFIRMATION,Perfect,yes
+GREETING,Not ready,no
+EQUIPMENT,dumbbells,dumbbells
+EQUIPMENT,full gym,full gym
+HEIGHT,166,166
+GREETING,I'm ready,yes
+GREETING,No,no
+HEIGHT,184 cm,184
+ALLERGIES,I have a lactose intolerant allergy,lactose intolerant
+LEVEL,pro,pro
+AGE,I just turned 63,63
+CONSENT,Nope,no
+AGE,I am 45,45
+CONFIRMATION,Incorrect,no
+LEVEL,Pretty much a pro,pro
+WEIGHT,About 279,279
+ALLERGIES,peanut,peanut
+GOAL,Mainly to get shredded,get shredded
+GREETING,Let's do it,yes
+HEIGHT,179,179
+HEIGHT,I am 184 centimeters,184
+LEVEL,novice,novice
+WEIGHT,169,169
+HEIGHT,About 194 cm,194
+INJURIES,tennis elbow,tennis elbow
+WEIGHT,About 183,183
+GOAL,I want to burn fat,burn fat
+CONSENT,I don't consent,no
+WEIGHT,I weigh 239 lbs,239
+GOAL,I want to build muscle,build muscle
+CONSENT,Nah,no
+INJURIES,twisted ankle,twisted ankle
+GREETING,Give me a minute,no
+DAYS,I can do 6 days a week,6
+HEIGHT,192 cm,192
+INJURIES,bad knee,bad knee
+WEIGHT,I am 268 lbs,268
+CONFIRMATION,Looks good,yes
+HEIGHT,I am 173 centimeters,173
+HEIGHT,About 174 cm,174
+ALLERGIES,I'm allergic to peanuts,peanut
+AGE,I am 31 years old,31
+CONSENT,Go ahead,yes
+GREETING,Let's do it,yes
+LEVEL,I am a advanced,advanced
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+WEIGHT,About 101,101
+EQUIPMENT,I only have dumbbells,dumbbells
+EQUIPMENT,I have access to bodyweight,bodyweight
+DAYS,3 days,3
+GOAL,get shredded,get shredded
+CONSENT,Nah,no
+INJURIES,I have a shoulder impingement,shoulder impingement
+AGE,I'm 33,33
+WEIGHT,I am 197 lbs,197
+WEIGHT,163 pounds,163
+EQUIPMENT,kettlebells,kettlebells
+HEIGHT,172,172
+GREETING,Yes,yes
+CONSENT,Yes,yes
+ALLERGIES,shellfish,shellfish
+CONSENT,Yes,yes
+CONSENT,Nope,no
+HEIGHT,161,161
+INJURIES,I have a lower back pain,lower back pain
+CONFIRMATION,Perfect,yes
+ALLERGIES,I am lactose intolerant,lactose intolerant
+GOAL,Mainly to get shredded,get shredded
+GOAL,lose weight,lose weight
+CONFIRMATION,Perfect,yes
+EQUIPMENT,resistance bands,resistance bands
+GREETING,Let's do it,yes
+AGE,I'm 31,31
+DAYS,I have 6 days free,6
+CONFIRMATION,Looks good,yes
+LEVEL,Just a pro,pro
+EQUIPMENT,I workout at a resistance bands,resistance bands
+INJURIES,twisted ankle,twisted ankle
+EQUIPMENT,I only have full gym,full gym
+CONSENT,Yes you do,yes
+GREETING,I'm ready,yes
+LEVEL,Pretty much a novice,novice
+LEVEL,intermediate,intermediate
+DAYS,I have 6 days free,6
+ALLERGIES,Nope,none
+HEIGHT,I am 183 centimeters,183
+HEIGHT,162 cm,162
+EQUIPMENT,kettlebells,kettlebells
+AGE,I am 33,33
+CONFIRMATION,I need to change something,no
+CONFIRMATION,Generate it,yes
+GOAL,I want to build muscle,build muscle
+GREETING,Give me a minute,no
+EQUIPMENT,I have access to full gym,full gym
+LEVEL,Just a pro,pro
+EQUIPMENT,Just home gym,home gym
+LEVEL,I'd say intermediate,intermediate
+CONFIRMATION,That is wrong,no
+GREETING,Let's do it,yes
+GREETING,Give me a minute,no
+GREETING,Yes I am,yes
+LEVEL,advanced,advanced
+GOAL,My goal is to endurance,endurance
+ALLERGIES,I am peanut,peanut
+HEIGHT,I am 189 centimeters,189
+DAYS,I have 5 days free,5
+CONFIRMATION,Incorrect,no
+LEVEL,I am a intermediate,intermediate
+GREETING,Give me a minute,no
+CONFIRMATION,That's right,yes
+EQUIPMENT,I only have dumbbells,dumbbells
+INJURIES,I have a tennis elbow,tennis elbow
+LEVEL,I am a beginner,beginner
+ALLERGIES,I have a shellfish allergy,shellfish
+DAYS,About 4 days,4
+HEIGHT,156 cm,156
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+GREETING,Give me a minute,no
+CONFIRMATION,Incorrect,no
+HEIGHT,191,191
+GREETING,Absolutely,yes
+AGE,I'm 24,24
+CONFIRMATION,Go ahead,yes
+AGE,51,51
+DAYS,I can do 2 days a week,2
+CONSENT,Yes,yes
+ALLERGIES,I eat everything,none
+EQUIPMENT,I only have bodyweight,bodyweight
+EQUIPMENT,I only have kettlebells,kettlebells
+CONFIRMATION,Looks correct,yes
+AGE,I am 44,44
+HEIGHT,162 cm,162
+CONFIRMATION,No,no
+LEVEL,intermediate,intermediate
+ALLERGIES,lactose intolerant,lactose intolerant
+INJURIES,No injuries,none
+CONSENT,Sure,yes
+CONFIRMATION,Go ahead,yes
+GOAL,My goal is to get shredded,get shredded
+LEVEL,I am a advanced,advanced
+GOAL,burn fat,burn fat
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+EQUIPMENT,I only have kettlebells,kettlebells
+WEIGHT,291 pounds,291
+EQUIPMENT,I have access to bodyweight,bodyweight
+EQUIPMENT,Just dumbbells,dumbbells
+EQUIPMENT,Just home gym,home gym
+HEIGHT,161,161
+HEIGHT,About 182 cm,182
+GOAL,Looking to lose weight,lose weight
+LEVEL,Just a novice,novice
+EQUIPMENT,I have access to home gym,home gym
+CONFIRMATION,That's right,yes
+AGE,I am 40,40
+ALLERGIES,shellfish,shellfish
+ALLERGIES,Nope,none
+LEVEL,Just a pro,pro
+CONFIRMATION,Incorrect,no
+CONSENT,No,no
+HEIGHT,I am 173 centimeters,173
+AGE,I'm 25,25
+GREETING,I'm ready,yes
+GOAL,Mainly to burn fat,burn fat
+CONFIRMATION,Looks good,yes
+LEVEL,Just a pro,pro
+HEIGHT,167 cm,167
+EQUIPMENT,kettlebells,kettlebells
+AGE,63,63
+GOAL,Mainly to burn fat,burn fat
+INJURIES,No injuries,none
+CONFIRMATION,That is wrong,no
+WEIGHT,About 276,276
+GREETING,Yes I am,yes
+LEVEL,I'd say intermediate,intermediate
+GOAL,endurance,endurance
+HEIGHT,184 cm,184
+ALLERGIES,None,none
+EQUIPMENT,I workout at a dumbbells,dumbbells
+DAYS,I can do 5 days a week,5
+HEIGHT,170 cm,170
+LEVEL,I'd say novice,novice
+HEIGHT,160,160
+AGE,48,48
+CONFIRMATION,That's right,yes
+EQUIPMENT,I workout at a kettlebells,kettlebells
+DAYS,About 4 days,4
+ALLERGIES,I'm allergic to shellfishs,shellfish
+AGE,I just turned 43,43
+HEIGHT,190,190
+CONFIRMATION,Incorrect,no
+DAYS,I can do 4 days a week,4
+AGE,I just turned 27,27
+GREETING,Yes,yes
+CONSENT,Yes you do,yes
+DAYS,5 days,5
+CONFIRMATION,I need to change something,no
+ALLERGIES,I'm allergic to peanuts,peanut
+GREETING,Yes I am,yes
+CONFIRMATION,Wait,no
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+LEVEL,Pretty much a advanced,advanced
+WEIGHT,I weigh 210 lbs,210
+EQUIPMENT,I only have full gym,full gym
+HEIGHT,190 cm,190
+DAYS,I have 4 days free,4
+CONSENT,Nah,no
+WEIGHT,197 pounds,197
+GREETING,Not yet,no
+GREETING,Absolutely,yes
+DAYS,About 5 days,5
+AGE,I am 55,55
+EQUIPMENT,Just bodyweight,bodyweight
+EQUIPMENT,I only have resistance bands,resistance bands
+HEIGHT,156,156
+ALLERGIES,I am lactose intolerant,lactose intolerant
+ALLERGIES,I have a peanut allergy,peanut
+LEVEL,I'd say novice,novice
+EQUIPMENT,dumbbells,dumbbells
+EQUIPMENT,I have access to home gym,home gym
+CONSENT,Yes,yes
+GOAL,endurance,endurance
+CONSENT,Yeah that's fine,yes
+INJURIES,lower back pain,lower back pain
+AGE,I just turned 46,46
+DAYS,I can do 5 days a week,5
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+INJURIES,twisted ankle,twisted ankle
+LEVEL,I am a novice,novice
+INJURIES,I have a shoulder impingement,shoulder impingement
+GREETING,Nah,no
+ALLERGIES,gluten,gluten
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+WEIGHT,About 271,271
+LEVEL,Pretty much a novice,novice
+HEIGHT,151,151
+AGE,I am 24 years old,24
+AGE,I just turned 16,16
+CONSENT,I would rather not,no
+EQUIPMENT,I have access to full gym,full gym
+CONFIRMATION,No,no
+INJURIES,No injuries,none
+CONFIRMATION,No,no
+LEVEL,I am a novice,novice
+AGE,I'm 24,24
+ALLERGIES,I have a peanut allergy,peanut
+LEVEL,I am a pro,pro
+EQUIPMENT,Just home gym,home gym
+CONSENT,Go ahead,yes
+CONSENT,I would rather not,no
+HEIGHT,160 cm,160
+DAYS,About 4 days,4
+HEIGHT,About 166 cm,166
+AGE,I am 44,44
+HEIGHT,185 cm,185
+WEIGHT,I weigh 220 lbs,220
+ALLERGIES,I'm allergic to shellfishs,shellfish
+GOAL,I want to tone up,tone up
+WEIGHT,136,136
+WEIGHT,Around 235,235
+AGE,I am 44,44
+GOAL,build muscle,build muscle
+EQUIPMENT,I only have bodyweight,bodyweight
+CONFIRMATION,No,no
+GOAL,Mainly to build muscle,build muscle
+CONFIRMATION,Perfect,yes
+WEIGHT,About 122,122
+AGE,I am 41 years old,41
+AGE,I just turned 60,60
+EQUIPMENT,Just bodyweight,bodyweight
+INJURIES,I have a shoulder impingement,shoulder impingement
+AGE,I am 18,18
+INJURIES,Dealing with bad knee,bad knee
+DAYS,About 3 days,3
+LEVEL,advanced,advanced
+ALLERGIES,I am gluten,gluten
+DAYS,3 days,3
+CONSENT,Yeah that's fine,yes
+WEIGHT,241,241
+CONSENT,Nope,no
+LEVEL,Just a novice,novice
+GREETING,Nah,no
+GOAL,get shredded,get shredded
+WEIGHT,I am 294 lbs,294
+ALLERGIES,I'm allergic to peanuts,peanut
+CONFIRMATION,Looks correct,yes
+EQUIPMENT,Just bodyweight,bodyweight
+INJURIES,shoulder impingement,shoulder impingement
+INJURIES,Dealing with bad knee,bad knee
+DAYS,3 days,3
+HEIGHT,177 cm,177
+CONFIRMATION,Looks good,yes
+GREETING,Nah,no
+INJURIES,Dealing with tennis elbow,tennis elbow
+INJURIES,bad knee,bad knee
+EQUIPMENT,I workout at a home gym,home gym
+LEVEL,I'd say beginner,beginner
+HEIGHT,I am 175 centimeters,175
+LEVEL,Pretty much a beginner,beginner
+WEIGHT,About 115,115
+EQUIPMENT,I have access to kettlebells,kettlebells
+CONSENT,Go ahead,yes
+GOAL,My goal is to burn fat,burn fat
+DAYS,I can do 2 days a week,2
+DAYS,2 days,2
+DAYS,I can do 6 days a week,6
+DAYS,About 4 days,4
+LEVEL,I'd say advanced,advanced
+INJURIES,bad knee,bad knee
+HEIGHT,173 cm,173
+LEVEL,Just a intermediate,intermediate
+EQUIPMENT,home gym,home gym
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+WEIGHT,222,222
+CONSENT,No,no
+INJURIES,Dealing with bad knee,bad knee
+AGE,I'm 25,25
+WEIGHT,I weigh 200 lbs,200
+INJURIES,Dealing with twisted ankle,twisted ankle
+HEIGHT,I am 152 centimeters,152
+LEVEL,Just a novice,novice
+ALLERGIES,I have a shellfish allergy,shellfish
+LEVEL,Just a novice,novice
+LEVEL,Just a advanced,advanced
+AGE,I'm 31,31
+CONSENT,I would rather not,no
+CONFIRMATION,I need to change something,no
+AGE,I am 43,43
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+DAYS,I can do 4 days a week,4
+AGE,I am 60 years old,60
+DAYS,2,2
+DAYS,About 3 days,3
+DAYS,I can do 3 days a week,3
+CONFIRMATION,I need to change something,no
+HEIGHT,I am 161 centimeters,161
+ALLERGIES,I'm allergic to shellfishs,shellfish
+CONSENT,Nope,no
+EQUIPMENT,I only have full gym,full gym
+DAYS,About 3 days,3
+CONSENT,Go ahead,yes
+AGE,I just turned 17,17
+CONFIRMATION,Wait,no
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+LEVEL,beginner,beginner
+AGE,I'm 60,60
+HEIGHT,191 cm,191
+CONSENT,Okay,yes
+GREETING,I'm ready,yes
+EQUIPMENT,Just kettlebells,kettlebells
+ALLERGIES,No allergies,none
+EQUIPMENT,Just home gym,home gym
+GREETING,Ready,yes
+LEVEL,Pretty much a novice,novice
+HEIGHT,184,184
+WEIGHT,About 288,288
+DAYS,6 days,6
+HEIGHT,I am 188 centimeters,188
+GOAL,Mainly to endurance,endurance
+INJURIES,lower back pain,lower back pain
+INJURIES,Dealing with tennis elbow,tennis elbow
+CONFIRMATION,That's right,yes
+GOAL,get shredded,get shredded
+AGE,39,39
+EQUIPMENT,I have access to bodyweight,bodyweight
+CONSENT,Nah,no
+GREETING,Let's do it,yes
+WEIGHT,Around 223,223
+GOAL,My goal is to tone up,tone up
+CONSENT,No,no
+HEIGHT,173,173
+GREETING,Yes I am,yes
+GOAL,Looking to endurance,endurance
+GOAL,burn fat,burn fat
+CONSENT,I don't consent,no
+INJURIES,I have a twisted ankle,twisted ankle
+CONSENT,I would rather not,no
+DAYS,I have 4 days free,4
+DAYS,I have 5 days free,5
+WEIGHT,166 pounds,166
+WEIGHT,I weigh 199 lbs,199
+GREETING,I'm ready,yes
+ALLERGIES,I am gluten,gluten
+CONFIRMATION,No,no
+GOAL,Mainly to burn fat,burn fat
+GREETING,No,no
+DAYS,I have 4 days free,4
+AGE,18,18
+WEIGHT,211,211
+AGE,I'm 54,54
+DAYS,6 days,6
+LEVEL,I am a pro,pro
+GREETING,Absolutely,yes
+GOAL,My goal is to burn fat,burn fat
+CONSENT,Nah,no
+AGE,44,44
+CONFIRMATION,Perfect,yes
+HEIGHT,I am 155 centimeters,155
+GREETING,Give me a minute,no
+AGE,I am 34,34
+AGE,I am 23,23
+GOAL,Looking to burn fat,burn fat
+WEIGHT,I am 255 lbs,255
+LEVEL,I'd say intermediate,intermediate
+LEVEL,I am a novice,novice
+GREETING,Not ready,no
+GREETING,Nah,no
+INJURIES,Dealing with lower back pain,lower back pain
+INJURIES,I have a shoulder impingement,shoulder impingement
+GREETING,No,no
+GREETING,Give me a minute,no
+GREETING,Nah,no
+EQUIPMENT,full gym,full gym
+ALLERGIES,Nope,none
+GREETING,Yeah let's go,yes
+AGE,38,38
+LEVEL,I am a novice,novice
+CONFIRMATION,That is wrong,no
+HEIGHT,About 187 cm,187
+WEIGHT,I weigh 155 lbs,155
+CONSENT,Nope,no
+GOAL,I want to tone up,tone up
+DAYS,I can do 2 days a week,2
+GREETING,Not ready,no
+GOAL,I want to build muscle,build muscle
+DAYS,I can do 3 days a week,3
+LEVEL,Pretty much a pro,pro
+AGE,I'm 21,21
+HEIGHT,183,183
+EQUIPMENT,I only have kettlebells,kettlebells
+GREETING,Yes,yes
+INJURIES,I'm perfectly healthy,none
+INJURIES,Dealing with tennis elbow,tennis elbow
+DAYS,About 2 days,2
+GREETING,Give me a minute,no
+GREETING,I'm ready,yes
+AGE,21,21
+EQUIPMENT,I have access to resistance bands,resistance bands
+GOAL,build muscle,build muscle
+CONFIRMATION,Perfect,yes
+GREETING,Nah,no
+HEIGHT,About 155 cm,155
+GREETING,Let's do it,yes
+CONFIRMATION,Looks good,yes
+HEIGHT,About 186 cm,186
+AGE,36,36
+HEIGHT,I am 183 centimeters,183
+GREETING,Yeah let's go,yes
+GREETING,No,no
+INJURIES,Nope,none
+GREETING,Give me a minute,no
+ALLERGIES,shellfish,shellfish
+DAYS,I have 5 days free,5
+CONFIRMATION,I need to change something,no
+WEIGHT,Around 158,158
+LEVEL,Pretty much a novice,novice
+AGE,27,27
+ALLERGIES,I have a gluten allergy,gluten
+ALLERGIES,I have a peanut allergy,peanut
+INJURIES,Dealing with bad knee,bad knee
+LEVEL,Just a pro,pro
+INJURIES,lower back pain,lower back pain
+CONFIRMATION,Go ahead,yes
+INJURIES,bad knee,bad knee
+ALLERGIES,I am lactose intolerant,lactose intolerant
+AGE,22,22
+GREETING,No,no
+CONSENT,Nah,no
+AGE,I'm 39,39
+AGE,I am 33,33
+EQUIPMENT,I workout at a home gym,home gym
+AGE,I am 18 years old,18
+LEVEL,I'd say advanced,advanced
+EQUIPMENT,Just kettlebells,kettlebells
+CONSENT,Yes,yes
+HEIGHT,About 169 cm,169
+GREETING,Absolutely,yes
+EQUIPMENT,full gym,full gym
+CONFIRMATION,Looks correct,yes
+HEIGHT,173,173
+EQUIPMENT,home gym,home gym
+ALLERGIES,I have a gluten allergy,gluten
+GREETING,Yeah let's go,yes
+LEVEL,Just a pro,pro
+LEVEL,I'd say intermediate,intermediate
+INJURIES,I have a twisted ankle,twisted ankle
+INJURIES,Dealing with twisted ankle,twisted ankle
+LEVEL,I'd say intermediate,intermediate
+WEIGHT,I weigh 287 lbs,287
+LEVEL,Just a beginner,beginner
+DAYS,I can do 2 days a week,2
+GREETING,Give me a minute,no
+AGE,I am 58,58
+CONFIRMATION,I need to change something,no
+EQUIPMENT,Just full gym,full gym
+ALLERGIES,No allergies,none
+LEVEL,I'd say advanced,advanced
+LEVEL,Pretty much a pro,pro
+WEIGHT,About 193,193
+LEVEL,I'd say intermediate,intermediate
+DAYS,About 4 days,4
+WEIGHT,192,192
+GOAL,Looking to burn fat,burn fat
+CONFIRMATION,That's right,yes
+ALLERGIES,I have a gluten allergy,gluten
+CONFIRMATION,That is wrong,no
+LEVEL,I'd say beginner,beginner
+INJURIES,lower back pain,lower back pain
+EQUIPMENT,I have access to full gym,full gym
+INJURIES,I'm perfectly healthy,none
+EQUIPMENT,Just dumbbells,dumbbells
+GREETING,Let's do it,yes
+AGE,I am 40,40
+DAYS,I have 4 days free,4
+DAYS,About 4 days,4
+AGE,32,32
+EQUIPMENT,I have access to dumbbells,dumbbells
+EQUIPMENT,I only have home gym,home gym
+ALLERGIES,shellfish,shellfish
+INJURIES,No injuries,none
+ALLERGIES,shellfish,shellfish
+WEIGHT,I weigh 191 lbs,191
+GREETING,Not ready,no
+CONFIRMATION,Wait,no
+GOAL,Looking to endurance,endurance
+LEVEL,Pretty much a pro,pro
+GOAL,Mainly to burn fat,burn fat
+GOAL,Mainly to tone up,tone up
+GOAL,I want to build muscle,build muscle
+GOAL,lose weight,lose weight
+CONSENT,Go ahead,yes
+HEIGHT,162 cm,162
+DAYS,I have 6 days free,6
+WEIGHT,I weigh 292 lbs,292
+ALLERGIES,No allergies,none
+EQUIPMENT,I workout at a resistance bands,resistance bands
+GOAL,I want to get shredded,get shredded
+ALLERGIES,I have a lactose intolerant allergy,lactose intolerant
+LEVEL,Pretty much a novice,novice
+EQUIPMENT,I only have full gym,full gym
+EQUIPMENT,I workout at a dumbbells,dumbbells
+ALLERGIES,I am shellfish,shellfish
+DAYS,4,4
+HEIGHT,177,177
+CONFIRMATION,Looks correct,yes
+GREETING,No,no
+AGE,18,18
+GOAL,Looking to build muscle,build muscle
+HEIGHT,163,163
+DAYS,I can do 6 days a week,6
+EQUIPMENT,Just bodyweight,bodyweight
+CONFIRMATION,Perfect,yes
+EQUIPMENT,I have access to dumbbells,dumbbells
+CONSENT,Okay,yes
+ALLERGIES,None,none
+DAYS,I can do 5 days a week,5
+EQUIPMENT,I only have kettlebells,kettlebells
+EQUIPMENT,I have access to home gym,home gym
+CONSENT,Nah,no
+INJURIES,twisted ankle,twisted ankle
+CONFIRMATION,Looks good,yes
+CONFIRMATION,I need to change something,no
+GREETING,Not yet,no
+GREETING,Yes I am,yes
+INJURIES,My shoulder impingement hurts sometimes,shoulder impingement
+ALLERGIES,I have a gluten allergy,gluten
+WEIGHT,About 130,130
+CONFIRMATION,Looks good,yes
+EQUIPMENT,dumbbells,dumbbells
+LEVEL,I am a advanced,advanced
+WEIGHT,About 138,138
+WEIGHT,I weigh 133 lbs,133
+CONFIRMATION,I need to change something,no
+HEIGHT,About 168 cm,168
+CONFIRMATION,Wait,no
+HEIGHT,I am 171 centimeters,171
+GOAL,My goal is to lose weight,lose weight
+GOAL,Looking to get shredded,get shredded
+ALLERGIES,lactose intolerant,lactose intolerant
+HEIGHT,184 cm,184
+GREETING,Absolutely,yes
+GREETING,Not yet,no
+GOAL,My goal is to lose weight,lose weight
+AGE,38,38
+INJURIES,tennis elbow,tennis elbow
+INJURIES,I have a lower back pain,lower back pain
+GREETING,Yes,yes
+ALLERGIES,vegan,vegan
+LEVEL,Just a beginner,beginner
+LEVEL,Pretty much a intermediate,intermediate
+WEIGHT,I am 298 lbs,298
+EQUIPMENT,I have access to home gym,home gym
+HEIGHT,194 cm,194
+HEIGHT,166,166
+EQUIPMENT,Just kettlebells,kettlebells
+INJURIES,My shoulder impingement hurts sometimes,shoulder impingement
+GOAL,Mainly to burn fat,burn fat
+LEVEL,I am a pro,pro
+GREETING,Yes,yes
+ALLERGIES,I have a peanut allergy,peanut
+HEIGHT,180 cm,180
+ALLERGIES,gluten,gluten
+GREETING,Yeah let's go,yes
+WEIGHT,263 pounds,263
+WEIGHT,193,193
+DAYS,About 4 days,4
+ALLERGIES,I have a peanut allergy,peanut
+GREETING,Absolutely,yes
+AGE,46,46
+EQUIPMENT,I workout at a home gym,home gym
+EQUIPMENT,kettlebells,kettlebells
+AGE,I just turned 29,29
+CONFIRMATION,Go ahead,yes
+GREETING,I'm ready,yes
+DAYS,3 days,3
+EQUIPMENT,I have access to full gym,full gym
+ALLERGIES,I am shellfish,shellfish
+HEIGHT,About 192 cm,192
+INJURIES,I have a lower back pain,lower back pain
+ALLERGIES,lactose intolerant,lactose intolerant
+HEIGHT,I am 158 centimeters,158
+GREETING,Absolutely,yes
+CONFIRMATION,Looks correct,yes
+EQUIPMENT,bodyweight,bodyweight
+GREETING,Yes I am,yes
+GREETING,Not yet,no
+ALLERGIES,I eat everything,none
+HEIGHT,169 cm,169
+LEVEL,I'd say advanced,advanced
+HEIGHT,About 155 cm,155
+GOAL,I want to build muscle,build muscle
+CONFIRMATION,Perfect,yes
+LEVEL,I am a pro,pro
+LEVEL,intermediate,intermediate
+HEIGHT,192 cm,192
+ALLERGIES,I eat everything,none
+WEIGHT,I am 246 lbs,246
+WEIGHT,I am 256 lbs,256
+GREETING,Not ready,no
+CONFIRMATION,That's right,yes
+ALLERGIES,peanut,peanut
+ALLERGIES,No allergies,none
+HEIGHT,About 158 cm,158
+DAYS,6,6
+LEVEL,advanced,advanced
+GOAL,My goal is to endurance,endurance
+WEIGHT,I weigh 267 lbs,267
+AGE,I am 42 years old,42
+INJURIES,lower back pain,lower back pain
+HEIGHT,154 cm,154
+LEVEL,I am a intermediate,intermediate
+AGE,37,37
+WEIGHT,Around 297,297
+GOAL,Looking to burn fat,burn fat
+INJURIES,My shoulder impingement hurts sometimes,shoulder impingement
+EQUIPMENT,I workout at a home gym,home gym
+AGE,I just turned 42,42
+CONFIRMATION,Looks correct,yes
+GOAL,Mainly to tone up,tone up
+GOAL,My goal is to get shredded,get shredded
+GOAL,My goal is to endurance,endurance
+AGE,24,24
+WEIGHT,Around 224,224
+DAYS,I have 4 days free,4
+ALLERGIES,lactose intolerant,lactose intolerant
+ALLERGIES,I am shellfish,shellfish
+HEIGHT,I am 193 centimeters,193
+CONFIRMATION,Wait,no
+WEIGHT,About 239,239
+AGE,I am 21 years old,21
+CONSENT,Okay,yes
+LEVEL,I'd say novice,novice
+WEIGHT,I weigh 259 lbs,259
+GREETING,Nah,no
+HEIGHT,176 cm,176
+EQUIPMENT,I have access to dumbbells,dumbbells
+DAYS,6 days,6
+INJURIES,tennis elbow,tennis elbow
+GREETING,Nah,no
+HEIGHT,165,165
+EQUIPMENT,I workout at a dumbbells,dumbbells
+CONSENT,Go ahead,yes
+CONFIRMATION,Generate it,yes
+GOAL,Mainly to lose weight,lose weight
+GREETING,I'm ready,yes
+WEIGHT,Around 179,179
+CONSENT,Yeah that's fine,yes
+INJURIES,I'm perfectly healthy,none
+WEIGHT,Around 259,259
+HEIGHT,I am 155 centimeters,155
+AGE,I am 57 years old,57
+WEIGHT,About 211,211
+AGE,I'm 40,40
+WEIGHT,I weigh 272 lbs,272
+WEIGHT,264 pounds,264
+CONFIRMATION,Looks correct,yes
+EQUIPMENT,I have access to dumbbells,dumbbells
+LEVEL,Pretty much a intermediate,intermediate
+CONFIRMATION,Perfect,yes
+DAYS,I can do 6 days a week,6
+CONSENT,Yes,yes
+DAYS,I can do 6 days a week,6
+HEIGHT,161 cm,161
+ALLERGIES,gluten,gluten
+ALLERGIES,I'm allergic to shellfishs,shellfish
+WEIGHT,About 266,266
+INJURIES,None,none
+GOAL,Mainly to endurance,endurance
+HEIGHT,About 177 cm,177
+CONFIRMATION,Wait,no
+ALLERGIES,I am shellfish,shellfish
+WEIGHT,151 pounds,151
+INJURIES,I have a lower back pain,lower back pain
+CONSENT,I don't consent,no
+CONFIRMATION,Perfect,yes
+AGE,I am 41,41
+HEIGHT,172,172
+AGE,I just turned 20,20
+WEIGHT,129 pounds,129
+DAYS,I can do 6 days a week,6
+DAYS,About 5 days,5
+CONFIRMATION,Go ahead,yes
+GREETING,Yes I am,yes
+EQUIPMENT,Just kettlebells,kettlebells
+LEVEL,I am a advanced,advanced
+GOAL,endurance,endurance
+CONSENT,No,no
+DAYS,6 days,6
+GREETING,Nah,no
+EQUIPMENT,I have access to bodyweight,bodyweight
+CONFIRMATION,That is wrong,no
+ALLERGIES,peanut,peanut
+LEVEL,I'd say pro,pro
+GREETING,Give me a minute,no
+ALLERGIES,I have a peanut allergy,peanut
+ALLERGIES,I am gluten,gluten
+WEIGHT,I weigh 133 lbs,133
+INJURIES,I have a twisted ankle,twisted ankle
+CONFIRMATION,Wait,no
+CONSENT,I consent,yes
+WEIGHT,Around 133,133
+DAYS,About 4 days,4
+CONFIRMATION,That is wrong,no
+EQUIPMENT,I have access to kettlebells,kettlebells
+ALLERGIES,I am vegan,vegan
+GOAL,tone up,tone up
+DAYS,About 3 days,3
+CONSENT,No,no
+HEIGHT,About 154 cm,154
+AGE,I just turned 56,56
+CONFIRMATION,I need to change something,no
+INJURIES,My lower back pain hurts sometimes,lower back pain
+AGE,I just turned 47,47
+CONFIRMATION,Wait,no
+CONFIRMATION,That is wrong,no
+CONFIRMATION,Yes,yes
+GOAL,I want to tone up,tone up
+CONSENT,Okay,yes
+AGE,I just turned 60,60
+GREETING,Nah,no
+GOAL,I want to burn fat,burn fat
+GOAL,Mainly to build muscle,build muscle
+EQUIPMENT,bodyweight,bodyweight
+GOAL,Mainly to endurance,endurance
+INJURIES,Dealing with bad knee,bad knee
+WEIGHT,I weigh 199 lbs,199
+GOAL,Mainly to tone up,tone up
+GREETING,Not ready,no
+ALLERGIES,peanut,peanut
+WEIGHT,145 pounds,145
+AGE,22,22
+ALLERGIES,shellfish,shellfish
+GREETING,Yes I am,yes
+INJURIES,Nope,none
+LEVEL,Pretty much a beginner,beginner
+GOAL,My goal is to burn fat,burn fat
+GREETING,I'm ready,yes
+DAYS,I have 4 days free,4
+LEVEL,Just a intermediate,intermediate
+CONSENT,Yes you do,yes
+ALLERGIES,I'm allergic to shellfishs,shellfish
+INJURIES,Dealing with twisted ankle,twisted ankle
+ALLERGIES,I'm allergic to glutens,gluten
+GREETING,I'm ready,yes
+EQUIPMENT,kettlebells,kettlebells
+AGE,I am 61 years old,61
+ALLERGIES,peanut,peanut
+DAYS,3 days,3
+GOAL,I want to burn fat,burn fat
+AGE,I'm 52,52
+GOAL,lose weight,lose weight
+WEIGHT,126 pounds,126
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+WEIGHT,196,196
+GREETING,Not yet,no
+GREETING,Let's do it,yes
+AGE,19,19
+INJURIES,I have a lower back pain,lower back pain
+LEVEL,I'd say beginner,beginner
+CONSENT,Yeah that's fine,yes
+GOAL,My goal is to build muscle,build muscle
+INJURIES,I have a bad knee,bad knee
+DAYS,4 days,4
+CONSENT,Yeah that's fine,yes
+INJURIES,No injuries,none
+LEVEL,Pretty much a advanced,advanced
+LEVEL,Pretty much a novice,novice
+HEIGHT,About 172 cm,172
+EQUIPMENT,I only have home gym,home gym
+INJURIES,My shoulder impingement hurts sometimes,shoulder impingement
+GOAL,My goal is to tone up,tone up
+AGE,I am 64,64
+DAYS,About 3 days,3
+WEIGHT,I am 130 lbs,130
+CONFIRMATION,Yes,yes
+HEIGHT,170 cm,170
+GREETING,Give me a minute,no
+HEIGHT,About 159 cm,159
+AGE,I'm 59,59
+CONSENT,No,no
+INJURIES,I have a shoulder impingement,shoulder impingement
+DAYS,I can do 3 days a week,3
+INJURIES,tennis elbow,tennis elbow
+DAYS,I have 6 days free,6
+DAYS,4 days,4
+CONSENT,No,no
+LEVEL,I am a beginner,beginner
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+WEIGHT,233 pounds,233
+HEIGHT,171 cm,171
+DAYS,About 4 days,4
+GREETING,Yes,yes
+EQUIPMENT,I only have full gym,full gym
+CONSENT,I would rather not,no
+EQUIPMENT,I only have dumbbells,dumbbells
+AGE,I am 46,46
+AGE,56,56
+GREETING,Yes I am,yes
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+INJURIES,My bad knee hurts sometimes,bad knee
+LEVEL,Pretty much a intermediate,intermediate
+INJURIES,I have a shoulder impingement,shoulder impingement
+HEIGHT,I am 162 centimeters,162
+CONSENT,No,no
+LEVEL,Just a beginner,beginner
+LEVEL,I'd say pro,pro
+WEIGHT,Around 210,210
+DAYS,4 days,4
+AGE,I am 26 years old,26
+DAYS,I can do 2 days a week,2
+GOAL,Mainly to get shredded,get shredded
+GOAL,Mainly to build muscle,build muscle
+CONSENT,Okay,yes
+GOAL,Mainly to get shredded,get shredded
+AGE,I just turned 49,49
+GREETING,I'm ready,yes
+GREETING,Ready,yes
+GREETING,Let's do it,yes
+DAYS,2,2
+ALLERGIES,I have a lactose intolerant allergy,lactose intolerant
+EQUIPMENT,Just full gym,full gym
+WEIGHT,I weigh 281 lbs,281
+DAYS,4,4
+DAYS,About 3 days,3
+EQUIPMENT,I only have resistance bands,resistance bands
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+LEVEL,I am a beginner,beginner
+EQUIPMENT,I only have bodyweight,bodyweight
+ALLERGIES,peanut,peanut
+DAYS,5 days,5
+EQUIPMENT,I only have bodyweight,bodyweight
+DAYS,I can do 2 days a week,2
+HEIGHT,I am 195 centimeters,195
+EQUIPMENT,I only have resistance bands,resistance bands
+WEIGHT,113 pounds,113
+WEIGHT,I weigh 104 lbs,104
+CONFIRMATION,Wait,no
+EQUIPMENT,I workout at a full gym,full gym
+CONFIRMATION,I need to change something,no
+AGE,I'm 59,59
+EQUIPMENT,I workout at a home gym,home gym
+GREETING,Ready,yes
+INJURIES,I have a shoulder impingement,shoulder impingement
+DAYS,5,5
+AGE,I am 41,41
+INJURIES,twisted ankle,twisted ankle
+WEIGHT,I am 291 lbs,291
+GREETING,Not yet,no
+ALLERGIES,vegan,vegan
+LEVEL,I'd say novice,novice
+EQUIPMENT,dumbbells,dumbbells
+LEVEL,I am a advanced,advanced
+CONFIRMATION,Looks correct,yes
+WEIGHT,297,297
+ALLERGIES,vegan,vegan
+WEIGHT,214 pounds,214
+LEVEL,advanced,advanced
+WEIGHT,About 139,139
+ALLERGIES,shellfish,shellfish
+HEIGHT,185 cm,185
+WEIGHT,170,170
+CONFIRMATION,That is wrong,no
+EQUIPMENT,resistance bands,resistance bands
+HEIGHT,I am 160 centimeters,160
+DAYS,I have 4 days free,4
+EQUIPMENT,resistance bands,resistance bands
+CONSENT,I would rather not,no
+HEIGHT,I am 188 centimeters,188
+DAYS,3,3
+GREETING,Not yet,no
+LEVEL,I am a pro,pro
+EQUIPMENT,I workout at a resistance bands,resistance bands
+WEIGHT,I weigh 196 lbs,196
+CONFIRMATION,Perfect,yes
+GOAL,I want to get shredded,get shredded
+WEIGHT,Around 239,239
+GREETING,Not yet,no
+CONSENT,I consent,yes
+AGE,I'm 17,17
+LEVEL,I'd say pro,pro
+CONFIRMATION,That's right,yes
+LEVEL,Just a beginner,beginner
+DAYS,About 5 days,5
+GREETING,No,no
+ALLERGIES,lactose intolerant,lactose intolerant
+AGE,I am 17 years old,17
+WEIGHT,About 117,117
+LEVEL,Pretty much a advanced,advanced
+DAYS,2 days,2
+CONSENT,I consent,yes
+ALLERGIES,I have a gluten allergy,gluten
+CONSENT,Nope,no
+EQUIPMENT,bodyweight,bodyweight
+GOAL,Mainly to tone up,tone up
+GREETING,I'm ready,yes
+GOAL,I want to lose weight,lose weight
+CONFIRMATION,Looks correct,yes
+GREETING,Yes,yes
+CONFIRMATION,Looks good,yes
+ALLERGIES,I'm allergic to glutens,gluten
+CONFIRMATION,Looks correct,yes
+CONSENT,Yes you do,yes
+ALLERGIES,I eat everything,none
+HEIGHT,I am 190 centimeters,190
+DAYS,I can do 4 days a week,4
+GREETING,Not yet,no
+INJURIES,No injuries,none
+GREETING,No,no
+WEIGHT,299,299
+INJURIES,I have a lower back pain,lower back pain
+LEVEL,I am a pro,pro
+CONFIRMATION,I need to change something,no
+HEIGHT,I am 152 centimeters,152
+AGE,I am 18 years old,18
+AGE,I just turned 33,33
+WEIGHT,Around 285,285
+GOAL,Looking to build muscle,build muscle
+EQUIPMENT,I workout at a resistance bands,resistance bands
+CONSENT,Yes,yes
+CONFIRMATION,That is wrong,no
+AGE,I just turned 40,40
+LEVEL,Pretty much a pro,pro
+EQUIPMENT,Just dumbbells,dumbbells
+HEIGHT,About 195 cm,195
+GREETING,Absolutely,yes
+CONSENT,Yes,yes
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+DAYS,4 days,4
+INJURIES,Dealing with lower back pain,lower back pain
+EQUIPMENT,dumbbells,dumbbells
+DAYS,I can do 2 days a week,2
+WEIGHT,I weigh 284 lbs,284
+INJURIES,Dealing with twisted ankle,twisted ankle
+LEVEL,Just a intermediate,intermediate
+CONFIRMATION,That's right,yes
+HEIGHT,157,157
+WEIGHT,I weigh 195 lbs,195
+WEIGHT,Around 133,133
+HEIGHT,175,175
+EQUIPMENT,I only have bodyweight,bodyweight
+CONFIRMATION,No,no
+INJURIES,I'm perfectly healthy,none
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+CONSENT,Okay,yes
+GOAL,My goal is to burn fat,burn fat
+CONFIRMATION,Incorrect,no
+WEIGHT,256 pounds,256
+DAYS,3,3
+INJURIES,My lower back pain hurts sometimes,lower back pain
+DAYS,I can do 3 days a week,3
+EQUIPMENT,I only have bodyweight,bodyweight
+WEIGHT,I am 141 lbs,141
+GOAL,Looking to build muscle,build muscle
+INJURIES,I'm perfectly healthy,none
+LEVEL,intermediate,intermediate
+ALLERGIES,I eat everything,none
+DAYS,About 2 days,2
+LEVEL,I am a pro,pro
+WEIGHT,219,219
+WEIGHT,I weigh 158 lbs,158
+WEIGHT,Around 266,266
+EQUIPMENT,I have access to kettlebells,kettlebells
+DAYS,4 days,4
+GOAL,I want to build muscle,build muscle
+INJURIES,None,none
+CONFIRMATION,I need to change something,no
+GREETING,I'm ready,yes
+GREETING,Absolutely,yes
+GREETING,Let's do it,yes
+EQUIPMENT,I only have dumbbells,dumbbells
+ALLERGIES,I'm allergic to shellfishs,shellfish
+LEVEL,I am a pro,pro
+GOAL,I want to get shredded,get shredded
+LEVEL,Just a novice,novice
+WEIGHT,288,288
+HEIGHT,About 158 cm,158
+ALLERGIES,shellfish,shellfish
+EQUIPMENT,I workout at a full gym,full gym
+EQUIPMENT,I only have full gym,full gym
+GOAL,My goal is to get shredded,get shredded
+INJURIES,My bad knee hurts sometimes,bad knee
+CONSENT,Nah,no
+HEIGHT,170,170
+AGE,I just turned 42,42
+LEVEL,Pretty much a intermediate,intermediate
+HEIGHT,I am 193 centimeters,193
+AGE,I just turned 38,38
+LEVEL,I am a beginner,beginner
+LEVEL,Just a intermediate,intermediate
+WEIGHT,About 210,210
+WEIGHT,About 147,147
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+WEIGHT,Around 275,275
+CONFIRMATION,Wait,no
+GOAL,My goal is to get shredded,get shredded
+CONSENT,I would rather not,no
+ALLERGIES,I eat everything,none
+CONSENT,Yes,yes
+GREETING,No,no
+CONSENT,No,no
+ALLERGIES,gluten,gluten
+GREETING,Absolutely,yes
+HEIGHT,I am 165 centimeters,165
+DAYS,I can do 2 days a week,2
+GOAL,My goal is to lose weight,lose weight
+DAYS,2 days,2
+CONSENT,Sure,yes
+AGE,I am 42,42
+WEIGHT,167,167
+WEIGHT,Around 126,126
+DAYS,5 days,5
+GOAL,My goal is to endurance,endurance
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+WEIGHT,I am 280 lbs,280
+CONSENT,Go ahead,yes
+DAYS,I have 2 days free,2
+GREETING,Absolutely,yes
+ALLERGIES,shellfish,shellfish
+DAYS,About 4 days,4
+INJURIES,Dealing with lower back pain,lower back pain
+HEIGHT,I am 183 centimeters,183
+CONSENT,I consent,yes
+AGE,I am 17,17
+GOAL,Mainly to tone up,tone up
+WEIGHT,Around 273,273
+GREETING,Yes,yes
+ALLERGIES,I am lactose intolerant,lactose intolerant
+GOAL,I want to get shredded,get shredded
+AGE,I'm 28,28
+CONFIRMATION,Go ahead,yes
+DAYS,About 3 days,3
+EQUIPMENT,I have access to home gym,home gym
+ALLERGIES,I have a lactose intolerant allergy,lactose intolerant
+LEVEL,I am a intermediate,intermediate
+ALLERGIES,I am peanut,peanut
+HEIGHT,156,156
+INJURIES,I have a lower back pain,lower back pain
+GOAL,I want to get shredded,get shredded
+CONFIRMATION,That is wrong,no
+HEIGHT,I am 156 centimeters,156
+CONSENT,I would rather not,no
+AGE,I'm 41,41
+CONSENT,I consent,yes
+ALLERGIES,shellfish,shellfish
+HEIGHT,About 166 cm,166
+DAYS,4,4
+AGE,I'm 31,31
+WEIGHT,I am 248 lbs,248
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+HEIGHT,About 178 cm,178
+AGE,I am 65,65
+GREETING,Give me a minute,no
+LEVEL,Pretty much a advanced,advanced
+DAYS,2 days,2
+AGE,50,50
+WEIGHT,I am 268 lbs,268
+ALLERGIES,shellfish,shellfish
+AGE,I am 23 years old,23
+DAYS,I can do 6 days a week,6
+LEVEL,I'd say intermediate,intermediate
+DAYS,5 days,5
+HEIGHT,168 cm,168
+GOAL,get shredded,get shredded
+ALLERGIES,No allergies,none
+WEIGHT,About 125,125
+ALLERGIES,I have a gluten allergy,gluten
+GOAL,My goal is to endurance,endurance
+ALLERGIES,peanut,peanut
+DAYS,6,6
+WEIGHT,I weigh 292 lbs,292
+LEVEL,I am a pro,pro
+CONFIRMATION,Wait,no
+DAYS,I have 5 days free,5
+DAYS,5,5
+CONFIRMATION,No,no
+GREETING,Not yet,no
+AGE,48,48
+WEIGHT,Around 102,102
+GREETING,Yeah let's go,yes
+GOAL,Looking to endurance,endurance
+GREETING,Let's do it,yes
+GREETING,No,no
+ALLERGIES,I'm allergic to vegans,vegan
+DAYS,I can do 4 days a week,4
+DAYS,I can do 2 days a week,2
+WEIGHT,I am 143 lbs,143
+WEIGHT,206 pounds,206
+GOAL,I want to burn fat,burn fat
+DAYS,I can do 6 days a week,6
+GREETING,Ready,yes
+GREETING,Give me a minute,no
+INJURIES,I'm perfectly healthy,none
+EQUIPMENT,I have access to bodyweight,bodyweight
+GOAL,Looking to get shredded,get shredded
+WEIGHT,269,269
+GREETING,Absolutely,yes
+HEIGHT,163 cm,163
+ALLERGIES,Nope,none
+DAYS,I can do 4 days a week,4
+WEIGHT,125 pounds,125
+AGE,I am 43,43
+AGE,I am 56 years old,56
+GOAL,I want to burn fat,burn fat
+CONSENT,Nope,no
+EQUIPMENT,I workout at a kettlebells,kettlebells
+INJURIES,shoulder impingement,shoulder impingement
+EQUIPMENT,I workout at a full gym,full gym
+ALLERGIES,vegan,vegan
+EQUIPMENT,resistance bands,resistance bands
+DAYS,I have 2 days free,2
+GREETING,I'm ready,yes
+LEVEL,I am a novice,novice
+LEVEL,I am a advanced,advanced
+GREETING,Not yet,no
+GREETING,Give me a minute,no
+AGE,I just turned 38,38
+AGE,I'm 19,19
+WEIGHT,I am 295 lbs,295
+GOAL,Looking to endurance,endurance
+CONFIRMATION,Perfect,yes
+DAYS,I can do 2 days a week,2
+ALLERGIES,I am lactose intolerant,lactose intolerant
+ALLERGIES,peanut,peanut
+INJURIES,I have a shoulder impingement,shoulder impingement
+DAYS,I can do 2 days a week,2
+WEIGHT,I am 286 lbs,286
+LEVEL,I am a intermediate,intermediate
+WEIGHT,About 138,138
+LEVEL,Pretty much a novice,novice
+GREETING,No,no
+CONSENT,I consent,yes
+WEIGHT,I weigh 243 lbs,243
+CONSENT,Nah,no
+DAYS,5,5
+WEIGHT,176 pounds,176
+EQUIPMENT,I have access to resistance bands,resistance bands
+WEIGHT,162 pounds,162
+AGE,48,48
+DAYS,4 days,4
+CONSENT,I would rather not,no
+LEVEL,Just a pro,pro
+ALLERGIES,lactose intolerant,lactose intolerant
+AGE,64,64
+DAYS,I can do 2 days a week,2
+ALLERGIES,I have a peanut allergy,peanut
+GOAL,My goal is to burn fat,burn fat
+WEIGHT,About 163,163
+WEIGHT,I weigh 171 lbs,171
+ALLERGIES,vegan,vegan
+GREETING,I'm ready,yes
+HEIGHT,About 153 cm,153
+LEVEL,Just a novice,novice
+AGE,I am 61,61
+WEIGHT,I weigh 278 lbs,278
+DAYS,About 3 days,3
+EQUIPMENT,bodyweight,bodyweight
+GREETING,Give me a minute,no
+WEIGHT,137,137
+GOAL,My goal is to endurance,endurance
+INJURIES,I have a tennis elbow,tennis elbow
+HEIGHT,184 cm,184
+GOAL,Mainly to lose weight,lose weight
+AGE,I just turned 36,36
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+HEIGHT,About 195 cm,195
+HEIGHT,167,167
+AGE,I am 31 years old,31
+AGE,I just turned 22,22
+GREETING,Let's do it,yes
+CONSENT,Yes,yes
+WEIGHT,Around 204,204
+INJURIES,shoulder impingement,shoulder impingement
+AGE,31,31
+LEVEL,advanced,advanced
+DAYS,I have 5 days free,5
+CONSENT,Yeah that's fine,yes
+DAYS,3,3
+ALLERGIES,I have a peanut allergy,peanut
+CONFIRMATION,Looks good,yes
+INJURIES,shoulder impingement,shoulder impingement
+EQUIPMENT,Just home gym,home gym
+AGE,28,28
+WEIGHT,I am 133 lbs,133
+HEIGHT,I am 176 centimeters,176
+EQUIPMENT,I have access to kettlebells,kettlebells
+GREETING,Not ready,no
+LEVEL,advanced,advanced
+EQUIPMENT,I have access to dumbbells,dumbbells
+CONFIRMATION,Incorrect,no
+EQUIPMENT,bodyweight,bodyweight
+DAYS,3,3
+AGE,48,48
+GOAL,Mainly to burn fat,burn fat
+GOAL,Looking to build muscle,build muscle
+DAYS,5,5
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+GOAL,I want to endurance,endurance
+CONSENT,Yes,yes
+CONSENT,Okay,yes
+GREETING,No,no
+ALLERGIES,I have a gluten allergy,gluten
+LEVEL,novice,novice
+AGE,I'm 18,18
+GOAL,I want to endurance,endurance
+EQUIPMENT,Just bodyweight,bodyweight
+WEIGHT,I weigh 221 lbs,221
+LEVEL,Pretty much a beginner,beginner
+GREETING,Let's do it,yes
+ALLERGIES,I have a shellfish allergy,shellfish
+HEIGHT,158,158
+LEVEL,Pretty much a novice,novice
+INJURIES,tennis elbow,tennis elbow
+CONFIRMATION,Looks good,yes
+DAYS,4 days,4
+DAYS,I have 5 days free,5
+INJURIES,No injuries,none
+DAYS,6 days,6
+EQUIPMENT,Just full gym,full gym
+GREETING,Let's do it,yes
+EQUIPMENT,Just full gym,full gym
+ALLERGIES,gluten,gluten
+EQUIPMENT,I have access to dumbbells,dumbbells
+GREETING,Nah,no
+GOAL,I want to burn fat,burn fat
+DAYS,I can do 4 days a week,4
+INJURIES,Dealing with tennis elbow,tennis elbow
+GREETING,No,no
+HEIGHT,About 162 cm,162
+HEIGHT,About 163 cm,163
+ALLERGIES,lactose intolerant,lactose intolerant
+LEVEL,I am a intermediate,intermediate
+AGE,I just turned 50,50
+CONFIRMATION,That's right,yes
+GREETING,Let's do it,yes
+AGE,I'm 27,27
+EQUIPMENT,I only have full gym,full gym
+HEIGHT,I am 161 centimeters,161
+GREETING,Yeah let's go,yes
+LEVEL,novice,novice
+EQUIPMENT,Just full gym,full gym
+INJURIES,My lower back pain hurts sometimes,lower back pain
+INJURIES,I have a tennis elbow,tennis elbow
+CONSENT,Nope,no
+GREETING,Give me a minute,no
+CONFIRMATION,Looks good,yes
+GOAL,lose weight,lose weight
+CONSENT,I would rather not,no
+HEIGHT,I am 163 centimeters,163
+HEIGHT,154,154
+CONSENT,Yes,yes
+ALLERGIES,Nah,none
+CONSENT,Nah,no
+ALLERGIES,I have a vegan allergy,vegan
+GREETING,Absolutely,yes
+GOAL,My goal is to endurance,endurance
+GOAL,My goal is to build muscle,build muscle
+GOAL,Mainly to lose weight,lose weight
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+WEIGHT,105,105
+GREETING,Nah,no
+GREETING,Not yet,no
+GREETING,Nah,no
+HEIGHT,I am 172 centimeters,172
+WEIGHT,I am 113 lbs,113
+GOAL,Mainly to tone up,tone up
+LEVEL,pro,pro
+CONFIRMATION,Generate it,yes
+INJURIES,My lower back pain hurts sometimes,lower back pain
+WEIGHT,196,196
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+AGE,I am 30,30
+AGE,I am 29 years old,29
+ALLERGIES,I have a peanut allergy,peanut
+AGE,I am 41 years old,41
+GOAL,My goal is to endurance,endurance
+AGE,I am 34,34
+ALLERGIES,I am shellfish,shellfish
+GREETING,Ready,yes
+CONSENT,Yes,yes
+GREETING,Give me a minute,no
+GREETING,Give me a minute,no
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+GOAL,build muscle,build muscle
+GOAL,Mainly to get shredded,get shredded
+HEIGHT,165,165
+AGE,53,53
+CONSENT,Yes you do,yes
+EQUIPMENT,dumbbells,dumbbells
+CONSENT,Nope,no
+GREETING,No,no
+INJURIES,My shoulder impingement hurts sometimes,shoulder impingement
+EQUIPMENT,full gym,full gym
+CONFIRMATION,I need to change something,no
+CONFIRMATION,Wait,no
+HEIGHT,I am 193 centimeters,193
+HEIGHT,About 192 cm,192
+AGE,I'm 17,17
+GREETING,Not ready,no
+WEIGHT,212 pounds,212
+EQUIPMENT,bodyweight,bodyweight
+CONSENT,Okay,yes
+ALLERGIES,I have a shellfish allergy,shellfish
+HEIGHT,About 154 cm,154
+HEIGHT,179 cm,179
+ALLERGIES,I have a peanut allergy,peanut
+LEVEL,I am a novice,novice
+GREETING,Absolutely,yes
+CONFIRMATION,Yes,yes
+CONFIRMATION,That is wrong,no
+HEIGHT,188,188
+ALLERGIES,I have a peanut allergy,peanut
+AGE,I'm 56,56
+GREETING,Not yet,no
+AGE,I'm 20,20
+AGE,I'm 38,38
+INJURIES,I have a twisted ankle,twisted ankle
+LEVEL,Pretty much a intermediate,intermediate
+INJURIES,bad knee,bad knee
+DAYS,About 6 days,6
+GREETING,No,no
+LEVEL,Pretty much a novice,novice
+ALLERGIES,I have a peanut allergy,peanut
+ALLERGIES,Nope,none
+ALLERGIES,shellfish,shellfish
+WEIGHT,293 pounds,293
+CONFIRMATION,No,no
+AGE,I am 58 years old,58
+GREETING,Yes,yes
+GOAL,Mainly to get shredded,get shredded
+DAYS,I can do 2 days a week,2
+WEIGHT,I weigh 239 lbs,239
+GOAL,Looking to lose weight,lose weight
+HEIGHT,159,159
+CONFIRMATION,Go ahead,yes
+INJURIES,twisted ankle,twisted ankle
+CONSENT,Nah,no
+GREETING,I'm ready,yes
+DAYS,2 days,2
+EQUIPMENT,kettlebells,kettlebells
+DAYS,2,2
+GREETING,Yeah let's go,yes
+EQUIPMENT,I only have dumbbells,dumbbells
+GOAL,Mainly to endurance,endurance
+CONSENT,Sure,yes
+EQUIPMENT,I workout at a bodyweight,bodyweight
+DAYS,5,5
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+EQUIPMENT,I workout at a dumbbells,dumbbells
+DAYS,About 6 days,6
+HEIGHT,About 193 cm,193
+INJURIES,Dealing with tennis elbow,tennis elbow
+HEIGHT,I am 183 centimeters,183
+AGE,I am 46,46
+EQUIPMENT,I have access to home gym,home gym
+CONSENT,Nah,no
+AGE,I am 47,47
+DAYS,About 6 days,6
+HEIGHT,175 cm,175
+GREETING,Yeah let's go,yes
+CONSENT,Yeah that's fine,yes
+GREETING,Absolutely,yes
+LEVEL,I'd say pro,pro
+ALLERGIES,lactose intolerant,lactose intolerant
+EQUIPMENT,I have access to bodyweight,bodyweight
+EQUIPMENT,I have access to home gym,home gym
+CONSENT,Yes,yes
+GOAL,build muscle,build muscle
+CONFIRMATION,Go ahead,yes
+AGE,I am 23 years old,23
+HEIGHT,About 173 cm,173
+GREETING,Absolutely,yes
+LEVEL,I am a intermediate,intermediate
+GOAL,Mainly to build muscle,build muscle
+WEIGHT,150 pounds,150
+EQUIPMENT,I workout at a kettlebells,kettlebells
+HEIGHT,195 cm,195
+LEVEL,Just a intermediate,intermediate
+DAYS,4 days,4
+LEVEL,Pretty much a intermediate,intermediate
+CONFIRMATION,Generate it,yes
+DAYS,I have 3 days free,3
+HEIGHT,About 177 cm,177
+ALLERGIES,vegan,vegan
+GREETING,Yes I am,yes
+WEIGHT,277 pounds,277
+DAYS,I have 2 days free,2
+AGE,I just turned 21,21
+LEVEL,I'd say beginner,beginner
+CONSENT,Sure,yes
+EQUIPMENT,Just kettlebells,kettlebells
+CONFIRMATION,Go ahead,yes
+EQUIPMENT,I workout at a home gym,home gym
+AGE,I am 47,47
+GREETING,Let's do it,yes
+WEIGHT,About 180,180
+DAYS,I can do 2 days a week,2
+ALLERGIES,Nah,none
+LEVEL,intermediate,intermediate
+ALLERGIES,I'm allergic to shellfishs,shellfish
+CONFIRMATION,That's right,yes
+ALLERGIES,I have a gluten allergy,gluten
+HEIGHT,180,180
+INJURIES,I'm perfectly healthy,none
+AGE,I am 60,60
+EQUIPMENT,I workout at a full gym,full gym
+GOAL,Looking to build muscle,build muscle
+GREETING,I'm ready,yes
+LEVEL,I am a pro,pro
+GOAL,Looking to get shredded,get shredded
+WEIGHT,Around 291,291
+AGE,28,28
+GOAL,Looking to get shredded,get shredded
+CONSENT,I don't consent,no
+GOAL,get shredded,get shredded
+GOAL,I want to get shredded,get shredded
+EQUIPMENT,bodyweight,bodyweight
+DAYS,About 2 days,2
+LEVEL,intermediate,intermediate
+INJURIES,twisted ankle,twisted ankle
+EQUIPMENT,I only have dumbbells,dumbbells
+DAYS,About 2 days,2
+DAYS,I have 4 days free,4
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+WEIGHT,Around 147,147
+LEVEL,Pretty much a novice,novice
+AGE,I am 64 years old,64
+DAYS,About 5 days,5
+HEIGHT,I am 165 centimeters,165
+WEIGHT,Around 146,146
+CONFIRMATION,Incorrect,no
+HEIGHT,176 cm,176
+DAYS,I have 5 days free,5
+INJURIES,I have a tennis elbow,tennis elbow
+GOAL,tone up,tone up
+CONSENT,I don't consent,no
+AGE,I just turned 48,48
+WEIGHT,About 274,274
+CONSENT,I consent,yes
+DAYS,I can do 3 days a week,3
+DAYS,5,5
+HEIGHT,182,182
+CONSENT,Nah,no
+WEIGHT,233,233
+GOAL,get shredded,get shredded
+WEIGHT,Around 124,124
+CONFIRMATION,No,no
+CONSENT,Nah,no
+CONSENT,Nah,no
+EQUIPMENT,I only have dumbbells,dumbbells
+DAYS,About 5 days,5
+LEVEL,Pretty much a novice,novice
+WEIGHT,I am 144 lbs,144
+DAYS,I have 6 days free,6
+GREETING,Yes,yes
+ALLERGIES,gluten,gluten
+WEIGHT,About 295,295
+EQUIPMENT,I have access to kettlebells,kettlebells
+GREETING,Not yet,no
+CONFIRMATION,Looks correct,yes
+GREETING,Not yet,no
+GREETING,Yes I am,yes
+AGE,I am 59 years old,59
+EQUIPMENT,I have access to full gym,full gym
+INJURIES,No,none
+INJURIES,No,none
+HEIGHT,I am 171 centimeters,171
+WEIGHT,108 pounds,108
+INJURIES,I'm perfectly healthy,none
+LEVEL,Just a novice,novice
+ALLERGIES,I have a lactose intolerant allergy,lactose intolerant
+INJURIES,twisted ankle,twisted ankle
+CONFIRMATION,That is wrong,no
+LEVEL,pro,pro
+GREETING,Absolutely,yes
+GREETING,Absolutely,yes
+AGE,I just turned 33,33
+INJURIES,lower back pain,lower back pain
+CONFIRMATION,Wait,no
+WEIGHT,259,259
+LEVEL,I am a beginner,beginner
+EQUIPMENT,I workout at a full gym,full gym
+GOAL,get shredded,get shredded
+HEIGHT,185 cm,185
+ALLERGIES,I am vegan,vegan
+DAYS,I can do 4 days a week,4
+CONSENT,I would rather not,no
+WEIGHT,About 182,182
+ALLERGIES,I am vegan,vegan
+GREETING,No,no
+WEIGHT,About 290,290
+CONFIRMATION,Go ahead,yes
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+GREETING,Not ready,no
+AGE,I just turned 36,36
+GREETING,Yes I am,yes
+GOAL,lose weight,lose weight
+LEVEL,Pretty much a beginner,beginner
+ALLERGIES,I am shellfish,shellfish
+HEIGHT,I am 194 centimeters,194
+INJURIES,Dealing with twisted ankle,twisted ankle
+GREETING,Nah,no
+AGE,I am 53,53
+EQUIPMENT,Just home gym,home gym
+DAYS,3,3
+ALLERGIES,lactose intolerant,lactose intolerant
+AGE,I am 45 years old,45
+CONFIRMATION,That's right,yes
+WEIGHT,About 268,268
+AGE,53,53
+GREETING,Give me a minute,no
+LEVEL,I'd say advanced,advanced
+GOAL,My goal is to tone up,tone up
+ALLERGIES,peanut,peanut
+INJURIES,I have a bad knee,bad knee
+AGE,I am 30 years old,30
+AGE,I am 19,19
+HEIGHT,181 cm,181
+GREETING,Yes,yes
+WEIGHT,I am 256 lbs,256
+INJURIES,Dealing with twisted ankle,twisted ankle
+EQUIPMENT,I workout at a full gym,full gym
+GOAL,tone up,tone up
+DAYS,6 days,6
+INJURIES,No,none
+LEVEL,Pretty much a pro,pro
+WEIGHT,I weigh 249 lbs,249
+LEVEL,novice,novice
+AGE,I am 57,57
+EQUIPMENT,Just full gym,full gym
+DAYS,I have 6 days free,6
+ALLERGIES,I am lactose intolerant,lactose intolerant
+AGE,I am 58,58
+CONFIRMATION,Incorrect,no
+GOAL,My goal is to get shredded,get shredded
+GOAL,I want to get shredded,get shredded
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+INJURIES,I have a lower back pain,lower back pain
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+WEIGHT,Around 277,277
+LEVEL,Pretty much a novice,novice
+CONFIRMATION,Wait,no
+WEIGHT,267 pounds,267
+ALLERGIES,I am vegan,vegan
+GREETING,No,no
+CONSENT,I don't consent,no
+DAYS,About 4 days,4
+GOAL,I want to tone up,tone up
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+DAYS,I have 2 days free,2
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+EQUIPMENT,dumbbells,dumbbells
+AGE,I am 34,34
+GREETING,Yes,yes
+GREETING,Yes,yes
+LEVEL,I am a advanced,advanced
+LEVEL,I'd say beginner,beginner
+INJURIES,I'm perfectly healthy,none
+LEVEL,I'd say novice,novice
+HEIGHT,181,181
+CONFIRMATION,Generate it,yes
+EQUIPMENT,I workout at a home gym,home gym
+CONFIRMATION,That's right,yes
+LEVEL,I am a novice,novice
+DAYS,I have 3 days free,3
+CONFIRMATION,Perfect,yes
+LEVEL,Pretty much a pro,pro
+AGE,I'm 46,46
+HEIGHT,188,188
+HEIGHT,I am 180 centimeters,180
+GREETING,Nah,no
+EQUIPMENT,I have access to resistance bands,resistance bands
+INJURIES,No injuries,none
+ALLERGIES,I am gluten,gluten
+WEIGHT,About 146,146
+CONSENT,Nah,no
+WEIGHT,I weigh 282 lbs,282
+ALLERGIES,Nope,none
+WEIGHT,Around 298,298
+LEVEL,Pretty much a intermediate,intermediate
+DAYS,I can do 4 days a week,4
+ALLERGIES,I'm allergic to shellfishs,shellfish
+EQUIPMENT,Just full gym,full gym
+INJURIES,Dealing with bad knee,bad knee
+INJURIES,I have a twisted ankle,twisted ankle
+LEVEL,I'd say pro,pro
+LEVEL,I am a novice,novice
+EQUIPMENT,full gym,full gym
+EQUIPMENT,dumbbells,dumbbells
+DAYS,About 6 days,6
+GREETING,Not yet,no
+DAYS,5,5
+GOAL,Looking to endurance,endurance
+WEIGHT,About 293,293
+CONFIRMATION,That's right,yes
+LEVEL,I'd say intermediate,intermediate
+CONSENT,I would rather not,no
+AGE,I am 25,25
+INJURIES,I have a tennis elbow,tennis elbow
+LEVEL,Pretty much a advanced,advanced
+GREETING,I'm ready,yes
+WEIGHT,Around 140,140
+GOAL,Mainly to lose weight,lose weight
+DAYS,About 5 days,5
+HEIGHT,183 cm,183
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+WEIGHT,205,205
+INJURIES,Dealing with lower back pain,lower back pain
+GREETING,Give me a minute,no
+LEVEL,Pretty much a novice,novice
+GOAL,build muscle,build muscle
+INJURIES,My shoulder impingement hurts sometimes,shoulder impingement
+ALLERGIES,I'm allergic to glutens,gluten
+EQUIPMENT,I workout at a full gym,full gym
+INJURIES,I have a bad knee,bad knee
+GOAL,Looking to lose weight,lose weight
+WEIGHT,156,156
+CONFIRMATION,That is wrong,no
+CONFIRMATION,No,no
+EQUIPMENT,I workout at a resistance bands,resistance bands
+DAYS,5,5
+GOAL,Mainly to tone up,tone up
+ALLERGIES,I am vegan,vegan
+EQUIPMENT,Just resistance bands,resistance bands
+INJURIES,I have a twisted ankle,twisted ankle
+GOAL,endurance,endurance
+EQUIPMENT,I only have full gym,full gym
+ALLERGIES,Nah,none
+CONSENT,I consent,yes
+HEIGHT,188,188
+CONSENT,I don't consent,no
+EQUIPMENT,Just resistance bands,resistance bands
+AGE,I just turned 54,54
+HEIGHT,I am 180 centimeters,180
+WEIGHT,273 pounds,273
+GOAL,endurance,endurance
+WEIGHT,244 pounds,244
+GOAL,tone up,tone up
+INJURIES,tennis elbow,tennis elbow
+ALLERGIES,I am peanut,peanut
+CONSENT,I consent,yes
+GREETING,Yeah let's go,yes
+WEIGHT,I am 137 lbs,137
+INJURIES,Dealing with tennis elbow,tennis elbow
+DAYS,6 days,6
+CONSENT,I consent,yes
+GOAL,endurance,endurance
+DAYS,I can do 4 days a week,4
+EQUIPMENT,I only have home gym,home gym
+EQUIPMENT,resistance bands,resistance bands
+DAYS,2,2
+WEIGHT,101 pounds,101
+GOAL,I want to endurance,endurance
+WEIGHT,121 pounds,121
+AGE,I am 33,33
+HEIGHT,About 166 cm,166
+CONSENT,I would rather not,no
+CONFIRMATION,No,no
+INJURIES,I'm perfectly healthy,none
+EQUIPMENT,Just home gym,home gym
+EQUIPMENT,I have access to dumbbells,dumbbells
+LEVEL,I am a advanced,advanced
+CONFIRMATION,Incorrect,no
+HEIGHT,About 183 cm,183
+EQUIPMENT,I only have full gym,full gym
+HEIGHT,About 162 cm,162
+LEVEL,Just a pro,pro
+ALLERGIES,I am gluten,gluten
+CONSENT,Go ahead,yes
+GOAL,Mainly to tone up,tone up
+AGE,I just turned 16,16
+CONSENT,Nope,no
+EQUIPMENT,I only have full gym,full gym
+EQUIPMENT,I workout at a dumbbells,dumbbells
+INJURIES,shoulder impingement,shoulder impingement
+HEIGHT,About 186 cm,186
+EQUIPMENT,full gym,full gym
+WEIGHT,Around 228,228
+AGE,I'm 44,44
+LEVEL,I'd say novice,novice
+CONSENT,No,no
+HEIGHT,About 188 cm,188
+GREETING,Yes I am,yes
+WEIGHT,Around 148,148
+LEVEL,advanced,advanced
+CONFIRMATION,I need to change something,no
+AGE,I am 54,54
+CONSENT,Go ahead,yes
+CONSENT,Go ahead,yes
+AGE,I am 16,16
+HEIGHT,191 cm,191
+GOAL,Looking to get shredded,get shredded
+CONSENT,I would rather not,no
+WEIGHT,Around 100,100
+CONFIRMATION,Incorrect,no
+DAYS,I can do 4 days a week,4
+LEVEL,I am a pro,pro
+GOAL,lose weight,lose weight
+GREETING,Yes I am,yes
+CONFIRMATION,Perfect,yes
+GREETING,Not ready,no
+CONSENT,Yes,yes
+HEIGHT,I am 154 centimeters,154
+LEVEL,Just a pro,pro
+HEIGHT,151 cm,151
+WEIGHT,201,201
+HEIGHT,190 cm,190
+WEIGHT,Around 191,191
+INJURIES,Dealing with lower back pain,lower back pain
+GOAL,Looking to endurance,endurance
+GREETING,Ready,yes
+AGE,I just turned 65,65
+ALLERGIES,I am vegan,vegan
+EQUIPMENT,I only have bodyweight,bodyweight
+LEVEL,Pretty much a beginner,beginner
+DAYS,About 3 days,3
+AGE,I just turned 61,61
+HEIGHT,186 cm,186
+ALLERGIES,I am vegan,vegan
+GREETING,Let's do it,yes
+AGE,I just turned 55,55
+DAYS,2 days,2
+EQUIPMENT,I workout at a home gym,home gym
+CONSENT,Yes you do,yes
+CONSENT,No,no
+CONSENT,I don't consent,no
+GOAL,Looking to lose weight,lose weight
+CONFIRMATION,I need to change something,no
+DAYS,About 4 days,4
+CONFIRMATION,Looks correct,yes
+EQUIPMENT,I have access to resistance bands,resistance bands
+AGE,53,53
+CONSENT,No,no
+HEIGHT,167 cm,167
+WEIGHT,I am 138 lbs,138
+CONFIRMATION,That is wrong,no
+GREETING,Not ready,no
+DAYS,4,4
+AGE,I am 31,31
+GOAL,My goal is to get shredded,get shredded
+EQUIPMENT,I workout at a dumbbells,dumbbells
+EQUIPMENT,Just full gym,full gym
+LEVEL,I am a advanced,advanced
+CONSENT,Nope,no
+CONFIRMATION,Incorrect,no
+CONSENT,Sure,yes
+GREETING,Yes,yes
+CONFIRMATION,That's right,yes
+GOAL,My goal is to get shredded,get shredded
+LEVEL,pro,pro
+AGE,46,46
+WEIGHT,Around 239,239
+GREETING,Absolutely,yes
+EQUIPMENT,I only have full gym,full gym
+CONSENT,Yes you do,yes
+DAYS,About 6 days,6
+INJURIES,No,none
+ALLERGIES,I'm allergic to vegans,vegan
+GREETING,Not ready,no
+GREETING,Give me a minute,no
+AGE,36,36
+ALLERGIES,I am vegan,vegan
+WEIGHT,I am 285 lbs,285
+LEVEL,Pretty much a advanced,advanced
+GREETING,Not ready,no
+LEVEL,I am a intermediate,intermediate
+ALLERGIES,I am vegan,vegan
+GOAL,Mainly to lose weight,lose weight
+ALLERGIES,I'm allergic to peanuts,peanut
+CONFIRMATION,Looks correct,yes
+ALLERGIES,I have a gluten allergy,gluten
+CONSENT,I consent,yes
+CONFIRMATION,Perfect,yes
+CONFIRMATION,Wait,no
+GREETING,Yes I am,yes
+EQUIPMENT,I only have home gym,home gym
+HEIGHT,About 171 cm,171
+INJURIES,tennis elbow,tennis elbow
+CONSENT,I would rather not,no
+GOAL,I want to build muscle,build muscle
+HEIGHT,180 cm,180
+CONSENT,Go ahead,yes
+EQUIPMENT,bodyweight,bodyweight
+EQUIPMENT,Just bodyweight,bodyweight
+AGE,22,22
+DAYS,I can do 2 days a week,2
+LEVEL,Just a advanced,advanced
+INJURIES,My bad knee hurts sometimes,bad knee
+LEVEL,Just a advanced,advanced
+DAYS,2 days,2
+AGE,37,37
+GOAL,I want to tone up,tone up
+CONSENT,No,no
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+WEIGHT,194 pounds,194
+CONSENT,Yes you do,yes
+HEIGHT,170,170
+CONFIRMATION,Wait,no
+AGE,I just turned 48,48
+ALLERGIES,I am lactose intolerant,lactose intolerant
+GREETING,Nah,no
+WEIGHT,About 106,106
+DAYS,5 days,5
+INJURIES,My shoulder impingement hurts sometimes,shoulder impingement
+DAYS,About 6 days,6
+CONFIRMATION,No,no
+EQUIPMENT,I have access to bodyweight,bodyweight
+CONFIRMATION,That's right,yes
+CONFIRMATION,Go ahead,yes
+DAYS,About 4 days,4
+GREETING,Absolutely,yes
+CONSENT,I consent,yes
+WEIGHT,About 274,274
+DAYS,About 3 days,3
+CONFIRMATION,Wait,no
+GOAL,Mainly to get shredded,get shredded
+CONFIRMATION,Looks correct,yes
+HEIGHT,About 150 cm,150
+DAYS,I have 2 days free,2
+GOAL,My goal is to build muscle,build muscle
+GOAL,get shredded,get shredded
+HEIGHT,162 cm,162
+EQUIPMENT,I workout at a resistance bands,resistance bands
+GREETING,Not yet,no
+WEIGHT,205 pounds,205
+GOAL,I want to endurance,endurance
+CONSENT,Okay,yes
+LEVEL,Just a novice,novice
+HEIGHT,About 158 cm,158
+CONSENT,Yeah that's fine,yes
+HEIGHT,About 195 cm,195
+GREETING,Let's do it,yes
+WEIGHT,I am 211 lbs,211
+ALLERGIES,I'm allergic to shellfishs,shellfish
+AGE,52,52
+WEIGHT,278 pounds,278
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+GREETING,No,no
+WEIGHT,I weigh 266 lbs,266
+CONFIRMATION,Perfect,yes
+INJURIES,I have a shoulder impingement,shoulder impingement
+LEVEL,beginner,beginner
+WEIGHT,134,134
+DAYS,About 5 days,5
+HEIGHT,184,184
+EQUIPMENT,Just full gym,full gym
+HEIGHT,I am 169 centimeters,169
+HEIGHT,I am 186 centimeters,186
+INJURIES,No,none
+LEVEL,I'd say beginner,beginner
+LEVEL,I'd say novice,novice
+INJURIES,I have a shoulder impingement,shoulder impingement
+LEVEL,Just a intermediate,intermediate
+CONFIRMATION,That's right,yes
+GOAL,I want to burn fat,burn fat
+GOAL,I want to get shredded,get shredded
+CONSENT,I don't consent,no
+GREETING,Not yet,no
+CONFIRMATION,That is wrong,no
+AGE,I'm 35,35
+WEIGHT,180 pounds,180
+INJURIES,Dealing with tennis elbow,tennis elbow
+WEIGHT,Around 239,239
+HEIGHT,About 181 cm,181
+ALLERGIES,I have a shellfish allergy,shellfish
+GOAL,I want to endurance,endurance
+INJURIES,No injuries,none
+CONSENT,Okay,yes
+HEIGHT,190 cm,190
+EQUIPMENT,full gym,full gym
+CONSENT,Nope,no
+INJURIES,tennis elbow,tennis elbow
+GREETING,Not yet,no
+GREETING,Yes,yes
+LEVEL,Pretty much a intermediate,intermediate
+EQUIPMENT,I workout at a dumbbells,dumbbells
+ALLERGIES,I am gluten,gluten
+AGE,I just turned 58,58
+ALLERGIES,I am shellfish,shellfish
+DAYS,I have 2 days free,2
+CONSENT,Nah,no
+DAYS,About 6 days,6
+AGE,I'm 57,57
+CONSENT,I don't consent,no
+CONFIRMATION,Perfect,yes
+ALLERGIES,I'm allergic to glutens,gluten
+DAYS,5 days,5
+AGE,I am 23 years old,23
+CONSENT,Go ahead,yes
+AGE,I am 63 years old,63
+WEIGHT,176 pounds,176
+INJURIES,I have a lower back pain,lower back pain
+DAYS,4,4
+AGE,50,50
+WEIGHT,203 pounds,203
+GREETING,Let's do it,yes
+WEIGHT,Around 221,221
+AGE,I'm 55,55
+AGE,I'm 21,21
+INJURIES,My lower back pain hurts sometimes,lower back pain
+WEIGHT,I am 112 lbs,112
+GREETING,No,no
+CONSENT,I consent,yes
+WEIGHT,I am 213 lbs,213
+GREETING,I'm ready,yes
+AGE,27,27
+DAYS,I can do 2 days a week,2
+ALLERGIES,I'm allergic to peanuts,peanut
+CONFIRMATION,Incorrect,no
+EQUIPMENT,I only have full gym,full gym
+INJURIES,Dealing with bad knee,bad knee
+AGE,I am 29,29
+ALLERGIES,I have a gluten allergy,gluten
+CONFIRMATION,That is wrong,no
+GREETING,Not ready,no
+ALLERGIES,gluten,gluten
+CONSENT,I would rather not,no
+INJURIES,I have a shoulder impingement,shoulder impingement
+AGE,I am 41,41
+LEVEL,Just a novice,novice
+CONSENT,Yes you do,yes
+INJURIES,I'm perfectly healthy,none
+EQUIPMENT,I have access to home gym,home gym
+CONFIRMATION,I need to change something,no
+CONSENT,Yeah that's fine,yes
+GREETING,Give me a minute,no
+EQUIPMENT,I workout at a kettlebells,kettlebells
+GOAL,Mainly to tone up,tone up
+ALLERGIES,I have a shellfish allergy,shellfish
+EQUIPMENT,bodyweight,bodyweight
+HEIGHT,171 cm,171
+GREETING,Let's do it,yes
+DAYS,6,6
+AGE,I am 58,58
+WEIGHT,About 176,176
+DAYS,4 days,4
+ALLERGIES,I have a vegan allergy,vegan
+HEIGHT,176 cm,176
+CONSENT,Nope,no
+EQUIPMENT,Just kettlebells,kettlebells
+EQUIPMENT,Just bodyweight,bodyweight
+CONSENT,Nah,no
+EQUIPMENT,I only have bodyweight,bodyweight
+CONFIRMATION,Yes,yes
+EQUIPMENT,I only have kettlebells,kettlebells
+EQUIPMENT,I workout at a kettlebells,kettlebells
+AGE,I just turned 46,46
+CONFIRMATION,Wait,no
+WEIGHT,I weigh 286 lbs,286
+LEVEL,Pretty much a intermediate,intermediate
+INJURIES,I have a bad knee,bad knee
+GOAL,My goal is to lose weight,lose weight
+WEIGHT,Around 163,163
+AGE,I just turned 17,17
+GOAL,Looking to endurance,endurance
+LEVEL,I'd say intermediate,intermediate
+GREETING,Ready,yes
+ALLERGIES,I am peanut,peanut
+INJURIES,Dealing with twisted ankle,twisted ankle
+INJURIES,I have a twisted ankle,twisted ankle
+AGE,I am 64 years old,64
+GOAL,Mainly to tone up,tone up
+INJURIES,My shoulder impingement hurts sometimes,shoulder impingement
+GREETING,Ready,yes
+ALLERGIES,I have a peanut allergy,peanut
+CONSENT,Nope,no
+HEIGHT,About 162 cm,162
+AGE,I am 65,65
+EQUIPMENT,I only have kettlebells,kettlebells
+EQUIPMENT,I only have resistance bands,resistance bands
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+LEVEL,intermediate,intermediate
+LEVEL,advanced,advanced
+CONFIRMATION,That is wrong,no
+GREETING,Nah,no
+CONFIRMATION,Looks correct,yes
+HEIGHT,186,186
+ALLERGIES,I'm allergic to glutens,gluten
+CONSENT,Yes you do,yes
+WEIGHT,About 143,143
+EQUIPMENT,I workout at a kettlebells,kettlebells
+DAYS,2 days,2
+ALLERGIES,I have a vegan allergy,vegan
+WEIGHT,131,131
+EQUIPMENT,full gym,full gym
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+INJURIES,My tennis elbow hurts sometimes,tennis elbow
+LEVEL,intermediate,intermediate
+HEIGHT,185,185
+HEIGHT,About 184 cm,184
+ALLERGIES,I'm allergic to peanuts,peanut
+INJURIES,My lower back pain hurts sometimes,lower back pain
+GREETING,Yes I am,yes
+CONSENT,Yes you do,yes
+WEIGHT,About 288,288
+AGE,I am 41,41
+HEIGHT,189,189
+WEIGHT,About 173,173
+ALLERGIES,peanut,peanut
+GREETING,Not yet,no
+EQUIPMENT,I workout at a kettlebells,kettlebells
+CONSENT,Yes,yes
+CONSENT,Yeah that's fine,yes
+GOAL,Mainly to build muscle,build muscle
+WEIGHT,I weigh 230 lbs,230
+INJURIES,My twisted ankle hurts sometimes,twisted ankle
+WEIGHT,241,241
+ALLERGIES,I have a gluten allergy,gluten
+EQUIPMENT,Just resistance bands,resistance bands
+INJURIES,I have a lower back pain,lower back pain
+HEIGHT,I am 150 centimeters,150
+INJURIES,bad knee,bad knee
+EQUIPMENT,I only have kettlebells,kettlebells
+LEVEL,advanced,advanced
+GREETING,Ready,yes
+LEVEL,Pretty much a novice,novice
+GREETING,Not yet,no
+LEVEL,Pretty much a novice,novice
+ALLERGIES,I am peanut,peanut
+EQUIPMENT,I only have full gym,full gym
+CONFIRMATION,Looks good,yes
+INJURIES,Dealing with twisted ankle,twisted ankle
+LEVEL,I'd say novice,novice
+EQUIPMENT,bodyweight,bodyweight
+CONFIRMATION,That is wrong,no
+GOAL,Mainly to burn fat,burn fat
+DAYS,6 days,6
+DAYS,About 5 days,5
+GREETING,Yes,yes
+CONSENT,I don't consent,no
+CONFIRMATION,Incorrect,no
+CONSENT,No,no
+LEVEL,I am a pro,pro
+WEIGHT,156,156
+CONSENT,Sure,yes
+AGE,42,42
+GREETING,Ready,yes
+CONSENT,I would rather not,no
+INJURIES,Dealing with twisted ankle,twisted ankle
+ALLERGIES,lactose intolerant,lactose intolerant
+HEIGHT,159,159
+DAYS,I can do 6 days a week,6
+HEIGHT,About 193 cm,193
+AGE,29,29
+GREETING,I'm ready,yes
+CONFIRMATION,Go ahead,yes
+DAYS,3 days,3
+GOAL,My goal is to tone up,tone up
+WEIGHT,About 268,268
+EQUIPMENT,I workout at a resistance bands,resistance bands
+LEVEL,pro,pro
+CONSENT,I consent,yes
+GOAL,Looking to lose weight,lose weight
+GREETING,Yes,yes
+EQUIPMENT,I workout at a kettlebells,kettlebells
+LEVEL,I'd say pro,pro
+AGE,I am 40,40
+GOAL,My goal is to get shredded,get shredded
+DAYS,I have 4 days free,4
+GOAL,I want to get shredded,get shredded
+AGE,38,38
+ALLERGIES,I have a peanut allergy,peanut
+INJURIES,I have a bad knee,bad knee
+GREETING,Nah,no
+WEIGHT,130,130
+INJURIES,My lower back pain hurts sometimes,lower back pain
+INJURIES,shoulder impingement,shoulder impingement
+CONFIRMATION,Looks correct,yes
+ALLERGIES,I am shellfish,shellfish
+EQUIPMENT,I have access to resistance bands,resistance bands
+LEVEL,novice,novice
+GOAL,I want to build muscle,build muscle
+GOAL,My goal is to endurance,endurance
+HEIGHT,About 160 cm,160
+WEIGHT,299 pounds,299
+AGE,I'm 40,40
+GREETING,Yes,yes
+DAYS,6 days,6
+INJURIES,I have a bad knee,bad knee
+CONFIRMATION,Generate it,yes
+GOAL,Mainly to endurance,endurance
+GREETING,Absolutely,yes
+DAYS,I can do 3 days a week,3
+ALLERGIES,I'm allergic to glutens,gluten
+EQUIPMENT,I only have home gym,home gym
+CONSENT,Yeah that's fine,yes
+AGE,I am 33,33
+INJURIES,I have a lower back pain,lower back pain
+CONFIRMATION,Incorrect,no
+DAYS,3,3
+AGE,I just turned 40,40
+DAYS,6 days,6
+AGE,28,28
+AGE,I'm 54,54
+CONFIRMATION,Generate it,yes
+ALLERGIES,peanut,peanut
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+HEIGHT,I am 152 centimeters,152
+HEIGHT,166 cm,166
+ALLERGIES,I am peanut,peanut
+GOAL,Looking to tone up,tone up
+LEVEL,Just a pro,pro
+ALLERGIES,I am gluten,gluten
+CONFIRMATION,I need to change something,no
+LEVEL,I am a beginner,beginner
+CONSENT,I would rather not,no
+WEIGHT,232,232
+HEIGHT,I am 173 centimeters,173
+CONFIRMATION,Perfect,yes
+GOAL,get shredded,get shredded
+HEIGHT,178,178
+EQUIPMENT,bodyweight,bodyweight
+GOAL,My goal is to endurance,endurance
+INJURIES,Dealing with bad knee,bad knee
+DAYS,6 days,6
+AGE,I just turned 51,51
+EQUIPMENT,I only have bodyweight,bodyweight
+GOAL,I want to get shredded,get shredded
+AGE,I am 35 years old,35
+GREETING,Not ready,no
+WEIGHT,I weigh 185 lbs,185
+LEVEL,Just a pro,pro
+WEIGHT,Around 105,105
+WEIGHT,I weigh 202 lbs,202
+AGE,I am 34 years old,34
+CONSENT,Yes you do,yes
+EQUIPMENT,bodyweight,bodyweight
+CONSENT,Sure,yes
+GOAL,Looking to build muscle,build muscle
+EQUIPMENT,I workout at a kettlebells,kettlebells
+GREETING,Give me a minute,no
+HEIGHT,192 cm,192
+WEIGHT,248,248
+INJURIES,I have a shoulder impingement,shoulder impingement
+CONFIRMATION,Wait,no
+AGE,I just turned 20,20
+CONSENT,Okay,yes
+DAYS,3 days,3
+CONSENT,I would rather not,no
+CONSENT,Yes you do,yes
+HEIGHT,I am 167 centimeters,167
+EQUIPMENT,I have access to kettlebells,kettlebells
+AGE,I'm 39,39
+GREETING,Absolutely,yes
+CONSENT,I would rather not,no
+WEIGHT,148 pounds,148
+LEVEL,I am a beginner,beginner
+DAYS,I can do 6 days a week,6
+GOAL,Looking to burn fat,burn fat
+HEIGHT,About 190 cm,190
+EQUIPMENT,I workout at a full gym,full gym
+AGE,I am 26 years old,26
+HEIGHT,About 155 cm,155
+AGE,I'm 58,58
+ALLERGIES,vegan,vegan
+ALLERGIES,I'm allergic to peanuts,peanut
+INJURIES,My bad knee hurts sometimes,bad knee
+ALLERGIES,I am lactose intolerant,lactose intolerant
+LEVEL,I'd say intermediate,intermediate
+GOAL,Mainly to build muscle,build muscle
+ALLERGIES,peanut,peanut
+LEVEL,Just a advanced,advanced
+HEIGHT,168,168
+CONFIRMATION,I need to change something,no
+DAYS,About 4 days,4
+CONSENT,Nope,no
+AGE,I am 65 years old,65
+DAYS,I have 3 days free,3
+GOAL,My goal is to build muscle,build muscle
+ALLERGIES,I am lactose intolerant,lactose intolerant
+GOAL,Looking to burn fat,burn fat
+GOAL,burn fat,burn fat
+DAYS,2 days,2
+HEIGHT,157 cm,157
+HEIGHT,176 cm,176
+CONSENT,I don't consent,no
+GOAL,endurance,endurance
+GOAL,Looking to tone up,tone up
+GREETING,Let's do it,yes
+GREETING,Yeah let's go,yes
+LEVEL,I am a novice,novice
+AGE,I am 17 years old,17
+HEIGHT,About 195 cm,195
+INJURIES,bad knee,bad knee
+DAYS,I have 3 days free,3
+HEIGHT,168,168
+DAYS,5 days,5
+ALLERGIES,Nope,none
+ALLERGIES,peanut,peanut
+EQUIPMENT,bodyweight,bodyweight
+DAYS,6 days,6
+CONSENT,Nah,no
+GOAL,Mainly to lose weight,lose weight
+LEVEL,I am a advanced,advanced
+CONSENT,I don't consent,no
+WEIGHT,About 118,118
+WEIGHT,About 126,126
+GOAL,I want to get shredded,get shredded
+CONFIRMATION,Perfect,yes
+GREETING,Yeah let's go,yes
+ALLERGIES,I am shellfish,shellfish
+HEIGHT,156,156
+ALLERGIES,vegan,vegan
+GREETING,Not ready,no
+DAYS,About 3 days,3
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+AGE,I'm 31,31
+ALLERGIES,I am vegan,vegan
+HEIGHT,About 194 cm,194
+WEIGHT,I am 143 lbs,143
+EQUIPMENT,I have access to full gym,full gym
+EQUIPMENT,I have access to home gym,home gym
+HEIGHT,I am 183 centimeters,183
+GREETING,Ready,yes
+HEIGHT,About 194 cm,194
+DAYS,About 5 days,5
+INJURIES,My shoulder impingement hurts sometimes,shoulder impingement
+ALLERGIES,None,none
+INJURIES,No injuries,none
+EQUIPMENT,I have access to dumbbells,dumbbells
+ALLERGIES,I'm allergic to glutens,gluten
+CONSENT,Sure,yes
+CONFIRMATION,Go ahead,yes
+ALLERGIES,I am gluten,gluten
+LEVEL,I am a novice,novice
+CONSENT,Yes,yes
+GOAL,Mainly to build muscle,build muscle
+DAYS,About 2 days,2
+CONSENT,Nope,no
+CONFIRMATION,Wait,no
+INJURIES,I have a shoulder impingement,shoulder impingement
+CONSENT,Go ahead,yes
+CONFIRMATION,I need to change something,no
+CONSENT,I would rather not,no
+DAYS,2 days,2
+AGE,I am 26,26
+CONSENT,No,no
+WEIGHT,I weigh 137 lbs,137
+GOAL,My goal is to build muscle,build muscle
+AGE,I am 50,50
+EQUIPMENT,I only have full gym,full gym
+CONFIRMATION,That's right,yes
+CONFIRMATION,Incorrect,no
+LEVEL,Just a advanced,advanced
+DAYS,I can do 3 days a week,3
+AGE,I am 40,40
+DAYS,I can do 3 days a week,3
+LEVEL,Pretty much a novice,novice
+LEVEL,beginner,beginner
+EQUIPMENT,kettlebells,kettlebells
+CONSENT,Yes,yes
+CONSENT,Yes you do,yes
+GOAL,Looking to lose weight,lose weight
+LEVEL,beginner,beginner
+WEIGHT,About 136,136
+EQUIPMENT,I workout at a kettlebells,kettlebells
+DAYS,4 days,4
+HEIGHT,I am 154 centimeters,154
+WEIGHT,229 pounds,229
+WEIGHT,134 pounds,134
+CONSENT,I don't consent,no
+INJURIES,No,none
+CONFIRMATION,Wait,no
+GOAL,get shredded,get shredded
+ALLERGIES,gluten,gluten
+EQUIPMENT,Just dumbbells,dumbbells
+LEVEL,I am a beginner,beginner
+INJURIES,None,none
+AGE,I just turned 56,56
+CONFIRMATION,Generate it,yes
+AGE,62,62
+GOAL,Looking to get shredded,get shredded
+CONFIRMATION,No,no
+WEIGHT,134,134
+INJURIES,My lower back pain hurts sometimes,lower back pain
+EQUIPMENT,I workout at a bodyweight,bodyweight
+CONSENT,Sure,yes
+INJURIES,tennis elbow,tennis elbow
+CONSENT,Yeah that's fine,yes
+DAYS,About 6 days,6
+ALLERGIES,gluten,gluten
+GREETING,Yes I am,yes
+GOAL,get shredded,get shredded
+HEIGHT,178,178
+ALLERGIES,I am shellfish,shellfish
+AGE,I just turned 22,22
+DAYS,I can do 3 days a week,3
+CONSENT,Go ahead,yes
+CONSENT,I would rather not,no
+WEIGHT,Around 286,286
+GREETING,Let's do it,yes
+CONSENT,Go ahead,yes
+CONSENT,Nah,no
+CONSENT,No,no
+INJURIES,Dealing with lower back pain,lower back pain
+EQUIPMENT,I workout at a full gym,full gym
+INJURIES,shoulder impingement,shoulder impingement
+CONSENT,I consent,yes
+INJURIES,Nope,none
+HEIGHT,172,172
+HEIGHT,152 cm,152
+DAYS,3,3
+AGE,I just turned 43,43
+INJURIES,twisted ankle,twisted ankle
+EQUIPMENT,I only have bodyweight,bodyweight
+ALLERGIES,I'm allergic to peanuts,peanut
+GREETING,Absolutely,yes
+GOAL,Looking to endurance,endurance
+LEVEL,pro,pro
+LEVEL,Pretty much a pro,pro
+CONFIRMATION,Go ahead,yes
+INJURIES,Nope,none
+CONSENT,Go ahead,yes
+CONSENT,I would rather not,no
+ALLERGIES,I am lactose intolerant,lactose intolerant
+GOAL,My goal is to endurance,endurance
+CONFIRMATION,No,no
+CONFIRMATION,Perfect,yes
+HEIGHT,About 170 cm,170
+CONFIRMATION,Perfect,yes
+EQUIPMENT,I workout at a home gym,home gym
+LEVEL,I'd say advanced,advanced
+HEIGHT,I am 188 centimeters,188
+WEIGHT,I am 174 lbs,174
+AGE,24,24
+CONSENT,No,no
+CONSENT,Sure,yes
+CONFIRMATION,Generate it,yes
+HEIGHT,About 155 cm,155
+CONSENT,I don't consent,no
+WEIGHT,About 164,164
+GREETING,Give me a minute,no
+GREETING,Yes I am,yes
+GREETING,Yes,yes
+CONSENT,Sure,yes
+GREETING,Yes,yes
+HEIGHT,About 157 cm,157
+GOAL,build muscle,build muscle
+INJURIES,I have a lower back pain,lower back pain
+DAYS,About 4 days,4
+GOAL,I want to burn fat,burn fat
+LEVEL,Pretty much a beginner,beginner
+INJURIES,Dealing with lower back pain,lower back pain
+DAYS,I have 5 days free,5
+CONSENT,Yes you do,yes
+GREETING,No,no
+GREETING,Give me a minute,no
+GREETING,Give me a minute,no
+INJURIES,Dealing with bad knee,bad knee
+INJURIES,twisted ankle,twisted ankle
+ALLERGIES,I'm allergic to peanuts,peanut
+CONSENT,Nah,no
+GOAL,Looking to get shredded,get shredded
+HEIGHT,I am 154 centimeters,154
+INJURIES,tennis elbow,tennis elbow
+DAYS,I can do 3 days a week,3
+DAYS,3 days,3
+GREETING,Ready,yes
+LEVEL,pro,pro
+AGE,37,37
+CONFIRMATION,Go ahead,yes
+WEIGHT,About 216,216
+GREETING,Absolutely,yes
+LEVEL,Just a novice,novice
+DAYS,About 4 days,4
+AGE,42,42
+ALLERGIES,I am lactose intolerant,lactose intolerant
+LEVEL,pro,pro
+CONFIRMATION,No,no
+INJURIES,Dealing with bad knee,bad knee
+INJURIES,shoulder impingement,shoulder impingement
+GOAL,My goal is to tone up,tone up
+HEIGHT,186 cm,186
+AGE,I'm 17,17
+GOAL,I want to build muscle,build muscle
+CONSENT,I would rather not,no
+INJURIES,My bad knee hurts sometimes,bad knee
+HEIGHT,181 cm,181
+CONSENT,I would rather not,no
+LEVEL,beginner,beginner
+CONFIRMATION,Looks correct,yes
+EQUIPMENT,I have access to full gym,full gym
+CONSENT,Okay,yes
+AGE,I am 24,24
+EQUIPMENT,I only have home gym,home gym
+LEVEL,Just a pro,pro
+LEVEL,Just a pro,pro
+EQUIPMENT,full gym,full gym
+DAYS,6 days,6
+HEIGHT,168 cm,168
+EQUIPMENT,I workout at a resistance bands,resistance bands
+GOAL,build muscle,build muscle
+GOAL,My goal is to build muscle,build muscle
+LEVEL,I am a advanced,advanced
+HEIGHT,About 189 cm,189
+LEVEL,I am a pro,pro
+CONFIRMATION,Generate it,yes
+AGE,I am 29,29
+WEIGHT,253,253
+CONSENT,Yes you do,yes
+WEIGHT,I am 155 lbs,155
+ALLERGIES,I have a gluten allergy,gluten
+HEIGHT,161,161
+INJURIES,My bad knee hurts sometimes,bad knee
+ALLERGIES,Nope,none
+CONFIRMATION,Looks good,yes
+DAYS,2 days,2
+AGE,I just turned 43,43
+DAYS,I have 3 days free,3
+ALLERGIES,peanut,peanut
+EQUIPMENT,I only have full gym,full gym
+GOAL,tone up,tone up
+HEIGHT,191 cm,191
+DAYS,About 4 days,4
+DAYS,4,4
+GREETING,No,no
+AGE,I am 38 years old,38
+GREETING,Yes I am,yes
+CONFIRMATION,I need to change something,no
+CONFIRMATION,No,no
+EQUIPMENT,I have access to dumbbells,dumbbells
+EQUIPMENT,resistance bands,resistance bands
+DAYS,About 2 days,2
+GOAL,build muscle,build muscle
+DAYS,I have 2 days free,2
+ALLERGIES,lactose intolerant,lactose intolerant
+ALLERGIES,I am gluten,gluten
+CONFIRMATION,That's right,yes
+AGE,I am 63 years old,63
+CONSENT,Yeah that's fine,yes
+GREETING,Yeah let's go,yes
+LEVEL,Just a advanced,advanced
+GREETING,Ready,yes
+EQUIPMENT,dumbbells,dumbbells
+GOAL,build muscle,build muscle
+WEIGHT,I weigh 220 lbs,220
+CONFIRMATION,Looks correct,yes
+CONFIRMATION,Wait,no
+EQUIPMENT,I have access to home gym,home gym
+CONSENT,Sure,yes
+GOAL,I want to get shredded,get shredded
+EQUIPMENT,I have access to full gym,full gym
+HEIGHT,178,178
+HEIGHT,195,195
+LEVEL,I'd say beginner,beginner
+CONSENT,Nope,no
+CONSENT,Yes you do,yes
+GREETING,No,no
+DAYS,I have 5 days free,5
+LEVEL,I'd say novice,novice
+LEVEL,I am a advanced,advanced
+GOAL,Looking to lose weight,lose weight
+EQUIPMENT,I workout at a full gym,full gym
+EQUIPMENT,Just resistance bands,resistance bands
+CONSENT,Go ahead,yes
+INJURIES,twisted ankle,twisted ankle
+CONSENT,Nah,no
+AGE,I'm 41,41
+ALLERGIES,I'm allergic to glutens,gluten
+GREETING,Nah,no
+AGE,I just turned 52,52
+GREETING,Yes I am,yes
+LEVEL,advanced,advanced
+LEVEL,I am a beginner,beginner
+EQUIPMENT,I workout at a dumbbells,dumbbells
+GREETING,Give me a minute,no
+ALLERGIES,shellfish,shellfish
+WEIGHT,About 144,144
+GREETING,No,no
+GREETING,Yeah let's go,yes
+ALLERGIES,I eat everything,none
+INJURIES,shoulder impingement,shoulder impingement
+GOAL,My goal is to build muscle,build muscle
+HEIGHT,194,194
+INJURIES,twisted ankle,twisted ankle
+GOAL,My goal is to burn fat,burn fat
+GREETING,No,no
+DAYS,5,5
+GOAL,I want to build muscle,build muscle
+WEIGHT,Around 265,265
+HEIGHT,182 cm,182
+ALLERGIES,None,none
+HEIGHT,I am 183 centimeters,183
+CONFIRMATION,Wait,no
+GREETING,Let's do it,yes
+WEIGHT,About 212,212
+EQUIPMENT,I workout at a resistance bands,resistance bands
+HEIGHT,I am 185 centimeters,185
+GREETING,Give me a minute,no
+CONSENT,Nah,no
+ALLERGIES,I am lactose intolerant,lactose intolerant
+CONSENT,Yes,yes
+ALLERGIES,I have a lactose intolerant allergy,lactose intolerant
+GREETING,Absolutely,yes
+ALLERGIES,I am lactose intolerant,lactose intolerant
+GOAL,burn fat,burn fat
+EQUIPMENT,full gym,full gym
+AGE,I am 18 years old,18
+WEIGHT,About 159,159
+WEIGHT,151,151
+ALLERGIES,I'm allergic to glutens,gluten
+GREETING,I'm ready,yes
+CONFIRMATION,Yes,yes
+LEVEL,Just a beginner,beginner
+AGE,I'm 30,30
+LEVEL,I am a novice,novice
+CONFIRMATION,Yes,yes
+HEIGHT,164 cm,164
+LEVEL,Just a pro,pro
+INJURIES,lower back pain,lower back pain
+LEVEL,Just a beginner,beginner
+CONFIRMATION,Looks correct,yes
+HEIGHT,192 cm,192
+GOAL,build muscle,build muscle
+AGE,I just turned 56,56
+CONSENT,I consent,yes
+GREETING,Yes I am,yes
+EQUIPMENT,kettlebells,kettlebells
+LEVEL,advanced,advanced
+INJURIES,Nope,none
+LEVEL,Pretty much a advanced,advanced
+AGE,I just turned 32,32
+GOAL,I want to build muscle,build muscle
+ALLERGIES,gluten,gluten
+AGE,I am 30,30
+CONSENT,Sure,yes
+WEIGHT,126,126
+GOAL,tone up,tone up
+CONSENT,No,no
+GREETING,Not ready,no
+CONSENT,I would rather not,no
+INJURIES,Dealing with lower back pain,lower back pain
+GREETING,Nah,no
+ALLERGIES,I am gluten,gluten
+EQUIPMENT,kettlebells,kettlebells
+EQUIPMENT,I workout at a bodyweight,bodyweight
+AGE,I am 43 years old,43
+WEIGHT,137 pounds,137
+AGE,I am 39 years old,39
+CONFIRMATION,Incorrect,no
+CONSENT,Nah,no
+CONFIRMATION,That is wrong,no
+INJURIES,shoulder impingement,shoulder impingement
+DAYS,I can do 6 days a week,6
+GOAL,Mainly to tone up,tone up
+GOAL,I want to lose weight,lose weight
+HEIGHT,158 cm,158
+EQUIPMENT,Just full gym,full gym
+WEIGHT,I weigh 239 lbs,239
+CONSENT,Yes you do,yes
+EQUIPMENT,bodyweight,bodyweight
+GREETING,Let's do it,yes
+CONSENT,I don't consent,no
+CONFIRMATION,Looks correct,yes
+DAYS,2,2
+ALLERGIES,I have a shellfish allergy,shellfish
+GREETING,Absolutely,yes
+DAYS,6 days,6
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+CONFIRMATION,Perfect,yes
+CONSENT,I consent,yes
+ALLERGIES,Nope,none
+AGE,I am 32,32
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+DAYS,About 3 days,3
+ALLERGIES,I'm allergic to lactose intolerants,lactose intolerant
+HEIGHT,190,190
+HEIGHT,About 190 cm,190
+EQUIPMENT,I only have full gym,full gym
+ALLERGIES,I am vegan,vegan
+CONSENT,No,no
+ALLERGIES,None,none
+CONSENT,Okay,yes
+CONFIRMATION,Looks good,yes
+LEVEL,intermediate,intermediate
+AGE,18,18
+GREETING,Not ready,no
+AGE,I am 49 years old,49
+WEIGHT,I weigh 291 lbs,291
+ALLERGIES,shellfish,shellfish
+INJURIES,Nope,none
+DAYS,4,4
+GOAL,My goal is to build muscle,build muscle
+INJURIES,Dealing with shoulder impingement,shoulder impingement
+AGE,I am 21,21
+GOAL,My goal is to endurance,endurance
+WEIGHT,272 pounds,272
+GOAL,Looking to endurance,endurance
+CONSENT,Nah,no
+GOAL,Looking to burn fat,burn fat
+EQUIPMENT,I only have dumbbells,dumbbells
+DAYS,5 days,5
+HEIGHT,About 190 cm,190
+AGE,54,54
+HEIGHT,189 cm,189
+INJURIES,Dealing with lower back pain,lower back pain
+WEIGHT,I am 117 lbs,117
+EQUIPMENT,I workout at a bodyweight,bodyweight
+HEIGHT,I am 153 centimeters,153
+GOAL,My goal is to get shredded,get shredded
+WEIGHT,Around 128,128
+DAYS,6 days,6
+INJURIES,I have a bad knee,bad knee
+ALLERGIES,No allergies,none
+EQUIPMENT,I have access to resistance bands,resistance bands
+WEIGHT,I am 125 lbs,125
+CONFIRMATION,Looks correct,yes
+CONSENT,Yes you do,yes
+CONFIRMATION,Go ahead,yes
