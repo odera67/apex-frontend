@@ -1,7 +1,7 @@
-import { UserResource } from "@clerk/types";
+
 import CornerElements from "./CornerElements";
 
-const ProfileHeader = ({ user }: { user: UserResource | null | undefined }) => {
+const ProfileHeader = ({ user }: { user: any | null | undefined }) => {
   if (!user) return null;
   return (
     <div className="mb-10 relative backdrop-blur-sm border border-border  p-6">

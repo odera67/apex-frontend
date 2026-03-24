@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@auth/core": "^0.37.4",
-    "@clerk/nextjs": "^7.0.2",
+    "@clerk/nextjs": "^5.x.x",
     "@convex-dev/auth": "^0.0.91",
     "@radix-ui/react-popover": "^1.1.15",
     "canvas-confetti": "^1.9.4",
@@ -32,6 +32,7 @@
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
+    "@clerk/types": "^4.101.21",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/canvas-confetti": "^1.9.0",
