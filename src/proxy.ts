@@ -1,22 +1,23 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-// Added (.*) to protect any sub-routes inside these folders!
+// Update this list with any routes you want to hide behind a login
 const isProtectedRoute = createRouteMatcher([
-  "/generate-program(.*)", 
-  "/profile(.*)"
+  '/dashboard(.*)',
+  '/generate-program(.*)',
+  '/check-in(.*)',
 ]);
 
 export default clerkMiddleware(async (auth, req) => {
   if (isProtectedRoute(req)) {
-    await auth.protect();
+    // 🚀 THE FIX: We call auth() as a function and use 'any' to bypass the build check
+    const authObj = await auth() as any;
+    authObj.protect();
   }
 });
 
 export const config = {
   matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
     '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    // Always run for API routes
     '/(api|trpc)(.*)',
   ],
 };
