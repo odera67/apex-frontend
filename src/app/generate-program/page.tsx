@@ -122,7 +122,6 @@ export default function GenerateProgramPage() {
   const messageContainerRef = useRef<HTMLDivElement>(null);
   const processingRef = useRef(false);
   const stepConfigRef = useRef<IntakeStep | null>(null);
-  const listeningLockRef = useRef(false);
 
   const { user } = useUser();
   const userRef = useRef(user);
@@ -166,7 +165,7 @@ export default function GenerateProgramPage() {
     fetchUserDatasetCSV();
   }, []);
 
-  // INITIALIZE WEB SPEECH (Fallback for Desktop)
+  // INITIALIZE WEB SPEECH
   useEffect(() => {
     if (typeof window === "undefined") return;
     synthRef.current = window.speechSynthesis;
@@ -179,40 +178,28 @@ export default function GenerateProgramPage() {
     recognition.interimResults = false;
 
     recognition.onstart = () => setIsListening(true);
-    recognition.onend = () => {
-      setIsListening(false);
-      listeningLockRef.current = false;
-    };
+    recognition.onend = () => setIsListening(false);
     
     recognition.onresult = (event: any) => {
       if (processingRef.current) return;
       processingRef.current = true;
-      
       const transcript = event.results[0][0].transcript.trim();
       
-      if (transcript.length > 0) {
-        handleUserResponse(transcript);
-      }
+      if (transcript.length > 0) handleUserResponse(transcript);
       
       setIsListening(false);
       stopListening();
-      
       setTimeout(() => { processingRef.current = false; }, 400);
     };
     
-    recognition.onerror = () => {
-      setIsListening(false);
-      listeningLockRef.current = false;
-    };
+    recognition.onerror = () => setIsListening(false);
     recognitionRef.current = recognition;
 
     return () => { 
       recognition.abort(); 
       import('@capacitor/core').then(({ Capacitor }) => {
         if (Capacitor.isNativePlatform()) {
-          import('@capacitor-community/text-to-speech').then(({ TextToSpeech }) => {
-            TextToSpeech.stop().catch(() => {});
-          });
+          import('@capacitor-community/text-to-speech').then(({ TextToSpeech }) => TextToSpeech.stop().catch(() => {}));
           import('@capacitor-community/speech-recognition').then(({ SpeechRecognition }) => {
             SpeechRecognition.removeAllListeners().catch(() => {});
             SpeechRecognition.stop().catch(() => {});
@@ -226,18 +213,20 @@ export default function GenerateProgramPage() {
 
   // 🎤 START LISTENING
   const startListening = async () => {
-    if (!callActiveRef.current || isAiSpeakingRef.current || listeningLockRef.current) return;
+    if (!callActiveRef.current || isAiSpeakingRef.current) return;
     
-    listeningLockRef.current = true;
-    
+    let isNative = false;
     try {
       const { Capacitor } = await import('@capacitor/core');
-      
-      if (Capacitor.isNativePlatform()) {
+      isNative = Capacitor.isNativePlatform();
+    } catch (e) {
+      isNative = false;
+    }
+
+    if (isNative) {
+      try {
         const { SpeechRecognition } = await import('@capacitor-community/speech-recognition');
-        
-        // FIX: Preemptively force stop any lingering instances and add a slight buffer to clear the audio channel completely
-        try { await SpeechRecognition.stop(); } catch(e) {}
+        try { await SpeechRecognition.stop(); } catch(e) {} // Buffer clear
         await new Promise(resolve => setTimeout(resolve, 300));
         
         const permissions = await SpeechRecognition.checkPermissions();
@@ -245,66 +234,63 @@ export default function GenerateProgramPage() {
           const req = await SpeechRecognition.requestPermissions();
           if (req.speechRecognition !== 'granted') {
             toast.error("Microphone permission denied! Please allow it in settings.");
-            listeningLockRef.current = false;
             return;
           }
         }
 
         setIsListening(true);
-        
-        try {
-          const result = await SpeechRecognition.start({
-            language: "en-US",
-            maxResults: 1,
-            prompt: "I am listening...",
-            partialResults: false, 
-            popup: false, 
-          });
+        const result = await SpeechRecognition.start({
+          language: "en-US",
+          maxResults: 1,
+          prompt: "I am listening...",
+          partialResults: false, 
+          popup: false, 
+        });
 
-          if (result && result.matches && result.matches.length > 0) {
-            const transcript = result.matches[0].trim();
-            if (transcript.length > 0 && !processingRef.current) {
-              processingRef.current = true;
-              
-              handleUserResponse(transcript);
-              
-              setTimeout(() => { processingRef.current = false; }, 400);
-            }
+        if (result && result.matches && result.matches.length > 0) {
+          const transcript = result.matches[0].trim();
+          if (transcript.length > 0 && !processingRef.current) {
+            processingRef.current = true;
+            handleUserResponse(transcript);
+            setTimeout(() => { processingRef.current = false; }, 400);
           }
-        } catch (err) {
-          console.log("Mic timed out or no speech detected.");
-        } finally {
-          setIsListening(false);
-          listeningLockRef.current = false;
         }
-
-      } else {
-        recognitionRef.current?.start();
+      } catch (err) {
+        console.log("Mic error or timeout:", err);
+      } finally {
+        setIsListening(false);
       }
-    } catch (e) {
-      console.error("Microphone error:", e);
-      setIsListening(false);
-      listeningLockRef.current = false;
+    } else {
+      // WEB FALLBACK
+      try {
+        recognitionRef.current?.start();
+        setIsListening(true);
+      } catch (e) {
+        // usually means already started
+      }
     }
   };
 
   const stopListening = async () => {
-    if (!isListening && !listeningLockRef.current) return;
-    
     setIsListening(false);
+    let isNative = false;
     try {
       const { Capacitor } = await import('@capacitor/core');
-      if (Capacitor.isNativePlatform()) {
+      isNative = Capacitor.isNativePlatform();
+    } catch (e) {
+      isNative = false;
+    }
+
+    if (isNative) {
+      try {
         const { SpeechRecognition } = await import('@capacitor-community/speech-recognition');
         await SpeechRecognition.stop();
-      } else {
+      } catch (e) {}
+    } else {
+      try {
         recognitionRef.current?.stop();
-      }
-    } catch (e) {}
-    
-    setTimeout(() => {
-      listeningLockRef.current = false;
-    }, 300);
+      } catch(e) {}
+    }
   };
 
   // 🔊 SPEAK
@@ -316,10 +302,16 @@ export default function GenerateProgramPage() {
     isAiSpeakingRef.current = true;
     addMessage("assistant", text);
 
+    let isNative = false;
     try {
       const { Capacitor } = await import('@capacitor/core');
-      
-      if (Capacitor.isNativePlatform()) {
+      isNative = Capacitor.isNativePlatform();
+    } catch (e) {
+      isNative = false;
+    }
+
+    if (isNative) {
+      try {
         const { TextToSpeech } = await import('@capacitor-community/text-to-speech');
         await TextToSpeech.speak({
           text: text,
@@ -333,27 +325,46 @@ export default function GenerateProgramPage() {
         setIsSpeaking(false); 
         isAiSpeakingRef.current = false;
         
-        // FIX: Increased delay from 800ms to 1200ms to guarantee OS audio hardware fully releases focus before the mic turns on
         setTimeout(() => {
           if (onComplete && callActiveRef.current && !isAiSpeakingRef.current) {
             onComplete();
           }
         }, 1200); 
-        
-      } else {
-        if (!synthRef.current) {
-          setIsSpeaking(false); 
+      } catch(error) {
+        console.error("Native TTS Error:", error);
+        setIsSpeaking(false); 
+        isAiSpeakingRef.current = false;
+        if (onComplete && callActiveRef.current) onComplete();
+      }
+    } else {
+      // WEB FALLBACK
+      if (!synthRef.current) {
+        setIsSpeaking(false); 
+        isAiSpeakingRef.current = false;
+        if (onComplete && callActiveRef.current) onComplete();
+        return;
+      }
+      
+      // FAILSAFE: Force unlock if Web API gets stuck (very common browser bug)
+      const failsafeTimeout = setTimeout(() => {
+        if (isAiSpeakingRef.current) {
+          console.log("Speech failsafe triggered - force unlocking.");
+          setIsSpeaking(false);
           isAiSpeakingRef.current = false;
           if (onComplete && callActiveRef.current) onComplete();
-          return;
         }
-        
+      }, Math.max(text.length * 100, 5000)); // Dynamic timeout based on text length
+
+      try {
+        synthRef.current.cancel(); // Cancel any lingering speech to prevent lockups
+
         const utterance = new SpeechSynthesisUtterance(text);
         const voices = synthRef.current.getVoices();
         utterance.voice = voices.find(v => v.name.includes("Google US English")) || voices[0];
         utterance.rate = 1.05; utterance.pitch = 1;
 
         utterance.onend = () => {
+          clearTimeout(failsafeTimeout);
           setIsSpeaking(false); 
           isAiSpeakingRef.current = false;
           setTimeout(() => {
@@ -361,7 +372,9 @@ export default function GenerateProgramPage() {
           }, 600);
         };
 
-        utterance.onerror = () => {
+        utterance.onerror = (e) => {
+          clearTimeout(failsafeTimeout);
+          console.error("Web TTS Error:", e);
           setIsSpeaking(false); 
           isAiSpeakingRef.current = false;
           setTimeout(() => {
@@ -370,12 +383,12 @@ export default function GenerateProgramPage() {
         };
         
         synthRef.current.speak(utterance);
+      } catch (error) {
+        clearTimeout(failsafeTimeout);
+        setIsSpeaking(false); 
+        isAiSpeakingRef.current = false;
+        if (onComplete && callActiveRef.current) onComplete();
       }
-    } catch (error) {
-      console.error("Error playing audio:", error);
-      setIsSpeaking(false); 
-      isAiSpeakingRef.current = false;
-      if (onComplete && callActiveRef.current) onComplete();
     }
   };
 
@@ -632,7 +645,6 @@ export default function GenerateProgramPage() {
   const toggleCall = async () => {
     if (callActive) {
       setCallActive(false); setIsSpeaking(false); setIsListening(false); isAiSpeakingRef.current = false;
-      listeningLockRef.current = false; 
       await stopListening(); 
       
       try {
