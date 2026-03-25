@@ -165,6 +165,7 @@ export default function GenerateProgramPage() {
     fetchUserDatasetCSV();
   }, []);
 
+  // INITIALIZE WEB SPEECH (Fallback for Desktop)
   useEffect(() => {
     if (typeof window === "undefined") return;
     synthRef.current = window.speechSynthesis;
@@ -206,6 +207,7 @@ export default function GenerateProgramPage() {
             TextToSpeech.stop().catch(() => {});
           });
           import('@capacitor-community/speech-recognition').then(({ SpeechRecognition }) => {
+            SpeechRecognition.removeAllListeners().catch(() => {});
             SpeechRecognition.stop().catch(() => {});
           });
         } else {
@@ -215,7 +217,7 @@ export default function GenerateProgramPage() {
     };
   }, []);
 
-  // ✅ UPDATED: Native App Microphone Support!
+  // 🎤 START LISTENING: Handles Mobile App (Capacitor) & Desktop (Web API)
   const startListening = async () => {
     if (!callActiveRef.current || isAiSpeakingRef.current) return;
     
@@ -225,7 +227,7 @@ export default function GenerateProgramPage() {
       if (Capacitor.isNativePlatform()) {
         const { SpeechRecognition } = await import('@capacitor-community/speech-recognition');
         
-        // 1. Check and request microphone permissions
+        // Ensure Permissions are granted
         const permissions = await SpeechRecognition.checkPermissions();
         if (permissions.speechRecognition !== 'granted') {
           const req = await SpeechRecognition.requestPermissions();
@@ -237,17 +239,20 @@ export default function GenerateProgramPage() {
 
         setIsListening(true);
         
-        // 2. Clear old listeners to avoid double-firing
+        // Clear previous listeners to avoid duplicates
         await SpeechRecognition.removeAllListeners();
 
-        // 3. Listen for speech result
+        // Listen for the Android native recognition results
         SpeechRecognition.addListener('partialResults', (data: any) => {
           if (data.matches && data.matches.length > 0) {
-            const transcript = data.matches[0];
-            if (transcript.trim().length > 0 && !processingRef.current) {
+            const transcript = data.matches[0].trim();
+            if (transcript.length > 0 && !processingRef.current) {
               processingRef.current = true;
+              
+              // Process speech
               handleUserResponse(transcript);
               
+              // Stop everything properly
               setIsListening(false);
               SpeechRecognition.stop().catch(() => {});
               
@@ -256,17 +261,17 @@ export default function GenerateProgramPage() {
           }
         });
 
-        // 4. Start the native microphone
+        // Trigger native Android pop-up / service
         await SpeechRecognition.start({
           language: "en-US",
           maxResults: 1,
           prompt: "I am listening...",
-          partialResults: false,
-          popup: false,
+          partialResults: true, 
+          popup: false, // Hides the big Google popup for cleaner UI
         });
 
       } else {
-        // Fallback for Computer Browser
+        // Desktop Web Browser Fallback
         recognitionRef.current?.start();
       }
     } catch (e) {
@@ -288,6 +293,7 @@ export default function GenerateProgramPage() {
     } catch (e) {}
   };
 
+  // 🔊 SPEAK: Handles Mobile App Voice (Capacitor) & Desktop Voice (Web API)
   const speak = async (text: string, onComplete?: () => void) => {
     stopListening();
     setIsSpeaking(true); 
