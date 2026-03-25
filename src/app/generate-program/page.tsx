@@ -122,7 +122,7 @@ export default function GenerateProgramPage() {
   const messageContainerRef = useRef<HTMLDivElement>(null);
   const processingRef = useRef(false);
   const stepConfigRef = useRef<IntakeStep | null>(null);
-  const listeningLockRef = useRef(false); // NEW: Prevent rapid toggling
+  const listeningLockRef = useRef(false);
 
   const { user } = useUser();
   const userRef = useRef(user);
@@ -181,7 +181,7 @@ export default function GenerateProgramPage() {
     recognition.onstart = () => setIsListening(true);
     recognition.onend = () => {
       setIsListening(false);
-      listeningLockRef.current = false; // NEW: Release lock
+      listeningLockRef.current = false;
     };
     
     recognition.onresult = (event: any) => {
@@ -202,7 +202,7 @@ export default function GenerateProgramPage() {
     
     recognition.onerror = () => {
       setIsListening(false);
-      listeningLockRef.current = false; // NEW: Release lock on error
+      listeningLockRef.current = false;
     };
     recognitionRef.current = recognition;
 
@@ -224,12 +224,11 @@ export default function GenerateProgramPage() {
     };
   }, []);
 
-  // 🎤 START LISTENING - FIXED with lock mechanism
+  // 🎤 START LISTENING
   const startListening = async () => {
-    // NEW: Multiple guards to prevent rapid toggling
     if (!callActiveRef.current || isAiSpeakingRef.current || listeningLockRef.current) return;
     
-    listeningLockRef.current = true; // NEW: Acquire lock
+    listeningLockRef.current = true;
     
     try {
       const { Capacitor } = await import('@capacitor/core');
@@ -237,12 +236,16 @@ export default function GenerateProgramPage() {
       if (Capacitor.isNativePlatform()) {
         const { SpeechRecognition } = await import('@capacitor-community/speech-recognition');
         
+        // FIX: Preemptively force stop any lingering instances and add a slight buffer to clear the audio channel completely
+        try { await SpeechRecognition.stop(); } catch(e) {}
+        await new Promise(resolve => setTimeout(resolve, 300));
+        
         const permissions = await SpeechRecognition.checkPermissions();
         if (permissions.speechRecognition !== 'granted') {
           const req = await SpeechRecognition.requestPermissions();
           if (req.speechRecognition !== 'granted') {
             toast.error("Microphone permission denied! Please allow it in settings.");
-            listeningLockRef.current = false; // Release lock
+            listeningLockRef.current = false;
             return;
           }
         }
@@ -272,7 +275,7 @@ export default function GenerateProgramPage() {
           console.log("Mic timed out or no speech detected.");
         } finally {
           setIsListening(false);
-          listeningLockRef.current = false; // NEW: Release lock
+          listeningLockRef.current = false;
         }
 
       } else {
@@ -281,12 +284,11 @@ export default function GenerateProgramPage() {
     } catch (e) {
       console.error("Microphone error:", e);
       setIsListening(false);
-      listeningLockRef.current = false; // NEW: Release lock on error
+      listeningLockRef.current = false;
     }
   };
 
   const stopListening = async () => {
-    // NEW: Prevent stopping if not listening
     if (!isListening && !listeningLockRef.current) return;
     
     setIsListening(false);
@@ -300,18 +302,14 @@ export default function GenerateProgramPage() {
       }
     } catch (e) {}
     
-    // NEW: Small delay before releasing lock to prevent race conditions
     setTimeout(() => {
       listeningLockRef.current = false;
     }, 300);
   };
 
-  // 🔊 SPEAK - FIXED with proper async/await and state management
+  // 🔊 SPEAK
   const speak = async (text: string, onComplete?: () => void) => {
-    // NEW: Ensure listening is fully stopped before speaking
     await stopListening();
-    
-    // NEW: Wait a bit to ensure microphone hardware is released (crucial for mobile)
     await new Promise(resolve => setTimeout(resolve, 200));
     
     setIsSpeaking(true); 
@@ -332,16 +330,15 @@ export default function GenerateProgramPage() {
           category: 'ambient',
         });
         
-        // NEW: Mark speaking as finished BEFORE the delay
         setIsSpeaking(false); 
         isAiSpeakingRef.current = false;
         
-        // Longer delay for mobile to ensure speaker is released before mic starts
+        // FIX: Increased delay from 800ms to 1200ms to guarantee OS audio hardware fully releases focus before the mic turns on
         setTimeout(() => {
           if (onComplete && callActiveRef.current && !isAiSpeakingRef.current) {
             onComplete();
           }
-        }, 800); // Increased from 500ms to 800ms
+        }, 1200); 
         
       } else {
         if (!synthRef.current) {
@@ -361,7 +358,7 @@ export default function GenerateProgramPage() {
           isAiSpeakingRef.current = false;
           setTimeout(() => {
             if (onComplete && callActiveRef.current) onComplete();
-          }, 600); // Increased from 400ms
+          }, 600);
         };
 
         utterance.onerror = () => {
@@ -635,8 +632,8 @@ export default function GenerateProgramPage() {
   const toggleCall = async () => {
     if (callActive) {
       setCallActive(false); setIsSpeaking(false); setIsListening(false); isAiSpeakingRef.current = false;
-      listeningLockRef.current = false; // NEW: Reset lock
-      await stopListening(); // NEW: Await stop
+      listeningLockRef.current = false; 
+      await stopListening(); 
       
       try {
         const { Capacitor } = await import('@capacitor/core');
