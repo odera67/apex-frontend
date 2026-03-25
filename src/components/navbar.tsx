@@ -9,7 +9,7 @@ const Navbar = () => {
   const { isSignedIn } = useUser();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-md border-b border-border py-3">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-md border-b border-border pb-3 pt-[calc(env(safe-area-inset-top)+0.75rem)]">
       <div className="container mx-auto flex items-center justify-between px-4">
         
         {/* LOGO */}
@@ -31,7 +31,7 @@ const Navbar = () => {
                 <span className="hidden md:inline">Home</span>
               </Link>
 
-              {/* ✅ NEW: Dashboard Link */}
+              {/* Dashboard Link */}
               <Link href="/dashboard" className="flex items-center gap-1.5 text-sm hover:text-primary transition-colors text-primary/90">
                 <LayoutDashboard size={16} />
                 <span className="hidden md:inline">Dashboard</span>
@@ -61,7 +61,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              {/* ✅ SIGN IN LINK */}
+              {/* SIGN IN LINK */}
               <Button 
                 asChild 
                 variant="outline" 
@@ -72,7 +72,7 @@ const Navbar = () => {
                 </Link>
               </Button>
 
-              {/* ✅ SIGN UP LINK */}
+              {/* SIGN UP LINK */}
               <Button 
                 asChild 
                 className="bg-primary text-primary-foreground hover:bg-primary/90"

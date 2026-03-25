@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Amara Fitness</string>
+    <string name="title_activity_main">Amara Fitness</string>
+    <string name="package_name">com.amararidgehotels.fitness</string>
+    <string name="custom_url_scheme">com.amararidgehotels.fitness</string>
+</resources>

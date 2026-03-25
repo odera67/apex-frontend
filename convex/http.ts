@@ -1,8 +1,8 @@
+// convex/http.ts
 import { httpRouter } from "convex/server";
 import { httpAction } from "./_generated/server";
-import { WebhookEvent } from "@clerk/nextjs/server";
 import { Webhook } from "svix";
-import { api } from "./_generated/api";
+import { internal } from "./_generated/api";
 
 const http = httpRouter();
 
@@ -25,14 +25,14 @@ http.route({
 
     const payloadString = await request.text();
     const wh = new Webhook(webhookSecret);
-    let evt: WebhookEvent;
+    let evt: any;
 
     try {
       evt = wh.verify(payloadString, {
         "svix-id": svix_id,
         "svix-timestamp": svix_timestamp,
         "svix-signature": svix_signature,
-      }) as WebhookEvent;
+      });
     } catch (err) {
       console.error("Error verifying webhook:", err);
       return new Response("Error: Invalid signature", { status: 400 });
@@ -40,26 +40,45 @@ http.route({
 
     const eventType = evt.type;
 
-    if (eventType === "user.created") {
+    // Handle user creation and updates
+    if (eventType === "user.created" || eventType === "user.updated") {
       const { id, first_name, last_name, image_url, email_addresses } = evt.data;
 
-      const email = email_addresses[0]?.email_address;
-      const name = `${first_name || ""} ${last_name || ""}`.trim();
+      const email = email_addresses?.[0]?.email_address || "";
+      const name = `${first_name || ""} ${last_name || ""}`.trim() || "New User";
 
-      if (!email || !id) {
-        return new Response("Error: Missing email or id", { status: 400 });
+      if (!id) {
+        return new Response("Error: Missing user ID", { status: 400 });
       }
 
       try {
-        await ctx.runMutation(api.users.syncUser, {
+        await ctx.runMutation(internal.users.upsertFromWebhook, {
           email,
           name,
           clerkId: id,
-          imageUrl: image_url || "", // CHANGED: passing 'imageUrl' to match mutation args
+          imageUrl: image_url || "", 
         });
       } catch (error) {
-        console.error("Error creating user:", error);
-        return new Response("Error creating user", { status: 500 });
+        console.error("Error creating/updating user:", error);
+        return new Response("Error creating/updating user", { status: 500 });
+      }
+    }
+
+    // Handle user deletions
+    if (eventType === "user.deleted") {
+      const { id } = evt.data;
+
+      if (!id) {
+        return new Response("Error: Missing user ID for deletion", { status: 400 });
+      }
+
+      try {
+        await ctx.runMutation(internal.users.deleteFromWebhook, {
+          clerkId: id,
+        });
+      } catch (error) {
+        console.error("Error deleting user:", error);
+        return new Response("Error deleting user", { status: 500 });
       }
     }
 

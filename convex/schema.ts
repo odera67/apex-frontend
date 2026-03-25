@@ -1,16 +1,17 @@
+// convex/schema.ts
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 
 export default defineSchema({
-  // 🚀 ADDED: The missing users table that was causing the Vercel crash
+  // 👤 User Profile Table: Stores the core Clerk identity
   users: defineTable({
     clerkId: v.string(),
     email: v.string(),
-    name: v.optional(v.string()),
+    name: v.string(), // Changed to required to match identity.name sync
     imageUrl: v.optional(v.string()),
   }).index("by_clerk_id", ["clerkId"]),
 
-  // Your existing plans table
+  // 📋 Fitness Plans Table: Contains the generated AI plans
   plans: defineTable({
     userId: v.string(),
     isActive: v.boolean(),
@@ -66,7 +67,7 @@ export default defineSchema({
     }),
   }).index("by_userId", ["userId"]),
 
-  // Your existing workout logs table
+  // 🏋️ Workout Logs Table: Tracks individual sets and reps
   workoutLogs: defineTable({
     userId: v.string(),
     exerciseName: v.string(),
@@ -77,7 +78,7 @@ export default defineSchema({
     .index("by_user_exercise", ["userId", "exerciseName"])
     .index("by_userId", ["userId"]),
 
-  // Water Tracking Table
+  // 💧 Water Tracking Table: Tracks hydration by date
   waterLogs: defineTable({
     userId: v.string(),
     date: v.string(), 

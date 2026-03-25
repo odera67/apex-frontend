@@ -246,3 +246,7 @@ body.dyslexic-mode * {
   letter-spacing: 0.03em !important;
   word-spacing: 0.1em !important;
 }
+
+nav {
+  padding-top: env(safe-area-inset-top);
+}

@@ -608,7 +608,7 @@ export default function GenerateProgramPage() {
                 <div className={`absolute inset-0 bg-primary/20 rounded-full blur-3xl transition-all duration-500 ${isSpeaking ? "scale-150 opacity-100" : "scale-50 opacity-0"}`} />
                 <div className="relative z-10 flex flex-col items-center">
                   <div className={`relative size-24 rounded-full border-4 border-primary/50 flex items-center justify-center bg-background shadow-xl overflow-hidden ${isSpeaking ? "scale-110 border-primary" : "scale-100"}`}>
-                    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="AI Trainer" className="size-full object-cover p-2" />
+                    <img src="ai-avatar.png" alt="AI Trainer" className="size-full object-cover p-2" />
                   </div>
                   <h3 className="mt-3 font-bold text-lg">Apex </h3>
                   <div className="mt-1 h-5 flex items-center justify-center">

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs"; 
@@ -10,6 +10,15 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "AI Fitness Coach",
   description: "Generate your dream body with AI",
+};
+
+// ✅ NEW: This is the magic rule that allows the safe-area padding 
+// in your Navbar to push down below the Android status bar!
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  viewportFit: "cover", 
 };
 
 export default function RootLayout({
