@@ -217,7 +217,7 @@ export default function GenerateProgramPage() {
     };
   }, []);
 
-  // 🎤 START LISTENING: Handles Mobile App (Capacitor) & Desktop (Web API)
+  // 🎤 START LISTENING
   const startListening = async () => {
     if (!callActiveRef.current || isAiSpeakingRef.current) return;
     
@@ -227,7 +227,6 @@ export default function GenerateProgramPage() {
       if (Capacitor.isNativePlatform()) {
         const { SpeechRecognition } = await import('@capacitor-community/speech-recognition');
         
-        // Ensure Permissions are granted
         const permissions = await SpeechRecognition.checkPermissions();
         if (permissions.speechRecognition !== 'granted') {
           const req = await SpeechRecognition.requestPermissions();
@@ -240,13 +239,12 @@ export default function GenerateProgramPage() {
         setIsListening(true);
         
         try {
-          // ✅ FIX: Wait for the full result. Android will automatically stop listening and resolve this when silence is detected!
           const result = await SpeechRecognition.start({
             language: "en-US",
             maxResults: 1,
             prompt: "I am listening...",
-            partialResults: false, // Wait for full sentence to finish
-            popup: false, // Hides the Google popup for cleaner UI
+            partialResults: false, 
+            popup: false, 
           });
 
           if (result && result.matches && result.matches.length > 0) {
@@ -254,22 +252,18 @@ export default function GenerateProgramPage() {
             if (transcript.length > 0 && !processingRef.current) {
               processingRef.current = true;
               
-              // Process speech
               handleUserResponse(transcript);
               
               setTimeout(() => { processingRef.current = false; }, 400);
             }
           }
         } catch (err) {
-          // If you stay silent and the mic times out, Android will throw an error here.
           console.log("Mic timed out or no speech detected.");
         } finally {
-          // ✅ FIX: No matter what happens, ALWAYS turn off the UI mic automatically!
           setIsListening(false);
         }
 
       } else {
-        // Desktop Web Browser Fallback
         recognitionRef.current?.start();
       }
     } catch (e) {
@@ -291,7 +285,7 @@ export default function GenerateProgramPage() {
     } catch (e) {}
   };
 
-  // 🔊 SPEAK: Handles Mobile App Voice (Capacitor) & Desktop Voice (Web API)
+  // 🔊 SPEAK
   const speak = async (text: string, onComplete?: () => void) => {
     stopListening();
     setIsSpeaking(true); 
@@ -314,13 +308,18 @@ export default function GenerateProgramPage() {
         
         setIsSpeaking(false); 
         isAiSpeakingRef.current = false;
-        if (onComplete) onComplete();
+        
+        // ✅ THE FIX: We added a 500ms delay to let the Android speaker finish shutting off
+        // before we try to instantly fire up the microphone. This stops the collision!
+        setTimeout(() => {
+          if (onComplete && callActiveRef.current) onComplete();
+        }, 500);
         
       } else {
         if (!synthRef.current) {
           setIsSpeaking(false); 
           isAiSpeakingRef.current = false;
-          if (onComplete) onComplete();
+          if (onComplete && callActiveRef.current) onComplete();
           return;
         }
         
@@ -331,12 +330,16 @@ export default function GenerateProgramPage() {
 
         utterance.onend = () => {
           setIsSpeaking(false); isAiSpeakingRef.current = false;
-          if (onComplete) onComplete();
+          setTimeout(() => {
+            if (onComplete && callActiveRef.current) onComplete();
+          }, 400);
         };
 
         utterance.onerror = () => {
           setIsSpeaking(false); isAiSpeakingRef.current = false;
-          if (onComplete) onComplete();
+          setTimeout(() => {
+            if (onComplete && callActiveRef.current) onComplete();
+          }, 400);
         };
         
         synthRef.current.speak(utterance);
@@ -345,7 +348,7 @@ export default function GenerateProgramPage() {
       console.error("Error playing audio:", error);
       setIsSpeaking(false); 
       isAiSpeakingRef.current = false;
-      if (onComplete) onComplete();
+      if (onComplete && callActiveRef.current) onComplete();
     }
   };
 
