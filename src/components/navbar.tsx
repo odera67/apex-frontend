@@ -9,7 +9,10 @@ const Navbar = () => {
   const { isSignedIn } = useUser();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-md border-b border-border pb-3 pt-[calc(env(safe-area-inset-top)+0.75rem)]">
+    <header 
+      className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-md border-b border-border pb-3"
+      style={{ paddingTop: 'calc(env(safe-area-inset-top) + 12px)' }}
+    >
       <div className="container mx-auto flex items-center justify-between px-4">
         
         {/* LOGO */}
@@ -31,7 +34,6 @@ const Navbar = () => {
                 <span className="hidden md:inline">Home</span>
               </Link>
 
-              {/* Dashboard Link */}
               <Link href="/dashboard" className="flex items-center gap-1.5 text-sm hover:text-primary transition-colors text-primary/90">
                 <LayoutDashboard size={16} />
                 <span className="hidden md:inline">Dashboard</span>
@@ -52,7 +54,6 @@ const Navbar = () => {
                 <span className="hidden md:inline">Profile</span>
               </Link>
 
-              {/* Get Started Button */}
               <Button asChild variant="outline" className="ml-2 border-primary/50 text-primary hover:text-white hover:bg-primary/10 hidden lg:inline-flex">
                 <Link href="/generate-program">Get Started</Link>
               </Button>
@@ -61,7 +62,6 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              {/* SIGN IN LINK */}
               <Button 
                 asChild 
                 variant="outline" 
@@ -72,7 +72,6 @@ const Navbar = () => {
                 </Link>
               </Button>
 
-              {/* SIGN UP LINK */}
               <Button 
                 asChild 
                 className="bg-primary text-primary-foreground hover:bg-primary/90"
