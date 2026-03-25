@@ -11,9 +11,7 @@ import { Loader2, Mic, MicOff, Volume2, Send, Activity, Edit2, Check, Download, 
 import { toast } from "sonner";
 import * as Papa from "papaparse";
 
-// ✅ NEW: Import the Capacitor plugins for native mobile voice!
-import { Capacitor } from '@capacitor/core';
-import { TextToSpeech } from '@capacitor-community/text-to-speech';
+// We REMOVED the top-level Capacitor imports here to save Vercel!
 
 interface IntakeStep {
   stage: string;
@@ -38,9 +36,6 @@ interface UserResponseRow {
   extracted_value: string;
 }
 
-// ==========================================
-// 🚀 NATURAL FLOW (NO INSTRUCTIONS HERE)
-// ==========================================
 const DEFAULT_FLOW: IntakeStep[] = [
   { stage: "GREETING", saveField: "", nextStage: "CONSENT", replies: "Hello! My name is Apex, your virtual coach. Are you ready to get started?|Hey there! I'm Apex, your AI trainer. Are you ready to build your plan?|Welcome! I am Apex. Are you ready to begin?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
   { stage: "CONSENT", saveField: "", nextStage: "INTRO", replies: "Before we dive in, do I have your consent to collect some basic health data to build your plan?|First, do you consent to sharing fitness data so I can customize your plan?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
@@ -59,9 +54,6 @@ const DEFAULT_FLOW: IntakeStep[] = [
   { stage: "DONE", saveField: "", nextStage: "", replies: "Generating your highly customized plan now.|Building your perfect fitness plan now.", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" }
 ];
 
-// ==========================================
-// 🚀 INSTRUCTIONAL ERRORS
-// ==========================================
 const DEFAULT_ERRORS: ErrorRow[] = [
   { stage: "GREETING", text: "I didn't quite catch that. To start the session, please answer by saying 'Yes'." },
   { stage: "CONSENT", text: "I need your clear consent to proceed. Please answer by saying 'Yes' or 'No'." },
@@ -154,7 +146,6 @@ export default function GenerateProgramPage() {
     return () => clearInterval(interval);
   }, [isListening]);
 
-  // Load external datasets optionally
   useEffect(() => {
     const fetchUserDatasetCSV = async () => {
       try {
@@ -176,7 +167,6 @@ export default function GenerateProgramPage() {
     fetchUserDatasetCSV();
   }, []);
 
-  // 🚀 INITIALIZE ROCK-SOLID SPEECH ONCE
   useEffect(() => {
     if (typeof window === "undefined") return;
     synthRef.current = window.speechSynthesis;
@@ -197,7 +187,6 @@ export default function GenerateProgramPage() {
       
       const transcript = event.results[0][0].transcript.trim();
       
-      // 🚀 SENSITIVITY FIX: > 0 captures "ok", "no", "yes" instantly without shouting
       if (transcript.length > 0) {
         handleUserResponse(transcript);
       }
@@ -213,11 +202,16 @@ export default function GenerateProgramPage() {
 
     return () => { 
       recognition.abort(); 
-      if (Capacitor.isNativePlatform()) {
-        TextToSpeech.stop().catch(() => {});
-      } else {
-        synthRef.current?.cancel(); 
-      }
+      // Dynamic import in cleanup to avoid Vercel build errors
+      import('@capacitor/core').then(({ Capacitor }) => {
+        if (Capacitor.isNativePlatform()) {
+          import('@capacitor-community/text-to-speech').then(({ TextToSpeech }) => {
+            TextToSpeech.stop().catch(() => {});
+          });
+        } else {
+          synthRef.current?.cancel(); 
+        }
+      }).catch(() => {});
     };
   }, []);
 
@@ -228,7 +222,6 @@ export default function GenerateProgramPage() {
 
   const stopListening = () => { try { recognitionRef.current?.stop(); } catch {} };
 
-  // ✅ UPDATED SPEAK FUNCTION FOR HYBRID SUPPORT (MOBILE & WEB)
   const speak = async (text: string, onComplete?: () => void) => {
     stopListening();
     setIsSpeaking(true); 
@@ -236,8 +229,11 @@ export default function GenerateProgramPage() {
     addMessage("assistant", text);
 
     try {
+      // ✅ DYNAMICALLY IMPORT CAPACITOR ONLY WHEN SPEAKING!
+      const { Capacitor } = await import('@capacitor/core');
+      
       if (Capacitor.isNativePlatform()) {
-        // Run Native Android/iOS Text-To-Speech
+        const { TextToSpeech } = await import('@capacitor-community/text-to-speech');
         await TextToSpeech.speak({
           text: text,
           lang: 'en-US',
@@ -252,7 +248,6 @@ export default function GenerateProgramPage() {
         if (onComplete) onComplete();
         
       } else {
-        // Run Standard Web Browser Fallback
         if (!synthRef.current) {
           setIsSpeaking(false); 
           isAiSpeakingRef.current = false;
@@ -300,7 +295,7 @@ export default function GenerateProgramPage() {
   const handleUserResponse = async (text: string) => {
     if (stageRef.current.includes("GENERATING") || stageRef.current === "DONE") return;
     
-    setInputText(""); // Clear text instantly
+    setInputText(""); 
     addMessage("user", text);
     
     const normalizedText = normalizeNumberWords(text);
@@ -377,7 +372,6 @@ export default function GenerateProgramPage() {
       return; 
     }
 
-    // 🚀 NEGATIVE RESPONSES FOR CONDITIONAL STAGES
     let isNegativeResponse = false;
     if (stepConfigRef.current?.isConditional) {
       const negativeRegex = /\b(no|none|nope|nah|nothing|zero|zilch|nada|negative|not at all|i don't have any|i do not|never|no injuries|no allergies|don't have any|not really|all clear|i'm good|im good)\b/i;
@@ -402,11 +396,9 @@ export default function GenerateProgramPage() {
         }
       } else {
         if (currentConfig.saveField === "allergies" || currentConfig.saveField === "injuries") {
-           // Only save "none" if they answered NO to the CHECK questions
            if (stageRef.current === "ALLERGIES_CHECK" || stageRef.current === "INJURIES_CHECK") {
                valueToSave = isNegativeResponse ? "none" : ""; 
            } else {
-               // They are answering the DETAIL question, save their actual text
                valueToSave = textLower;
            }
         } else if (currentConfig.saveField === "weight") {
@@ -434,7 +426,6 @@ export default function GenerateProgramPage() {
         }
       }
 
-      // Only update if it's not a temporary Yes/No state for injuries/allergies
       if (valueToSave !== "") {
           updatedData[currentConfig.saveField as keyof typeof updatedData] = valueToSave;
           setUserData(updatedData); userDataRef.current = updatedData;
@@ -544,12 +535,18 @@ export default function GenerateProgramPage() {
       setCallActive(false); setIsSpeaking(false); setIsListening(false); isAiSpeakingRef.current = false;
       stopListening(); 
       
-      // ✅ END CALL FIX FOR BOTH PLATFORMS
-      if (Capacitor.isNativePlatform()) {
-        try { await TextToSpeech.stop(); } catch(e) {}
-      } else {
-        synthRef.current?.cancel(); 
-      }
+      // ✅ END CALL DYNAMIC IMPORT FIX
+      try {
+        const { Capacitor } = await import('@capacitor/core');
+        if (Capacitor.isNativePlatform()) {
+          try { 
+            const { TextToSpeech } = await import('@capacitor-community/text-to-speech');
+            await TextToSpeech.stop(); 
+          } catch(e) {}
+        } else {
+          synthRef.current?.cancel(); 
+        }
+      } catch(e) {}
 
       setUserData({age: "", weight: "", height: "", goal: "", level: "", days: "", equipment: "", allergies: "", injuries: ""});
       setStage("GREETING");
