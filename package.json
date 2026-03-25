@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@auth/core": "^0.37.4",
+    "@capacitor-community/text-to-speech": "^8.0.0",
     "@capacitor/core": "^8.2.0",
     "@capacitor/status-bar": "^8.0.1",
     "@clerk/nextjs": "^7.0.6",

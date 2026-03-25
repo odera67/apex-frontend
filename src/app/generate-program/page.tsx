@@ -11,6 +11,10 @@ import { Loader2, Mic, MicOff, Volume2, Send, Activity, Edit2, Check, Download, 
 import { toast } from "sonner";
 import * as Papa from "papaparse";
 
+// ✅ NEW: Import the Capacitor plugins for native mobile voice!
+import { Capacitor } from '@capacitor/core';
+import { TextToSpeech } from '@capacitor-community/text-to-speech';
+
 interface IntakeStep {
   stage: string;
   saveField: string;
@@ -34,8 +38,6 @@ interface UserResponseRow {
   extracted_value: string;
 }
 
-
-
 // ==========================================
 // 🚀 NATURAL FLOW (NO INSTRUCTIONS HERE)
 // ==========================================
@@ -58,7 +60,7 @@ const DEFAULT_FLOW: IntakeStep[] = [
 ];
 
 // ==========================================
-// 🚀 INSTRUCTIONAL ERRORS (TEACHING THE USER HOW TO ANSWER)
+// 🚀 INSTRUCTIONAL ERRORS
 // ==========================================
 const DEFAULT_ERRORS: ErrorRow[] = [
   { stage: "GREETING", text: "I didn't quite catch that. To start the session, please answer by saying 'Yes'." },
@@ -209,7 +211,14 @@ export default function GenerateProgramPage() {
     recognition.onerror = () => setIsListening(false);
     recognitionRef.current = recognition;
 
-    return () => { recognition.abort(); synthRef.current?.cancel(); };
+    return () => { 
+      recognition.abort(); 
+      if (Capacitor.isNativePlatform()) {
+        TextToSpeech.stop().catch(() => {});
+      } else {
+        synthRef.current?.cancel(); 
+      }
+    };
   }, []);
 
   const startListening = () => {
@@ -219,32 +228,61 @@ export default function GenerateProgramPage() {
 
   const stopListening = () => { try { recognitionRef.current?.stop(); } catch {} };
 
-  const speak = (text: string, onComplete?: () => void) => {
-    if (!synthRef.current) {
-      if (onComplete) onComplete();
-      return;
-    }
-    
+  // ✅ UPDATED SPEAK FUNCTION FOR HYBRID SUPPORT (MOBILE & WEB)
+  const speak = async (text: string, onComplete?: () => void) => {
     stopListening();
-    setIsSpeaking(true); isAiSpeakingRef.current = true;
+    setIsSpeaking(true); 
+    isAiSpeakingRef.current = true;
     addMessage("assistant", text);
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    const voices = synthRef.current.getVoices();
-    utterance.voice = voices.find(v => v.name.includes("Google US English")) || voices[0];
-    utterance.rate = 1.05; utterance.pitch = 1;
+    try {
+      if (Capacitor.isNativePlatform()) {
+        // Run Native Android/iOS Text-To-Speech
+        await TextToSpeech.speak({
+          text: text,
+          lang: 'en-US',
+          rate: 1.05, 
+          pitch: 1.0,
+          volume: 1.0,
+          category: 'ambient',
+        });
+        
+        setIsSpeaking(false); 
+        isAiSpeakingRef.current = false;
+        if (onComplete) onComplete();
+        
+      } else {
+        // Run Standard Web Browser Fallback
+        if (!synthRef.current) {
+          setIsSpeaking(false); 
+          isAiSpeakingRef.current = false;
+          if (onComplete) onComplete();
+          return;
+        }
+        
+        const utterance = new SpeechSynthesisUtterance(text);
+        const voices = synthRef.current.getVoices();
+        utterance.voice = voices.find(v => v.name.includes("Google US English")) || voices[0];
+        utterance.rate = 1.05; utterance.pitch = 1;
 
-    utterance.onend = () => {
-      setIsSpeaking(false); isAiSpeakingRef.current = false;
-      if (onComplete) onComplete();
-    };
+        utterance.onend = () => {
+          setIsSpeaking(false); isAiSpeakingRef.current = false;
+          if (onComplete) onComplete();
+        };
 
-    utterance.onerror = () => {
-      setIsSpeaking(false); isAiSpeakingRef.current = false;
+        utterance.onerror = () => {
+          setIsSpeaking(false); isAiSpeakingRef.current = false;
+          if (onComplete) onComplete();
+        };
+        
+        synthRef.current.speak(utterance);
+      }
+    } catch (error) {
+      console.error("Error playing audio:", error);
+      setIsSpeaking(false); 
+      isAiSpeakingRef.current = false;
       if (onComplete) onComplete();
-    };
-    
-    synthRef.current.speak(utterance);
+    }
   };
 
   const addMessage = (role: string, content: string) => {
@@ -501,10 +539,18 @@ export default function GenerateProgramPage() {
     }
   };
 
-  const toggleCall = () => {
+  const toggleCall = async () => {
     if (callActive) {
       setCallActive(false); setIsSpeaking(false); setIsListening(false); isAiSpeakingRef.current = false;
-      stopListening(); synthRef.current?.cancel(); 
+      stopListening(); 
+      
+      // ✅ END CALL FIX FOR BOTH PLATFORMS
+      if (Capacitor.isNativePlatform()) {
+        try { await TextToSpeech.stop(); } catch(e) {}
+      } else {
+        synthRef.current?.cancel(); 
+      }
+
       setUserData({age: "", weight: "", height: "", goal: "", level: "", days: "", equipment: "", allergies: "", injuries: ""});
       setStage("GREETING");
     } else {
