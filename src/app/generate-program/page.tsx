@@ -226,14 +226,14 @@ export default function GenerateProgramPage() {
     if (isNative) {
       try {
         const { SpeechRecognition } = await import('@capacitor-community/speech-recognition');
-        try { await SpeechRecognition.stop(); } catch(e) {} // Buffer clear
+        try { await SpeechRecognition.stop(); } catch(e) {} 
         await new Promise(resolve => setTimeout(resolve, 300));
         
         const permissions = await SpeechRecognition.checkPermissions();
         if (permissions.speechRecognition !== 'granted') {
           const req = await SpeechRecognition.requestPermissions();
           if (req.speechRecognition !== 'granted') {
-            toast.error("Microphone permission denied! Please allow it in settings.");
+            toast.error("Mobile Mic Permission Denied!");
             return;
           }
         }
@@ -255,10 +255,11 @@ export default function GenerateProgramPage() {
             setTimeout(() => { processingRef.current = false; }, 400);
           }
         }
-      } catch (err) {
-        console.log("Mic error or timeout:", err);
-      } finally {
+      } catch (err: any) {
         setIsListening(false);
+        // Alert the user on mobile so we know exactly why it failed!
+        console.error("Native Mic Error:", err);
+        toast.error(`Mic Error: ${err.message || "Failed to start"}`);
       }
     } else {
       // WEB FALLBACK
@@ -310,9 +311,20 @@ export default function GenerateProgramPage() {
       isNative = false;
     }
 
+    // UNIVERSAL FAILSAFE: Forces the app to unlock if TTS fails or hangs on EITHER platform
+    const failsafeTimeout = setTimeout(() => {
+      if (isAiSpeakingRef.current) {
+        console.warn("Speech failsafe triggered - force unlocking system.");
+        setIsSpeaking(false);
+        isAiSpeakingRef.current = false;
+        if (onComplete && callActiveRef.current) onComplete();
+      }
+    }, Math.max(text.length * 100, 8000)); // Dynamic timeout based on text length, minimum 8 seconds
+
     if (isNative) {
       try {
         const { TextToSpeech } = await import('@capacitor-community/text-to-speech');
+        
         await TextToSpeech.speak({
           text: text,
           lang: 'en-US',
@@ -322,6 +334,7 @@ export default function GenerateProgramPage() {
           category: 'ambient',
         });
         
+        clearTimeout(failsafeTimeout);
         setIsSpeaking(false); 
         isAiSpeakingRef.current = false;
         
@@ -330,8 +343,10 @@ export default function GenerateProgramPage() {
             onComplete();
           }
         }, 1200); 
-      } catch(error) {
+      } catch(error: any) {
+        clearTimeout(failsafeTimeout);
         console.error("Native TTS Error:", error);
+        toast.error(`Audio Error: ${error.message || "Failed to speak"}`);
         setIsSpeaking(false); 
         isAiSpeakingRef.current = false;
         if (onComplete && callActiveRef.current) onComplete();
@@ -339,21 +354,12 @@ export default function GenerateProgramPage() {
     } else {
       // WEB FALLBACK
       if (!synthRef.current) {
+        clearTimeout(failsafeTimeout);
         setIsSpeaking(false); 
         isAiSpeakingRef.current = false;
         if (onComplete && callActiveRef.current) onComplete();
         return;
       }
-      
-      // FAILSAFE: Force unlock if Web API gets stuck (very common browser bug)
-      const failsafeTimeout = setTimeout(() => {
-        if (isAiSpeakingRef.current) {
-          console.log("Speech failsafe triggered - force unlocking.");
-          setIsSpeaking(false);
-          isAiSpeakingRef.current = false;
-          if (onComplete && callActiveRef.current) onComplete();
-        }
-      }, Math.max(text.length * 100, 5000)); // Dynamic timeout based on text length
 
       try {
         synthRef.current.cancel(); // Cancel any lingering speech to prevent lockups
