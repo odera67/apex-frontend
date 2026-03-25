@@ -239,36 +239,34 @@ export default function GenerateProgramPage() {
 
         setIsListening(true);
         
-        // Clear previous listeners to avoid duplicates
-        await SpeechRecognition.removeAllListeners();
+        try {
+          // ✅ FIX: Wait for the full result. Android will automatically stop listening and resolve this when silence is detected!
+          const result = await SpeechRecognition.start({
+            language: "en-US",
+            maxResults: 1,
+            prompt: "I am listening...",
+            partialResults: false, // Wait for full sentence to finish
+            popup: false, // Hides the Google popup for cleaner UI
+          });
 
-        // Listen for the Android native recognition results
-        SpeechRecognition.addListener('partialResults', (data: any) => {
-          if (data.matches && data.matches.length > 0) {
-            const transcript = data.matches[0].trim();
+          if (result && result.matches && result.matches.length > 0) {
+            const transcript = result.matches[0].trim();
             if (transcript.length > 0 && !processingRef.current) {
               processingRef.current = true;
               
               // Process speech
               handleUserResponse(transcript);
               
-              // Stop everything properly
-              setIsListening(false);
-              SpeechRecognition.stop().catch(() => {});
-              
               setTimeout(() => { processingRef.current = false; }, 400);
             }
           }
-        });
-
-        // Trigger native Android pop-up / service
-        await SpeechRecognition.start({
-          language: "en-US",
-          maxResults: 1,
-          prompt: "I am listening...",
-          partialResults: true, 
-          popup: false, // Hides the big Google popup for cleaner UI
-        });
+        } catch (err) {
+          // If you stay silent and the mic times out, Android will throw an error here.
+          console.log("Mic timed out or no speech detected.");
+        } finally {
+          // ✅ FIX: No matter what happens, ALWAYS turn off the UI mic automatically!
+          setIsListening(false);
+        }
 
       } else {
         // Desktop Web Browser Fallback
