@@ -11,8 +11,6 @@ import { Loader2, Mic, MicOff, Volume2, Send, Activity, Edit2, Check, Download, 
 import { toast } from "sonner";
 import * as Papa from "papaparse";
 
-// We REMOVED the top-level Capacitor imports here to save Vercel!
-
 interface IntakeStep {
   stage: string;
   saveField: string;
@@ -202,11 +200,13 @@ export default function GenerateProgramPage() {
 
     return () => { 
       recognition.abort(); 
-      // Dynamic import in cleanup to avoid Vercel build errors
       import('@capacitor/core').then(({ Capacitor }) => {
         if (Capacitor.isNativePlatform()) {
           import('@capacitor-community/text-to-speech').then(({ TextToSpeech }) => {
             TextToSpeech.stop().catch(() => {});
+          });
+          import('@capacitor-community/speech-recognition').then(({ SpeechRecognition }) => {
+            SpeechRecognition.stop().catch(() => {});
           });
         } else {
           synthRef.current?.cancel(); 
@@ -215,12 +215,78 @@ export default function GenerateProgramPage() {
     };
   }, []);
 
-  const startListening = () => {
+  // ✅ UPDATED: Native App Microphone Support!
+  const startListening = async () => {
     if (!callActiveRef.current || isAiSpeakingRef.current) return;
-    try { recognitionRef.current?.start(); } catch {}
+    
+    try {
+      const { Capacitor } = await import('@capacitor/core');
+      
+      if (Capacitor.isNativePlatform()) {
+        const { SpeechRecognition } = await import('@capacitor-community/speech-recognition');
+        
+        // 1. Check and request microphone permissions
+        const permissions = await SpeechRecognition.checkPermissions();
+        if (permissions.speechRecognition !== 'granted') {
+          const req = await SpeechRecognition.requestPermissions();
+          if (req.speechRecognition !== 'granted') {
+            toast.error("Microphone permission denied! Please allow it in settings.");
+            return;
+          }
+        }
+
+        setIsListening(true);
+        
+        // 2. Clear old listeners to avoid double-firing
+        await SpeechRecognition.removeAllListeners();
+
+        // 3. Listen for speech result
+        SpeechRecognition.addListener('partialResults', (data: any) => {
+          if (data.matches && data.matches.length > 0) {
+            const transcript = data.matches[0];
+            if (transcript.trim().length > 0 && !processingRef.current) {
+              processingRef.current = true;
+              handleUserResponse(transcript);
+              
+              setIsListening(false);
+              SpeechRecognition.stop().catch(() => {});
+              
+              setTimeout(() => { processingRef.current = false; }, 400);
+            }
+          }
+        });
+
+        // 4. Start the native microphone
+        await SpeechRecognition.start({
+          language: "en-US",
+          maxResults: 1,
+          prompt: "I am listening...",
+          partialResults: false,
+          popup: false,
+        });
+
+      } else {
+        // Fallback for Computer Browser
+        recognitionRef.current?.start();
+      }
+    } catch (e) {
+      console.error("Microphone error:", e);
+      setIsListening(false);
+    }
   };
 
-  const stopListening = () => { try { recognitionRef.current?.stop(); } catch {} };
+  const stopListening = async () => {
+    setIsListening(false);
+    try {
+      const { Capacitor } = await import('@capacitor/core');
+      if (Capacitor.isNativePlatform()) {
+        const { SpeechRecognition } = await import('@capacitor-community/speech-recognition');
+        await SpeechRecognition.stop();
+      } else {
+        recognitionRef.current?.stop();
+      }
+    } catch (e) {}
+  };
 
   const speak = async (text: string, onComplete?: () => void) => {
     stopListening();
@@ -229,7 +295,6 @@ export default function GenerateProgramPage() {
     addMessage("assistant", text);
 
     try {
-      // ✅ DYNAMICALLY IMPORT CAPACITOR ONLY WHEN SPEAKING!
       const { Capacitor } = await import('@capacitor/core');
       
       if (Capacitor.isNativePlatform()) {
@@ -535,7 +600,6 @@ export default function GenerateProgramPage() {
       setCallActive(false); setIsSpeaking(false); setIsListening(false); isAiSpeakingRef.current = false;
       stopListening(); 
       
-      // ✅ END CALL DYNAMIC IMPORT FIX
       try {
         const { Capacitor } = await import('@capacitor/core');
         if (Capacitor.isNativePlatform()) {
