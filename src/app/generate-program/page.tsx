@@ -284,7 +284,8 @@ export default function GenerateProgramPage() {
     if (isNative) {
       try {
         const { SpeechRecognition } = await import('@capacitor-community/speech-recognition');
-        await SpeechRecognition.stop();
+        // FIRE AND FORGET: No 'await' so it doesn't hang the app
+        SpeechRecognition.stop().catch(() => {}); 
       } catch (e) {}
     } else {
       try {
@@ -295,7 +296,8 @@ export default function GenerateProgramPage() {
 
   // 🔊 SPEAK
   const speak = async (text: string, onComplete?: () => void) => {
-    await stopListening();
+    // FIRE AND FORGET: Do not await stopListening to prevent freezes
+    stopListening();
     await new Promise(resolve => setTimeout(resolve, 200));
     
     setIsSpeaking(true); 
