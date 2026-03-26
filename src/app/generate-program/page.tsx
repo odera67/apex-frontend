@@ -228,8 +228,6 @@ export default function GenerateProgramPage() {
       try {
         const { SpeechRecognition } = await import('@capacitor-community/speech-recognition');
         
-        // NO redundant stop() call here. It poisons the Android native plugin.
-        
         const permissions = await SpeechRecognition.checkPermissions().catch(() => ({ speechRecognition: 'granted' }));
         if (permissions.speechRecognition !== 'granted') {
           const req = await SpeechRecognition.requestPermissions().catch(() => ({ speechRecognition: 'denied' }));
@@ -249,7 +247,6 @@ export default function GenerateProgramPage() {
           popup: false, 
         });
 
-        // Ensure we turn off listening state when Native Promise resolves
         setIsListening(false);
 
         if (result && result.matches && result.matches.length > 0) {
@@ -268,7 +265,6 @@ export default function GenerateProgramPage() {
         }
       }
     } else {
-      // WEB FALLBACK
       try {
         recognitionRef.current?.start();
         setIsListening(true);
@@ -340,8 +336,6 @@ export default function GenerateProgramPage() {
         setIsSpeaking(false); 
         isAiSpeakingRef.current = false;
         
-        // CRITICAL FIX: Increased to 1500ms so Android hardware speakers fully release the audio lock 
-        // before the microphone opens. This stops the immediate AEC crash (the quick double beep).
         setTimeout(() => {
           if (onComplete && callActiveRef.current) {
             onComplete();
@@ -580,7 +574,8 @@ export default function GenerateProgramPage() {
 
   const generateAndSavePlan = async (finalData: typeof userData) => {
     try {
-      const response = await fetch("https://apex-backend-xyz.onrender.com/api/recommend", {
+      // 🚀 UPDATED URL TO THE LIVE RENDER BACKEND
+      const response = await fetch("https://apex-ai-backend-yfn8.onrender.com/api/recommend", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           age: finalData.age || "25", weight: finalData.weight || "70", height: finalData.height || "170",
@@ -595,22 +590,23 @@ export default function GenerateProgramPage() {
         toast.success(`Plan adjusted automatically for detected injuries: ${aiData.injuries_detected.join(", ")}`);
       }
 
+      // 🛡️ DEFENSIVE FORMATTING: Forces strict strings and numbers to prevent Convex Schema crashes
       const formattedWorkout = { 
-        schedule: aiData.workoutPlan.schedule, 
-        exercises: aiData.workoutPlan.exercises.map((dayEx: any) => ({ 
-          day: dayEx.day, 
-          routines: dayEx.routines.map((r: any) => ({ 
-            name: r.name, 
-            sets: Number(r.sets), 
+        schedule: aiData.workoutPlan?.schedule || [], 
+        exercises: (aiData.workoutPlan?.exercises || []).map((dayEx: any) => ({ 
+          day: String(dayEx.day), 
+          routines: (dayEx.routines || []).map((r: any) => ({ 
+            name: String(r.name), 
+            sets: Number(r.sets) || 3, 
             reps: String(r.reps), 
-            description: r.description || "" 
+            description: r.description ? String(r.description) : undefined 
           })) 
         })) 
       };
       
       const formattedDiet = { 
-        dailyCalories: Number(aiData.dietPlan.dailyCalories), 
-        dailyPlans: aiData.dietPlan.dailyPlans
+        dailyCalories: Number(aiData.dietPlan?.dailyCalories) || 2000, 
+        dailyPlans: aiData.dietPlan?.dailyPlans || []
       };
 
       await createPlan({
@@ -618,14 +614,14 @@ export default function GenerateProgramPage() {
         name: `${userRef.current?.firstName || "User"}'s ${finalData.goal || "Fitness"} Plan`,
         isActive: true, 
         userStats: { 
-            age: String(finalData.age), 
-            height: String(finalData.height), 
-            weight: String(finalData.weight), 
-            level: finalData.level, 
-            goal: finalData.goal, 
-            equipment: finalData.equipment || "full gym",
-            allergies: finalData.allergies || "none",
-            injuries: finalData.injuries || "none",
+            age: String(finalData.age || "25"), 
+            height: String(finalData.height || "170 cm"), 
+            weight: String(finalData.weight || "70 kg"), 
+            level: String(finalData.level || "beginner"), 
+            goal: String(finalData.goal || "general fitness"), 
+            equipment: String(finalData.equipment || "full gym"),
+            allergies: String(finalData.allergies || "none"),
+            injuries: String(finalData.injuries || "none"),
             injuriesDetected: aiData.injuries_detected || [] 
         },
         workoutPlan: formattedWorkout, 
