@@ -16,13 +16,18 @@ export default defineSchema({
     userId: v.string(),
     isActive: v.boolean(),
     name: v.optional(v.string()), 
-    streak: v.number(),
-    weightHistory: v.array(
-      v.object({
-        date: v.string(),
-        weight: v.number(),
-      })
+    
+    // 👇 FIXED: Made streak and weightHistory optional for newly generated plans
+    streak: v.optional(v.number()),
+    weightHistory: v.optional(
+      v.array(
+        v.object({
+          date: v.string(),
+          weight: v.number(),
+        })
+      )
     ),
+    
     userStats: v.object({
       age: v.string(),
       height: v.string(),
