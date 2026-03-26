@@ -213,7 +213,6 @@ export default function GenerateProgramPage() {
   const startListening = async () => {
     if (!callActiveRef.current) return;
     
-    // Force reset UI locks so the microphone never gets stuck
     isAiSpeakingRef.current = false;
     setIsSpeaking(false);
     
@@ -229,9 +228,7 @@ export default function GenerateProgramPage() {
       try {
         const { SpeechRecognition } = await import('@capacitor-community/speech-recognition');
         
-        // Ensure stopped cleanly before starting
-        SpeechRecognition.stop().catch(() => {}); 
-        await new Promise(resolve => setTimeout(resolve, 300));
+        // NO redundant stop() call here. It poisons the Android native plugin.
         
         const permissions = await SpeechRecognition.checkPermissions().catch(() => ({ speechRecognition: 'granted' }));
         if (permissions.speechRecognition !== 'granted') {
@@ -247,7 +244,7 @@ export default function GenerateProgramPage() {
         const result = await SpeechRecognition.start({
           language: "en-US",
           maxResults: 1,
-          prompt: "I am listening...",
+          prompt: "Speak now...",
           partialResults: false, 
           popup: false, 
         });
@@ -257,7 +254,7 @@ export default function GenerateProgramPage() {
 
         if (result && result.matches && result.matches.length > 0) {
           const transcript = result.matches[0].trim();
-          if (transcript.length > 0 && !processingRef.current) {
+          if (transcript.length > 0) {
             processingRef.current = true;
             handleUserResponse(transcript);
             setTimeout(() => { processingRef.current = false; }, 400);
@@ -343,12 +340,13 @@ export default function GenerateProgramPage() {
         setIsSpeaking(false); 
         isAiSpeakingRef.current = false;
         
-        // IMPORTANT: Added 800ms delay so Android OS can fully release audio channel focus
+        // CRITICAL FIX: Increased to 1500ms so Android hardware speakers fully release the audio lock 
+        // before the microphone opens. This stops the immediate AEC crash (the quick double beep).
         setTimeout(() => {
           if (onComplete && callActiveRef.current) {
             onComplete();
           }
-        }, 800); 
+        }, 1500); 
       } catch(error: any) {
         clearTimeout(failsafeTimeout);
         setIsSpeaking(false); 
