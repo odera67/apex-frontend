@@ -95,8 +95,6 @@ const humanDelay = () => new Promise(res => setTimeout(res, 600 + Math.random() 
 export default function GenerateProgramPage() {
   const router = useRouter();
   
-  const [intakeSteps, setIntakeSteps] = useState<IntakeStep[]>(DEFAULT_FLOW);
-  const [errorResponses, setErrorResponses] = useState<ErrorRow[]>(DEFAULT_ERRORS);
   const [userDataset, setUserDataset] = useState<UserResponseRow[]>([]);
   
   const [callActive, setCallActive] = useState(false);
@@ -213,7 +211,11 @@ export default function GenerateProgramPage() {
 
   // 🎤 START LISTENING
   const startListening = async () => {
-    if (!callActiveRef.current || isAiSpeakingRef.current) return;
+    if (!callActiveRef.current) return;
+    
+    // Force reset UI locks so the microphone never gets stuck
+    isAiSpeakingRef.current = false;
+    setIsSpeaking(false);
     
     let isNative = false;
     try {
@@ -226,19 +228,22 @@ export default function GenerateProgramPage() {
     if (isNative) {
       try {
         const { SpeechRecognition } = await import('@capacitor-community/speech-recognition');
-        try { await SpeechRecognition.stop(); } catch(e) {} 
+        
+        // Ensure stopped cleanly before starting
+        SpeechRecognition.stop().catch(() => {}); 
         await new Promise(resolve => setTimeout(resolve, 300));
         
-        const permissions = await SpeechRecognition.checkPermissions();
+        const permissions = await SpeechRecognition.checkPermissions().catch(() => ({ speechRecognition: 'granted' }));
         if (permissions.speechRecognition !== 'granted') {
-          const req = await SpeechRecognition.requestPermissions();
+          const req = await SpeechRecognition.requestPermissions().catch(() => ({ speechRecognition: 'denied' }));
           if (req.speechRecognition !== 'granted') {
-            toast.error("Mobile Mic Permission Denied!");
+            toast.error("Microphone Permission Denied!");
             return;
           }
         }
 
         setIsListening(true);
+        
         const result = await SpeechRecognition.start({
           language: "en-US",
           maxResults: 1,
@@ -246,6 +251,9 @@ export default function GenerateProgramPage() {
           partialResults: false, 
           popup: false, 
         });
+
+        // Ensure we turn off listening state when Native Promise resolves
+        setIsListening(false);
 
         if (result && result.matches && result.matches.length > 0) {
           const transcript = result.matches[0].trim();
@@ -257,17 +265,17 @@ export default function GenerateProgramPage() {
         }
       } catch (err: any) {
         setIsListening(false);
-        console.error("Native Mic Error:", err);
-        toast.error(`Mic Error: ${err.message || "Failed to start"}`);
+        const errMsg = err.message?.toLowerCase() || "";
+        if (!errMsg.includes("cancel") && !errMsg.includes("no match")) {
+          console.error("Native Mic Error:", err);
+        }
       }
     } else {
       // WEB FALLBACK
       try {
         recognitionRef.current?.start();
         setIsListening(true);
-      } catch (e) {
-        // usually means already started
-      }
+      } catch (e) {}
     }
   };
 
@@ -284,7 +292,6 @@ export default function GenerateProgramPage() {
     if (isNative) {
       try {
         const { SpeechRecognition } = await import('@capacitor-community/speech-recognition');
-        // FIRE AND FORGET: No 'await' so it doesn't hang the app
         SpeechRecognition.stop().catch(() => {}); 
       } catch (e) {}
     } else {
@@ -296,7 +303,6 @@ export default function GenerateProgramPage() {
 
   // 🔊 SPEAK
   const speak = async (text: string, onComplete?: () => void) => {
-    // FIRE AND FORGET: Do not await stopListening to prevent freezes
     stopListening();
     await new Promise(resolve => setTimeout(resolve, 200));
     
@@ -312,10 +318,8 @@ export default function GenerateProgramPage() {
       isNative = false;
     }
 
-    // UNIVERSAL FAILSAFE
     const failsafeTimeout = setTimeout(() => {
       if (isAiSpeakingRef.current) {
-        console.warn("Speech failsafe triggered - force unlocking system.");
         setIsSpeaking(false);
         isAiSpeakingRef.current = false;
         if (onComplete && callActiveRef.current) onComplete();
@@ -339,21 +343,19 @@ export default function GenerateProgramPage() {
         setIsSpeaking(false); 
         isAiSpeakingRef.current = false;
         
+        // IMPORTANT: Added 800ms delay so Android OS can fully release audio channel focus
         setTimeout(() => {
-          if (onComplete && callActiveRef.current && !isAiSpeakingRef.current) {
+          if (onComplete && callActiveRef.current) {
             onComplete();
           }
-        }, 1200); 
+        }, 800); 
       } catch(error: any) {
         clearTimeout(failsafeTimeout);
-        console.error("Native TTS Error:", error);
-        toast.error(`Audio Error: ${error.message || "Failed to speak"}`);
         setIsSpeaking(false); 
         isAiSpeakingRef.current = false;
         if (onComplete && callActiveRef.current) onComplete();
       }
     } else {
-      // WEB FALLBACK
       if (!synthRef.current) {
         clearTimeout(failsafeTimeout);
         setIsSpeaking(false); 
@@ -381,7 +383,6 @@ export default function GenerateProgramPage() {
 
         utterance.onerror = (e) => {
           clearTimeout(failsafeTimeout);
-          console.error("Web TTS Error:", e);
           setIsSpeaking(false); 
           isAiSpeakingRef.current = false;
           setTimeout(() => {
@@ -831,17 +832,15 @@ export default function GenerateProgramPage() {
                       type="text" 
                       value={inputText}
                       onChange={(e) => setInputText(e.target.value)}
-                      disabled={isSpeaking}
-                      placeholder={isSpeaking ? "Wait for Apex to finish..." : "Type your answer here..."} 
+                      placeholder="Type your answer here..." 
                       className="flex-1 bg-background border border-border rounded-full px-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50"
                     />
-                    <Button type="submit" size="icon" disabled={!inputText.trim() || isSpeaking} className="rounded-full shrink-0">
+                    <Button type="submit" size="icon" disabled={!inputText.trim()} className="rounded-full shrink-0">
                       <Send className="w-4 h-4" />
                     </Button>
                   </form>
                   <Button
-                    onClick={isListening ? stopListening : startListening}
-                    disabled={isSpeaking}
+                    onClick={() => isListening ? stopListening() : startListening()}
                     variant={isListening ? "default" : "outline"}
                     className={`rounded-full shrink-0 shadow-sm transition-all ${isListening ? "bg-green-500 hover:bg-green-600 text-white border-none" : "text-primary border-primary"}`}
                   >
