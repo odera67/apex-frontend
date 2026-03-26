@@ -352,7 +352,7 @@ export default function CheckInPage() {
         }
       };
 
-      const response = await fetch("https://apex-backend-xyz.onrender.com/api/adapt", {
+      const response = await fetch("https://apex-ai-backend-yfn8.onrender.com/api/adapt", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
