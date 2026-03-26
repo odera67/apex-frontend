@@ -49,7 +49,7 @@ const DEFAULT_FLOW: IntakeStep[] = [
   { stage: "INJURIES_CHECK", saveField: "injuries", nextStage: "INJURIES_DETAIL", replies: "Lastly, do you have any physical injuries I should work around?|Finally, do you have any physical injuries?", isConditional: true, nextStageIfNo: "CONFIRMATION", repliesIfNo: "Alright, no injuries. Let's review your details.|Got it, no injuries. Let's review everything.", dependsOnField: "", dependsOnValue: "" },
   { stage: "INJURIES_DETAIL", saveField: "injuries", nextStage: "CONFIRMATION", replies: "Please describe your injuries so I can avoid them in your plan.|What are your injuries?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
   { stage: "CONFIRMATION", saveField: "", nextStage: "DONE", replies: "Let's review everything. Does this look correct?|Here is your profile summary. Does everything look good?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
-  { stage: "DONE", saveField: "", nextStage: "", replies: "Generating your highly customized plan now.|Building your perfect fitness plan now.", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" }
+  { stage: "DONE", saveField: "", nextStage: "", replies: "Generating your highly customized plan now. This may take a moment while I calculate the details.|Building your perfect fitness plan now. Hang tight while I put it together.", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" }
 ];
 
 const DEFAULT_ERRORS: ErrorRow[] = [
@@ -573,8 +573,10 @@ export default function GenerateProgramPage() {
   };
 
   const generateAndSavePlan = async (finalData: typeof userData) => {
+    // ⏳ TURN ON LOADING SPINNER so the user knows it's thinking during the 4-minute wait
+    setIsThinking(true); 
+
     try {
-      // 🚀 UPDATED URL TO THE LIVE RENDER BACKEND
       const response = await fetch("https://apex-ai-backend-yfn8.onrender.com/api/recommend", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -590,7 +592,6 @@ export default function GenerateProgramPage() {
         toast.success(`Plan adjusted automatically for detected injuries: ${aiData.injuries_detected.join(", ")}`);
       }
 
-      // 🛡️ DEFENSIVE FORMATTING: Forces strict strings and numbers to prevent Convex Schema crashes
       const formattedWorkout = { 
         schedule: aiData.workoutPlan?.schedule || [], 
         exercises: (aiData.workoutPlan?.exercises || []).map((dayEx: any) => ({ 
@@ -629,14 +630,17 @@ export default function GenerateProgramPage() {
       });
 
       setStage("DONE");
-      speak("Your highly customized plan is ready and saved. Taking you to your dashboard now.");
+      // ⏳ TURN OFF LOADING SPINNER
+      setIsThinking(false);
 
-      setTimeout(() => {
+      // 🎤 TIE REDIRECT DIRECTLY TO THE END OF THE AUDIO
+      speak("Your highly customized plan is ready and saved. Taking you to your dashboard now.", () => {
         router.push("/profile"); 
-      }, 3000); 
+      });
 
     } catch (error: any) {
       console.error("Critical Error Generating Plan:", error);
+      setIsThinking(false);
       toast.error(`Failed to generate: ${error.message}`); 
       speak("I encountered an error while saving the plan.");
       setStage("CONFIRMATION");
@@ -898,7 +902,7 @@ export default function GenerateProgramPage() {
             disabled={stage === "GENERATING" || stage === "DONE"}
             className="rounded-full px-12 py-6 text-lg shadow-xl bg-destructive hover:bg-destructive/90 text-white"
           >
-            {stage === "DONE" ? <><Loader2 className="mr-2 animate-spin" /> Generating Plan...</> : "End Session"}
+            {stage === "DONE" || isThinking ? <><Loader2 className="mr-2 animate-spin" /> Generating Plan...</> : "End Session"}
           </Button>
         </div>
       </div>
