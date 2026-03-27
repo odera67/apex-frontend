@@ -113,7 +113,7 @@ export default function GenerateProgramPage() {
 
   const recognitionRef = useRef<any>(null);
   const synthRef = useRef<SpeechSynthesis | null>(null);
-  const utteranceRef = useRef<any>(null); // Prevents Web Garbage Collection cutting off speech
+  const utteranceRef = useRef<any>(null); 
   const isAiSpeakingRef = useRef(false);
   const callActiveRef = useRef(false);
   const stageRef = useRef<string>("GREETING");
@@ -361,7 +361,7 @@ export default function GenerateProgramPage() {
         synthRef.current.cancel(); 
 
         const utterance = new SpeechSynthesisUtterance(text);
-        utteranceRef.current = utterance; // Saves it to prevent garbage collection mid-sentence
+        utteranceRef.current = utterance; 
         const voices = synthRef.current.getVoices();
         utterance.voice = voices.find(v => v.name.includes("Google US English")) || voices[0];
         utterance.rate = 1.05; utterance.pitch = 1;
@@ -633,8 +633,6 @@ export default function GenerateProgramPage() {
       setStage("DONE");
       setIsThinking(false);
 
-      // 🎤 FIX: Strict 6.5-second timeout ensures the AI has plenty of time to fully speak 
-      // the sentence before the page is unmounted by the redirect!
       speak("Your highly customized plan is ready and saved. Taking you to your dashboard now.");
       
       setTimeout(() => {
@@ -829,14 +827,16 @@ export default function GenerateProgramPage() {
                     <Undo2 className="w-4 h-4" />
                   </Button>
                   <form onSubmit={handleTextSubmit} className="flex-1 flex gap-2">
+                    {/* 🚀 CHANGED INPUT TO BE DISABLED WHILE AI IS SPEAKING/THINKING */}
                     <input 
                       type="text" 
                       value={inputText}
                       onChange={(e) => setInputText(e.target.value)}
-                      placeholder="Type your answer here..." 
-                      className="flex-1 bg-background border border-border rounded-full px-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50"
+                      disabled={isSpeaking || isThinking}
+                      placeholder={isSpeaking || isThinking ? "Wait for Apex to finish speaking..." : "Type your answer here..."} 
+                      className="flex-1 bg-background border border-border rounded-full px-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50 disabled:cursor-not-allowed"
                     />
-                    <Button type="submit" size="icon" disabled={!inputText.trim()} className="rounded-full shrink-0">
+                    <Button type="submit" size="icon" disabled={!inputText.trim() || isSpeaking || isThinking} className="rounded-full shrink-0">
                       <Send className="w-4 h-4" />
                     </Button>
                   </form>
