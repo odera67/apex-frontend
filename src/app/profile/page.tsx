@@ -150,49 +150,42 @@ const ProfilePage = () => {
   };
 
   const handleDownloadCalendar = () => {
-    // Make sure we have a plan loaded
     if (!currentPlan?.workoutPlan?.exercises || currentPlan.workoutPlan.exercises.length === 0) {
       toast.error("No workout plan found to sync!");
       return;
     }
 
-    let icsContent = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Apex Fitness//EN\n";
+    // 1. Calculate Start Date (Tomorrow)
+    const startDate = new Date();
+    startDate.setDate(startDate.getDate() + 1);
+    const startYMD = startDate.toISOString().split('T')[0].replace(/-/g, '');
 
-    // Loop through each workout day and create a calendar event
-    currentPlan.workoutPlan.exercises.forEach((dayPlan: any, index: number) => {
-      // Schedule the first workout for tomorrow, and subsequent days after that
-      const eventDate = new Date();
-      eventDate.setDate(eventDate.getDate() + index + 1); 
-      
-      // Format date for ICS (YYYYMMDD)
-      const formattedDate = eventDate.toISOString().split('T')[0].replace(/-/g, '');
-      
-      // Format the exercises into a neat list for the calendar description
+    // 2. Calculate End Date (Tomorrow + number of workout days)
+    const endDate = new Date(startDate);
+    endDate.setDate(endDate.getDate() + currentPlan.workoutPlan.exercises.length);
+    const endYMD = endDate.toISOString().split('T')[0].replace(/-/g, '');
+
+    // 3. Build the Description (Listing all exercises)
+    let description = "Your AI-Generated Workout Plan from Apex Fitness:\n\n";
+    currentPlan.workoutPlan.exercises.forEach((dayPlan: any) => {
+      description += `💪 Day ${dayPlan.day}:\n`;
       const exercisesList = dayPlan.routines
         ?.map((r: any) => `• ${r.name}: ${r.sets} sets of ${r.reps}`)
-        .join('\\n') || "Rest day or no exercises specified."; // ICS files require literal \n for line breaks
-
-      icsContent += "BEGIN:VEVENT\n";
-      icsContent += `DTSTART;VALUE=DATE:${formattedDate}\n`;
-      icsContent += `DTEND;VALUE=DATE:${formattedDate}\n`; // Makes it an "All Day" event
-      icsContent += `SUMMARY:💪 Workout: Day ${dayPlan.day}\n`;
-      icsContent += `DESCRIPTION:Your AI-Generated Workout:\\n\\n${exercisesList}\\n\\nLog into fitness.amararidgehotels.com to mark it complete!\n`;
-      icsContent += "END:VEVENT\n";
+        .join('\n') || "Rest day or no exercises specified."; 
+      description += `${exercisesList}\n\n`;
     });
+    description += "Log into fitness.amararidgehotels.com to view details and mark it complete!";
 
-    icsContent += "END:VCALENDAR";
-
-    // Trigger the file download
-    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-    const link = document.createElement('a');
-    link.href = window.URL.createObjectURL(blob);
-    const filename = currentPlan ? `${(currentPlan.name || "My_Plan").replace(/\s+/g, '_')}_Calendar.ics` : "My_Apex_Fitness_Plan.ics";
-    link.setAttribute('download', filename);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // 4. Construct Google Calendar URL
+    const title = encodeURIComponent(currentPlan.name || "My Apex Fitness Plan");
+    const dates = `${startYMD}/${endYMD}`;
+    const details = encodeURIComponent(description);
     
-    toast.success("Calendar synced! Open the downloaded file to save your workouts.");
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}`;
+
+    // 5. Open Google Calendar in a new tab/app
+    window.open(googleCalendarUrl, '_blank');
+    toast.success("Opening Google Calendar!");
   };
 
   // --- LOADING STATE ---
@@ -468,7 +461,6 @@ const ProfilePage = () => {
                                     exerciseDay.routines.map((routine: any, rIndex: number) => (
                                       <div key={rIndex} className="p-4 bg-background/50 hover:bg-background transition-colors flex flex-col sm:flex-row gap-4 sm:items-start justify-between">
                                         
-                                        {/* 🚀 ADDED YOUTUBE WATCH BUTTON HERE */}
                                         <div className="flex-1">
                                           <div className="flex flex-wrap items-center gap-3">
                                             <h4 className="font-semibold text-base">{routine.name}</h4>
