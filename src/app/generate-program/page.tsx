@@ -729,7 +729,7 @@ export default function GenerateProgramPage() {
   const progressPercent = Math.max(0, Math.min(100, Math.round((currentStageIndex / (STAGE_ORDER.length - 1)) * 100)));
 
   return (
-    <div className="flex flex-col min-h-[100dvh] bg-background text-foreground pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-24">
+    <div className="flex flex-col min-h-[100dvh] bg-background text-foreground pb-32 pt-16 md:pt-24">
       {!callActive ? (
         <div className="flex-grow flex flex-col items-center justify-center px-4 text-center">
           <div className="space-y-6 max-w-2xl">
@@ -765,7 +765,7 @@ export default function GenerateProgramPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
           <div className="lg:col-span-2 flex flex-col gap-6">
             <div className="grid grid-cols-2 gap-3 md:gap-4">
-              <Card className="relative overflow-hidden flex flex-col items-center justify-center bg-black/5 border-primary/20 shadow-sm py-6">
+              <Card className="relative overflow-hidden flex flex-col items-center justify-center bg-black/5 border-primary/20 shadow-sm py-4 md:py-6">
                 <div className={`absolute inset-0 bg-primary/20 rounded-full blur-3xl transition-all duration-500 ${isSpeaking ? "scale-150 opacity-100" : "scale-50 opacity-0"}`} />
                 <div className="relative z-10 flex flex-col items-center">
                   <div className={`relative size-16 md:size-24 rounded-full border-4 border-primary/50 flex items-center justify-center bg-background shadow-xl overflow-hidden ${isSpeaking ? "scale-110 border-primary" : "scale-100"}`}>
@@ -778,7 +778,7 @@ export default function GenerateProgramPage() {
                 </div>
               </Card>
 
-              <Card className="relative overflow-hidden flex flex-col items-center justify-center bg-muted/30 border-border shadow-sm py-6">
+              <Card className="relative overflow-hidden flex flex-col items-center justify-center bg-muted/30 border-border shadow-sm py-4 md:py-6">
                 <div className="relative z-10 flex flex-col items-center">
                   <div className={`relative size-16 md:size-24 rounded-full border-4 ${isListening ? "border-green-500 shadow-[0_0_20px_rgba(34,197,94,0.3)]" : "border-muted"} flex items-center justify-center overflow-hidden bg-background transition-all duration-300`}>
                     <img src={user?.imageUrl || "https://github.com/shadcn.png"} alt="User" className="size-full object-cover" />
@@ -827,7 +827,6 @@ export default function GenerateProgramPage() {
                     <Undo2 className="w-4 h-4" />
                   </Button>
                   <form onSubmit={handleTextSubmit} className="flex-1 flex gap-2">
-                    {/* 🚀 CHANGED INPUT TO BE DISABLED WHILE AI IS SPEAKING/THINKING */}
                     <input 
                       type="text" 
                       value={inputText}
