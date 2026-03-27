@@ -113,6 +113,7 @@ export default function GenerateProgramPage() {
 
   const recognitionRef = useRef<any>(null);
   const synthRef = useRef<SpeechSynthesis | null>(null);
+  const utteranceRef = useRef<any>(null); // Prevents Web Garbage Collection cutting off speech
   const isAiSpeakingRef = useRef(false);
   const callActiveRef = useRef(false);
   const stageRef = useRef<string>("GREETING");
@@ -360,6 +361,7 @@ export default function GenerateProgramPage() {
         synthRef.current.cancel(); 
 
         const utterance = new SpeechSynthesisUtterance(text);
+        utteranceRef.current = utterance; // Saves it to prevent garbage collection mid-sentence
         const voices = synthRef.current.getVoices();
         utterance.voice = voices.find(v => v.name.includes("Google US English")) || voices[0];
         utterance.rate = 1.05; utterance.pitch = 1;
@@ -573,7 +575,6 @@ export default function GenerateProgramPage() {
   };
 
   const generateAndSavePlan = async (finalData: typeof userData) => {
-    // ⏳ TURN ON LOADING SPINNER so the user knows it's thinking during the 4-minute wait
     setIsThinking(true); 
 
     try {
@@ -630,13 +631,15 @@ export default function GenerateProgramPage() {
       });
 
       setStage("DONE");
-      // ⏳ TURN OFF LOADING SPINNER
       setIsThinking(false);
 
-      // 🎤 TIE REDIRECT DIRECTLY TO THE END OF THE AUDIO
-      speak("Your highly customized plan is ready and saved. Taking you to your dashboard now.", () => {
+      // 🎤 FIX: Strict 6.5-second timeout ensures the AI has plenty of time to fully speak 
+      // the sentence before the page is unmounted by the redirect!
+      speak("Your highly customized plan is ready and saved. Taking you to your dashboard now.");
+      
+      setTimeout(() => {
         router.push("/profile"); 
-      });
+      }, 6500); 
 
     } catch (error: any) {
       console.error("Critical Error Generating Plan:", error);
