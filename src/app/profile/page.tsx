@@ -43,7 +43,8 @@ import {
   Download,
   LayoutDashboard, 
   Activity,
-  TrendingDown
+  TrendingDown,
+  PlayCircle // 🚀 ADDED PLAY ICON
 } from "lucide-react";
 import { toast } from "sonner"; 
 
@@ -411,16 +412,32 @@ const ProfilePage = () => {
                                   {exerciseDay.routines?.length > 0 ? (
                                     exerciseDay.routines.map((routine: any, rIndex: number) => (
                                       <div key={rIndex} className="p-4 bg-background/50 hover:bg-background transition-colors flex flex-col sm:flex-row gap-4 sm:items-start justify-between">
-                                        <div>
-                                          <h4 className="font-semibold text-base">{routine.name}</h4>
+                                        
+                                        {/* 🚀 ADDED YOUTUBE WATCH BUTTON HERE */}
+                                        <div className="flex-1">
+                                          <div className="flex flex-wrap items-center gap-3">
+                                            <h4 className="font-semibold text-base">{routine.name}</h4>
+                                            <a 
+                                              href={`https://www.youtube.com/results?search_query=${encodeURIComponent(routine.name + ' exercise form tutorial')}`}
+                                              target="_blank"
+                                              rel="noopener noreferrer"
+                                              className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary transition-all text-xs font-bold border border-primary/20"
+                                              title={`Watch tutorial for ${routine.name}`}
+                                            >
+                                              <PlayCircle className="size-3.5" />
+                                              Watch Tutorial
+                                            </a>
+                                          </div>
                                           {routine.description && (
-                                            <p className="text-sm text-muted-foreground mt-1 max-w-md">{routine.description}</p>
+                                            <p className="text-sm text-muted-foreground mt-2 max-w-xl">{routine.description}</p>
                                           )}
                                         </div>
-                                        <div className="flex gap-2 shrink-0">
+
+                                        <div className="flex gap-2 shrink-0 flex-wrap sm:flex-nowrap mt-2 sm:mt-0">
                                           <div className="px-3 py-1 rounded bg-muted text-xs font-mono font-bold flex items-center">{routine.sets} SETS</div>
                                           <div className="px-3 py-1 rounded bg-muted text-xs font-mono font-bold flex items-center">{routine.reps} REPS</div>
                                         </div>
+
                                       </div>
                                     ))
                                   ) : (
@@ -539,7 +556,6 @@ const ProfilePage = () => {
       )}
 
       {/* PRINTABLE PDF TEMPLATE */}
-      {/* 🛠️ Applied inline style to avoid arbitrary value warnings in Tailwind */}
       <div className="absolute opacity-0 -z-50 pointer-events-none" style={{ left: '-9999px', top: '-9999px' }}>
         <div 
           ref={printRef} 
