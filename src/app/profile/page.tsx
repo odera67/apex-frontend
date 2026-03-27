@@ -44,7 +44,7 @@ import {
   LayoutDashboard, 
   Activity,
   TrendingDown,
-  PlayCircle // 🚀 ADDED PLAY ICON
+  PlayCircle
 } from "lucide-react";
 import { toast } from "sonner"; 
 
@@ -147,6 +147,52 @@ const ProfilePage = () => {
       console.error("PDF generation failed:", error);
       toast.error("Failed to generate PDF.", { id: loadingToast });
     }
+  };
+
+  const handleDownloadCalendar = () => {
+    // Make sure we have a plan loaded
+    if (!currentPlan?.workoutPlan?.exercises || currentPlan.workoutPlan.exercises.length === 0) {
+      toast.error("No workout plan found to sync!");
+      return;
+    }
+
+    let icsContent = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Apex Fitness//EN\n";
+
+    // Loop through each workout day and create a calendar event
+    currentPlan.workoutPlan.exercises.forEach((dayPlan: any, index: number) => {
+      // Schedule the first workout for tomorrow, and subsequent days after that
+      const eventDate = new Date();
+      eventDate.setDate(eventDate.getDate() + index + 1); 
+      
+      // Format date for ICS (YYYYMMDD)
+      const formattedDate = eventDate.toISOString().split('T')[0].replace(/-/g, '');
+      
+      // Format the exercises into a neat list for the calendar description
+      const exercisesList = dayPlan.routines
+        ?.map((r: any) => `• ${r.name}: ${r.sets} sets of ${r.reps}`)
+        .join('\\n') || "Rest day or no exercises specified."; // ICS files require literal \n for line breaks
+
+      icsContent += "BEGIN:VEVENT\n";
+      icsContent += `DTSTART;VALUE=DATE:${formattedDate}\n`;
+      icsContent += `DTEND;VALUE=DATE:${formattedDate}\n`; // Makes it an "All Day" event
+      icsContent += `SUMMARY:💪 Workout: Day ${dayPlan.day}\n`;
+      icsContent += `DESCRIPTION:Your AI-Generated Workout:\\n\\n${exercisesList}\\n\\nLog into fitness.amararidgehotels.com to mark it complete!\n`;
+      icsContent += "END:VEVENT\n";
+    });
+
+    icsContent += "END:VCALENDAR";
+
+    // Trigger the file download
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    const filename = currentPlan ? `${(currentPlan.name || "My_Plan").replace(/\s+/g, '_')}_Calendar.ics` : "My_Apex_Fitness_Plan.ics";
+    link.setAttribute('download', filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    toast.success("Calendar synced! Open the downloaded file to save your workouts.");
   };
 
   // --- LOADING STATE ---
@@ -262,7 +308,7 @@ const ProfilePage = () => {
           {currentPlan ? (
             <div className="relative bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 shadow-xl">
               
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-border/50">
+              <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 mb-8 pb-6 border-b border-border/50">
                 <div>
                   <h3 className="text-3xl font-bold text-foreground mb-2">{currentPlan.name || "My Fitness Plan"}</h3>
                   <div className="flex flex-col gap-1.5">
@@ -276,7 +322,16 @@ const ProfilePage = () => {
                   </div>
                 </div>
                 
-                <div className="flex flex-wrap items-center gap-4">
+                <div className="flex flex-wrap items-center gap-3">
+                  <Button 
+                    onClick={handleDownloadCalendar}
+                    variant="outline"
+                    className="border-primary/50 text-primary hover:bg-primary/10 flex items-center gap-2 h-full py-3"
+                  >
+                    <CalendarDays className="size-4" />
+                    <span className="hidden sm:inline">Sync Calendar</span>
+                  </Button>
+
                   <Button 
                     onClick={handleDownloadPdf}
                     className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2 h-full py-3"
