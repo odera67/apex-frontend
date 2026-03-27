@@ -6,9 +6,11 @@ const withPWA = withPWAInit({
   register: true,
 });
 
-const nextConfig = {
-  // Your existing Next.js config options go here
+// We use "as any" here just in case your TypeScript version 
+// throws a warning about the turbopack property
+const nextConfig: any = {
   reactStrictMode: true,
+  turbopack: {}, // ✅ This silences the Vercel Turbopack/Webpack worker error
 };
 
 export default withPWA(nextConfig);
