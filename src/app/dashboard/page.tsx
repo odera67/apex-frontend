@@ -1,25 +1,46 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Dumbbell, Utensils, Activity, ArrowRight, Flame, Target, Trophy, Play } from "lucide-react";
+import { Dumbbell, Utensils, Activity, ArrowRight, Flame, Target, Trophy, Play, Sparkles } from "lucide-react";
 import QuickAdaptButton from "@/components/QuickAdaptButton";
 import DashboardSkeleton from "@/components/DashboardSkeleton";
-import WaterTracker from "@/components/WaterTracker"; // 💧 IMPORTED WATER TRACKER
-import HealthSyncCard from "@/components/HealthSyncCard"; // 📱 IMPORTED HEALTH SYNC
+import WaterTracker from "@/components/WaterTracker"; 
+import HealthSyncCard from "@/components/HealthSyncCard"; 
 
 export default function DashboardPage() {
   const { user, isLoaded } = useUser();
   
-  // State to track which day the user is viewing (defaults to the first day)
   const [activeDayIndex, setActiveDayIndex] = useState(0);
   
-  // Fetch the plan only if we have a user ID
+  // 🚀 AI Insight States
+  const [aiInsight, setAiInsight] = useState<string | null>(null);
+  const [displayedInsight, setDisplayedInsight] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  
   const plan = useQuery(api.plans.getUserPlan, user ? { userId: user.id } : "skip");
+
+  // 🚀 Typing effect for the AI message
+  useEffect(() => {
+    if (aiInsight) {
+      setIsTyping(true);
+      setDisplayedInsight("");
+      let i = 0;
+      const interval = setInterval(() => {
+        setDisplayedInsight(aiInsight.slice(0, i));
+        i++;
+        if (i > aiInsight.length) {
+          clearInterval(interval);
+          setIsTyping(false);
+        }
+      }, 30); // Typing speed
+      return () => clearInterval(interval);
+    }
+  }, [aiInsight]);
 
   if (!isLoaded || plan === undefined) {
     return <DashboardSkeleton />;
@@ -39,7 +60,36 @@ export default function DashboardPage() {
     );
   }
 
-  // Get the specific data for the currently selected day
+  // 🚀 Logic to generate the AI comment when health data syncs
+  const handleHealthSync = (data: { steps: number; calories: number; heartRate: number }) => {
+    const goal = plan.userStats.goal.toLowerCase();
+    const name = user?.firstName || "there";
+    let comment = "";
+
+    // Simulate AI thinking delay
+    setTimeout(() => {
+      if (goal.includes("loss") || goal.includes("lose")) {
+        if (data.steps > 10000) {
+          comment = `Incredible work today, ${name}. You smashed over 10k steps and burned ${data.calories} active calories. This is exactly the kind of daily energy expenditure that forces your body to burn stored fat. Keep this momentum going into tomorrow.`;
+        } else if (data.steps > 7000) {
+          comment = `Good baseline activity today, ${name}. ${data.steps.toLocaleString()} steps is a solid start. Since our main goal is fat loss, try taking a quick 15-minute walk after your last meal tonight to push that calorie burn even higher.`;
+        } else {
+          comment = `I see you're at ${data.steps.toLocaleString()} steps today. To really accelerate your weight loss, we need to get your NEAT (daily movement) up. Let's try to find excuses to move more tomorrow—take the stairs, pace on phone calls. You've got this.`;
+        }
+      } else if (goal.includes("muscle") || goal.includes("gain") || goal.includes("build")) {
+        if (data.calories > 600) {
+          comment = `You burned ${data.calories} active calories today, ${name}. Remember, since we are trying to build muscle, you need to eat back those calories! Make sure you're hitting your protein target tonight so your body has the fuel to grow.`;
+        } else {
+          comment = `Your activity levels look perfect for muscle growth, ${name}. By keeping your cardio and step count moderate (${data.steps.toLocaleString()} steps), you're conserving energy to lift heavier and recover faster. Focus on the weights today.`;
+        }
+      } else {
+        comment = `Great check-in, ${name}. ${data.steps.toLocaleString()} steps and a resting HR of ${data.heartRate} BPM shows a solid baseline of cardiovascular health. Let's hit the protocol hard today and keep improving that conditioning.`;
+      }
+      
+      setAiInsight(comment);
+    }, 1200);
+  };
+
   const currentWorkoutDay = plan.workoutPlan.exercises[activeDayIndex];
   const currentDietDay = plan.dietPlan.dailyPlans[activeDayIndex];
 
@@ -57,7 +107,6 @@ export default function DashboardPage() {
           </p>
         </div>
         
-        {/* ACTION BUTTONS */}
         <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
           <Button asChild variant="secondary" className="gap-2 border border-border rounded-xl flex-1 md:flex-none">
             <Link href="/check-in">
@@ -74,6 +123,27 @@ export default function DashboardPage() {
           </Button>
         </div>
       </div>
+
+      {/* 🚀 AI INSIGHT BUBBLE (Only shows when data is synced) */}
+      {aiInsight && (
+        <div className="mb-10 bg-primary/5 border border-primary/20 rounded-3xl p-6 flex gap-4 items-start shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-2 h-full bg-primary" />
+          <div className="w-12 h-12 rounded-full border-2 border-primary/50 flex items-center justify-center bg-background shadow-md shrink-0 overflow-hidden relative">
+            <div className={`absolute inset-0 bg-primary/20 ${isTyping ? 'animate-pulse' : ''}`} />
+            <img src="ai-avatar.png" alt="Apex AI" className="w-full h-full object-cover p-1 relative z-10" />
+          </div>
+          <div className="flex-1 pt-1">
+            <div className="flex items-center gap-2 mb-1">
+              <h4 className="font-bold text-sm text-foreground">Apex AI Insight</h4>
+              <Sparkles className="w-3.5 h-3.5 text-primary" />
+            </div>
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+              {displayedInsight}
+              {isTyping && <span className="inline-block w-1.5 h-4 ml-1 bg-primary animate-pulse" />}
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* BENTO BOX SUMMARY CARDS */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
@@ -176,12 +246,12 @@ export default function DashboardPage() {
           </div>
         </section>
 
-        {/* RIGHT COLUMN: HEALTH, NUTRITION & HYDRATION (Takes up 2/5 of the grid) */}
+        {/* RIGHT COLUMN: HEALTH, NUTRITION & HYDRATION */}
         <section className="lg:col-span-2 space-y-6">
           
-          {/* 📱 HEALTH SYNC COMPONENT */}
+          {/* 📱 HEALTH SYNC COMPONENT WITH ONSYNC PROP */}
           <div className="mb-2">
-            <HealthSyncCard />
+            <HealthSyncCard onSync={handleHealthSync} />
           </div>
 
           {/* 💧 WATER TRACKER */}

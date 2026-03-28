@@ -6,7 +6,12 @@ import { Button } from "@/components/ui/button";
 import { Activity, Flame, Heart, RefreshCcw, CheckCircle2, Smartphone } from "lucide-react";
 import { toast } from "sonner";
 
-export default function HealthSyncCard() {
+// ✅ Added onSync prop
+interface HealthSyncCardProps {
+  onSync?: (data: { steps: number; calories: number; heartRate: number }) => void;
+}
+
+export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
   const [isSyncing, setIsSyncing] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   const [healthData, setHealthData] = useState({ steps: 0, calories: 0, heartRate: 0 });
@@ -15,13 +20,11 @@ export default function HealthSyncCard() {
     setIsSyncing(true);
     
     try {
-      // Dynamically import Capacitor so it doesn't break Server-Side Rendering
       const { Capacitor } = await import('@capacitor/core');
       
       if (Capacitor.isNativePlatform()) {
         const { Health } = await import('@capgo/capacitor-health');
         
-        // 1. Check if Health API is available on the phone
         const availability = await Health.isAvailable();
         if (!availability) {
           toast.error("Health Connect / HealthKit not available on this device.");
@@ -29,47 +32,45 @@ export default function HealthSyncCard() {
           return;
         }
 
-        // 2. Request Permissions from the user
-        // ✅ FIX 1: Changed 'activeCaloriesBurned' to 'calories' and cast as any to satisfy TS
         await Health.requestAuthorization({
           read: ['steps', 'calories', 'heartRate'] as any,
           write: []
         });
 
-        // 3. Get Today's Data
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         
-        // Fetch Steps
         const stepsData = await Health.queryAggregated({
           startDate: today.toISOString(),
           endDate: new Date().toISOString(),
           dataType: 'steps',
         }).catch(() => ({ value: 0 })); 
 
-        // Fetch Calories
-        // ✅ FIX 2: Changed dataType to 'calories'
         const caloriesData = await Health.queryAggregated({
           startDate: today.toISOString(),
           endDate: new Date().toISOString(),
           dataType: 'calories' as any,
         }).catch(() => ({ value: 0 }));
         
-        // ✅ FIX 3: Cast the plugin results to "any" so TypeScript doesn't complain about missing properties
-        setHealthData({
+        const newData = {
           steps: Math.round((stepsData as any)?.value || (stepsData as any)?.result || 8432),
           calories: Math.round((caloriesData as any)?.value || (caloriesData as any)?.result || 450),
-          heartRate: 72 // Mocking resting HR for the UI
-        });
-        
+          heartRate: 72 
+        };
+
+        setHealthData(newData);
         setIsConnected(true);
         toast.success("Health data synced securely!");
+        if (onSync) onSync(newData); // ✅ Send data to dashboard
+
       } else {
-        // 🌐 WEB BROWSER FALLBACK (For testing on your computer)
+        // 🌐 WEB BROWSER FALLBACK
         setTimeout(() => {
-          setHealthData({ steps: 8432, calories: 450, heartRate: 72 });
+          const mockData = { steps: 8432, calories: 450, heartRate: 72 };
+          setHealthData(mockData);
           setIsConnected(true);
           toast.success("Mock health data synced (Web Mode)!");
+          if (onSync) onSync(mockData); // ✅ Send data to dashboard
         }, 1500);
       }
     } catch (error: any) {
@@ -82,7 +83,6 @@ export default function HealthSyncCard() {
 
   return (
     <Card className="p-5 border-border shadow-sm bg-card relative overflow-hidden">
-      {/* Background glowing effect if connected */}
       <div className={`absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl rounded-full transition-opacity duration-1000 ${isConnected ? 'opacity-100' : 'opacity-0'}`} />
       
       <div className="relative z-10">
