@@ -34,39 +34,41 @@ interface UserResponseRow {
   extracted_value: string;
 }
 
+// 🚀 REWRITTEN DIALOG TO SOUND LIKE A HUMAN COACH
 const DEFAULT_FLOW: IntakeStep[] = [
-  { stage: "GREETING", saveField: "", nextStage: "CONSENT", replies: "Hello! My name is Apex, your virtual coach. Are you ready to get started?|Hey there! I'm Apex, your AI trainer. Are you ready to build your plan?|Welcome! I am Apex. Are you ready to begin?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
-  { stage: "CONSENT", saveField: "", nextStage: "INTRO", replies: "Before we dive in, do I have your consent to collect some basic health data to build your plan?|First, do you consent to sharing fitness data so I can customize your plan?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
-  { stage: "INTRO", saveField: "age", nextStage: "AGE", replies: "Awesome! First up, how old are you?|Great! To begin, what is your current age?|Perfect. Let's start with the basics. How old are you?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
-  { stage: "AGE", saveField: "weight", nextStage: "HEIGHT", replies: "Got it. How much do you weigh?|Noted. What is your current weight?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
-  { stage: "HEIGHT", saveField: "height", nextStage: "GOAL", replies: "Noted. And what is your height?|Got it. How tall are you?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
-  { stage: "GOAL", saveField: "goal", nextStage: "LEVEL", replies: "Perfect. What is your primary fitness goal?|Great. What are you trying to achieve right now?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
-  { stage: "LEVEL", saveField: "level", nextStage: "DAYS", replies: "Great. What is your current fitness level?|Got it. How would you rate your fitness experience?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
-  { stage: "DAYS", saveField: "days", nextStage: "EQUIPMENT", replies: "Awesome. How many days a week can you commit to working out?|Got it. How many days per week can you train?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
-  { stage: "EQUIPMENT", saveField: "equipment", nextStage: "ALLERGIES_CHECK", replies: "Got it. What equipment will you use?|Thanks. Where will you work out?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
-  { stage: "ALLERGIES_CHECK", saveField: "allergies", nextStage: "ALLERGIES_DETAIL", replies: "Got it. Do you have any food allergies or dietary restrictions?|Thanks. Are you allergic to any foods?", isConditional: true, nextStageIfNo: "INJURIES_CHECK", repliesIfNo: "Okay, no allergies. Next, do you have any physical injuries?|Got it, no allergies. Do you have any physical injuries?", dependsOnField: "", dependsOnValue: "" },
-  { stage: "ALLERGIES_DETAIL", saveField: "allergies", nextStage: "INJURIES_CHECK", replies: "Got it. What are your allergies?|Please tell me which foods you are allergic to.", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
-  { stage: "INJURIES_CHECK", saveField: "injuries", nextStage: "INJURIES_DETAIL", replies: "Lastly, do you have any physical injuries I should work around?|Finally, do you have any physical injuries?", isConditional: true, nextStageIfNo: "CONFIRMATION", repliesIfNo: "Alright, no injuries. Let's review your details.|Got it, no injuries. Let's review everything.", dependsOnField: "", dependsOnValue: "" },
-  { stage: "INJURIES_DETAIL", saveField: "injuries", nextStage: "CONFIRMATION", replies: "Please describe your injuries so I can avoid them in your plan.|What are your injuries?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
-  { stage: "CONFIRMATION", saveField: "", nextStage: "DONE", replies: "Let's review everything. Does this look correct?|Here is your profile summary. Does everything look good?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
-  { stage: "DONE", saveField: "", nextStage: "", replies: "Generating your highly customized plan now. This may take a moment while I calculate the details.|Building your perfect fitness plan now. Hang tight while I put it together.", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" }
+  { stage: "GREETING", saveField: "", nextStage: "CONSENT", replies: "Hey! I'm Apex. Ready to crush some goals today?|What's up! I'm Apex. Are you ready to get started?|Welcome in! I'm your coach, Apex. Ready to build this plan?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "CONSENT", saveField: "", nextStage: "INTRO", replies: "Awesome. Quick housekeeping first: I need to grab some basic health info so I can build this safely. Is that cool with you?|Love it. Before we dive in, do you consent to sharing some basic fitness data so I can customize your routine?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "INTRO", saveField: "age", nextStage: "AGE", replies: "Sweet. Let's start simple. How old are you?|Perfect. First up, what's your current age?|Alright, let's get into it. How old are you?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "AGE", saveField: "weight", nextStage: "HEIGHT", replies: "Alright. And what's your current weight?|Gotcha. How much do you weigh right now?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "HEIGHT", saveField: "height", nextStage: "GOAL", replies: "And how tall are you?|Cool. What's your height?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "GOAL", saveField: "goal", nextStage: "LEVEL", replies: "Okay, down to business. What are we actually aiming for here? Looking to lose weight, build muscle, or just get generally fit?|Alright, what's the main goal? Weight loss, muscle gain, or general fitness?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "LEVEL", saveField: "level", nextStage: "DAYS", replies: "Love that goal. Be honest with me—how would you rate your fitness level right now? Are you a beginner, intermediate, or advanced?|Nice. And where are you at right now? Beginner, intermediate, or advanced?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "DAYS", saveField: "days", nextStage: "EQUIPMENT", replies: "How many days a week can you realistically commit to training? Don't overpromise!|Okay, what's your schedule look like? How many days a week can we train?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "EQUIPMENT", saveField: "equipment", nextStage: "ALLERGIES_CHECK", replies: "Are we hitting a full gym, just using dumbbells, or sticking strictly to bodyweight?|What kind of setup do you have? Full gym, dumbbells, or bodyweight at home?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "ALLERGIES_CHECK", saveField: "allergies", nextStage: "ALLERGIES_DETAIL", replies: "Switching gears to food real quick—do you have any food allergies or strict dietary restrictions?|Let's talk nutrition. Any food allergies I need to watch out for?", isConditional: true, nextStageIfNo: "INJURIES_CHECK", repliesIfNo: "Lucky you, no allergies. What about physical injuries? Anything I need to work around?|No food restrictions, nice. How about physical injuries? Got any?", dependsOnField: "", dependsOnValue: "" },
+  { stage: "ALLERGIES_DETAIL", saveField: "allergies", nextStage: "INJURIES_CHECK", replies: "What specifically do we need to avoid? Peanuts, dairy, gluten?|Tell me what you can't eat.", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "INJURIES_CHECK", saveField: "injuries", nextStage: "INJURIES_DETAIL", replies: "Almost done. Any lingering injuries or physical issues I need to know about so I don't break you?|Lastly, do you have any physical injuries we need to work around?", isConditional: true, nextStageIfNo: "CONFIRMATION", repliesIfNo: "Healthy and ready to go, I like it. Let's review everything.|No injuries, perfect. Let's double check your profile.", dependsOnField: "", dependsOnValue: "" },
+  { stage: "INJURIES_DETAIL", saveField: "injuries", nextStage: "CONFIRMATION", replies: "Tell me about the injuries. Bad knees, tricky shoulder?|What exactly is hurting or injured?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "CONFIRMATION", saveField: "", nextStage: "DONE", replies: "Alright, I've got everything I need. Take a quick look at the summary on your screen. Did I get all that right?|Awesome. Look over your profile on the screen for me. Are we good to generate the plan?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "DONE", saveField: "", nextStage: "", replies: "Boom. Lock it in. I'm building your custom plan right now. Give me just a second.|Let's go! Give me a few seconds to crunch the numbers and build your routine.", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" }
 ];
 
+// 🚀 REWRITTEN ERRORS TO SOUND MORE NATURAL
 const DEFAULT_ERRORS: ErrorRow[] = [
-  { stage: "GREETING", text: "I didn't quite catch that. To start the session, please answer by saying 'Yes'." },
-  { stage: "CONSENT", text: "I need your clear consent to proceed. Please answer by saying 'Yes' or 'No'." },
-  { stage: "INTRO", text: "I didn't catch that. Please answer by saying a number, like '25' or '30'." },
-  { stage: "AGE", text: "I didn't catch a valid weight. Please answer by saying a number and a unit, like '70 kilos' or '150 pounds'." },
-  { stage: "HEIGHT", text: "I didn't catch your height. Please answer by saying something like '170 centimeters' or '5 foot 10'." },
-  { stage: "GOAL", text: "I didn't catch your goal. Please answer by saying exactly 'Weight Loss', 'Muscle Gain', or 'General Fitness'." },
-  { stage: "LEVEL", text: "I didn't catch your level. Please answer by saying exactly 'Beginner', 'Intermediate', or 'Advanced'." },
-  { stage: "DAYS", text: "I need a number of days. Please answer by saying a number between 1 and 7, like '3' or '4'." },
-  { stage: "EQUIPMENT", text: "I didn't catch that. Please answer by saying exactly 'Full Gym', 'Dumbbells', or 'Bodyweight'." },
-  { stage: "ALLERGIES_CHECK", text: "I didn't understand. Please answer with a simple 'Yes' if you have allergies, or 'No' if you don't." },
-  { stage: "ALLERGIES_DETAIL", text: "I didn't catch that. Please name the specific foods you are allergic to, like 'peanuts' or 'dairy'." },
-  { stage: "INJURIES_CHECK", text: "I didn't understand. Please answer with a simple 'Yes' if you have physical injuries, or 'No' if you don't." },
-  { stage: "INJURIES_DETAIL", text: "I didn't catch that. Please describe your specific injuries, like 'bad left knee' or 'shoulder pain'." },
-  { stage: "CONFIRMATION", text: "Please say 'Yes' to generate the plan, or say 'No' if you need to fix something." }
+  { stage: "GREETING", text: "My bad, I missed that. Just hit me with a 'yes' if you're ready to start." },
+  { stage: "CONSENT", text: "Sorry, I need a clear 'yes' or 'no' on the data consent before we can move forward." },
+  { stage: "INTRO", text: "I didn't quite catch the number. How old are you again?" },
+  { stage: "AGE", text: "Wait, I missed that. Make sure to tell me the number and if it's in kilos or pounds." },
+  { stage: "HEIGHT", text: "I didn't catch that. Try saying it like '170 centimeters' or '5 foot 10'." },
+  { stage: "GOAL", text: "Sorry, I just need to know if we're aiming for 'Weight Loss', 'Muscle Gain', or 'General Fitness'." },
+  { stage: "LEVEL", text: "I missed that. Would you say you're a 'Beginner', 'Intermediate', or 'Advanced'?" },
+  { stage: "DAYS", text: "I need a specific number of days between 1 and 7. How many days are we training?" },
+  { stage: "EQUIPMENT", text: "I didn't catch that setup. Just say 'Full Gym', 'Dumbbells', or 'Bodyweight'." },
+  { stage: "ALLERGIES_CHECK", text: "Sorry, just a simple 'Yes' or 'No' works here. Do you have any allergies?" },
+  { stage: "ALLERGIES_DETAIL", text: "I didn't catch the foods. Just list them out for me, like 'dairy' or 'nuts'." },
+  { stage: "INJURIES_CHECK", text: "Sorry, just a 'Yes' or 'No' on this one. Any physical injuries?" },
+  { stage: "INJURIES_DETAIL", text: "I missed that. Briefly tell me what's injured, like 'my lower back'." },
+  { stage: "CONFIRMATION", text: "Just say 'Yes' to lock it in, or say 'No' if we need to fix something on the screen." }
 ];
 
 const STAGE_ORDER = ["GREETING", "CONSENT", "INTRO", "AGE", "HEIGHT", "GOAL", "LEVEL", "DAYS", "EQUIPMENT", "ALLERGIES_CHECK", "ALLERGIES_DETAIL", "INJURIES_CHECK", "INJURIES_DETAIL", "CONFIRMATION", "DONE"];
@@ -439,16 +441,16 @@ export default function GenerateProgramPage() {
     }
 
     if (stageRef.current === "GREETING" && (extractedFromDataset === "no" || textLower.match(/\b(no|nope|nah|not ready)\b/i))) {
-      speak("No problem at all! I'll be right here when you are ready to start.");
+      speak("No sweat. I'll be right here when you're ready to get to work.");
       setTimeout(() => toggleCall(), 4000); return;
     }
     if (stageRef.current === "CONSENT" && (extractedFromDataset === "no" || textLower.match(/\b(no|nope|nah|i don't agree)\b/i))) {
-      speak("I completely understand. I need your consent to safely build your plan, so we'll stop here for now.");
-      setTimeout(() => toggleCall(), 5000); return;
+      speak("I get it. But I need that info to safely build a program for you. We'll stop here for now, come back when you're ready.");
+      setTimeout(() => toggleCall(), 6000); return;
     }
 
     if (stageRef.current === "CONFIRMATION" && (extractedFromDataset === "no" || textLower.match(/\b(change|fix|no|wait|wrong|edit|incorrect)\b/i))) {
-      speak("No problem. You can tap the pencil icon next to any field on your screen to edit it manually. Just say 'looks good' or 'Yes' when you are ready to proceed.", startListening); return; 
+      speak("No worries. You can tap the pencil icon next to any field on your screen to edit it manually. Just say 'looks good' when you're done.", startListening); return; 
     }
 
     let isValid = true;
@@ -457,17 +459,17 @@ export default function GenerateProgramPage() {
       isValid = true;
     } else {
       if (stageRef.current === "GREETING" || stageRef.current === "CONSENT") {
-        isValid = /\b(yes|yeah|sure|ok|okay|yep|agree)\b/i.test(textLower);
+        isValid = /\b(yes|yeah|sure|ok|okay|yep|agree|ready|let's go|lets go)\b/i.test(textLower);
       } else if (["INTRO", "AGE", "HEIGHT", "DAYS"].includes(stageRef.current)) {
         isValid = /\d/.test(textLower); 
       } else if (stageRef.current === "GOAL") {
-        isValid = /\b(weight|loss|lose|muscle|gain|build|general|fitness)\b/i.test(textLower);
+        isValid = /\b(weight|loss|lose|muscle|gain|build|general|fitness|fit)\b/i.test(textLower);
       } else if (stageRef.current === "LEVEL") {
         isValid = /\b(beginner|intermediate|advanced|pro|new|start|novice)\b/i.test(textLower);
       } else if (stageRef.current === "EQUIPMENT") {
         isValid = /\b(gym|dumbbells|bodyweight|weights|home)\b/i.test(textLower);
       } else if (stageRef.current === "ALLERGIES_CHECK" || stageRef.current === "INJURIES_CHECK") {
-        isValid = /\b(yes|yeah|yep|sure|no|nope|nah|none)\b/i.test(textLower);
+        isValid = /\b(yes|yeah|yep|sure|no|nope|nah|none|nothing|clear)\b/i.test(textLower);
       } else if (stageRef.current === "CONFIRMATION") {
         isValid = /\b(yes|yeah|sure|ok|okay|yep|agree|good|perfect|generate|do it|right|looks good)\b/i.test(textLower);
       } else {
@@ -563,7 +565,7 @@ export default function GenerateProgramPage() {
     if (finalReply.includes("[Name]")) finalReply = finalReply.replace(/\[Name\]/g, userRef.current?.firstName || "there");
 
     if (targetStage === "CONFIRMATION") {
-      finalReply = `Alright, let's review. You are ${updatedData.age} years old, weigh ${updatedData.weight}, and are ${updatedData.height} tall. Your goal is to ${updatedData.goal}. You'll train using your ${updatedData.equipment} for ${updatedData.days} days. Allergies: ${updatedData.allergies}. Injuries: ${updatedData.injuries}. Does everything look correct?`;
+      finalReply = `Alright, let's look at the tape. You're ${updatedData.age} years old, weigh ${updatedData.weight}, and are ${updatedData.height} tall. Goal is to ${updatedData.goal}. We'll hit the ${updatedData.equipment} for ${updatedData.days} days a week. Allergies: ${updatedData.allergies}. Injuries: ${updatedData.injuries}. How's that look? We good to go?`;
     }
 
     if (targetStage === "DONE") {
@@ -633,7 +635,7 @@ export default function GenerateProgramPage() {
       setStage("DONE");
       setIsThinking(false);
 
-      speak("Your highly customized plan is ready and saved. Taking you to your dashboard now.");
+      speak("Everything looks solid. Your plan is saved and ready. Sending you to the dashboard now.");
       
       setTimeout(() => {
         router.push("/profile"); 
@@ -643,7 +645,7 @@ export default function GenerateProgramPage() {
       console.error("Critical Error Generating Plan:", error);
       setIsThinking(false);
       toast.error(`Failed to generate: ${error.message}`); 
-      speak("I encountered an error while saving the plan.");
+      speak("I hit a snag while saving the plan. Let's try that again.");
       setStage("CONFIRMATION");
       stageRef.current = "CONFIRMATION";
     }
@@ -676,7 +678,7 @@ export default function GenerateProgramPage() {
       const replyOptions = baseConfig.replies.split('|');
       let greeting = replyOptions[Math.floor(Math.random() * replyOptions.length)];
       if (userRef.current?.firstName && !greeting.includes(userRef.current?.firstName)) {
-        greeting = greeting.replace(/^(Hey there|Welcome|Hello|Hi|Greetings)[!|,]/i, `$1 ${userRef.current?.firstName},`);
+        greeting = greeting.replace(/^(Hey|What's up|Welcome in)[!|,]/i, `$1 ${userRef.current?.firstName},`);
       }
       speak(greeting, startListening);
     }
