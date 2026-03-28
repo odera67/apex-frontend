@@ -10,6 +10,7 @@ import { Dumbbell, Utensils, Activity, ArrowRight, Flame, Target, Trophy, Play }
 import QuickAdaptButton from "@/components/QuickAdaptButton";
 import DashboardSkeleton from "@/components/DashboardSkeleton";
 import WaterTracker from "@/components/WaterTracker"; // 💧 IMPORTED WATER TRACKER
+import HealthSyncCard from "@/components/HealthSyncCard"; // 📱 IMPORTED HEALTH SYNC
 
 export default function DashboardPage() {
   const { user, isLoaded } = useUser();
@@ -175,10 +176,15 @@ export default function DashboardPage() {
           </div>
         </section>
 
-        {/* RIGHT COLUMN: NUTRITION & HYDRATION (Takes up 2/5 of the grid) */}
+        {/* RIGHT COLUMN: HEALTH, NUTRITION & HYDRATION (Takes up 2/5 of the grid) */}
         <section className="lg:col-span-2 space-y-6">
           
-          {/* 💧 WATER TRACKER GOES HERE */}
+          {/* 📱 HEALTH SYNC COMPONENT */}
+          <div className="mb-2">
+            <HealthSyncCard />
+          </div>
+
+          {/* 💧 WATER TRACKER */}
           <div className="mb-8">
             <WaterTracker />
           </div>
