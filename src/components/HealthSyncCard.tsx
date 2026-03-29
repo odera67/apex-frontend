@@ -22,8 +22,8 @@ export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
       const { Capacitor } = await import('@capacitor/core');
       
       if (Capacitor.isNativePlatform()) {
-        // 🚀 REAL ANDROID HEALTH CONNECT LOGIC
-        const { HealthConnect } = await import('@robingenz/capacitor-health-connect');
+        // 🚀 We only import HealthConnect, NO RecordType needed here!
+        const { HealthConnect } = await import('@devmaxime/capacitor-health-connect');
         
         // 1. Check if Health Connect is available on the phone
         const check = await HealthConnect.checkAvailability();
@@ -33,9 +33,9 @@ export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
           return;
         }
 
-        // 2. Request Permissions from the user
+        // 2. Request Permissions using strings and "as any" to bypass TypeScript
         await HealthConnect.requestPermissions({
-          read: ['Steps', 'ActiveCaloriesBurned', 'HeartRate'],
+          read: ['Steps' as any, 'ActiveCaloriesBurned' as any, 'HeartRate' as any],
           write: []
         });
 
@@ -44,10 +44,10 @@ export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
         const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
         const endOfDay = now.toISOString();
 
-        // 4. Fetch Real Data from Android
-        const stepsRecord = await HealthConnect.readRecords({ type: 'Steps', timeRangeFilter: { startTime: startOfDay, endTime: endOfDay } });
-        const caloriesRecord = await HealthConnect.readRecords({ type: 'ActiveCaloriesBurned', timeRangeFilter: { startTime: startOfDay, endTime: endOfDay } });
-        const hrRecord = await HealthConnect.readRecords({ type: 'HeartRate', timeRangeFilter: { startTime: startOfDay, endTime: endOfDay } });
+        // 4. Fetch Real Data from Android using "as any"
+        const stepsRecord = await HealthConnect.readRecords({ type: 'Steps' as any, start: startOfDay, end: endOfDay });
+        const caloriesRecord = await HealthConnect.readRecords({ type: 'ActiveCaloriesBurned' as any, start: startOfDay, end: endOfDay });
+        const hrRecord = await HealthConnect.readRecords({ type: 'HeartRate' as any, start: startOfDay, end: endOfDay });
 
         // 5. Calculate Totals
         const totalSteps = stepsRecord.records.reduce((sum: number, record: any) => sum + record.count, 0);
@@ -74,7 +74,7 @@ export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
         toast.success("Real health data synced from Android!");
 
       } else {
-        // 🌐 WEB FALLBACK (For testing on your computer so Next.js doesn't crash)
+        // 🌐 WEB FALLBACK (For testing on your computer)
         setTimeout(() => {
           const mockData = {
             steps: Math.floor(Math.random() * 3000) + 5000,
@@ -120,21 +120,18 @@ export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
       </div>
 
       <div className="grid grid-cols-3 gap-3">
-        {/* STEPS */}
         <div className="bg-muted/50 rounded-2xl p-4 flex flex-col items-center justify-center text-center border border-border/50">
           <Activity className="w-6 h-6 text-blue-500 mb-2" />
           <span className="text-xl font-bold">{healthData.steps.toLocaleString()}</span>
           <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-1">Steps</span>
         </div>
 
-        {/* CALORIES */}
         <div className="bg-muted/50 rounded-2xl p-4 flex flex-col items-center justify-center text-center border border-border/50">
           <Flame className="w-6 h-6 text-orange-500 mb-2" />
           <span className="text-xl font-bold">{healthData.calories}</span>
           <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-1">Kcal</span>
         </div>
 
-        {/* HEART RATE */}
         <div className="bg-muted/50 rounded-2xl p-4 flex flex-col items-center justify-center text-center border border-border/50">
           <Heart className="w-6 h-6 text-red-500 mb-2" />
           <span className="text-xl font-bold">{healthData.heartRate}</span>
