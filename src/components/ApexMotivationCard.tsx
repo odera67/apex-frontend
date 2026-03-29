@@ -47,7 +47,7 @@ export default function ApexMotivationCard() {
           return;
         }
 
-        // 2. Schedule the Daily 8:00 AM Notification
+        // 2. 🚀 TESTING MODE: Schedule the Notification to fire in exactly 5 seconds
         await LocalNotifications.schedule({
           notifications: [
             {
@@ -55,15 +55,15 @@ export default function ApexMotivationCard() {
               body: "Time to wake up and execute. You've got goals to crush today. Let's go!",
               id: 1,
               schedule: { 
-                on: { hour: 8, minute: 0 }, // Repeats every day at 8:00 AM
-                allowWhileIdle: true // Delivers even if phone is in low-power mode
+                at: new Date(Date.now() + 1000 * 5), // ⏰ Fires 5 seconds from now!
+                allowWhileIdle: true 
               },
             }
           ]
         });
 
         setIsScheduled(true);
-        toast.success("Morning motivation enabled! See you at 8 AM.");
+        toast.success("Test scheduled! Lock your screen and wait 5 seconds.");
       } else {
         // 🌐 WEB BROWSER FALLBACK (For testing on your computer)
         if ("Notification" in window) {
