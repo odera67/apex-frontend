@@ -3,75 +3,89 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Activity, Flame, Heart, RefreshCcw, CheckCircle2, Smartphone } from "lucide-react";
+import { Heart, Activity, Flame, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
 
-// ✅ Added onSync prop
 interface HealthSyncCardProps {
   onSync?: (data: { steps: number; calories: number; heartRate: number }) => void;
 }
 
 export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
   const [isSyncing, setIsSyncing] = useState(false);
-  const [isConnected, setIsConnected] = useState(false);
   const [healthData, setHealthData] = useState({ steps: 0, calories: 0, heartRate: 0 });
+  const [lastSync, setLastSync] = useState<string | null>(null);
 
-  const syncHealthData = async () => {
+  const handleSync = async () => {
     setIsSyncing(true);
-    
+
     try {
       const { Capacitor } = await import('@capacitor/core');
       
       if (Capacitor.isNativePlatform()) {
-        const { Health } = await import('@capgo/capacitor-health');
+        // 🚀 REAL ANDROID HEALTH CONNECT LOGIC
+        const { HealthConnect } = await import('@robingenz/capacitor-health-connect');
         
-        const availability = await Health.isAvailable();
-        if (!availability) {
-          toast.error("Health Connect / HealthKit not available on this device.");
+        // 1. Check if Health Connect is available on the phone
+        const check = await HealthConnect.checkAvailability();
+        if (check.availability === 'NotInstalled') {
+          toast.error("Google Health Connect is not installed on this device.", { duration: 4000 });
           setIsSyncing(false);
           return;
         }
 
-        await Health.requestAuthorization({
-          read: ['steps', 'calories', 'heartRate'] as any,
+        // 2. Request Permissions from the user
+        await HealthConnect.requestPermissions({
+          read: ['Steps', 'ActiveCaloriesBurned', 'HeartRate'],
           write: []
         });
 
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        
-        const stepsData = await Health.queryAggregated({
-          startDate: today.toISOString(),
-          endDate: new Date().toISOString(),
-          dataType: 'steps',
-        }).catch(() => ({ value: 0 })); 
+        // 3. Get Today's Date Range (Midnight to Now)
+        const now = new Date();
+        const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
+        const endOfDay = now.toISOString();
 
-        const caloriesData = await Health.queryAggregated({
-          startDate: today.toISOString(),
-          endDate: new Date().toISOString(),
-          dataType: 'calories' as any,
-        }).catch(() => ({ value: 0 }));
+        // 4. Fetch Real Data from Android
+        const stepsRecord = await HealthConnect.readRecords({ type: 'Steps', timeRangeFilter: { startTime: startOfDay, endTime: endOfDay } });
+        const caloriesRecord = await HealthConnect.readRecords({ type: 'ActiveCaloriesBurned', timeRangeFilter: { startTime: startOfDay, endTime: endOfDay } });
+        const hrRecord = await HealthConnect.readRecords({ type: 'HeartRate', timeRangeFilter: { startTime: startOfDay, endTime: endOfDay } });
+
+        // 5. Calculate Totals
+        const totalSteps = stepsRecord.records.reduce((sum: number, record: any) => sum + record.count, 0);
+        const totalCalories = caloriesRecord.records.reduce((sum: number, record: any) => sum + record.energy, 0);
         
-        const newData = {
-          steps: Math.round((stepsData as any)?.value || (stepsData as any)?.result || 8432),
-          calories: Math.round((caloriesData as any)?.value || (caloriesData as any)?.result || 450),
-          heartRate: 72 
+        // Get most recent heart rate
+        let latestHR = 72; // Default resting HR if no watch is connected
+        if (hrRecord.records.length > 0) {
+          const lastRecord: any = hrRecord.records[hrRecord.records.length - 1];
+          if (lastRecord.samples && lastRecord.samples.length > 0) {
+            latestHR = lastRecord.samples[lastRecord.samples.length - 1].beatsPerMinute;
+          }
+        }
+
+        const newData = { 
+          steps: Math.round(totalSteps), 
+          calories: Math.round(totalCalories), 
+          heartRate: Math.round(latestHR) 
         };
-
+        
         setHealthData(newData);
-        setIsConnected(true);
-        toast.success("Health data synced securely!");
-        if (onSync) onSync(newData); // ✅ Send data to dashboard
+        if (onSync) onSync(newData);
+        setLastSync(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+        toast.success("Real health data synced from Android!");
 
       } else {
-        // 🌐 WEB BROWSER FALLBACK
+        // 🌐 WEB FALLBACK (For testing on your computer so Next.js doesn't crash)
         setTimeout(() => {
-          const mockData = { steps: 8432, calories: 450, heartRate: 72 };
+          const mockData = {
+            steps: Math.floor(Math.random() * 3000) + 5000,
+            calories: Math.floor(Math.random() * 200) + 300,
+            heartRate: Math.floor(Math.random() * 15) + 65
+          };
           setHealthData(mockData);
-          setIsConnected(true);
-          toast.success("Mock health data synced (Web Mode)!");
-          if (onSync) onSync(mockData); // ✅ Send data to dashboard
-        }, 1500);
+          if (onSync) onSync(mockData);
+          setLastSync(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+          toast.success("Web Testing: Mock data generated.");
+        }, 1200);
       }
     } catch (error: any) {
       console.error("Health Sync Error:", error);
@@ -82,60 +96,50 @@ export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
   };
 
   return (
-    <Card className="p-5 border-border shadow-sm bg-card relative overflow-hidden">
-      <div className={`absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl rounded-full transition-opacity duration-1000 ${isConnected ? 'opacity-100' : 'opacity-0'}`} />
-      
-      <div className="relative z-10">
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-2">
-            <div className="p-2 bg-primary/10 rounded-lg text-primary">
-              <Smartphone className="w-5 h-5" />
-            </div>
-            <div>
-              <h3 className="font-bold text-lg leading-tight">Device Health</h3>
-              <p className="text-xs text-muted-foreground">Apple Health & Google Fit</p>
-            </div>
-          </div>
-          
-          <Button 
-            variant={isConnected ? "outline" : "default"} 
-            size="sm" 
-            onClick={syncHealthData}
-            disabled={isSyncing}
-            className={`rounded-full h-8 text-xs font-semibold ${isConnected ? 'border-primary/50 text-primary' : ''}`}
-          >
-            {isSyncing ? <RefreshCcw className="w-3.5 h-3.5 mr-1.5 animate-spin" /> : 
-             isConnected ? <CheckCircle2 className="w-3.5 h-3.5 mr-1.5" /> : 
-             <Activity className="w-3.5 h-3.5 mr-1.5" />}
-            {isSyncing ? "Syncing..." : isConnected ? "Synced" : "Connect"}
-          </Button>
+    <Card className="p-6 bg-card border-border shadow-sm flex flex-col gap-5">
+      <div className="flex items-center justify-between">
+        <div>
+          <h3 className="font-bold text-lg flex items-center gap-2">
+            <Activity className="w-5 h-5 text-primary" />
+            Device Health
+          </h3>
+          <p className="text-xs text-muted-foreground mt-1">
+            {lastSync ? `Last synced at ${lastSync}` : "Sync with Health Connect"}
+          </p>
+        </div>
+        <Button 
+          onClick={handleSync} 
+          disabled={isSyncing} 
+          size="sm" 
+          variant="outline" 
+          className="gap-2 rounded-full border-primary/50 text-primary hover:bg-primary/10"
+        >
+          <RefreshCw className={`w-4 h-4 ${isSyncing ? "animate-spin" : ""}`} />
+          {isSyncing ? "Syncing..." : "Sync Now"}
+        </Button>
+      </div>
+
+      <div className="grid grid-cols-3 gap-3">
+        {/* STEPS */}
+        <div className="bg-muted/50 rounded-2xl p-4 flex flex-col items-center justify-center text-center border border-border/50">
+          <Activity className="w-6 h-6 text-blue-500 mb-2" />
+          <span className="text-xl font-bold">{healthData.steps.toLocaleString()}</span>
+          <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-1">Steps</span>
         </div>
 
-        {isConnected ? (
-          <div className="grid grid-cols-3 gap-3">
-            <div className="flex flex-col items-center justify-center p-3 bg-muted/50 rounded-xl border border-border/50">
-              <Activity className="w-4 h-4 text-blue-500 mb-1" />
-              <span className="font-bold text-foreground">{healthData.steps.toLocaleString()}</span>
-              <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold">Steps</span>
-            </div>
-            <div className="flex flex-col items-center justify-center p-3 bg-muted/50 rounded-xl border border-border/50">
-              <Flame className="w-4 h-4 text-orange-500 mb-1" />
-              <span className="font-bold text-foreground">{healthData.calories}</span>
-              <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold">Kcal</span>
-            </div>
-            <div className="flex flex-col items-center justify-center p-3 bg-muted/50 rounded-xl border border-border/50">
-              <Heart className="w-4 h-4 text-rose-500 mb-1" />
-              <span className="font-bold text-foreground">{healthData.heartRate}</span>
-              <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold">BPM</span>
-            </div>
-          </div>
-        ) : (
-          <div className="flex flex-col items-center justify-center py-4 bg-muted/30 rounded-xl border border-dashed border-border/60">
-            <p className="text-sm text-muted-foreground font-medium text-center px-4">
-              Connect your device to automatically track your daily activity and let Apex adjust your plan.
-            </p>
-          </div>
-        )}
+        {/* CALORIES */}
+        <div className="bg-muted/50 rounded-2xl p-4 flex flex-col items-center justify-center text-center border border-border/50">
+          <Flame className="w-6 h-6 text-orange-500 mb-2" />
+          <span className="text-xl font-bold">{healthData.calories}</span>
+          <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-1">Kcal</span>
+        </div>
+
+        {/* HEART RATE */}
+        <div className="bg-muted/50 rounded-2xl p-4 flex flex-col items-center justify-center text-center border border-border/50">
+          <Heart className="w-6 h-6 text-red-500 mb-2" />
+          <span className="text-xl font-bold">{healthData.heartRate}</span>
+          <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-1">BPM</span>
+        </div>
       </div>
     </Card>
   );
