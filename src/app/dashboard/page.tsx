@@ -11,6 +11,7 @@ import QuickAdaptButton from "@/components/QuickAdaptButton";
 import DashboardSkeleton from "@/components/DashboardSkeleton";
 import WaterTracker from "@/components/WaterTracker"; 
 import HealthSyncCard from "@/components/HealthSyncCard"; 
+import ApexMotivationCard from "@/components/ApexMotivationCard"; // 🔔 IMPORTED MOTIVATION CARD
 
 export default function DashboardPage() {
   const { user, isLoaded } = useUser();
@@ -252,6 +253,9 @@ export default function DashboardPage() {
           {/* 📱 HEALTH SYNC COMPONENT WITH ONSYNC PROP */}
           <div className="mb-2">
             <HealthSyncCard onSync={handleHealthSync} />
+            
+            {/* 🔔 NEW: NOTIFICATION COMPONENT */}
+            <ApexMotivationCard />
           </div>
 
           {/* 💧 WATER TRACKER */}
