@@ -34,13 +34,35 @@ interface UserResponseRow {
   extracted_value: string;
 }
 
-// =========================================================================
-// 🛑 PASTE YOUR DEFAULT_FLOW AND DEFAULT_ERRORS ARRAYS HERE! 🛑
-// (I removed them from this snippet so the chat doesn't cut off your text)
-//
-// const DEFAULT_FLOW: IntakeStep[] = [ ... ];
-// const DEFAULT_ERRORS: ErrorRow[] = [ ... ];
-// =========================================================================
+// 🚀 ULTRA-REALISTIC CONVERSATIONAL DIALOGUE
+const DEFAULT_FLOW: IntakeStep[] = [
+  { stage: "GREETING", saveField: "", nextStage: "CONSENT", replies: "Hey, I'm Apex. How's your day going? Ready to build your protocol?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "CONSENT", saveField: "", nextStage: "AGE", replies: "Awesome. Let's start simple. How old are you?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "AGE", saveField: "age", nextStage: "HEIGHT", replies: "Got it. How tall are you?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "HEIGHT", saveField: "height", nextStage: "WEIGHT", replies: "And what is your current weight?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "WEIGHT", saveField: "weight", nextStage: "GOAL", replies: "Okay. What is the main goal here? Are we trying to lose weight, build muscle, or just improve general fitness?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "GOAL", saveField: "goal", nextStage: "LEVEL", replies: "I like that goal. Would you say your current experience level is beginner, intermediate, or advanced?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "LEVEL", saveField: "level", nextStage: "DAYS", replies: "Understood. How many days a week can you realistically commit to working out?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "DAYS", saveField: "days", nextStage: "EQUIPMENT", replies: "Perfect. When you work out, do you have access to a full gym, just dumbbells, or are we strictly doing bodyweight?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "EQUIPMENT", saveField: "equipment", nextStage: "ALLERGIES_CHECK", replies: "Got it. Moving on to nutrition. Do you have any food allergies?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "ALLERGIES_CHECK", saveField: "allergies", nextStage: "INJURIES_CHECK", replies: "Noted. Finally, do you have any past injuries I should be aware of before I build your routine?", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "INJURIES_CHECK", saveField: "injuries", nextStage: "DONE", replies: "Understood. Give me a few seconds, I am generating your custom protocol right now.", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" },
+  { stage: "DONE", saveField: "", nextStage: "", replies: "Done.", isConditional: false, nextStageIfNo: "", repliesIfNo: "", dependsOnField: "", dependsOnValue: "" }
+];
+
+const DEFAULT_ERRORS: ErrorRow[] = [
+  { stage: "GREETING", text: "I didn't quite catch that. Just say yes if you are ready to begin." },
+  { stage: "CONSENT", text: "Are you ready to get started?" },
+  { stage: "AGE", text: "I need a number for your age, like 25 or 30." },
+  { stage: "HEIGHT", text: "Please tell me your height, like 5 foot 10 or 170 centimeters." },
+  { stage: "WEIGHT", text: "Please state your weight, like 150 pounds or 70 kilos." },
+  { stage: "GOAL", text: "Just say lose weight, build muscle, or general fitness." },
+  { stage: "LEVEL", text: "Would you say you are a beginner, intermediate, or advanced?" },
+  { stage: "DAYS", text: "How many days a week? Please say a number between 1 and 7." },
+  { stage: "EQUIPMENT", text: "Do you have a full gym, dumbbells, or bodyweight?" },
+  { stage: "ALLERGIES_CHECK", text: "Please list your food allergies, or just say none." },
+  { stage: "INJURIES_CHECK", text: "Please list any injuries, or just say none." }
+];
 
 const STAGE_ORDER = ["GREETING", "CONSENT", "INTRO", "AGE", "HEIGHT", "GOAL", "LEVEL", "DAYS", "EQUIPMENT", "ALLERGIES_CHECK", "ALLERGIES_DETAIL", "INJURIES_CHECK", "INJURIES_DETAIL", "CONFIRMATION", "DONE"]; 
 
