@@ -195,7 +195,7 @@ export default function CheckInPage() {
     recognitionRef.current = recognition;
 
     return () => { recognition.abort(); synthRef.current?.cancel(); };
-  }, []); // <-- 🚀 Empty array ensures the mic never disconnects wildly
+  }, []); 
 
   const startListening = () => {
     if (isAiSpeakingRef.current) return;
@@ -375,6 +375,31 @@ export default function CheckInPage() {
           }
         });
       }
+
+      // ==========================================
+      // 🧠 SMART REMINDER LOGIC
+      // ==========================================
+      try {
+        const { Capacitor } = await import('@capacitor/core');
+        if (Capacitor.isNativePlatform()) {
+          const { LocalNotifications } = await import('@capacitor/local-notifications');
+          const currentHour = new Date().getHours();
+
+          // If checked in before 2 PM, cancel both 2 PM (id: 2) and 5 PM (id: 3)
+          if (currentHour < 14) {
+            await LocalNotifications.cancel({ notifications: [{ id: 2 }, { id: 3 }] });
+            console.log("Smart Reminder: Canceled 2PM and 5PM notifications.");
+          } 
+          // If checked in before 5 PM, cancel just the 5 PM (id: 3)
+          else if (currentHour < 17) {
+            await LocalNotifications.cancel({ notifications: [{ id: 3 }] });
+            console.log("Smart Reminder: Canceled 5PM notification.");
+          }
+        }
+      } catch (notifyError) {
+        console.error("Failed to cancel smart notifications:", notifyError);
+      }
+      // ==========================================
 
       setStage("DONE");
       stageRef.current = "DONE";

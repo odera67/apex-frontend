@@ -6,12 +6,13 @@ import { api } from "../../../convex/_generated/api";
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Dumbbell, Utensils, Activity, ArrowRight, Flame, Target, Trophy, Play, Sparkles } from "lucide-react";
+import { Dumbbell, Utensils, Activity, ArrowRight, Flame, Target, Trophy, Play, Sparkles, CheckCircle, Loader2 } from "lucide-react";
 import QuickAdaptButton from "@/components/QuickAdaptButton";
 import DashboardSkeleton from "@/components/DashboardSkeleton";
 import WaterTracker from "@/components/WaterTracker"; 
 import HealthSyncCard from "@/components/HealthSyncCard"; 
 import ApexMotivationCard from "@/components/ApexMotivationCard"; // 🔔 IMPORTED MOTIVATION CARD
+import { toast } from "sonner"; // Assuming you use Sonner for toasts!
 
 export default function DashboardPage() {
   const { user, isLoaded } = useUser();
@@ -22,6 +23,9 @@ export default function DashboardPage() {
   const [aiInsight, setAiInsight] = useState<string | null>(null);
   const [displayedInsight, setDisplayedInsight] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  
+  // Daily Completion State
+  const [isCompleting, setIsCompleting] = useState(false);
   
   const plan = useQuery(api.plans.getUserPlan, user ? { userId: user.id } : "skip");
 
@@ -60,6 +64,38 @@ export default function DashboardPage() {
       </div>
     );
   }
+
+  // ==========================================
+  // 🧠 SMART REMINDER LOGIC (For Daily Tasks)
+  // ==========================================
+  const handleCompleteDay = async () => {
+    setIsCompleting(true);
+    try {
+      const { Capacitor } = await import('@capacitor/core');
+      if (Capacitor.isNativePlatform()) {
+        const { LocalNotifications } = await import('@capacitor/local-notifications');
+        const currentHour = new Date().getHours();
+
+        // If they finish their daily goal before 2 PM, cancel both 2 PM (id: 2) and 5 PM (id: 3)
+        if (currentHour < 14) {
+          await LocalNotifications.cancel({ notifications: [{ id: 2 }, { id: 3 }] });
+          console.log("Daily Goal Hit: Canceled 2PM and 5PM notifications.");
+        } 
+        // If they finish before 5 PM, cancel just the 5 PM (id: 3)
+        else if (currentHour < 17) {
+          await LocalNotifications.cancel({ notifications: [{ id: 3 }] });
+          console.log("Daily Goal Hit: Canceled 5PM notification.");
+        }
+      }
+      toast.success("Awesome! You crushed your goals for today. Notifications paused until tomorrow.", { duration: 4000 });
+    } catch (notifyError) {
+      console.error("Failed to cancel daily smart notifications:", notifyError);
+      toast.error("Failed to update daily status.");
+    } finally {
+      setIsCompleting(false);
+    }
+  };
+  // ==========================================
 
   // 🚀 Logic to generate the AI comment when health data syncs
   const handleHealthSync = (data: { steps: number; calories: number; heartRate: number }) => {
@@ -121,6 +157,16 @@ export default function DashboardPage() {
               <Play className="w-4 h-4" fill="currentColor" />
               Start Workout
             </Link>
+          </Button>
+
+          {/* 🚀 NEW: MARK DAY COMPLETE BUTTON */}
+          <Button 
+            onClick={handleCompleteDay} 
+            disabled={isCompleting} 
+            className="gap-2 rounded-xl bg-green-500 hover:bg-green-600 text-white shadow-lg flex-1 md:flex-none transition-all"
+          >
+            {isCompleting ? <Loader2 className="w-4 h-4 animate-spin" /> : <CheckCircle className="w-4 h-4" />}
+            Mark Day Complete
           </Button>
         </div>
       </div>

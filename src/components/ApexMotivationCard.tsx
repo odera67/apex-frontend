@@ -2,92 +2,79 @@
 
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Bell, CheckCircle2, MessageSquare } from "lucide-react";
+import { Bell, CheckCircle2, ShieldAlert } from "lucide-react";
 import { toast } from "sonner";
 
 export default function ApexMotivationCard() {
-  const [isScheduled, setIsScheduled] = useState(false);
+  const [status, setStatus] = useState<"loading" | "active" | "denied">("loading");
 
-  // Check if the notification is already scheduled when the component loads
   useEffect(() => {
-    const checkStatus = async () => {
+    const setupAutomaticNotifications = async () => {
       try {
         const { Capacitor } = await import('@capacitor/core');
-        if (Capacitor.isNativePlatform()) {
-          const { LocalNotifications } = await import('@capacitor/local-notifications');
-          const pending = await LocalNotifications.getPending();
-          // We are using ID 1 for our morning motivation
-          if (pending.notifications.some(n => n.id === 1)) {
-            setIsScheduled(true);
-          }
+        
+        // If testing on the web, just show as active to keep the UI clean
+        if (!Capacitor.isNativePlatform()) {
+          setStatus("active");
+          return; 
         }
-      } catch (e) {
-        console.error(e);
-      }
-    };
-    checkStatus();
-  }, []);
 
-  const enableMotivation = async () => {
-    try {
-      const { Capacitor } = await import('@capacitor/core');
-      
-      if (Capacitor.isNativePlatform()) {
         const { LocalNotifications } = await import('@capacitor/local-notifications');
         
-        // 1. Request Native Permissions
+        // 1. Automatically check and request permission on app load
         let permStatus = await LocalNotifications.checkPermissions();
         if (permStatus.display !== 'granted') {
           permStatus = await LocalNotifications.requestPermissions();
         }
 
         if (permStatus.display !== 'granted') {
-          toast.error("Notification permissions denied in your phone settings.");
+          setStatus("denied");
+          toast.error("Please enable notifications in your Android settings to get reminders.");
           return;
         }
 
-        // 2. 🚀 TESTING MODE: Schedule the Notification to fire in exactly 5 seconds
+        // 2. Clear out any old test notifications to start fresh
+        const pending = await LocalNotifications.getPending();
+        if (pending.notifications.length > 0) {
+          await LocalNotifications.cancel({ notifications: pending.notifications });
+        }
+
+        // 3. 🚀 Schedule the Continuous Daily Alarms (8 AM, 2 PM, 5 PM)
         await LocalNotifications.schedule({
           notifications: [
             {
-              title: "Apex AI",
-              body: "Time to wake up and execute. You've got goals to crush today. Let's go!",
               id: 1,
-              schedule: { 
-                at: new Date(Date.now() + 1000 * 5), // ⏰ Fires 5 seconds from now!
-                allowWhileIdle: true 
-              },
+              title: "Apex AI: Morning Briefing",
+              body: "Time to wake up and execute. Let's crush today's protocol.",
+              schedule: { on: { hour: 8, minute: 0 }, allowWhileIdle: true }, // 8:00 AM
+            },
+            {
+              id: 2,
+              title: "Apex AI: Midday Check",
+              body: "It's 2:00 PM. Have you hit your water and meal goals yet?",
+              schedule: { on: { hour: 14, minute: 0 }, allowWhileIdle: true }, // 2:00 PM
+            },
+            {
+              id: 3,
+              title: "Apex AI: Evening Review",
+              body: "It's 5:00 PM. Time to log your final stats and check in for the day.",
+              schedule: { on: { hour: 17, minute: 0 }, allowWhileIdle: true }, // 5:00 PM
             }
           ]
         });
 
-        setIsScheduled(true);
-        toast.success("Test scheduled! Lock your screen and wait 5 seconds.");
-      } else {
-        // 🌐 WEB BROWSER FALLBACK (For testing on your computer)
-        if ("Notification" in window) {
-          const permission = await Notification.requestPermission();
-          if (permission === "granted") {
-            setIsScheduled(true);
-            toast.success("Web notifications enabled!");
-            // Send a test ping immediately so you can see it work on Desktop
-            new Notification("Apex AI", { 
-              body: "Time to wake up and execute. You've got goals to crush today. Let's go!",
-              icon: "/favicon.ico" // Uses your app's favicon
-            });
-          } else {
-            toast.error("Web notifications denied.");
-          }
-        } else {
-          toast.error("Notifications not supported in this browser.");
-        }
+        setStatus("active");
+      } catch (error) {
+        console.error("Auto-Notification Error:", error);
+        setStatus("denied");
       }
-    } catch (error) {
-      console.error("Notification Error:", error);
-      toast.error("Failed to enable notifications.");
-    }
-  };
+    };
+
+    setupAutomaticNotifications();
+  }, []); // The empty array [] means this runs instantly when the dashboard loads!
+
+  // Don't show anything while it's thinking
+  if (status === "loading") return null;
 
   return (
     <Card className="p-5 border-border shadow-sm bg-card mt-4">
@@ -97,21 +84,21 @@ export default function ApexMotivationCard() {
             <Bell className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="font-bold text-sm leading-tight">Morning Briefing</h3>
-            <p className="text-xs text-muted-foreground">Daily lock-screen nudge</p>
+            <h3 className="font-bold text-sm leading-tight">Apex AI Alerts</h3>
+            <p className="text-xs text-muted-foreground">
+              {status === "active" ? "Daily reminders are active" : "Notifications blocked"}
+            </p>
           </div>
         </div>
         
-        <Button 
-          variant={isScheduled ? "outline" : "default"} 
-          size="sm" 
-          onClick={enableMotivation}
-          disabled={isScheduled}
-          className={`rounded-full h-8 text-xs font-semibold ${isScheduled ? 'border-primary/50 text-primary' : ''}`}
-        >
-          {isScheduled ? <CheckCircle2 className="w-3.5 h-3.5 mr-1.5" /> : <MessageSquare className="w-3.5 h-3.5 mr-1.5" />}
-          {isScheduled ? "Enabled" : "Turn On"}
-        </Button>
+        {/* Status Indicator instead of a Button */}
+        <div className={`flex items-center text-sm font-bold ${status === 'active' ? 'text-primary' : 'text-destructive'}`}>
+          {status === "active" ? (
+            <><CheckCircle2 className="w-4 h-4 mr-1.5" /> Running</>
+          ) : (
+            <><ShieldAlert className="w-4 h-4 mr-1.5" /> Disabled</>
+          )}
+        </div>
       </div>
     </Card>
   );
