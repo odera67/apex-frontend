@@ -46,11 +46,12 @@ export default function ApexAssistant() {
       console.log("▶️ STEP 2: Listening...");
 
       const userSpokenText: string = await new Promise((resolve, reject) => {
+        // partialResults: true makes it much more forgiving!
         SpeechRecognition.start({
           language: "en-US",
-          maxResults: 1,
+          maxResults: 2, 
           prompt: "I'm listening...",
-          partialResults: false,
+          partialResults: true, 
         }).catch((err) => reject(err));
 
         SpeechRecognition.addListener('partialResults', (data: any) => {
@@ -91,7 +92,6 @@ export default function ApexAssistant() {
         console.log("✅ Sequence Complete.");
         setOrbState("hidden"); 
       } else {
-        // ✅ FIX: Removed brainResponse.error to satisfy TypeScript
         console.error("❌ GEMINI ERROR: Unsuccessful response or empty reply.");
         toast.error("Brain Error: Could not generate a reply.");
         setOrbState("hidden");
@@ -99,9 +99,10 @@ export default function ApexAssistant() {
 
     } catch (error: any) {
       const errorMessage = String(error);
-      if (errorMessage.includes("No match") || errorMessage.includes("timeout")) {
-        console.log("⚠️ Silence/Timeout detected.");
-        toast("Apex didn't catch that. Try again.");
+      // Handles native Android silence/mumbling errors without crashing
+      if (errorMessage.includes("No match") || errorMessage.includes("timeout") || errorMessage.includes("Didn't understand")) {
+        console.log("⚠️ Silence/Mumble detected.");
+        toast("Apex didn't catch that. Try speaking louder.");
       } else {
         console.error("💥 MASSIVE CRASH:", error);
         toast.error("Crash: " + errorMessage); 
@@ -122,7 +123,6 @@ export default function ApexAssistant() {
 
   return (
     <>
-      {/* ✅ FIX: Removed z-[9999] class and used inline style to clear Tailwind warning */}
       {orbState === "hidden" && (
         <button 
           onClick={triggerApexWakeUp}
