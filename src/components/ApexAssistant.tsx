@@ -51,12 +51,13 @@ export default function ApexAssistant() {
       resetInactivityTimer();
 
       const userSpokenText: string = await new Promise((resolve, reject) => {
+        // ✅ The fix: .catch handles Android's "No match" silence error gracefully
         SpeechRecognition.start({
           language: "en-US",
           maxResults: 1,
           prompt: "I'm listening...",
           partialResults: false,
-        });
+        }).catch((err) => reject(err));
 
         SpeechRecognition.addListener('partialResults', (data: any) => {
           if (data.matches && data.matches.length > 0) {
@@ -65,6 +66,7 @@ export default function ApexAssistant() {
           }
         });
 
+        // Failsafe timeout
         setTimeout(() => {
           SpeechRecognition.stop();
           reject("timeout");
@@ -88,17 +90,21 @@ export default function ApexAssistant() {
           pitch: 1.0,
         });
         
-        // Return to listening or shut down after speaking
+        // Return to hidden state after speaking
         setOrbState("hidden"); 
       } else {
         setOrbState("hidden");
       }
 
     } catch (error: any) {
-      if (error !== "timeout") {
+      // ✅ The fix: Gracefully handle silence or timeouts without crashing Chrome/Android
+      const errorMessage = String(error);
+      if (errorMessage.includes("No match") || errorMessage.includes("timeout")) {
+        toast("Apex didn't catch that. Try again.");
+      } else {
         console.error("Apex Sequence Error:", error);
       }
-      setOrbState("hidden"); // Hide if it failed or timed out
+      setOrbState("hidden"); // Safely hide the orb
     }
   };
 
@@ -108,13 +114,10 @@ export default function ApexAssistant() {
       case "hidden":
         return "opacity-0 scale-50 pointer-events-none translate-y-10";
       case "listening":
-        // Bright, gentle pulsing while waiting for user to speak
         return "opacity-100 scale-100 shadow-[0_0_50px_rgba(56,189,248,0.6)] animate-pulse transition-all duration-700";
       case "thinking":
-        // Fast rotation and shrinking while Gemini processes
         return "opacity-80 scale-90 shadow-[0_0_30px_rgba(192,38,211,0.6)] animate-spin transition-all duration-500 hue-rotate-30";
       case "speaking":
-        // Wild, aggressive scaling to simulate voice waveforms
         return "opacity-100 scale-110 shadow-[0_0_80px_rgba(56,189,248,0.9)] animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite] transition-all duration-300";
       default:
         return "hidden";
@@ -123,7 +126,7 @@ export default function ApexAssistant() {
 
   return (
     <>
-      {/* HIGHLY VISIBLE TRIGGER - Moved to the LEFT to avoid Accessibility Menu */}
+      {/* HIGHLY VISIBLE TRIGGER - Safely on the LEFT */}
       {orbState === "hidden" && (
         <button 
           onClick={triggerApexWakeUp}
@@ -142,14 +145,12 @@ export default function ApexAssistant() {
       >
         <div className="relative flex flex-col items-center">
           
-          {/* Status text floating above */}
           <div className={`mb-8 text-cyan-300 font-medium tracking-widest uppercase text-sm transition-opacity duration-500 ${orbState === "hidden" ? "opacity-0" : "opacity-100"}`}>
             {orbState === "listening" && "Listening..."}
             {orbState === "thinking" && "Processing"}
             {orbState === "speaking" && "Apex"}
           </div>
 
-          {/* The Actual GIF */}
           <div className={`relative w-64 h-64 rounded-full flex items-center justify-center mix-blend-screen ${getOrbStyles()}`}>
             <Image 
               src="/blueorb.gif" 
@@ -157,7 +158,7 @@ export default function ApexAssistant() {
               fill
               className="object-contain rounded-full"
               priority
-              unoptimized // Required so Next.js doesn't freeze the GIF into a static image
+              unoptimized
             />
           </div>
           
