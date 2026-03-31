@@ -32,9 +32,9 @@ export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
           return;
         }
 
-        // 2. Request Permissions (FIXED: Using strict camelCase strings)
+        // 2. Request Permissions (Must be PascalCase!)
         await HealthConnect.requestPermissions({
-          read: ['steps' as any, 'activeCaloriesBurned' as any, 'heartRate' as any],
+          read: ['Steps' as any, 'ActiveCaloriesBurned' as any, 'HeartRate' as any],
           write: []
         });
 
@@ -43,20 +43,25 @@ export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
         const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
         const endOfDay = now.toISOString();
 
-        // 4. Fetch Real Data from Android (FIXED: Using strict camelCase strings)
-        const stepsRecord = await HealthConnect.readRecords({ type: 'steps' as any, start: startOfDay, end: endOfDay });
-        const caloriesRecord = await HealthConnect.readRecords({ type: 'activeCaloriesBurned' as any, start: startOfDay, end: endOfDay });
-        const hrRecord = await HealthConnect.readRecords({ type: 'heartRate' as any, start: startOfDay, end: endOfDay });
+        // 4. Fetch Real Data from Android (Must be PascalCase!)
+        const stepsRecord = await HealthConnect.readRecords({ type: 'Steps' as any, start: startOfDay, end: endOfDay });
+        const caloriesRecord = await HealthConnect.readRecords({ type: 'ActiveCaloriesBurned' as any, start: startOfDay, end: endOfDay });
+        const hrRecord = await HealthConnect.readRecords({ type: 'HeartRate' as any, start: startOfDay, end: endOfDay });
 
-        // 5. Calculate Totals
-        const totalSteps = stepsRecord.records.reduce((sum: number, record: any) => sum + record.count, 0);
-        const totalCalories = caloriesRecord.records.reduce((sum: number, record: any) => sum + record.energy, 0);
+        // 🔥 BULLETPROOF FIX: Safely extract records, falling back to empty arrays if undefined
+        const stepsArray = stepsRecord?.records || [];
+        const caloriesArray = caloriesRecord?.records || [];
+        const hrArray = hrRecord?.records || [];
+
+        // 5. Calculate Totals Safely
+        const totalSteps = stepsArray.reduce((sum: number, record: any) => sum + (record.count || 0), 0);
+        const totalCalories = caloriesArray.reduce((sum: number, record: any) => sum + (record.energy || 0), 0);
         
-        // Get most recent heart rate
+        // Get most recent heart rate safely
         let latestHR = 72; // Default resting HR if no watch is connected
-        if (hrRecord.records.length > 0) {
-          const lastRecord: any = hrRecord.records[hrRecord.records.length - 1];
-          if (lastRecord.samples && lastRecord.samples.length > 0) {
+        if (hrArray.length > 0) {
+          const lastRecord: any = hrArray[hrArray.length - 1];
+          if (lastRecord?.samples && lastRecord.samples.length > 0) {
             latestHR = lastRecord.samples[lastRecord.samples.length - 1].beatsPerMinute;
           }
         }
