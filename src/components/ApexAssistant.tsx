@@ -29,8 +29,6 @@ export default function ApexAssistant() {
   }, []);
 
   // --- 2. THE APEX WAKE SEQUENCE ---
-  // In a true MVP, the user taps a hidden/small UI element to start the session, 
-  // bypassing the Android continuous-listening battery drain.
   const triggerApexWakeUp = async () => {
     try {
       const { Capacitor } = await import('@capacitor/core');
@@ -125,14 +123,14 @@ export default function ApexAssistant() {
 
   return (
     <>
-      {/* INVISIBLE TRIGGER: We place a transparent overlay or a tiny discreet button 
-          somewhere on the screen to trigger the wake-up without an ugly microphone button */}
+      {/* HIGHLY VISIBLE TRIGGER - Moved to the LEFT to avoid Accessibility Menu */}
       {orbState === "hidden" && (
         <button 
           onClick={triggerApexWakeUp}
-          className="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-sm z-40 flex items-center justify-center text-blue-500/50 hover:bg-blue-500/20"
+          className="fixed bottom-24 left-6 w-14 h-14 rounded-full bg-blue-600 shadow-[0_0_15px_rgba(37,99,235,0.8)] z-[9999] flex items-center justify-center border-2 border-cyan-300"
         >
-          <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+          <div className="w-4 h-4 rounded-full bg-white animate-ping absolute" />
+          <div className="w-3 h-3 rounded-full bg-cyan-200 z-10" />
         </button>
       )}
 
