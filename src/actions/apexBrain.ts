@@ -1,27 +1,26 @@
 "use server";
 
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
-// ⚠️ IMPORTANT: You need to put NEXT_PUBLIC_GEMINI_API_KEY="your_key" in your .env.local file!
-const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY || "");
-
-export async function askApex(userText: string) {
+export async function askApex(userMessage: string) {
   try {
-    // 1. Set up the AI model
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    console.log("🧠 [SERVER] Sending to LOCAL Apex model...");
 
-    // 2. Give Apex a personality (System Prompt)
-    const prompt = `You are Apex, an elite AI fitness coach. 
-    Keep your answers extremely short, punchy, and motivating (1 to 2 sentences max). 
-    The user just said: "${userText}"`;
+    const response = await fetch("http://localhost:11434/api/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "apex", // 👈 We are now using your custom-trained model!
+        prompt: userMessage,
+        stream: false, 
+      }),
+    });
 
-    // 3. Get the response
-    const result = await model.generateContent(prompt);
-    const text = result.response.text();
+    if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
+    const data = await response.json();
     
-    return { success: true, reply: text };
+    return { success: true, reply: data.response };
+
   } catch (error: any) {
-    console.error("Apex Brain Error:", error);
-    return { success: false, reply: "Sorry, I lost my connection. Let's try that again." };
+    return { success: false, reply: "My local servers are currently offline." };
   }
 }
