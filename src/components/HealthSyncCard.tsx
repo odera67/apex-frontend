@@ -22,10 +22,9 @@ export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
       const { Capacitor } = await import('@capacitor/core');
       
       if (Capacitor.isNativePlatform()) {
-        // 🚀 We only import HealthConnect, NO RecordType needed here!
         const { HealthConnect } = await import('@devmaxime/capacitor-health-connect');
         
-        // 1. Check if Health Connect is available on the phone
+        // 1. Check if Health Connect is available
         const check = await HealthConnect.checkAvailability();
         if (check.availability === 'NotInstalled') {
           toast.error("Google Health Connect is not installed on this device.", { duration: 4000 });
@@ -33,7 +32,7 @@ export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
           return;
         }
 
-        // 2. Request Permissions using strings and "as any" to bypass TypeScript
+        // 2. Request Permissions
         await HealthConnect.requestPermissions({
           read: ['Steps' as any, 'ActiveCaloriesBurned' as any, 'HeartRate' as any],
           write: []
@@ -44,7 +43,7 @@ export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
         const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
         const endOfDay = now.toISOString();
 
-        // 4. Fetch Real Data from Android using "as any"
+        // 4. Fetch Real Data from Android
         const stepsRecord = await HealthConnect.readRecords({ type: 'Steps' as any, start: startOfDay, end: endOfDay });
         const caloriesRecord = await HealthConnect.readRecords({ type: 'ActiveCaloriesBurned' as any, start: startOfDay, end: endOfDay });
         const hrRecord = await HealthConnect.readRecords({ type: 'HeartRate' as any, start: startOfDay, end: endOfDay });
@@ -89,7 +88,8 @@ export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
       }
     } catch (error: any) {
       console.error("Health Sync Error:", error);
-      toast.error("Failed to sync health data. Did you grant permissions?");
+      // 🔥 THIS IS CRITICAL: It will now show the exact error on your phone screen!
+      toast.error(`Sync Failed: ${error.message || JSON.stringify(error)}`, { duration: 6000 });
     } finally {
       setIsSyncing(false);
     }
