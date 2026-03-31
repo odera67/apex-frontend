@@ -32,9 +32,9 @@ export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
           return;
         }
 
-        // 2. Request Permissions
+        // 2. Request Permissions (FIXED: Using strict camelCase strings)
         await HealthConnect.requestPermissions({
-          read: ['Steps' as any, 'ActiveCaloriesBurned' as any, 'HeartRate' as any],
+          read: ['steps' as any, 'activeCaloriesBurned' as any, 'heartRate' as any],
           write: []
         });
 
@@ -43,10 +43,10 @@ export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
         const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
         const endOfDay = now.toISOString();
 
-        // 4. Fetch Real Data from Android
-        const stepsRecord = await HealthConnect.readRecords({ type: 'Steps' as any, start: startOfDay, end: endOfDay });
-        const caloriesRecord = await HealthConnect.readRecords({ type: 'ActiveCaloriesBurned' as any, start: startOfDay, end: endOfDay });
-        const hrRecord = await HealthConnect.readRecords({ type: 'HeartRate' as any, start: startOfDay, end: endOfDay });
+        // 4. Fetch Real Data from Android (FIXED: Using strict camelCase strings)
+        const stepsRecord = await HealthConnect.readRecords({ type: 'steps' as any, start: startOfDay, end: endOfDay });
+        const caloriesRecord = await HealthConnect.readRecords({ type: 'activeCaloriesBurned' as any, start: startOfDay, end: endOfDay });
+        const hrRecord = await HealthConnect.readRecords({ type: 'heartRate' as any, start: startOfDay, end: endOfDay });
 
         // 5. Calculate Totals
         const totalSteps = stepsRecord.records.reduce((sum: number, record: any) => sum + record.count, 0);
@@ -88,7 +88,6 @@ export default function HealthSyncCard({ onSync }: HealthSyncCardProps) {
       }
     } catch (error: any) {
       console.error("Health Sync Error:", error);
-      // 🔥 THIS IS CRITICAL: It will now show the exact error on your phone screen!
       toast.error(`Sync Failed: ${error.message || JSON.stringify(error)}`, { duration: 6000 });
     } finally {
       setIsSyncing(false);
