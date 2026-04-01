@@ -77,7 +77,7 @@ export default function QuickAdaptButton({ planId, day, exerciseName }: QuickAda
             }
         };
 
-        const res = await fetch("https://apex-ai-backend-yfn8.onrender.com/api/swap", {
+        const res = await fetch("https://apex-ai-backend-yfn8.onrender.com/api/adapt", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
