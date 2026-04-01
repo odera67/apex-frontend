@@ -46,7 +46,6 @@ export default function ApexAssistant() {
       console.log("▶️ STEP 2: Listening...");
 
       const userSpokenText: string = await new Promise((resolve, reject) => {
-        // partialResults: true makes it much more forgiving!
         SpeechRecognition.start({
           language: "en-US",
           maxResults: 2, 
@@ -72,10 +71,10 @@ export default function ApexAssistant() {
 
       setOrbState("thinking");
       resetInactivityTimer();
-      console.log("▶️ STEP 3: Sending to Gemini API...");
+      console.log("▶️ STEP 3: Sending to LOCAL Apex Brain...");
       
       const brainResponse = await askApex(userSpokenText);
-      console.log("🧠 GEMINI RESPONSE:", brainResponse);
+      console.log("🧠 APEX RESPONSE:", brainResponse);
 
       if (brainResponse.success && brainResponse.reply) {
         setOrbState("speaking");
@@ -85,21 +84,20 @@ export default function ApexAssistant() {
         await TextToSpeech.speak({
           text: brainResponse.reply,
           lang: 'en-US',
-          rate: 1.0,
+          rate: 1.0, // You can tweak this later to make Apex speak faster/slower!
           pitch: 1.0,
         });
         
         console.log("✅ Sequence Complete.");
         setOrbState("hidden"); 
       } else {
-        console.error("❌ GEMINI ERROR: Unsuccessful response or empty reply.");
-        toast.error("Brain Error: Could not generate a reply.");
+        console.error("❌ APEX BRAIN ERROR: Local server failed to reply.");
+        toast.error("Offline: Apex could not connect to the local brain.");
         setOrbState("hidden");
       }
 
     } catch (error: any) {
       const errorMessage = String(error);
-      // Handles native Android silence/mumbling errors without crashing
       if (errorMessage.includes("No match") || errorMessage.includes("timeout") || errorMessage.includes("Didn't understand")) {
         console.log("⚠️ Silence/Mumble detected.");
         toast("Apex didn't catch that. Try speaking louder.");
