@@ -11,8 +11,8 @@ import QuickAdaptButton from "@/components/QuickAdaptButton";
 import DashboardSkeleton from "@/components/DashboardSkeleton";
 import WaterTracker from "@/components/WaterTracker"; 
 import HealthSyncCard from "@/components/HealthSyncCard"; 
-import ApexMotivationCard from "@/components/ApexMotivationCard"; // 🔔 IMPORTED MOTIVATION CARD
-import { toast } from "sonner"; // Assuming you use Sonner for toasts!
+import ApexMotivationCard from "@/components/ApexMotivationCard"; 
+import { toast } from "sonner";
 
 export default function DashboardPage() {
   const { user, isLoaded } = useUser();
@@ -76,12 +76,10 @@ export default function DashboardPage() {
         const { LocalNotifications } = await import('@capacitor/local-notifications');
         const currentHour = new Date().getHours();
 
-        // If they finish their daily goal before 2 PM, cancel both 2 PM (id: 2) and 5 PM (id: 3)
         if (currentHour < 14) {
           await LocalNotifications.cancel({ notifications: [{ id: 2 }, { id: 3 }] });
           console.log("Daily Goal Hit: Canceled 2PM and 5PM notifications.");
         } 
-        // If they finish before 5 PM, cancel just the 5 PM (id: 3)
         else if (currentHour < 17) {
           await LocalNotifications.cancel({ notifications: [{ id: 3 }] });
           console.log("Daily Goal Hit: Canceled 5PM notification.");
@@ -95,32 +93,37 @@ export default function DashboardPage() {
       setIsCompleting(false);
     }
   };
-  // ==========================================
 
-  // 🚀 Logic to generate the AI comment when health data syncs
-  const handleHealthSync = (data: { steps: number; calories: number; heartRate: number }) => {
+  // ==========================================
+  // 🚀 HEALTH SYNC AI LOGIC (Updated to handle missing/0 Health Connect data)
+  // ==========================================
+  const handleHealthSync = (data: { steps: number; calories?: number; heartRate?: number }) => {
     const goal = plan.userStats.goal.toLowerCase();
     const name = user?.firstName || "there";
+    
+    // Fallbacks to 0 in case Health Connect blocks Calories or BPM
+    const steps = data.steps || 0;
+    const calories = data.calories || 0;
+    
     let comment = "";
 
-    // Simulate AI thinking delay
     setTimeout(() => {
       if (goal.includes("loss") || goal.includes("lose")) {
-        if (data.steps > 10000) {
-          comment = `Incredible work today, ${name}. You smashed over 10k steps and burned ${data.calories} active calories. This is exactly the kind of daily energy expenditure that forces your body to burn stored fat. Keep this momentum going into tomorrow.`;
-        } else if (data.steps > 7000) {
-          comment = `Good baseline activity today, ${name}. ${data.steps.toLocaleString()} steps is a solid start. Since our main goal is fat loss, try taking a quick 15-minute walk after your last meal tonight to push that calorie burn even higher.`;
+        if (steps > 10000) {
+          comment = `Incredible work today, ${name}. You smashed over 10,000 steps! ${calories > 0 ? `Burning those ${calories} active calories is e` : 'E'}xactly the kind of daily energy expenditure that forces your body to burn stored fat. Keep this momentum going into tomorrow.`;
+        } else if (steps > 7000) {
+          comment = `Good baseline activity today, ${name}. ${steps.toLocaleString()} steps is a solid start. Since our main goal is fat loss, try taking a quick 15-minute walk after your last meal tonight to push that fat burn even higher.`;
         } else {
-          comment = `I see you're at ${data.steps.toLocaleString()} steps today. To really accelerate your weight loss, we need to get your NEAT (daily movement) up. Let's try to find excuses to move more tomorrow—take the stairs, pace on phone calls. You've got this.`;
+          comment = `I see you're at ${steps.toLocaleString()} steps today. To really accelerate your weight loss, we need to get your daily movement up. Let's try to find excuses to move more tomorrow—take the stairs, pace on phone calls. You've got this.`;
         }
       } else if (goal.includes("muscle") || goal.includes("gain") || goal.includes("build")) {
-        if (data.calories > 600) {
-          comment = `You burned ${data.calories} active calories today, ${name}. Remember, since we are trying to build muscle, you need to eat back those calories! Make sure you're hitting your protein target tonight so your body has the fuel to grow.`;
+        if (steps > 12000) {
+          comment = `You hit a massive ${steps.toLocaleString()} steps today, ${name}. Remember, since we are trying to build muscle, you need to eat enough to fuel that movement! Make sure you're hitting your protein target tonight so your body has the energy to grow.`;
         } else {
-          comment = `Your activity levels look perfect for muscle growth, ${name}. By keeping your cardio and step count moderate (${data.steps.toLocaleString()} steps), you're conserving energy to lift heavier and recover faster. Focus on the weights today.`;
+          comment = `Your activity levels look perfect for muscle growth, ${name}. By keeping your cardio and step count moderate (${steps.toLocaleString()} steps), you're conserving energy to lift heavier and recover faster. Focus on the weights today.`;
         }
       } else {
-        comment = `Great check-in, ${name}. ${data.steps.toLocaleString()} steps and a resting HR of ${data.heartRate} BPM shows a solid baseline of cardiovascular health. Let's hit the protocol hard today and keep improving that conditioning.`;
+        comment = `Great check-in, ${name}. Hitting ${steps.toLocaleString()} steps is a fantastic baseline for your cardiovascular health. Let's hit the protocol hard today and keep improving that conditioning.`;
       }
       
       setAiInsight(comment);
@@ -159,7 +162,6 @@ export default function DashboardPage() {
             </Link>
           </Button>
 
-          {/* 🚀 NEW: MARK DAY COMPLETE BUTTON */}
           <Button 
             onClick={handleCompleteDay} 
             disabled={isCompleting} 
@@ -171,7 +173,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* 🚀 AI INSIGHT BUBBLE (Only shows when data is synced) */}
+      {/* AI INSIGHT BUBBLE */}
       {aiInsight && (
         <div className="mb-10 bg-primary/5 border border-primary/20 rounded-3xl p-6 flex gap-4 items-start shadow-sm relative overflow-hidden">
           <div className="absolute top-0 left-0 w-2 h-full bg-primary" />
@@ -245,7 +247,7 @@ export default function DashboardPage() {
       {/* MAIN CONTENT GRID */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
         
-        {/* LEFT COLUMN: WORKOUT (Takes up 3/5 of the grid) */}
+        {/* LEFT COLUMN: WORKOUT */}
         <section className="lg:col-span-3 space-y-6">
           <div className="flex items-center gap-3 mb-6">
             <Dumbbell className="w-6 h-6 text-primary" />
@@ -296,15 +298,11 @@ export default function DashboardPage() {
         {/* RIGHT COLUMN: HEALTH, NUTRITION & HYDRATION */}
         <section className="lg:col-span-2 space-y-6">
           
-          {/* 📱 HEALTH SYNC COMPONENT WITH ONSYNC PROP */}
           <div className="mb-2">
             <HealthSyncCard onSync={handleHealthSync} />
-            
-            {/* 🔔 NEW: NOTIFICATION COMPONENT */}
             <ApexMotivationCard />
           </div>
 
-          {/* 💧 WATER TRACKER */}
           <div className="mb-8">
             <WaterTracker />
           </div>

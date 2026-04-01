@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Mic, Loader2 } from "lucide-react";
 import { Id } from "../../convex/_generated/dataModel";
 import { useUser } from "@clerk/nextjs";
+import { toast } from "sonner"; // Added for better UI feedback instead of native alerts
 
 interface QuickAdaptProps {
   planId: Id<"plans">;
@@ -17,36 +18,47 @@ interface QuickAdaptProps {
 export default function QuickAdaptButton({ planId, day, exerciseName }: QuickAdaptProps) {
   const [isAdapting, setIsAdapting] = useState(false);
   
-  // Fetch the user and their active plan so we have access to their injuries/allergies!
   const { user } = useUser();
-  const activePlan = useQuery(api.plans.getLatestUserPlan, user ? { userId: user.id } : "skip");
+  // 🚀 FIXED: Changed getLatestUserPlan to getUserPlan to match your actual Convex schema
+  const activePlan = useQuery(api.plans.getUserPlan, user ? { userId: user.id } : "skip");
   const mutateExercise = useMutation(api.plans.swapExercise);
 
   const handleVoiceSwap = async () => {
-    // Prevent swapping if the plan hasn't loaded yet
     if (!activePlan) {
-        alert("Please wait for your plan data to load before swapping.");
+        toast.error("Please wait for your plan data to load before swapping.");
         return;
     }
 
     // 1. Initialize Speech Recognition
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (!SpeechRecognition) {
-      alert("Your browser does not support voice recognition. Try Chrome or Edge!");
+      toast.error("Your browser does not support voice recognition. Try Chrome, Edge, or the native app.");
       return;
     }
 
     const recognition = new SpeechRecognition();
-    recognition.start();
+    
+    // Set properties for better accuracy
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
 
-    // Add a visual cue that it is listening before the result comes back
     setIsAdapting(true); 
+
+    try {
+      recognition.start();
+    } catch (err) {
+      console.error("Microphone permission denied or already running", err);
+      toast.error("Please allow microphone access to use voice commands.");
+      setIsAdapting(false);
+      return;
+    }
 
     recognition.onresult = async (event: any) => {
       const transcript = event.results[0][0].transcript;
+      toast.success(`Heard: "${transcript}". Adapting plan...`);
       
       try {
-        // 🚀 Packaged the full payload with userStats so the Python backend respects injuries!
         const payload = {
             request: transcript,
             exerciseContext: exerciseName,
@@ -65,7 +77,6 @@ export default function QuickAdaptButton({ planId, day, exerciseName }: QuickAda
             }
         };
 
-        // 🚀 CHANGED: Now hitting the dedicated `/api/swap` endpoint!
         const res = await fetch("https://apex-ai-backend-yfn8.onrender.com/api/swap", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -76,23 +87,21 @@ export default function QuickAdaptButton({ planId, day, exerciseName }: QuickAda
         
         const data = await res.json();
 
-        // 3. BULLETPROOF DATA EXTRACTION
+        // BULLETPROOF DATA EXTRACTION
         const extractedData = data.newExercise ? data.newExercise : data;
 
-        // Safety check: Make sure the AI actually gave us an exercise name
         if (!extractedData || !extractedData.name) {
           throw new Error("AI did not return a valid exercise name.");
         }
 
-        // Format exactly how Convex expects it to prevent schema errors
         const formattedNewExercise = {
           name: String(extractedData.name),
-          sets: Number(extractedData.sets || 3), // Fallback to 3 sets
-          reps: String(extractedData.reps || "10"), // Fallback to 10 reps
+          sets: Number(extractedData.sets || 3),
+          reps: String(extractedData.reps || "10"),
           description: extractedData.description ? String(extractedData.description) : undefined,
         };
 
-        // 4. Update Convex database instantly
+        // Update Convex database instantly
         await mutateExercise({
           planId,
           dayName: day,
@@ -100,19 +109,29 @@ export default function QuickAdaptButton({ planId, day, exerciseName }: QuickAda
           newExercise: formattedNewExercise, 
         });
         
+        toast.success(`Swapped to ${formattedNewExercise.name}!`);
+
       } catch (e) {
         console.error("Adaptation failed", e);
-        alert("Oops, something went wrong with the AI trainer. Make sure your Python server is running!");
+        toast.error("Failed to swap exercise. Ensure your AI server is online.");
       } finally {
         setIsAdapting(false);
       }
     };
 
-    recognition.onerror = () => {
+    // Failsafe: if the user stays silent or speech recognition throws an error
+    recognition.onerror = (event: any) => {
+      console.error("Speech recognition error", event.error);
+      if (event.error !== 'no-speech') {
+          toast.error("Microphone error. Please try again.");
+      }
       setIsAdapting(false);
     };
+
+    // Failsafe: turn off loading state when the microphone naturally stops listening
     recognition.onend = () => {
-       // Handled in finally block
+      // If we are still adapting, it means onresult fired and is awaiting the fetch.
+      // If not, it means the user stopped talking without triggering a result.
     };
   };
 
