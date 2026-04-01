@@ -45,17 +45,20 @@ export default function ApexAssistant() {
       resetInactivityTimer();
       console.log("▶️ STEP 2: Listening...");
 
+      // FIX 1: Clear out any glitchy leftover listeners before starting
+      await SpeechRecognition.removeAllListeners();
+
       const userSpokenText: string = await new Promise((resolve, reject) => {
         SpeechRecognition.start({
           language: "en-US",
-          maxResults: 2, 
+          maxResults: 1, // Changed to 1 to just grab your final sentence
           prompt: "I'm listening...",
-          partialResults: true, 
+          partialResults: false, // FIX 2: Wait until user finishes speaking
         }).catch((err) => reject(err));
 
         SpeechRecognition.addListener('partialResults', (data: any) => {
           if (data.matches && data.matches.length > 0) {
-            SpeechRecognition.stop();
+            // FIX 3: Removed SpeechRecognition.stop() so it doesn't kill the mic early
             resolve(data.matches[0]);
           }
         });
@@ -84,7 +87,7 @@ export default function ApexAssistant() {
         await TextToSpeech.speak({
           text: brainResponse.reply,
           lang: 'en-US',
-          rate: 1.0, // You can tweak this later to make Apex speak faster/slower!
+          rate: 1.0, 
           pitch: 1.0,
         });
         
