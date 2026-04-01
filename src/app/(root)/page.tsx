@@ -1,20 +1,18 @@
 import TerminalOverlay from "@/components/TerminalOverlay";
 import { Button } from "@/components/ui/button";
 import UserPrograms from "@/components/UserPrograms";
-import { ArrowRightIcon, Activity, Zap } from "lucide-react"; 
+import { ArrowRightIcon, Activity } from "lucide-react"; // ✅ Imported Activity icon
 import Link from "next/link";
 import InjuryPredictor from "@/components/InjuryPredictor";
+
 const HomePage = () => {
   return (
-    <div className="flex flex-col min-h-screen text-foreground overflow-hidden bg-background">
-      
-      {/* ================= HERO SECTION ================= */}
+    <div className="flex flex-col min-h-screen text-foreground overflow-hidden">
       <section className="relative z-10 py-24 flex-grow">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
-            
             {/* CORNER DECORATION */}
-            <div className="absolute -top-10 left-0 w-40 h-40 border-l-2 border-t-2 border-primary/20" />
+            <div className="absolute -top-10 left-0 w-40 h-40 border-l-2 border-t-2" />
 
             {/* LEFT SIDE CONTENT */}
             <div className="lg:col-span-7 space-y-8 relative">
@@ -23,7 +21,7 @@ const HomePage = () => {
                   <span className="text-foreground">Transform</span>
                 </div>
                 <div>
-                  <span className="text-primary drop-shadow-[0_0_15px_rgba(var(--primary),0.5)]">Your Body</span>
+                  <span className="text-primary">Your Body</span>
                 </div>
                 <div className="pt-2">
                   <span className="text-foreground">With Advanced</span>
@@ -37,37 +35,38 @@ const HomePage = () => {
               {/* SEPARATOR LINE */}
               <div className="h-px w-full bg-gradient-to-r from-primary via-secondary to-primary opacity-50"></div>
 
-              <p className="text-xl text-muted-foreground w-full md:w-2/3">
+              <p className="text-xl text-muted-foreground w-2/3">
                 Talk to our AI assistant and get personalized diet plans and workout routines
-                designed just for you.
+                designed just for you
               </p>
 
               {/* STATS */}
-              <div className="flex items-center gap-6 md:gap-10 py-6 font-mono">
+              <div className="flex items-center gap-10 py-6 font-mono">
                 <div className="flex flex-col">
-                  <div className="text-2xl text-primary font-bold">500+</div>
-                  <div className="text-xs uppercase tracking-wider text-muted-foreground">ACTIVE USERS</div>
+                  <div className="text-2xl text-primary">500+</div>
+                  <div className="text-xs uppercase tracking-wider">ACTIVE USERS</div>
                 </div>
                 <div className="h-12 w-px bg-gradient-to-b from-transparent via-border to-transparent"></div>
                 <div className="flex flex-col">
-                  <div className="text-2xl text-primary font-bold">3min</div>
-                  <div className="text-xs uppercase tracking-wider text-muted-foreground">GENERATION</div>
+                  <div className="text-2xl text-primary">3min</div>
+                  <div className="text-xs uppercase tracking-wider">GENERATION</div>
                 </div>
                 <div className="h-12 w-px bg-gradient-to-b from-transparent via-border to-transparent"></div>
                 <div className="flex flex-col">
-                  <div className="text-2xl text-primary font-bold">100%</div>
-                  <div className="text-xs uppercase tracking-wider text-muted-foreground">PERSONALIZED</div>
+                  <div className="text-2xl text-primary">100%</div>
+                  <div className="text-xs uppercase tracking-wider">PERSONALIZED</div>
                 </div>
               </div>
 
               {/* BUTTONS */}
+              {/* ✅ Added flex-wrap so the 3 buttons stack nicely on smaller screens */}
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-6">
                 
                 {/* Primary CTA */}
                 <Button
                   size="lg"
                   asChild
-                  className="overflow-hidden bg-primary text-primary-foreground px-8 py-6 text-lg font-medium shadow-[0_0_20px_rgba(var(--primary),0.3)] hover:shadow-[0_0_30px_rgba(var(--primary),0.5)] transition-all"
+                  className="overflow-hidden bg-primary text-primary-foreground px-8 py-6 text-lg font-medium"
                 >
                   <Link href={"/generate-program"} className="flex items-center font-mono">
                     Build Your Program
@@ -88,7 +87,7 @@ const HomePage = () => {
                   </Link>
                 </Button>
 
-                {/* Weekly Check-In Button */}
+                {/* ✅ NEW: Weekly Check-In Button */}
                 <Button
                   size="lg"
                   variant="secondary"
@@ -103,19 +102,19 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* RIGHT SIDE CONTENT (CYBERPUNK IMAGE) */}
-            <div className="lg:col-span-5 relative mt-12 lg:mt-0">
+            {/* RIGHT SIDE CONTENT */}
+            <div className="lg:col-span-5 relative">
               {/* CORNER PIECES */}
-              <div className="absolute -inset-4 pointer-events-none z-20">
-                <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-primary/50" />
-                <div className="absolute top-0 right-0 w-16 h-16 border-r-2 border-t-2 border-primary/50" />
-                <div className="absolute bottom-0 left-0 w-16 h-16 border-l-2 border-b-2 border-primary/50" />
-                <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-primary/50" />
+              <div className="absolute -inset-4 pointer-events-none">
+                <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-border" />
+                <div className="absolute top-0 right-0 w-16 h-16 border-r-2 border-t-2 border-border" />
+                <div className="absolute bottom-0 left-0 w-16 h-16 border-l-2 border-b-2 border-border" />
+                <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-border" />
               </div>
 
               {/* IMAGE CONTAINER */}
-              <div className="relative aspect-square max-w-lg mx-auto shadow-[0_0_50px_rgba(var(--primary),0.15)] rounded-lg">
-                <div className="relative overflow-hidden rounded-lg bg-cyber-black h-full">
+              <div className="relative aspect-square max-w-lg mx-auto">
+                <div className="relative overflow-hidden rounded-lg bg-cyber-black">
                   <img
                     src="/hero-ai3.png"
                     alt="AI Fitness Coach"
@@ -123,11 +122,11 @@ const HomePage = () => {
                   />
 
                   {/* SCAN LINE */}
-                  <div className="absolute inset-0 bg-[linear-gradient(transparent_0%,transparent_calc(50%-1px),var(--cyber-glow-primary)_50%,transparent_calc(50%+1px),transparent_100%)] bg-[length:100%_8px] animate-scanline pointer-events-none opacity-50" />
+                  <div className="absolute inset-0 bg-[linear-gradient(transparent_0%,transparent_calc(50%-1px),var(--cyber-glow-primary)_50%,transparent_calc(50%+1px),transparent_100%)] bg-[length:100%_8px] animate-scanline pointer-events-none" />
 
                   {/* DECORATIONS ON TOP THE IMAGE */}
                   <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 border border-primary/40 rounded-full animate-pulse" />
+                    <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 border border-primary/40 rounded-full" />
 
                     {/* Targeting lines */}
                     <div className="absolute top-1/2 left-0 w-1/4 h-px bg-primary/50" />
@@ -136,8 +135,9 @@ const HomePage = () => {
                     <div className="absolute bottom-0 left-1/2 h-1/4 w-px bg-primary/50" />
                   </div>
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                 </div>
+                <InjuryPredictor />
 
                 {/* TERMINAL OVERLAY */}
                 <TerminalOverlay />
@@ -147,39 +147,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ================= APEX SYSTEMS GRID ================= */}
-      <section className="relative z-10 py-16 bg-muted/20 border-y border-border">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-3 mb-8">
-            <Zap className="text-primary size-6 animate-pulse" />
-            <h2 className="text-3xl font-bold font-mono uppercase tracking-widest text-foreground">Apex Systems Active</h2>
-          </div>
-          
-          {/* This responsive grid beautifully organizes all the components we built.
-            On mobile it's 1 column, tablet 2 columns, desktop 3 columns.
-          */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-            <div className="w-full">
-              <InjuryPredictor />
-            </div>
-            <div className="w-full flex flex-col gap-8">
-              
-              
-            </div>
-            <div className="w-full flex flex-col gap-8">
-    
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= USER PROGRAMS ================= */}
-      <section className="relative z-10 py-16">
-        <div className="container mx-auto px-4">
-           <UserPrograms />
-        </div>
-      </section>
-
+      <UserPrograms />
     </div>
   );
 };
