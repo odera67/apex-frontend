@@ -4,7 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs"; 
 import ConvexClientProvider from "@/components/ConvexClientProvider";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
-import ApexAssistant from "@/components/ApexAssistant"; // ✅ 1. IMPORT APEX HERE
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,7 +44,7 @@ export default function RootLayout({
           </ConvexClientProvider>
           
           <AccessibilityMenu />
-          <ApexAssistant /> {/* ✅ 2. DROP THE ORB HERE TO FLOAT OVER EVERY PAGE */}
+          
         </body>
       </html>
     </ClerkProvider>
