@@ -1,154 +1,61 @@
 "use client";
-
-import { useState, useEffect, useRef } from "react";
-import { toast } from "sonner";
-import { askApex } from "@/actions/apexBrain"; 
-import Image from "next/image";
-
-type ApexState = "hidden" | "listening" | "thinking" | "speaking";
+import React, { useState, useEffect } from 'react';
+import { VoiceRecorder } from 'capacitor-voice-recorder';
 
 export default function ApexAssistant() {
-  const [orbState, setOrbState] = useState<ApexState>("hidden");
-  const inactivityTimer = useRef<NodeJS.Timeout | null>(null);
+  const [isRecording, setIsRecording] = useState(false);
+  const [hasPermission, setHasPermission] = useState(false);
 
-  const resetInactivityTimer = () => {
-    if (inactivityTimer.current) clearTimeout(inactivityTimer.current);
-    inactivityTimer.current = setTimeout(() => {
-      setOrbState("hidden");
-    }, 10000);
-  };
-
+  // Check microphone permissions when the component loads
   useEffect(() => {
-    return () => {
-      if (inactivityTimer.current) clearTimeout(inactivityTimer.current);
-    };
+    VoiceRecorder.canDeviceVoiceRecord().then((result) => {
+      if (result.value) {
+        VoiceRecorder.requestAudioRecordingPermission().then((permission) => {
+          setHasPermission(permission.value);
+        });
+      }
+    });
   }, []);
 
-  const triggerApexWakeUp = async () => {
-    try {
-      console.log("▶️ STEP 1: Waking up Apex...");
-      const { Capacitor } = await import('@capacitor/core');
-      if (!Capacitor.isNativePlatform()) {
-        toast.error("Requires a physical mobile device.");
-        return;
-      }
-
-      const { SpeechRecognition } = await import('@capacitor-community/speech-recognition');
-      const { TextToSpeech } = await import('@capacitor-community/text-to-speech');
-
-      const hasPermission = await SpeechRecognition.checkPermissions();
-      if (hasPermission.speechRecognition !== 'granted') {
-        await SpeechRecognition.requestPermissions();
-      }
-
-      setOrbState("listening");
-      resetInactivityTimer();
-      console.log("▶️ STEP 2: Listening...");
-
-      // Clear out any glitchy leftover listeners before starting
-      await SpeechRecognition.removeAllListeners();
-
-      const userSpokenText: string = await new Promise((resolve, reject) => {
-        SpeechRecognition.start({
-          language: "en-US",
-          maxResults: 1, 
-          prompt: "I'm listening...",
-          partialResults: false, 
-        }).catch((err) => reject(err));
-
-        SpeechRecognition.addListener('partialResults', (data: any) => {
-          if (data.matches && data.matches.length > 0) {
-            resolve(data.matches[0]);
-          }
-        });
-
-        setTimeout(() => {
-          SpeechRecognition.stop();
-          reject("timeout");
-        }, 8000);
-      });
-
-      console.log("🗣️ USER SAID:", userSpokenText);
-      toast.success("Heard: " + userSpokenText); 
-
-      setOrbState("thinking");
-      resetInactivityTimer();
-      
-      // UPDATED LOG: Now routing to the Cloud (Groq)
-      console.log("▶️ STEP 3: Sending to CLOUD Apex Brain (Groq)...");
-      
-      const brainResponse = await askApex(userSpokenText);
-      console.log("🧠 APEX RESPONSE:", brainResponse);
-
-      if (brainResponse.success && brainResponse.reply) {
-        setOrbState("speaking");
-        resetInactivityTimer();
-        console.log("▶️ STEP 4: Triggering Text-to-Speech...");
-        
-        await TextToSpeech.speak({
-          text: brainResponse.reply,
-          lang: 'en-US',
-          rate: 1.0, 
-          pitch: 1.0,
-        });
-        
-        console.log("✅ Sequence Complete.");
-        setOrbState("hidden"); 
-      } else {
-        // UPDATED LOG & TOAST: Reflecting cloud errors
-        console.error("❌ APEX BRAIN ERROR: Cloud server failed to reply.");
-        toast.error("Offline: Apex could not connect to the cloud brain.");
-        setOrbState("hidden");
-      }
-
-    } catch (error: any) {
-      const errorMessage = String(error);
-      if (errorMessage.includes("No match") || errorMessage.includes("timeout") || errorMessage.includes("Didn't understand")) {
-        console.log("⚠️ Silence/Mumble detected.");
-        toast("Apex didn't catch that. Try speaking louder.");
-      } else {
-        console.error("💥 MASSIVE CRASH:", error);
-        toast.error("Crash: " + errorMessage); 
-      }
-      setOrbState("hidden");
+  const toggleRecording = async () => {
+    if (!hasPermission) {
+      alert("Please allow microphone access to talk to Apex.");
+      return;
     }
-  };
 
-  const getOrbStyles = () => {
-    switch (orbState) {
-      case "hidden": return "opacity-0 scale-50 pointer-events-none translate-y-10";
-      case "listening": return "opacity-100 scale-100 shadow-[0_0_50px_rgba(56,189,248,0.6)] animate-pulse transition-all duration-700";
-      case "thinking": return "opacity-80 scale-90 shadow-[0_0_30px_rgba(192,38,211,0.6)] animate-spin transition-all duration-500 hue-rotate-30";
-      case "speaking": return "opacity-100 scale-110 shadow-[0_0_80px_rgba(56,189,248,0.9)] animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite] transition-all duration-300";
-      default: return "hidden";
+    if (isRecording) {
+      // Stop Recording
+      const result = await VoiceRecorder.stopRecording();
+      setIsRecording(false);
+      console.log("Audio Data (Base64):", result.value.recordDataBase64);
+      // Here is where we will send the audio to Groq/Next.js backend
+    } else {
+      // Start Recording
+      await VoiceRecorder.startRecording();
+      setIsRecording(true);
     }
   };
 
   return (
-    <>
-      {orbState === "hidden" && (
-        <button 
-          onClick={triggerApexWakeUp}
-          style={{ zIndex: 9999 }}
-          className="fixed bottom-24 left-6 w-14 h-14 rounded-full bg-blue-600 shadow-[0_0_15px_rgba(37,99,235,0.8)] flex items-center justify-center border-2 border-cyan-300"
-        >
-          <div className="w-4 h-4 rounded-full bg-white animate-ping absolute" />
-          <div className="w-3 h-3 rounded-full bg-cyan-200 z-10" />
-        </button>
-      )}
+    <div className="flex flex-col items-center justify-center p-6 bg-gray-900 rounded-xl shadow-lg border border-gray-700 max-w-sm mx-auto mt-10">
+      <h2 className="text-2xl font-bold text-white mb-4">Apex Assistant</h2>
+      
+      <button 
+        onClick={toggleRecording}
+        className={`w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 shadow-[0_0_20px_rgba(0,191,255,0.6)] ${
+          isRecording ? 'bg-red-500 scale-110 animate-pulse' : 'bg-blue-600 hover:bg-blue-500'
+        }`}
+      >
+        {isRecording ? (
+          <span className="text-white font-bold">Stop</span>
+        ) : (
+          <span className="text-white font-bold">Speak</span>
+        )}
+      </button>
 
-      <div className={`fixed inset-0 pointer-events-none z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition-opacity duration-700 ${orbState === "hidden" ? "opacity-0" : "opacity-100"}`}>
-        <div className="relative flex flex-col items-center">
-          <div className={`mb-8 text-cyan-300 font-medium tracking-widest uppercase text-sm transition-opacity duration-500 ${orbState === "hidden" ? "opacity-0" : "opacity-100"}`}>
-            {orbState === "listening" && "Listening..."}
-            {orbState === "thinking" && "Processing"}
-            {orbState === "speaking" && "Apex"}
-          </div>
-          <div className={`relative w-64 h-64 rounded-full flex items-center justify-center mix-blend-screen ${getOrbStyles()}`}>
-            <Image src="/blueorb.gif" alt="Apex Orb" fill className="object-contain rounded-full" priority unoptimized />
-          </div>
-        </div>
-      </div>
-    </>
+      <p className="text-gray-400 mt-6 text-center">
+        {isRecording ? "Apex is listening..." : "Tap the orb to speak to Apex"}
+      </p>
+    </div>
   );
 }
