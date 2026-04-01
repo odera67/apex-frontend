@@ -45,20 +45,19 @@ export default function ApexAssistant() {
       resetInactivityTimer();
       console.log("▶️ STEP 2: Listening...");
 
-      // FIX 1: Clear out any glitchy leftover listeners before starting
+      // Clear out any glitchy leftover listeners before starting
       await SpeechRecognition.removeAllListeners();
 
       const userSpokenText: string = await new Promise((resolve, reject) => {
         SpeechRecognition.start({
           language: "en-US",
-          maxResults: 1, // Changed to 1 to just grab your final sentence
+          maxResults: 1, 
           prompt: "I'm listening...",
-          partialResults: false, // FIX 2: Wait until user finishes speaking
+          partialResults: false, 
         }).catch((err) => reject(err));
 
         SpeechRecognition.addListener('partialResults', (data: any) => {
           if (data.matches && data.matches.length > 0) {
-            // FIX 3: Removed SpeechRecognition.stop() so it doesn't kill the mic early
             resolve(data.matches[0]);
           }
         });
@@ -74,7 +73,9 @@ export default function ApexAssistant() {
 
       setOrbState("thinking");
       resetInactivityTimer();
-      console.log("▶️ STEP 3: Sending to LOCAL Apex Brain...");
+      
+      // UPDATED LOG: Now routing to the Cloud (Groq)
+      console.log("▶️ STEP 3: Sending to CLOUD Apex Brain (Groq)...");
       
       const brainResponse = await askApex(userSpokenText);
       console.log("🧠 APEX RESPONSE:", brainResponse);
@@ -94,8 +95,9 @@ export default function ApexAssistant() {
         console.log("✅ Sequence Complete.");
         setOrbState("hidden"); 
       } else {
-        console.error("❌ APEX BRAIN ERROR: Local server failed to reply.");
-        toast.error("Offline: Apex could not connect to the local brain.");
+        // UPDATED LOG & TOAST: Reflecting cloud errors
+        console.error("❌ APEX BRAIN ERROR: Cloud server failed to reply.");
+        toast.error("Offline: Apex could not connect to the cloud brain.");
         setOrbState("hidden");
       }
 
