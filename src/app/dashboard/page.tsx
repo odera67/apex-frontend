@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { 
   Dumbbell, Utensils, Activity, ArrowRight, Flame, Target, 
   Trophy, Play, Sparkles, CheckCircle, Loader2, Calendar,
-  ChevronLeft, ChevronRight, User
+  ChevronLeft, ChevronRight
 } from "lucide-react";
 import QuickAdaptButton from "@/components/QuickAdaptButton";
 import DashboardSkeleton from "@/components/DashboardSkeleton";
@@ -17,88 +17,103 @@ import WaterTracker from "@/components/WaterTracker";
 import HealthSyncCard from "@/components/HealthSyncCard"; 
 import ApexMotivationCard from "@/components/ApexMotivationCard"; 
 import { toast } from "sonner";
+import Model from "react-body-highlighter";
 
 // ==========================================
-// 🔴 MUSCLE HEATMAP COMPONENT
+// 🔴 ANATOMICAL MUSCLE HEATMAP COMPONENT
 // ==========================================
-const TargetHeatmap = ({ routines }: { routines: any[] }) => {
-  // Analyze routines to determine muscle heat (0 to 100)
-  const heatLevels = useMemo(() => {
-    let chest = 0, back = 0, arms = 0, core = 0, legs = 0;
+const AnatomicalHeatmap = ({ routines }: { routines: any[] }) => {
+  // Map our routine names to the specific anatomical keys required by the model
+  const exerciseData = useMemo(() => {
+    const data: any[] = [];
     
-    if (!routines || routines.length === 0) return { chest, back, arms, core, legs };
+    if (!routines || routines.length === 0) return data;
 
     routines.forEach(r => {
       const name = r.name.toLowerCase();
-      if (name.includes("bench") || name.includes("push") || name.includes("fly") || name.includes("press")) {
-        chest += 35; arms += 15;
+      let muscles: string[] = [];
+
+      // Chest & Push Movements
+      if (name.includes("bench") || name.includes("press") || name.includes("push") || name.includes("fly")) {
+        muscles.push("chest", "triceps", "front-deltoids");
       }
+      // Back & Pull Movements
       if (name.includes("row") || name.includes("pull") || name.includes("lat") || name.includes("deadlift")) {
-        back += 35; arms += 15;
+        muscles.push("upper-back", "lower-back", "biceps");
       }
-      if (name.includes("curl") || name.includes("extension") || name.includes("tricep") || name.includes("bicep")) {
-        arms += 40;
+      // Legs
+      if (name.includes("squat") || name.includes("leg") || name.includes("lunge")) {
+        muscles.push("quadriceps", "gluteal", "hamstring");
       }
-      if (name.includes("crunch") || name.includes("plank") || name.includes("raise") || name.includes("core")) {
-        core += 40;
+      if (name.includes("calf") || name.includes("calves")) {
+        muscles.push("calves");
       }
-      if (name.includes("squat") || name.includes("leg") || name.includes("lunge") || name.includes("calf")) {
-        legs += 40;
+      // Arms Isolation
+      if (name.includes("curl") || name.includes("bicep")) {
+        muscles.push("biceps");
+      }
+      if (name.includes("extension") || name.includes("tricep")) {
+        muscles.push("triceps");
+      }
+      // Core & Abs
+      if (name.includes("crunch") || name.includes("core") || name.includes("plank") || name.includes("raise")) {
+        muscles.push("abs", "obliques");
+      }
+      // Shoulders
+      if (name.includes("shoulder") || name.includes("lateral")) {
+         muscles.push("front-deltoids", "back-deltoids");
+      }
+
+      if (muscles.length > 0) {
+        data.push({ name: r.name, muscles });
       }
     });
 
-    return {
-      chest: Math.min(chest, 100),
-      back: Math.min(back, 100),
-      arms: Math.min(arms, 100),
-      core: Math.min(core, 100),
-      legs: Math.min(legs, 100),
-    };
+    return data;
   }, [routines]);
 
-  // Helper to get glow color based on intensity
-  const getHeatStyle = (intensity: number) => {
-    if (intensity === 0) return "bg-transparent opacity-0";
-    if (intensity < 40) return "bg-yellow-500/60 shadow-[0_0_15px_rgba(234,179,8,0.5)] opacity-80";
-    if (intensity < 70) return "bg-orange-500/80 shadow-[0_0_25px_rgba(249,115,22,0.8)] opacity-90";
-    return "bg-red-500 shadow-[0_0_35px_rgba(239,68,68,1)] opacity-100"; // Max Heat
-  };
-
   return (
-    <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-[2rem] p-6 shadow-sm relative overflow-hidden flex flex-col items-center justify-center">
-      <div className="w-full flex items-center justify-between mb-6 z-10">
-        <span className="text-sm font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-          <Flame className="w-4 h-4 text-orange-500" /> Target Heatmap
+    <div className="bg-[#121212] border border-border/50 rounded-[2rem] p-6 shadow-sm relative overflow-hidden flex flex-col items-center justify-center">
+      <div className="w-full flex items-center justify-between mb-2">
+        <span className="text-sm font-bold uppercase tracking-widest text-white/80 flex items-center gap-2">
+          <Activity className="w-4 h-4 text-sky-400" /> Target Muscles
         </span>
       </div>
 
-      {/* Abstract Body Silhouette with Heat Points */}
-      <div className="relative w-32 h-64 flex items-center justify-center z-10">
-        {/* Silhouette SVG outline */}
-        <svg viewBox="0 0 100 200" className="absolute inset-0 w-full h-full text-foreground/10 drop-shadow-md">
-          <path fill="currentColor" d="M50 15c-6.6 0-12 5.4-12 12s5.4 12 12 12 12-5.4 12-12-5.4-12-12-12zm0 30c-15 0-25 8-28 20l-5 40c-.5 5 5 8 8 3l6-25c2 15 5 45 5 45h28s3-30 5-45l6 25c3 5 8.5 2 8-3l-5-40c-3-12-13-20-28-20zm-9 65l-5 70c-.5 5 6 6 8 0l6-45 6 45c2 6 8.5 5 8 0l-5-70H41z"/>
-        </svg>
-
-        {/* Heat Nodes */}
-        {/* Chest/Shoulders */}
-        <div className={`absolute top-[35%] left-1/2 -translate-x-1/2 w-12 h-8 rounded-[100%] blur-[6px] transition-all duration-700 ${getHeatStyle(heatLevels.chest)}`} />
-        {/* Core */}
-        <div className={`absolute top-[50%] left-1/2 -translate-x-1/2 w-8 h-10 rounded-[100%] blur-[5px] transition-all duration-700 ${getHeatStyle(heatLevels.core)}`} />
-        {/* Arms (Left & Right) */}
-        <div className={`absolute top-[42%] left-[10%] w-6 h-12 rounded-[100%] blur-[5px] transition-all duration-700 ${getHeatStyle(heatLevels.arms)}`} />
-        <div className={`absolute top-[42%] right-[10%] w-6 h-12 rounded-[100%] blur-[5px] transition-all duration-700 ${getHeatStyle(heatLevels.arms)}`} />
-        {/* Legs */}
-        <div className={`absolute bottom-[15%] left-1/2 -translate-x-1/2 w-14 h-24 rounded-[100%] blur-[8px] transition-all duration-700 ${getHeatStyle(heatLevels.legs)}`} />
+      {/* Front and Back Models */}
+      <div className="flex justify-center items-center gap-4 w-full h-[300px]">
+        <div className="w-1/2 flex justify-center h-full">
+          <Model
+            data={exerciseData}
+            style={{ width: "100%", height: "100%", padding: "1rem" }}
+            type="anterior"
+            highlightedColors={["#eab308", "#ef4444"]} // Yellow for Secondary, Red for Primary
+          />
+        </div>
+        <div className="w-1/2 flex justify-center h-full">
+          <Model
+            data={exerciseData}
+            style={{ width: "100%", height: "100%", padding: "1rem" }}
+            type="posterior"
+            highlightedColors={["#eab308", "#ef4444"]}
+          />
+        </div>
       </div>
 
-      <div className="w-full flex justify-between text-[10px] uppercase font-black tracking-widest text-muted-foreground mt-4 z-10">
-        <span>Low</span>
-        <div className="flex gap-1 items-center">
-          <div className="w-2 h-2 rounded-full bg-yellow-500" />
-          <div className="w-2 h-2 rounded-full bg-orange-500" />
-          <div className="w-2 h-2 rounded-full bg-red-500" />
+      {/* Style-Matched Legend */}
+      <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4 text-xs font-medium text-white/60">
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-red-500" />
+          <span>Primary Muscles</span>
         </div>
-        <span>Max</span>
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-yellow-500" />
+          <span>Secondary Muscles</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-[#3a3a3a]" />
+          <span>Untargeted Muscles</span>
+        </div>
       </div>
     </div>
   );
@@ -111,7 +126,7 @@ export default function DashboardPage() {
   const { user, isLoaded } = useUser();
   const [activeDayIndex, setActiveDayIndex] = useState(0);
   
-  // 🎯 Active Exercise State (For One-by-One Focus)
+  // 🎯 Active Exercise State
   const [activeExerciseIndex, setActiveExerciseIndex] = useState(0);
   
   // 🚀 AI Insight States
@@ -124,12 +139,10 @@ export default function DashboardPage() {
   
   const plan = useQuery(api.plans.getUserPlan, user ? { userId: user.id } : "skip");
 
-  // Reset exercise focus back to index 0 whenever the user switches training days
   useEffect(() => {
     setActiveExerciseIndex(0);
   }, [activeDayIndex]);
 
-  // Typing effect for the AI message
   useEffect(() => {
     if (aiInsight) {
       setIsTyping(true);
@@ -168,9 +181,6 @@ export default function DashboardPage() {
     );
   }
 
-  // ==========================================
-  // 🧠 SMART REMINDER LOGIC (For Daily Tasks)
-  // ==========================================
   const handleCompleteDay = async () => {
     setIsCompleting(true);
     try {
@@ -197,9 +207,6 @@ export default function DashboardPage() {
     }
   };
 
-  // ==========================================
-  // 🚀 HEALTH SYNC AI LOGIC
-  // ==========================================
   const handleHealthSync = (data: { steps: number; calories?: number; heartRate?: number }) => {
     const goal = plan.userStats.goal.toLowerCase();
     const name = user?.firstName || "there";
@@ -249,7 +256,6 @@ export default function DashboardPage() {
           </div>
         </div>
         
-        {/* Action Buttons */}
         <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3">
           <Button asChild className="gap-2 rounded-2xl shadow-lg shadow-primary/20 bg-primary hover:bg-primary/90 col-span-2 sm:col-span-1 h-12 sm:h-10">
             <Link href="/workout">
@@ -320,7 +326,7 @@ export default function DashboardPage() {
       {/* MAIN CONTENT GRID */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
         
-        {/* LEFT COLUMN: ONE BY ONE EXERCISE WORKOUT PLAYER */}
+        {/* LEFT COLUMN: ONE BY ONE EXERCISE */}
         <section className="lg:col-span-3 space-y-6">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 bg-primary/10 rounded-xl">
@@ -332,7 +338,6 @@ export default function DashboardPage() {
           {currentExercise ? (
             <div className="bg-card border border-border/60 rounded-[2.5rem] p-6 sm:p-8 shadow-xl relative overflow-hidden flex flex-col justify-between min-h-[400px]">
               
-              {/* Progress Bar Header */}
               <div className="w-full space-y-2 mb-6">
                 <div className="flex justify-between items-center text-xs font-bold tracking-wider text-muted-foreground uppercase">
                   <span>Progress Tracker</span>
@@ -346,7 +351,6 @@ export default function DashboardPage() {
                 </div>
               </div>
 
-              {/* Main Singular Focus Exercise Panel */}
               <div className="flex-1 flex flex-col justify-center py-4 space-y-6">
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                   <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-foreground leading-tight">
@@ -361,7 +365,6 @@ export default function DashboardPage() {
                   </div>
                 </div>
 
-                {/* Big Targets Row */}
                 <div className="grid grid-cols-2 gap-4 max-w-md">
                   <div className="bg-background rounded-2xl p-4 border border-border/40 text-center shadow-sm">
                     <span className="block text-xs font-black tracking-widest text-muted-foreground uppercase mb-1">Target Sets</span>
@@ -383,7 +386,6 @@ export default function DashboardPage() {
                 )}
               </div>
 
-              {/* Unique Player Controller Footer */}
               <div className="border-t border-border/50 pt-6 mt-6 flex justify-between items-center gap-4">
                 <Button
                   variant="outline"
@@ -430,8 +432,8 @@ export default function DashboardPage() {
         {/* RIGHT COLUMN: HEATMAP, HEALTH & NUTRITION */}
         <section className="lg:col-span-2 space-y-6">
           
-          {/* 🔴 NEW: MUSCLE TARGET HEATMAP */}
-          <TargetHeatmap routines={currentWorkoutDay?.routines || []} />
+          {/* 🔴 NEW: ANATOMICAL MUSCLE TARGET HEATMAP */}
+          <AnatomicalHeatmap routines={currentWorkoutDay?.routines || []} />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
             <HealthSyncCard onSync={handleHealthSync} />
