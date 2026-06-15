@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { useUser } from "@clerk/nextjs";
@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { 
   Dumbbell, Utensils, Activity, ArrowRight, Flame, Target, 
   Trophy, Play, Sparkles, CheckCircle, Loader2, Calendar,
-  ChevronLeft, ChevronRight
+  ChevronLeft, ChevronRight, User
 } from "lucide-react";
 import QuickAdaptButton from "@/components/QuickAdaptButton";
 import DashboardSkeleton from "@/components/DashboardSkeleton";
@@ -18,6 +18,95 @@ import HealthSyncCard from "@/components/HealthSyncCard";
 import ApexMotivationCard from "@/components/ApexMotivationCard"; 
 import { toast } from "sonner";
 
+// ==========================================
+// 🔴 MUSCLE HEATMAP COMPONENT
+// ==========================================
+const TargetHeatmap = ({ routines }: { routines: any[] }) => {
+  // Analyze routines to determine muscle heat (0 to 100)
+  const heatLevels = useMemo(() => {
+    let chest = 0, back = 0, arms = 0, core = 0, legs = 0;
+    
+    if (!routines || routines.length === 0) return { chest, back, arms, core, legs };
+
+    routines.forEach(r => {
+      const name = r.name.toLowerCase();
+      if (name.includes("bench") || name.includes("push") || name.includes("fly") || name.includes("press")) {
+        chest += 35; arms += 15;
+      }
+      if (name.includes("row") || name.includes("pull") || name.includes("lat") || name.includes("deadlift")) {
+        back += 35; arms += 15;
+      }
+      if (name.includes("curl") || name.includes("extension") || name.includes("tricep") || name.includes("bicep")) {
+        arms += 40;
+      }
+      if (name.includes("crunch") || name.includes("plank") || name.includes("raise") || name.includes("core")) {
+        core += 40;
+      }
+      if (name.includes("squat") || name.includes("leg") || name.includes("lunge") || name.includes("calf")) {
+        legs += 40;
+      }
+    });
+
+    return {
+      chest: Math.min(chest, 100),
+      back: Math.min(back, 100),
+      arms: Math.min(arms, 100),
+      core: Math.min(core, 100),
+      legs: Math.min(legs, 100),
+    };
+  }, [routines]);
+
+  // Helper to get glow color based on intensity
+  const getHeatStyle = (intensity: number) => {
+    if (intensity === 0) return "bg-transparent opacity-0";
+    if (intensity < 40) return "bg-yellow-500/60 shadow-[0_0_15px_rgba(234,179,8,0.5)] opacity-80";
+    if (intensity < 70) return "bg-orange-500/80 shadow-[0_0_25px_rgba(249,115,22,0.8)] opacity-90";
+    return "bg-red-500 shadow-[0_0_35px_rgba(239,68,68,1)] opacity-100"; // Max Heat
+  };
+
+  return (
+    <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-[2rem] p-6 shadow-sm relative overflow-hidden flex flex-col items-center justify-center">
+      <div className="w-full flex items-center justify-between mb-6 z-10">
+        <span className="text-sm font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+          <Flame className="w-4 h-4 text-orange-500" /> Target Heatmap
+        </span>
+      </div>
+
+      {/* Abstract Body Silhouette with Heat Points */}
+      <div className="relative w-32 h-64 flex items-center justify-center z-10">
+        {/* Silhouette SVG outline */}
+        <svg viewBox="0 0 100 200" className="absolute inset-0 w-full h-full text-foreground/10 drop-shadow-md">
+          <path fill="currentColor" d="M50 15c-6.6 0-12 5.4-12 12s5.4 12 12 12 12-5.4 12-12-5.4-12-12-12zm0 30c-15 0-25 8-28 20l-5 40c-.5 5 5 8 8 3l6-25c2 15 5 45 5 45h28s3-30 5-45l6 25c3 5 8.5 2 8-3l-5-40c-3-12-13-20-28-20zm-9 65l-5 70c-.5 5 6 6 8 0l6-45 6 45c2 6 8.5 5 8 0l-5-70H41z"/>
+        </svg>
+
+        {/* Heat Nodes */}
+        {/* Chest/Shoulders */}
+        <div className={`absolute top-[35%] left-1/2 -translate-x-1/2 w-12 h-8 rounded-[100%] blur-[6px] transition-all duration-700 ${getHeatStyle(heatLevels.chest)}`} />
+        {/* Core */}
+        <div className={`absolute top-[50%] left-1/2 -translate-x-1/2 w-8 h-10 rounded-[100%] blur-[5px] transition-all duration-700 ${getHeatStyle(heatLevels.core)}`} />
+        {/* Arms (Left & Right) */}
+        <div className={`absolute top-[42%] left-[10%] w-6 h-12 rounded-[100%] blur-[5px] transition-all duration-700 ${getHeatStyle(heatLevels.arms)}`} />
+        <div className={`absolute top-[42%] right-[10%] w-6 h-12 rounded-[100%] blur-[5px] transition-all duration-700 ${getHeatStyle(heatLevels.arms)}`} />
+        {/* Legs */}
+        <div className={`absolute bottom-[15%] left-1/2 -translate-x-1/2 w-14 h-24 rounded-[100%] blur-[8px] transition-all duration-700 ${getHeatStyle(heatLevels.legs)}`} />
+      </div>
+
+      <div className="w-full flex justify-between text-[10px] uppercase font-black tracking-widest text-muted-foreground mt-4 z-10">
+        <span>Low</span>
+        <div className="flex gap-1 items-center">
+          <div className="w-2 h-2 rounded-full bg-yellow-500" />
+          <div className="w-2 h-2 rounded-full bg-orange-500" />
+          <div className="w-2 h-2 rounded-full bg-red-500" />
+        </div>
+        <span>Max</span>
+      </div>
+    </div>
+  );
+};
+
+// ==========================================
+// MAIN DASHBOARD PAGE
+// ==========================================
 export default function DashboardPage() {
   const { user, isLoaded } = useUser();
   const [activeDayIndex, setActiveDayIndex] = useState(0);
@@ -92,11 +181,8 @@ export default function DashboardPage() {
 
         if (currentHour < 14) {
           await LocalNotifications.cancel({ notifications: [{ id: 2 }, { id: 3 }] });
-          console.log("Daily Goal Hit: Canceled 2PM and 5PM notifications.");
-        } 
-        else if (currentHour < 17) {
+        } else if (currentHour < 17) {
           await LocalNotifications.cancel({ notifications: [{ id: 3 }] });
-          console.log("Daily Goal Hit: Canceled 5PM notification.");
         }
       }
       toast.success("Protocol Complete. Notifications paused until tomorrow.", { 
@@ -124,20 +210,14 @@ export default function DashboardPage() {
     setTimeout(() => {
       if (goal.includes("loss") || goal.includes("lose")) {
         if (steps > 10000) {
-          comment = `Incredible work today, ${name}. You smashed over 10,000 steps! ${calories > 0 ? `Burning those ${calories} active calories is e` : 'E'}xactly the kind of daily energy expenditure that forces your body to burn stored fat. Keep this momentum going into tomorrow.`;
-        } else if (steps > 7000) {
-          comment = `Good baseline activity today, ${name}. ${steps.toLocaleString()} steps is a solid start. Since our main goal is fat loss, try taking a quick 15-minute walk after your last meal tonight to push that fat burn even higher.`;
+          comment = `Incredible work today, ${name}. You smashed over 10,000 steps! ${calories > 0 ? `Burning those ${calories} active calories is e` : 'E'}xactly the kind of daily energy expenditure that forces your body to burn stored fat.`;
         } else {
-          comment = `I see you're at ${steps.toLocaleString()} steps today. To really accelerate your weight loss, we need to get your daily movement up. Let's try to find excuses to move more tomorrow—take the stairs, pace on phone calls. You've got this.`;
+          comment = `I see you're at ${steps.toLocaleString()} steps today. To really accelerate your weight loss, we need to get your daily movement up. Let's find excuses to move more tomorrow!`;
         }
-      } else if (goal.includes("muscle") || goal.includes("gain") || goal.includes("build")) {
-        if (steps > 12000) {
-          comment = `You hit a massive ${steps.toLocaleString()} steps today, ${name}. Remember, since we are trying to build muscle, you need to eat enough to fuel that movement! Make sure you're hitting your protein target tonight so your body has the energy to grow.`;
-        } else {
-          comment = `Your activity levels look perfect for muscle growth, ${name}. By keeping your cardio and step count moderate (${steps.toLocaleString()} steps), you're conserving energy to lift heavier and recover faster. Focus on the weights today.`;
-        }
+      } else if (goal.includes("muscle") || goal.includes("gain")) {
+        comment = `Your activity levels look solid for muscle growth, ${name}. Conserve that energy to lift heavier and recover faster. Focus on the weights today and hitting your protein targets.`;
       } else {
-        comment = `Great check-in, ${name}. Hitting ${steps.toLocaleString()} steps is a fantastic baseline for your cardiovascular health. Let's hit the protocol hard today and keep improving that conditioning.`;
+        comment = `Great check-in, ${name}. Hitting ${steps.toLocaleString()} steps is a fantastic baseline. Let's hit the protocol hard today.`;
       }
       setAiInsight(comment);
     }, 1200);
@@ -146,7 +226,6 @@ export default function DashboardPage() {
   const currentWorkoutDay = plan.workoutPlan.exercises[activeDayIndex];
   const currentDietDay = plan.dietPlan.dailyPlans[activeDayIndex];
   
-  // Quick variables for our Focused Workout Player
   const totalExercises = currentWorkoutDay?.routines?.length || 0;
   const currentExercise = currentWorkoutDay?.routines?.[activeExerciseIndex];
   const progressPercentage = totalExercises > 0 ? ((activeExerciseIndex + 1) / totalExercises) * 100 : 0;
@@ -217,39 +296,6 @@ export default function DashboardPage() {
           </div>
         </div>
       )}
-
-      {/* BENTO BOX SUMMARY CARDS */}
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-10">
-        <div className="bg-gradient-to-br from-card to-background border border-border/50 rounded-[2rem] p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-sm">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500/10 text-blue-500 rounded-2xl flex items-center justify-center">
-            <Target className="w-5 h-5 sm:w-6 sm:h-6" />
-          </div>
-          <div>
-            <p className="text-xs sm:text-sm text-muted-foreground font-medium uppercase tracking-wider mb-1">Primary Goal</p>
-            <p className="text-lg sm:text-xl font-bold capitalize text-foreground">{plan.userStats.goal}</p>
-          </div>
-        </div>
-        
-        <div className="bg-gradient-to-br from-card to-background border border-border/50 rounded-[2rem] p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-sm">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-orange-500/10 text-orange-500 rounded-2xl flex items-center justify-center">
-            <Flame className="w-5 h-5 sm:w-6 sm:h-6" />
-          </div>
-          <div>
-            <p className="text-xs sm:text-sm text-muted-foreground font-medium uppercase tracking-wider mb-1">Daily Burn Target</p>
-            <p className="text-lg sm:text-xl font-bold text-foreground">{plan.dietPlan.dailyCalories} <span className="text-sm font-normal text-muted-foreground">kcal</span></p>
-          </div>
-        </div>
-
-        <div className="bg-gradient-to-br from-card to-background border border-border/50 rounded-[2rem] p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-sm col-span-2 lg:col-span-1">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-500/10 text-purple-500 rounded-2xl flex items-center justify-center">
-            <Trophy className="w-5 h-5 sm:w-6 sm:h-6" />
-          </div>
-          <div>
-            <p className="text-xs sm:text-sm text-muted-foreground font-medium uppercase tracking-wider mb-1">Experience Level</p>
-            <p className="text-lg sm:text-xl font-bold capitalize text-foreground">{plan.userStats.level}</p>
-          </div>
-        </div>
-      </div>
 
       {/* DAY SELECTOR TABS */}
       <div className="mb-8 -mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto pb-4 scrollbar-hide">
@@ -381,9 +427,12 @@ export default function DashboardPage() {
           )}
         </section>
 
-        {/* RIGHT COLUMN: HEALTH, NUTRITION & HYDRATION */}
+        {/* RIGHT COLUMN: HEATMAP, HEALTH & NUTRITION */}
         <section className="lg:col-span-2 space-y-6">
           
+          {/* 🔴 NEW: MUSCLE TARGET HEATMAP */}
+          <TargetHeatmap routines={currentWorkoutDay?.routines || []} />
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
             <HealthSyncCard onSync={handleHealthSync} />
             <ApexMotivationCard />
