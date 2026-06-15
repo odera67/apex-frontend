@@ -20,74 +20,134 @@ import { toast } from "sonner";
 import Model from "react-body-highlighter";
 
 // ==========================================
-// 🔴 ANATOMICAL MUSCLE HEATMAP COMPONENT
+// 🔴 LIVE REACTIVE ANATOMICAL HEATMAP
 // ==========================================
-const AnatomicalHeatmap = ({ routines }: { routines: any[] }) => {
-  // Map our routine names to the specific anatomical keys required by the model
+const AnatomicalHeatmap = ({ currentExercise }: { currentExercise: any }) => {
   const exerciseData = useMemo(() => {
     const data: any[] = [];
     
-    if (!routines || routines.length === 0) return data;
+    // If there is no active exercise (e.g., rest day), return empty to clear highlights
+    if (!currentExercise) return data;
 
-    routines.forEach(r => {
-      const name = r.name.toLowerCase();
-      let muscles: string[] = [];
+    const name = currentExercise.name.toLowerCase();
+    let muscles: string[] = [];
 
-      // Chest & Push Movements
-      if (name.includes("bench") || name.includes("press") || name.includes("push") || name.includes("fly")) {
-        muscles.push("chest", "triceps", "front-deltoids");
+    // Helper function to weight muscles. 
+    // Primary muscles get added 3x to ensure they render Red.
+    // Secondary muscles get added 1x to ensure they render Yellow.
+    const addHit = (musclesArray: string[], muscle: string, type: "primary" | "secondary") => {
+      if (type === "primary") {
+        musclesArray.push(muscle, muscle, muscle);
+      } else {
+        musclesArray.push(muscle);
       }
-      // Back & Pull Movements
-      if (name.includes("row") || name.includes("pull") || name.includes("lat") || name.includes("deadlift")) {
-        muscles.push("upper-back", "lower-back", "biceps");
-      }
-      // Legs
-      if (name.includes("squat") || name.includes("leg") || name.includes("lunge")) {
-        muscles.push("quadriceps", "gluteal", "hamstring");
-      }
-      if (name.includes("calf") || name.includes("calves")) {
-        muscles.push("calves");
-      }
-      // Arms Isolation
-      if (name.includes("curl") || name.includes("bicep")) {
-        muscles.push("biceps");
-      }
-      if (name.includes("extension") || name.includes("tricep")) {
-        muscles.push("triceps");
-      }
-      // Core & Abs
-      if (name.includes("crunch") || name.includes("core") || name.includes("plank") || name.includes("raise")) {
-        muscles.push("abs", "obliques");
-      }
-      // Shoulders
-      if (name.includes("shoulder") || name.includes("lateral")) {
-         muscles.push("front-deltoids", "back-deltoids");
-      }
+    };
 
-      if (muscles.length > 0) {
-        data.push({ name: r.name, muscles });
-      }
-    });
+    // 🏋️‍♂️ HEAVY COMPOUNDS
+    if (name.includes("deadlift")) {
+      addHit(muscles, "lower-back", "primary");
+      addHit(muscles, "gluteal", "primary");
+      addHit(muscles, "hamstring", "primary");
+      addHit(muscles, "upper-back", "secondary");
+      addHit(muscles, "trapezius", "secondary");
+      addHit(muscles, "forearm", "secondary");
+      addHit(muscles, "abs", "secondary");
+    } 
+    else if (name.includes("squat")) {
+      addHit(muscles, "quadriceps", "primary");
+      addHit(muscles, "gluteal", "primary");
+      addHit(muscles, "hamstring", "secondary");
+      addHit(muscles, "lower-back", "secondary");
+      addHit(muscles, "abs", "secondary");
+      addHit(muscles, "calves", "secondary");
+    }
+
+    // 🟢 PUSH MOVEMENTS
+    else if (name.includes("bench") || (name.includes("press") && !name.includes("leg"))) {
+      addHit(muscles, "chest", "primary");
+      addHit(muscles, "front-deltoids", "primary");
+      addHit(muscles, "triceps", "primary");
+      addHit(muscles, "upper-back", "secondary");
+      addHit(muscles, "abs", "secondary");
+    }
+    else if (name.includes("push") || name.includes("fly") || name.includes("dip")) {
+      addHit(muscles, "chest", "primary");
+      addHit(muscles, "triceps", "primary");
+      addHit(muscles, "front-deltoids", "secondary");
+    }
+
+    // 🔵 PULL MOVEMENTS
+    else if (name.includes("row") || name.includes("pull") || name.includes("lat")) {
+      addHit(muscles, "upper-back", "primary");
+      addHit(muscles, "biceps", "primary");
+      addHit(muscles, "lower-back", "secondary");
+      addHit(muscles, "back-deltoids", "secondary");
+      addHit(muscles, "forearm", "secondary");
+    }
+
+    // 🟡 LEG ISOLATIONS
+    else if (name.includes("lunge") || name.includes("step")) {
+      addHit(muscles, "quadriceps", "primary");
+      addHit(muscles, "gluteal", "primary");
+      addHit(muscles, "calves", "secondary");
+      addHit(muscles, "abs", "secondary");
+    }
+    else if (name.includes("leg press") || name.includes("extension")) {
+      addHit(muscles, "quadriceps", "primary");
+      addHit(muscles, "gluteal", "secondary");
+    }
+    else if (name.includes("curl") && name.includes("leg")) {
+      addHit(muscles, "hamstring", "primary");
+      addHit(muscles, "calves", "secondary");
+    }
+    else if (name.includes("calf") || name.includes("calves")) {
+      addHit(muscles, "calves", "primary");
+    }
+
+    // 🟣 ARM ISOLATIONS
+    else if (name.includes("curl") && !name.includes("leg")) {
+      addHit(muscles, "biceps", "primary");
+      addHit(muscles, "forearm", "secondary");
+    }
+    else if (name.includes("extension") && !name.includes("leg") || name.includes("tricep") || name.includes("skullcrusher")) {
+      addHit(muscles, "triceps", "primary");
+    }
+
+    // 🟠 SHOULDER ISOLATIONS
+    else if (name.includes("lateral") || name.includes("raise")) {
+      addHit(muscles, "front-deltoids", "primary");
+      addHit(muscles, "back-deltoids", "secondary");
+      addHit(muscles, "trapezius", "secondary");
+    }
+
+    // 🔴 CORE / ABS
+    else if (name.includes("crunch") || name.includes("core") || name.includes("plank") || name.includes("sit-up")) {
+      addHit(muscles, "abs", "primary");
+      addHit(muscles, "obliques", "primary");
+    }
+
+    if (muscles.length > 0) {
+      data.push({ name: currentExercise.name, muscles });
+    }
 
     return data;
-  }, [routines]);
+  }, [currentExercise]);
 
   return (
     <div className="bg-[#121212] border border-border/50 rounded-[2rem] p-6 shadow-sm relative overflow-hidden flex flex-col items-center justify-center">
       <div className="w-full flex items-center justify-between mb-2">
         <span className="text-sm font-bold uppercase tracking-widest text-white/80 flex items-center gap-2">
-          <Activity className="w-4 h-4 text-sky-400" /> Target Muscles
+          <Activity className="w-4 h-4 text-sky-400" /> Active Target Mechanics
         </span>
       </div>
 
-      {/* Front and Back Models */}
       <div className="flex justify-center items-center gap-4 w-full h-[300px]">
         <div className="w-1/2 flex justify-center h-full">
           <Model
             data={exerciseData}
             style={{ width: "100%", height: "100%", padding: "1rem" }}
             type="anterior"
-            highlightedColors={["#eab308", "#ef4444"]} // Yellow for Secondary, Red for Primary
+            highlightedColors={["#eab308", "#ef4444"]} 
           />
         </div>
         <div className="w-1/2 flex justify-center h-full">
@@ -100,19 +160,14 @@ const AnatomicalHeatmap = ({ routines }: { routines: any[] }) => {
         </div>
       </div>
 
-      {/* Style-Matched Legend */}
       <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4 text-xs font-medium text-white/60">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-red-500" />
-          <span>Primary Muscles</span>
+          <span>Primary Mover</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-yellow-500" />
-          <span>Secondary Muscles</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-[#3a3a3a]" />
-          <span>Untargeted Muscles</span>
+          <span>Stabilizers & Secondary</span>
         </div>
       </div>
     </div>
@@ -125,16 +180,11 @@ const AnatomicalHeatmap = ({ routines }: { routines: any[] }) => {
 export default function DashboardPage() {
   const { user, isLoaded } = useUser();
   const [activeDayIndex, setActiveDayIndex] = useState(0);
-  
-  // 🎯 Active Exercise State
   const [activeExerciseIndex, setActiveExerciseIndex] = useState(0);
   
-  // 🚀 AI Insight States
   const [aiInsight, setAiInsight] = useState<string | null>(null);
   const [displayedInsight, setDisplayedInsight] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  
-  // Daily Completion State
   const [isCompleting, setIsCompleting] = useState(false);
   
   const plan = useQuery(api.plans.getUserPlan, user ? { userId: user.id } : "skip");
@@ -326,7 +376,7 @@ export default function DashboardPage() {
       {/* MAIN CONTENT GRID */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
         
-        {/* LEFT COLUMN: ONE BY ONE EXERCISE */}
+        {/* LEFT COLUMN: ACTIVE EXERCISE FOCUS PLAYER */}
         <section className="lg:col-span-3 space-y-6">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 bg-primary/10 rounded-xl">
@@ -432,8 +482,8 @@ export default function DashboardPage() {
         {/* RIGHT COLUMN: HEATMAP, HEALTH & NUTRITION */}
         <section className="lg:col-span-2 space-y-6">
           
-          {/* 🔴 NEW: ANATOMICAL MUSCLE TARGET HEATMAP */}
-          <AnatomicalHeatmap routines={currentWorkoutDay?.routines || []} />
+          {/* 🔴 NEW: DYNAMIC HEATMAP TIED TO CURRENT ACTIVE EXERCISE */}
+          <AnatomicalHeatmap currentExercise={currentExercise} />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
             <HealthSyncCard onSync={handleHealthSync} />
