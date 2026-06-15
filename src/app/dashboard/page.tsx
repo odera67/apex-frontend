@@ -8,7 +8,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { 
   Dumbbell, Utensils, Activity, ArrowRight, Flame, Target, 
-  Trophy, Play, Sparkles, CheckCircle, Loader2, Calendar
+  Trophy, Play, Sparkles, CheckCircle, Loader2, Calendar,
+  ChevronLeft, ChevronRight
 } from "lucide-react";
 import QuickAdaptButton from "@/components/QuickAdaptButton";
 import DashboardSkeleton from "@/components/DashboardSkeleton";
@@ -21,6 +22,9 @@ export default function DashboardPage() {
   const { user, isLoaded } = useUser();
   const [activeDayIndex, setActiveDayIndex] = useState(0);
   
+  // 🎯 Active Exercise State (For One-by-One Focus)
+  const [activeExerciseIndex, setActiveExerciseIndex] = useState(0);
+  
   // 🚀 AI Insight States
   const [aiInsight, setAiInsight] = useState<string | null>(null);
   const [displayedInsight, setDisplayedInsight] = useState("");
@@ -31,7 +35,12 @@ export default function DashboardPage() {
   
   const plan = useQuery(api.plans.getUserPlan, user ? { userId: user.id } : "skip");
 
-  // 🚀 Typing effect for the AI message
+  // Reset exercise focus back to index 0 whenever the user switches training days
+  useEffect(() => {
+    setActiveExerciseIndex(0);
+  }, [activeDayIndex]);
+
+  // Typing effect for the AI message
   useEffect(() => {
     if (aiInsight) {
       setIsTyping(true);
@@ -136,11 +145,16 @@ export default function DashboardPage() {
 
   const currentWorkoutDay = plan.workoutPlan.exercises[activeDayIndex];
   const currentDietDay = plan.dietPlan.dailyPlans[activeDayIndex];
+  
+  // Quick variables for our Focused Workout Player
+  const totalExercises = currentWorkoutDay?.routines?.length || 0;
+  const currentExercise = currentWorkoutDay?.routines?.[activeExerciseIndex];
+  const progressPercentage = totalExercises > 0 ? ((activeExerciseIndex + 1) / totalExercises) * 100 : 0;
 
   return (
     <div className="min-h-screen pt-20 pb-24 px-4 sm:px-6 container mx-auto max-w-6xl">
       
-      {/* HEADER SECTION - Mobile Optimized */}
+      {/* HEADER SECTION */}
       <div className="flex flex-col gap-6 mb-8">
         <div className="flex items-center justify-between">
           <div>
@@ -178,13 +192,12 @@ export default function DashboardPage() {
             className="gap-2 rounded-2xl bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500 hover:text-white border border-emerald-500/20 transition-all h-12 sm:h-10"
           >
             {isCompleting ? <Loader2 className="w-4 h-4 animate-spin" /> : <CheckCircle className="w-4 h-4" />}
-            <span className="hidden sm:inline">Mark Day Complete</span>
-            <span className="sm:hidden">Complete</span>
+            <span>Mark Day Complete</span>
           </Button>
         </div>
       </div>
 
-      {/* AI INSIGHT BUBBLE - Glassmorphism UI */}
+      {/* AI INSIGHT BUBBLE */}
       {aiInsight && (
         <div className="mb-10 bg-background/60 backdrop-blur-xl border border-primary/20 rounded-[2rem] p-5 sm:p-6 flex gap-4 items-start shadow-xl shadow-primary/5 relative overflow-hidden transition-all animate-in fade-in slide-in-from-bottom-4 duration-500">
           <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-primary to-primary/30" />
@@ -207,7 +220,7 @@ export default function DashboardPage() {
 
       {/* BENTO BOX SUMMARY CARDS */}
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-10">
-        <div className="bg-gradient-to-br from-card to-background border border-border/50 rounded-[2rem] p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-sm hover:shadow-md transition-shadow">
+        <div className="bg-gradient-to-br from-card to-background border border-border/50 rounded-[2rem] p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-sm">
           <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500/10 text-blue-500 rounded-2xl flex items-center justify-center">
             <Target className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
@@ -217,7 +230,7 @@ export default function DashboardPage() {
           </div>
         </div>
         
-        <div className="bg-gradient-to-br from-card to-background border border-border/50 rounded-[2rem] p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-sm hover:shadow-md transition-shadow">
+        <div className="bg-gradient-to-br from-card to-background border border-border/50 rounded-[2rem] p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-sm">
           <div className="w-10 h-10 sm:w-12 sm:h-12 bg-orange-500/10 text-orange-500 rounded-2xl flex items-center justify-center">
             <Flame className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
@@ -227,7 +240,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-card to-background border border-border/50 rounded-[2rem] p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-sm hover:shadow-md transition-shadow col-span-2 lg:col-span-1">
+        <div className="bg-gradient-to-br from-card to-background border border-border/50 rounded-[2rem] p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-sm col-span-2 lg:col-span-1">
           <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-500/10 text-purple-500 rounded-2xl flex items-center justify-center">
             <Trophy className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
@@ -238,7 +251,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* DAY SELECTOR TABS - Touch Optimized */}
+      {/* DAY SELECTOR TABS */}
       <div className="mb-8 -mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto pb-4 scrollbar-hide">
         <div className="flex gap-2 min-w-max">
           {plan.workoutPlan.exercises.map((dayData, idx) => (
@@ -261,69 +274,111 @@ export default function DashboardPage() {
       {/* MAIN CONTENT GRID */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
         
-        {/* LEFT COLUMN: WORKOUT TIMELINE */}
+        {/* LEFT COLUMN: ONE BY ONE EXERCISE WORKOUT PLAYER */}
         <section className="lg:col-span-3 space-y-6">
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-primary/10 rounded-xl">
-                <Dumbbell className="w-5 h-5 text-primary" />
-              </div>
-              <h2 className="text-2xl font-black tracking-tight">Protocol Focus</h2>
+          <div className="flex items-center gap-3 mb-2">
+            <div className="p-2 bg-primary/10 rounded-xl">
+              <Dumbbell className="w-5 h-5 text-primary" />
             </div>
+            <h2 className="text-2xl font-black tracking-tight">Active Exercise</h2>
           </div>
 
-          <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-[2rem] p-3 sm:p-6 shadow-sm">
-            {currentWorkoutDay && currentWorkoutDay.routines.length > 0 ? (
-              <div className="relative space-y-3 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-border before:to-transparent">
-                {currentWorkoutDay.routines.map((routine, rIdx) => (
-                  <div key={rIdx} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                    {/* Timeline Marker */}
-                    <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-background bg-card text-muted-foreground group-hover:text-primary group-hover:border-primary/20 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 transition-colors z-10">
-                      <span className="text-xs font-bold">{rIdx + 1}</span>
-                    </div>
-                    
-                    {/* Exercise Card */}
-                    <div className="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] bg-background rounded-2xl p-5 border border-border/50 shadow-sm group-hover:border-primary/30 group-hover:shadow-md transition-all">
-                      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-                        <div>
-                          <h4 className="font-bold text-lg text-foreground">{routine.name}</h4>
-                          <div className="flex flex-wrap items-center gap-2 mt-3">
-                            <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-lg tracking-wider">
-                              {routine.sets} SETS
-                            </span>
-                            <span className="text-muted-foreground text-xs font-bold">×</span>
-                            <span className="px-3 py-1 bg-foreground/5 text-foreground text-xs font-bold rounded-lg tracking-wider">
-                              {routine.reps} REPS
-                            </span>
-                          </div>
-                          {routine.description && (
-                            <p className="text-sm text-muted-foreground mt-4 leading-relaxed line-clamp-2 hover:line-clamp-none transition-all">
-                              {routine.description}
-                            </p>
-                          )}
-                        </div>
-                        <div className="shrink-0 mt-2 sm:mt-0">
-                          <QuickAdaptButton 
-                            planId={plan._id} 
-                            day={currentWorkoutDay.day} 
-                            exerciseName={routine.name} 
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-16 flex flex-col items-center gap-3 text-muted-foreground">
-                <div className="w-16 h-16 bg-muted/30 rounded-full flex items-center justify-center mb-2">
-                  <Activity className="w-8 h-8 text-muted-foreground/50" />
+          {currentExercise ? (
+            <div className="bg-card border border-border/60 rounded-[2.5rem] p-6 sm:p-8 shadow-xl relative overflow-hidden flex flex-col justify-between min-h-[400px]">
+              
+              {/* Progress Bar Header */}
+              <div className="w-full space-y-2 mb-6">
+                <div className="flex justify-between items-center text-xs font-bold tracking-wider text-muted-foreground uppercase">
+                  <span>Progress Tracker</span>
+                  <span className="text-primary font-mono">{activeExerciseIndex + 1} of {totalExercises}</span>
                 </div>
-                <p className="font-medium text-lg text-foreground">Active Recovery Day</p>
-                <p className="text-sm max-w-[200px]">Let your muscles rebuild. No formal exercises scheduled.</p>
+                <div className="w-full h-2 bg-accent rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-primary transition-all duration-300 ease-out" 
+                    style={{ width: `${progressPercentage}%` }}
+                  />
+                </div>
               </div>
-            )}
-          </div>
+
+              {/* Main Singular Focus Exercise Panel */}
+              <div className="flex-1 flex flex-col justify-center py-4 space-y-6">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                  <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-foreground leading-tight">
+                    {currentExercise.name}
+                  </h3>
+                  <div className="shrink-0 self-start">
+                    <QuickAdaptButton 
+                      planId={plan._id} 
+                      day={currentWorkoutDay.day} 
+                      exerciseName={currentExercise.name} 
+                    />
+                  </div>
+                </div>
+
+                {/* Big Targets Row */}
+                <div className="grid grid-cols-2 gap-4 max-w-md">
+                  <div className="bg-background rounded-2xl p-4 border border-border/40 text-center shadow-sm">
+                    <span className="block text-xs font-black tracking-widest text-muted-foreground uppercase mb-1">Target Sets</span>
+                    <span className="text-3xl font-black text-primary font-mono">{currentExercise.sets}</span>
+                  </div>
+                  <div className="bg-background rounded-2xl p-4 border border-border/40 text-center shadow-sm">
+                    <span className="block text-xs font-black tracking-widest text-muted-foreground uppercase mb-1">Target Reps</span>
+                    <span className="text-3xl font-black text-foreground font-mono">{currentExercise.reps}</span>
+                  </div>
+                </div>
+
+                {currentExercise.description && (
+                  <div className="bg-background/40 backdrop-blur-sm rounded-2xl p-4 border border-border/30">
+                    <span className="block text-xs font-extrabold text-primary uppercase tracking-wider mb-1">Coaching Note</span>
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-medium">
+                      {currentExercise.description}
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {/* Unique Player Controller Footer */}
+              <div className="border-t border-border/50 pt-6 mt-6 flex justify-between items-center gap-4">
+                <Button
+                  variant="outline"
+                  disabled={activeExerciseIndex === 0}
+                  onClick={() => setActiveExerciseIndex((prev) => prev - 1)}
+                  className="rounded-xl px-4 h-12 font-bold gap-1 border-border/50 bg-background/50 backdrop-blur-sm disabled:opacity-40"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                  Back
+                </Button>
+
+                {activeExerciseIndex < totalExercises - 1 ? (
+                  <Button
+                    onClick={() => setActiveExerciseIndex((prev) => prev + 1)}
+                    className="rounded-xl px-5 h-12 bg-foreground text-background hover:bg-foreground/90 font-bold gap-1 ml-auto"
+                  >
+                    Next Exercise
+                    <ChevronRight className="w-5 h-5" />
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={handleCompleteDay}
+                    disabled={isCompleting}
+                    className="rounded-xl px-5 h-12 bg-emerald-500 hover:bg-emerald-600 text-white font-bold gap-2 ml-auto shadow-lg shadow-emerald-500/20"
+                  >
+                    {isCompleting ? <Loader2 className="w-4 h-4 animate-spin" /> : <CheckCircle className="w-5 h-5" />}
+                    Finish Session
+                  </Button>
+                )}
+              </div>
+
+            </div>
+          ) : (
+            <div className="bg-card border border-border/50 rounded-[2.5rem] p-12 text-center flex flex-col items-center justify-center min-h-[400px] text-muted-foreground">
+              <div className="w-16 h-16 bg-muted/30 rounded-full flex items-center justify-center mb-4">
+                <Activity className="w-8 h-8 text-muted-foreground/40" />
+              </div>
+              <p className="font-bold text-xl text-foreground">Active Recovery Day</p>
+              <p className="text-sm max-w-xs mt-1">Muscle growth happens during rest. Give your body the time it needs to rebuild.</p>
+            </div>
+          )}
         </section>
 
         {/* RIGHT COLUMN: HEALTH, NUTRITION & HYDRATION */}
